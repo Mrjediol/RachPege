@@ -15,12 +15,18 @@ public class PlayerController : MonoBehaviour
 
     Vector2 movementInput;
 
+    SpriteRenderer spriteRenderer;
+
     Rigidbody2D rb;
+
+    Animator animator;
 
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
     private void FixedUpdate()
     {
@@ -37,8 +43,22 @@ public class PlayerController : MonoBehaviour
                     success = TryMove(new Vector2(0, movementInput.y));
                 }
             }
+            animator.SetBool("IsMoving", success);
+        }
+        else 
+        {
+            animator.SetBool("IsMoving", false);
         }
 
+        if (movementInput.x < 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else if (movementInput.x > 0)
+        {
+            spriteRenderer.flipX = false;
+        }       
+       
     }
     private bool TryMove(Vector2 direction)
     {
@@ -50,10 +70,10 @@ public class PlayerController : MonoBehaviour
 
         if (count == 0)
         {
-
             rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
             return true;
-        } else
+        } 
+        else
         {
             return false;
         }
@@ -62,7 +82,6 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputValue movementValue)
     {
         movementInput = movementValue.Get<Vector2>();
-        Debug.Log(message: "que");
     }
     
 }

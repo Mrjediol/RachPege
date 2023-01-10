@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
 
     public ContactFilter2D movementFilter;
 
+    public SwordAttack swordAttack;
 
     Vector2 movementInput;
 
@@ -53,10 +54,12 @@ public class PlayerController : MonoBehaviour
         if (movementInput.x < 0)
         {
             spriteRenderer.flipX = true;
+           
         }
         else if (movementInput.x > 0)
         {
             spriteRenderer.flipX = false;
+          
         }       
        
     }
@@ -96,6 +99,21 @@ public class PlayerController : MonoBehaviour
         Debug.Log("fire pressed");
     }
 
+    public void SwordAttack()
+    {
+        SlowMovement();
+
+        if(spriteRenderer.flipX == true)
+        {
+            Debug.Log("L");
+            swordAttack.AttackLeft();
+        }
+        else
+        {
+            Debug.Log("R");
+            swordAttack.AttackRight();
+        }  
+    }
     public void SlowMovement()
     {
         moveSpeed = moveSpeed/4;
@@ -106,5 +124,7 @@ public class PlayerController : MonoBehaviour
         moveSpeed = 1f;
         Debug.Log("que");
     }
+
     
+
 }

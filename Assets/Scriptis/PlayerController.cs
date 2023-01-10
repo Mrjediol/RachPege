@@ -62,26 +62,38 @@ public class PlayerController : MonoBehaviour
     }
     private bool TryMove(Vector2 direction)
     {
-        int count = rb.Cast(
-                direction,
-                movementFilter,
-                castCollisions,
-                moveSpeed * Time.fixedDeltaTime + collisionOffset);
-
-        if (count == 0)
+        if (direction != Vector2.zero)
         {
-            rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
-            return true;
-        } 
+            int count = rb.Cast(
+                    direction,
+                    movementFilter,
+                    castCollisions,
+                    moveSpeed * Time.fixedDeltaTime + collisionOffset);
+
+            if (count == 0)
+            {
+                rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         else
         {
             return false;
         }
-        
     }
     public void OnMove(InputValue movementValue)
     {
         movementInput = movementValue.Get<Vector2>();
     }
-    
+
+    private void OnFire()
+    {
+        animator.SetTrigger("swordAttack");
+        Debug.Log("fire pressed");
+    }
+
 }

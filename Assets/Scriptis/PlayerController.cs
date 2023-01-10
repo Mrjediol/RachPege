@@ -96,4 +96,15 @@ public class PlayerController : MonoBehaviour
         Debug.Log("fire pressed");
     }
 
+    public void SlowMovement()
+    {
+        moveSpeed = moveSpeed/4;
+        Debug.Log("slower");
+    }
+    public void NormalMovement()
+    {
+        moveSpeed = 1f;
+        Debug.Log("que");
+    }
+    
 }

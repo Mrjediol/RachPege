@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
 
         
 
-            if (movementInput.y < 0)
+           /* if (movementInput.y < 0)
             {
                 animator.SetBool("movingDown", true);
             }
@@ -62,11 +62,29 @@ public class PlayerController : MonoBehaviour
             {
                 Debug.Log("no llego");
                 animator.SetBool("movingUp", false);
-            }
+            }*/
             
         }
 
-       
+        if (movementInput.y < 0)
+        {
+            animator.SetBool("movingDown", true);
+
+            Debug.Log("moviendome a abajo");
+        }
+        else if (movementInput.y > 0)
+        {
+            animator.SetBool("movingUp", true);          
+            Debug.Log("moviendome arriba");
+        }
+        else
+        {
+            animator.SetBool("movingUp", false);
+            animator.SetBool("movingDown", false);
+            Debug.Log("no me muevo ni arriba ni abajo");
+
+        }
+
 
         if (movementInput.x < 0)
         {

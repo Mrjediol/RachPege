@@ -143,7 +143,7 @@ public class PlayerController : MonoBehaviour
 
     public void SlowMovement()
     {
-        moveSpeed = moveSpeed/4;
+        moveSpeed = moveSpeed = 0.25f;
         Debug.Log("slower");
     }
     public void NormalMovement()

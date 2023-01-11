@@ -19,7 +19,7 @@ public class SwordAttack : MonoBehaviour
 
     public void AttackLeft() {
         swordCollider.enabled = true;
-        transform.localPosition = new Vector3(rightAttackOffset.x * -1f, rightAttackOffset.y);
+        transform.localPosition = new Vector3(rightAttackOffset.x * -1, rightAttackOffset.y);
     }
 
     public void StopAttack() {

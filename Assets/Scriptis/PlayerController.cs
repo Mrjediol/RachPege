@@ -134,7 +134,7 @@ public class PlayerController : MonoBehaviour
 
     public void EndSwordAttack()
     {
-        SlowMovement();
+        
         swordAttack.StopAttack();
     }
     public void SlowMovement()
@@ -145,6 +145,7 @@ public class PlayerController : MonoBehaviour
     public void NormalMovement()
     {
         moveSpeed = 1f;
+       EndSwordAttack();
         Debug.Log("que");
     }
     

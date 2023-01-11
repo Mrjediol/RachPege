@@ -7,21 +7,16 @@ public class PlayerController : MonoBehaviour
 {
 
     public float moveSpeed = 1f;
-
     public float collisionOffset = 0.05f;
-
     public ContactFilter2D movementFilter;
-
+    public SwordAttack swordAttack;
 
     Vector2 movementInput;
-
     SpriteRenderer spriteRenderer;
-
     Rigidbody2D rb;
-
     Animator animator;
-
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -121,6 +116,27 @@ public class PlayerController : MonoBehaviour
         Debug.Log("fire pressed");
     }
 
+    public void SwordAttack()
+    {
+        SlowMovement();
+
+        if (spriteRenderer.flipX == true)
+        {
+            Debug.Log("atack left");
+            swordAttack.AttackLeft();
+        }
+        else
+        {
+            Debug.Log("atack right");
+            swordAttack.AttackRight();
+        }
+    }
+
+    public void EndSwordAttack()
+    {
+        SlowMovement();
+        swordAttack.StopAttack();
+    }
     public void SlowMovement()
     {
         moveSpeed = moveSpeed = 0.25f;

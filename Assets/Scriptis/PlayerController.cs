@@ -45,12 +45,12 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("movingDown", true);
 
-            Debug.Log("moviendome a abajo");
+            //Debug.Log("moviendome a abajo");
         }
         else if (movementInput.y > 0)
         {
             animator.SetBool("movingUp", true);          
-            Debug.Log("moviendome arriba");
+            //Debug.Log("moviendome arriba");
         }
         else
         {
@@ -65,13 +65,13 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("IsMoving", true);
             spriteRenderer.flipX = true;
-            Debug.Log("moviendome a la izquierda");
+            //Debug.Log("moviendome a la izquierda");
         }
         else if (movementInput.x > 0)
         {
             animator.SetBool("IsMoving", true);
             spriteRenderer.flipX = false;
-            Debug.Log("moviendome a la derecha");
+            //Debug.Log("moviendome a la derecha");
         }
         else
         {
@@ -113,7 +113,7 @@ public class PlayerController : MonoBehaviour
     private void OnFire()
     {
         animator.SetTrigger("swordAttack");
-        Debug.Log("fire pressed");
+        //Debug.Log("fire pressed");
     }
 
     public void SwordAttack()
@@ -122,12 +122,12 @@ public class PlayerController : MonoBehaviour
 
         if (spriteRenderer.flipX == true)
         {
-            Debug.Log("atack left");
+            //Debug.Log("atack left");
             swordAttack.AttackLeft();
         }
         else
         {
-            Debug.Log("atack right");
+            //Debug.Log("atack right");
             swordAttack.AttackRight();
         }
     }
@@ -140,13 +140,13 @@ public class PlayerController : MonoBehaviour
     public void SlowMovement()
     {
         moveSpeed = moveSpeed = 0.25f;
-        Debug.Log("slower");
+        //Debug.Log("slower");
     }
     public void NormalMovement()
     {
         moveSpeed = 1f;
        EndSwordAttack();
-        Debug.Log("que");
+        //Debug.Log("que");
     }
     
 }

@@ -6,15 +6,23 @@ public class Enemy : MonoBehaviour
 {
     Animator animator;
 
-    public float Health {
-        set {
+    public float Health 
+    {
+        set 
+        {
             health = value;
 
-            if(health <= 0) {
+            if(health <= 0) 
+            {
                 Defeated();
             }
+            else
+            {
+                Damaged();
+            }
         }
-        get {
+        get 
+        {
             return health;
         }
     }
@@ -25,6 +33,12 @@ public class Enemy : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
+    public void Damaged()
+    {
+
+        Debug.Log ("te imaginas que funciona");
+        animator.SetTrigger("Damaged");
+    }
     public void Defeated(){
         animator.SetTrigger("Defeated");
     }

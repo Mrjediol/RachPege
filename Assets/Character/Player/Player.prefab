@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 876481307865465273}
   - component: {fileID: 5016516211896440436}
   - component: {fileID: 6323194403517148654}
+  - component: {fileID: -830500168881095382}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -295,6 +296,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-830500168881095382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876481307865465269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8349aefbd2fc201498283d8f5b3f3cb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lerpTimer: 0
+  maxhealth: 100
+  chipSpeed: 2
+  frontHealthBar: {fileID: 2455252876558398866}
+  backHealthBar: {fileID: 4512956578475889451}
 --- !u!1 &1237075600111728314
 GameObject:
   m_ObjectHideFlags: 0
@@ -654,7 +672,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.0141509175, b: 0.0141509175, a: 1}
+  m_Color: {r: 0, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

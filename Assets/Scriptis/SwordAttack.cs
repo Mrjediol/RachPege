@@ -28,29 +28,13 @@ public class SwordAttack : MonoBehaviour
     }
 
  
-   /* private void OnCollisionEnter2D(Collider2D col) {
-        if(col.tag == "Enemy") {
-            // Deal damage to the enemy
-            //Debug.Log("llego a 1");
-            Enemy enemy = col.GetComponent<Enemy>();
-
-            if(enemy != null) {
-                Debug.Log("Hago Daño");
-
-                enemy.Health -= damage;
-            }
-        }
-    }*/
-    private void OnTriggerEnter(Collider2D other)
-    {
-        if (other.tag == "Enemy")
-        {
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.tag == "Enemy") {
             // Deal damage to the enemy
             //Debug.Log("llego a 1");
             Enemy enemy = other.GetComponent<Enemy>();
 
-            if (enemy != null)
-            {
+            if(enemy != null) {
                 Debug.Log("Hago Daño");
 
                 enemy.Health -= damage;

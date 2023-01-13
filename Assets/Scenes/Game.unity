@@ -36491,6 +36491,38 @@ PrefabInstance:
       propertyPath: m_DefaultControlScheme
       value: Keyboard&Mouse
       objectReference: {fileID: 0}
+    - target: {fileID: 5596928073629615656, guid: ac21bd1ca7cc5ea4798d117cceff9259, type: 3}
+      propertyPath: m_Size.x
+      value: 0.1892264
+      objectReference: {fileID: 0}
+    - target: {fileID: 5596928073629615656, guid: ac21bd1ca7cc5ea4798d117cceff9259, type: 3}
+      propertyPath: m_Size.y
+      value: 0.10995059
+      objectReference: {fileID: 0}
+    - target: {fileID: 5596928073629615656, guid: ac21bd1ca7cc5ea4798d117cceff9259, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.07502117
+      objectReference: {fileID: 0}
+    - target: {fileID: 5596928073629615656, guid: ac21bd1ca7cc5ea4798d117cceff9259, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.05469627
+      objectReference: {fileID: 0}
+    - target: {fileID: 7090719765015073558, guid: ac21bd1ca7cc5ea4798d117cceff9259, type: 3}
+      propertyPath: m_Size.x
+      value: 0.19038881
+      objectReference: {fileID: 0}
+    - target: {fileID: 7090719765015073558, guid: ac21bd1ca7cc5ea4798d117cceff9259, type: 3}
+      propertyPath: m_Size.y
+      value: 0.11035414
+      objectReference: {fileID: 0}
+    - target: {fileID: 7090719765015073558, guid: ac21bd1ca7cc5ea4798d117cceff9259, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.10534539
+      objectReference: {fileID: 0}
+    - target: {fileID: 7090719765015073558, guid: ac21bd1ca7cc5ea4798d117cceff9259, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.054926805
+      objectReference: {fileID: 0}
     - target: {fileID: 8036306687199356094, guid: ac21bd1ca7cc5ea4798d117cceff9259, type: 3}
       propertyPath: m_Size.x
       value: 0.15890199
@@ -36647,6 +36679,10 @@ PrefabInstance:
     - target: {fileID: 243367951319280321, guid: 89d5960475c9da34b84c9797b7c27408, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1488390316149522252, guid: 89d5960475c9da34b84c9797b7c27408, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5413666387692839672, guid: 89d5960475c9da34b84c9797b7c27408, type: 3}
       propertyPath: health

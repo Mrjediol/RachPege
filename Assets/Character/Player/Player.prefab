@@ -141,7 +141,7 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
-  swordAttack: {fileID: 0}
+  swordAttack: {fileID: 1186962291778600267}
 --- !u!61 &876481307865465273
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -227,8 +227,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4240941109077132633}
+  - component: {fileID: 9056892093164311980}
   - component: {fileID: 7090719765015073558}
-  - component: {fileID: 5996272420495231549}
   m_Layer: 0
   m_Name: SwordHitboxUp
   m_TagString: Untagged
@@ -251,6 +251,20 @@ Transform:
   m_Father: {fileID: 876481307865465272}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9056892093164311980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3578799851994865869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41f7bad5e01a7f841a7f845f4f5f7435, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swordCollider: {fileID: 7090719765015073558}
+  damage: 1
 --- !u!61 &7090719765015073558
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -277,20 +291,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.18996926, y: 0.109610535}
   m_EdgeRadius: 0
---- !u!114 &5996272420495231549
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3578799851994865869}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1afc09d7b07aad4cb0feeaab93db830, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  swordCollider: {fileID: 7090719765015073558}
-  damage: 3
 --- !u!1 &4214544626528342798
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,8 +300,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3902344121388573378}
+  - component: {fileID: 6380717301436034088}
   - component: {fileID: 5596928073629615656}
-  - component: {fileID: 8729149985654675441}
   m_Layer: 0
   m_Name: SwordHitboxDown
   m_TagString: Untagged
@@ -324,6 +324,20 @@ Transform:
   m_Father: {fileID: 876481307865465272}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6380717301436034088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4214544626528342798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41f7bad5e01a7f841a7f845f4f5f7435, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swordCollider: {fileID: 5596928073629615656}
+  damage: 1
 --- !u!61 &5596928073629615656
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -350,20 +364,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.1895457, y: 0.110019535}
   m_EdgeRadius: 0
---- !u!114 &8729149985654675441
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4214544626528342798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1afc09d7b07aad4cb0feeaab93db830, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  swordCollider: {fileID: 5596928073629615656}
-  damage: 3
 --- !u!1 &8523266800655996423
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,8 +373,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4166376170155883828}
+  - component: {fileID: 1186962291778600267}
   - component: {fileID: 8036306687199356094}
-  - component: {fileID: 7589697644533849385}
   m_Layer: 0
   m_Name: SwordHitbox
   m_TagString: Untagged
@@ -397,6 +397,20 @@ Transform:
   m_Father: {fileID: 876481307865465272}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1186962291778600267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8523266800655996423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41f7bad5e01a7f841a7f845f4f5f7435, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swordCollider: {fileID: 8036306687199356094}
+  damage: 1
 --- !u!61 &8036306687199356094
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -423,17 +437,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.20002571, y: 0.12982136}
   m_EdgeRadius: 0
---- !u!114 &7589697644533849385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8523266800655996423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1afc09d7b07aad4cb0feeaab93db830, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  swordCollider: {fileID: 8036306687199356094}
-  damage: 3

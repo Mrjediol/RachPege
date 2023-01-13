@@ -44,12 +44,13 @@ public class PlayerController : MonoBehaviour
         if (movementInput.y < 0)
         {
             animator.SetBool("movingDown", true);
-
+            spriteRenderer.flipX = false;
             //Debug.Log("moviendome a abajo");
         }
         else if (movementInput.y > 0)
         {
-            animator.SetBool("movingUp", true);          
+            animator.SetBool("movingUp", true);
+            spriteRenderer.flipX = false;
             //Debug.Log("moviendome arriba");
         }
         else

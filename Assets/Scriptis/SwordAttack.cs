@@ -15,12 +15,12 @@ public class SwordAttack : MonoBehaviour
     }
 
     public void AttackRight() {
-        swordCollider.enabled = true;
+
         transform.localPosition = rightAttackOffset;
     }
 
     public void AttackLeft() {
-        swordCollider.enabled = true;
+
         transform.localPosition = new Vector3(rightAttackOffset.x * -1, rightAttackOffset.y);
     }
 

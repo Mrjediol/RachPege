@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class PlayerHealth : MonoBehaviour
     public float chipSpeed = 2f;
     public Image frontHealthBar;
     public Image backHealthBar;
+    public TextMeshProUGUI healthText;
 
     Animator animator;
     private void Start()
@@ -60,6 +62,7 @@ public class PlayerHealth : MonoBehaviour
            
 
         }
+        healthText.text = Mathf.Round(health) + "/" + Mathf.Round(maxhealth);
     }
 
  
@@ -77,6 +80,11 @@ public class PlayerHealth : MonoBehaviour
     {
         health += healAmout;
         lerpTimer = 0f;
+    }
+    public void IncreaseHealth(int level)
+    {
+        maxhealth += (health * 0.01f) * ((100 - level) * 0.1f);
+        health += (health * 0.01f) * ((100 - level) * 0.1f);
     }
 
 }

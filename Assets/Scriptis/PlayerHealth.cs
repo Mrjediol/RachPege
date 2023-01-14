@@ -28,6 +28,11 @@ public class PlayerHealth : MonoBehaviour
         {
             RestoreHealth(Random.Range(5, 10));
         }
+        if (health <= 0)
+        {
+            animator.SetTrigger("Defeated");
+        }
+
     }
 
     void UpdateHealthUI()
@@ -57,6 +62,11 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+ 
+    
+      
+
+           
     public void TakeDamage()
     {
         animator.SetTrigger("Damaged");

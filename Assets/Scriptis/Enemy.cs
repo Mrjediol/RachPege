@@ -20,8 +20,7 @@ public class Enemy : MonoBehaviour
 
     }
     void FixedUpdate()
-    {
-   
+    {   
         if (detectionZone.detectedObjs.Count > 0)
         {
             Vector2 direction = (detectionZone.detectedObjs[0].transform.position - transform.position).normalized;

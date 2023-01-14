@@ -32,14 +32,16 @@ public class EnemyAttack : MonoBehaviour
             // Deal damage to the player
             PlayerHealth player = collision.gameObject.GetComponent<PlayerHealth>();
 
-            if (player != null)
-            {
-                Debug.Log("Hago Daño al player");
+            
+                if (player != null)
+                {
+                    Debug.Log("Hago Daño al player");
 
-                player.health -= enemyDamage;
-                player.TakeDamage();
+                    player.health -= enemyDamage;
+                    player.TakeDamage();
 
-            }
+                }
+            
         }
     }
 

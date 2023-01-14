@@ -1,4 +1,4 @@
-/*using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,12 +6,16 @@ public class EnemyAttack : MonoBehaviour
 {
 
 
-    public float damage = 3;
+    public float enemyDamage = 3;
     Vector2 enemyAttackOffset;
+    public Collider2D attackCollider;
+    PlayerHealth playerHealth;
+
 
     // Start is called before the first frame update
     void Start()
     {
+
         enemyAttackOffset = transform.localPosition;
     }
 
@@ -23,18 +27,20 @@ public class EnemyAttack : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Player")
         {
             // Deal damage to the player
-            Player player = collision.gameObject.GetComponent<Player>();
+            PlayerHealth player = collision.gameObject.GetComponent<PlayerHealth>();
 
             if (player != null)
             {
                 Debug.Log("Hago Daño al player");
 
-                player.Health -= enemyDamage;
+                player.health -= enemyDamage;
+                player.TakeDamage();
+
             }
         }
     }
-    
-}*/
+
+}

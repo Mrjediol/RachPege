@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    private float health;
+    public float health;
     public float lerpTimer;
     public float maxhealth = 100;
     public float chipSpeed = 2f;
@@ -23,10 +23,7 @@ public class PlayerHealth : MonoBehaviour
     {
         health = Mathf.Clamp(health, 0, maxhealth);
         UpdateHealthUI();
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            TakeDamage(Random.Range(5, 10));
-        }
+       
         if (Input.GetKeyDown(KeyCode.H))
         {
             RestoreHealth(Random.Range(5, 10));
@@ -60,10 +57,9 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    void TakeDamage(float damage)
+    public void TakeDamage()
     {
         animator.SetTrigger("Damaged");
-        health -= damage;
         lerpTimer = 0f;
     }
 

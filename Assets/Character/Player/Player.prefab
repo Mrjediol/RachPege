@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6356839220409482863}
   - component: {fileID: 1645599802607255356}
   - component: {fileID: 2650090819914069310}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: BackXpBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 5016516211896440436}
   - component: {fileID: 6323194403517148654}
   - component: {fileID: -830500168881095382}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -156,8 +156,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -311772733
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 182676035, guid: 3b034fc7c238315438c1a8a07aeca6c8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -233,7 +233,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.009064389, y: -0.15044248}
+  m_Offset: {x: 0.0049176402, y: -0.15044248}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -244,7 +244,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.051642183, y: 0.022538364}
+  m_Size: {x: 0.0898247, y: 0.022538364}
   m_EdgeRadius: 0
 --- !u!114 &5016516211896440436
 MonoBehaviour:
@@ -308,6 +308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8349aefbd2fc201498283d8f5b3f3cb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 0
   lerpTimer: 0
   maxhealth: 100
   chipSpeed: 2
@@ -322,7 +323,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1566236421123492621}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -363,7 +364,7 @@ GameObject:
   - component: {fileID: 4954147395653470524}
   - component: {fileID: 5130261578989563586}
   - component: {fileID: 5572838706441080889}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -439,7 +440,7 @@ GameObject:
   - component: {fileID: 4240941109077132633}
   - component: {fileID: 9056892093164311980}
   - component: {fileID: 7090719765015073558}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SwordHitboxUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -510,7 +511,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2741028088326442928}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: XpBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -551,7 +552,7 @@ GameObject:
   - component: {fileID: 3902344121388573378}
   - component: {fileID: 6380717301436034088}
   - component: {fileID: 5596928073629615656}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SwordHitboxDown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -624,7 +625,7 @@ GameObject:
   - component: {fileID: 5078104370068410017}
   - component: {fileID: 2707173350546742319}
   - component: {fileID: 4512956578475889451}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Back_HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -700,7 +701,7 @@ GameObject:
   - component: {fileID: 3487495748980783045}
   - component: {fileID: 8894848782400650953}
   - component: {fileID: 3836965442735221696}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Back_HealthBarBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -776,7 +777,7 @@ GameObject:
   - component: {fileID: 3671474292812999666}
   - component: {fileID: 2025080153337656046}
   - component: {fileID: 2498901626579638550}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CM vcam1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -861,7 +862,7 @@ GameObject:
   - component: {fileID: 3345181981265375140}
   - component: {fileID: 2310437135736985068}
   - component: {fileID: 2455252876558398866}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: FrontHealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -938,7 +939,7 @@ GameObject:
   - component: {fileID: 6039676850612257934}
   - component: {fileID: 5500089105510817875}
   - component: {fileID: 5479804788423807184}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: PlayerUi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1039,7 +1040,7 @@ GameObject:
   - component: {fileID: 4577578779003623722}
   - component: {fileID: 592618851923473783}
   - component: {fileID: 3822362747582756072}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1127,7 +1128,7 @@ GameObject:
   - component: {fileID: 1059641261059286897}
   - component: {fileID: 3122562823849818508}
   - component: {fileID: 731452204598689661}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: FrontXpBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1203,7 +1204,7 @@ GameObject:
   - component: {fileID: 4166376170155883828}
   - component: {fileID: 1186962291778600267}
   - component: {fileID: 8036306687199356094}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SwordHitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}

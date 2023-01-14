@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
     Animator animator;
     public float enemyDamage = 3;
+    
 
     public float Health 
     {

@@ -135,7 +135,6 @@ public class PlayerController : MonoBehaviour
 
     public void EndSwordAttack()
     {
-        
         swordAttack.StopAttack();
     }
     public void SlowMovement()

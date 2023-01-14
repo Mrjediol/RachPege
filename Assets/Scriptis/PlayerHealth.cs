@@ -12,9 +12,10 @@ public class PlayerHealth : MonoBehaviour
     public Image frontHealthBar;
     public Image backHealthBar;
 
-
+    Animator animator;
     private void Start()
     {
+        animator = GetComponent<Animator>();
         health = maxhealth;
     }
 
@@ -61,6 +62,7 @@ public class PlayerHealth : MonoBehaviour
 
     void TakeDamage(float damage)
     {
+        animator.SetTrigger("Damaged");
         health -= damage;
         lerpTimer = 0f;
     }

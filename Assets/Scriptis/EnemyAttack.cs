@@ -15,6 +15,7 @@ public class EnemyAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         enemyAttackOffset = transform.localPosition;
     }
 

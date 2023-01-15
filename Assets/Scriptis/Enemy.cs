@@ -58,10 +58,14 @@ public class Enemy : MonoBehaviour
         animator.SetTrigger("Damaged");
     }
     public void Defeated(){
+
         animator.SetTrigger("Defeated");
     }
 
-    public void RemoveEnemy() {
+    public void RemoveEnemy() 
+    {
+        LevelSystem XP = FindObjectOfType<LevelSystem>();
+        XP.Death();
         Destroy(gameObject);
     }
 }

@@ -26,7 +26,7 @@ public class LevelSystem : MonoBehaviour
     public float powerMultiplier = 2;
     [Range(7f,14f)]
     public float divisionMultiplier = 7;
-
+    private bool death;
 
     // Start is called before the first frame update
     void Start()
@@ -35,14 +35,15 @@ public class LevelSystem : MonoBehaviour
         backXpBar.fillAmount = currentXp / requiredXp;
         requiredXp = CalculateRequiredXp();
         levelText.text = "Level" + level;
-
+        death = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+
         UpdateXpUI();
-        if (Input.GetKeyDown(KeyCode.J))
+        if (death == true)
         {
             GainExperienceFlatRate(20);
         }
@@ -50,7 +51,7 @@ public class LevelSystem : MonoBehaviour
         {
             LevelUp();
         }
-            
+        death = false;
     }
 
     public void UpdateXpUI()
@@ -103,7 +104,6 @@ public class LevelSystem : MonoBehaviour
 
     private int CalculateRequiredXp()
     {
-        
         int solvedForRequieredXp = 0;
         for(int levelCycle = 1; levelCycle <= level; levelCycle++)
         {
@@ -111,4 +111,13 @@ public class LevelSystem : MonoBehaviour
         }
         return solvedForRequieredXp / 4;
     }
+    public void Death()
+
+    {
+        Debug.Log("funciona");
+        death = true;
+    }
+    
+    
+    
 }

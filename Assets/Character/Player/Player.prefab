@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6356839220409482863}
   - component: {fileID: 1645599802607255356}
   - component: {fileID: 2650090819914069310}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: BackXpBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ RectTransform:
   m_GameObject: {fileID: 566154858796718841}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.35336238, y: 0.11401472, z: 0.29521954}
+  m_LocalScale: {x: 0.13863952, y: 0.11401472, z: 0.29521954}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2741028088326442928}
@@ -36,7 +36,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -151.1, y: 287}
-  m_SizeDelta: {x: 306.0344, y: 88.7712}
+  m_SizeDelta: {x: 782, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1645599802607255356
 CanvasRenderer:
@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.18828177, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -67,11 +67,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 0975705457ad09b46a3163a6703bb776, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
+  m_FillMethod: 0
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 6323194403517148654}
   - component: {fileID: -830500168881095382}
   - component: {fileID: 3890700909860083455}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -183,9 +183,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.0001
-  m_LinearDrag: 0
-  m_AngularDrag: 0
+  m_Mass: 1
+  m_LinearDrag: 5
+  m_AngularDrag: 5
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -482,7 +482,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1566236421123492621}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -523,7 +523,7 @@ GameObject:
   - component: {fileID: 4954147395653470524}
   - component: {fileID: 5130261578989563586}
   - component: {fileID: 5572838706441080889}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -734,7 +734,7 @@ GameObject:
   - component: {fileID: 4240941109077132633}
   - component: {fileID: 9056892093164311980}
   - component: {fileID: 7090719765015073558}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: SwordHitboxUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -805,7 +805,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2741028088326442928}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: XpBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -845,7 +845,7 @@ GameObject:
   - component: {fileID: 3902344121388573378}
   - component: {fileID: 6380717301436034088}
   - component: {fileID: 5596928073629615656}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: SwordHitboxDown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -918,7 +918,7 @@ GameObject:
   - component: {fileID: 5078104370068410017}
   - component: {fileID: 2707173350546742319}
   - component: {fileID: 4512956578475889451}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Back_HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -934,7 +934,7 @@ RectTransform:
   m_GameObject: {fileID: 5254964930113922337}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4145251, y: 0.20325705, z: 0.58457}
+  m_LocalScale: {x: 0.40416196, y: 0.20325705, z: 0.58457}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1566236421123492621}
@@ -942,7 +942,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -140.7, y: 300.76074}
+  m_AnchoredPosition: {x: -142.3, y: 300.76074}
   m_SizeDelta: {x: 306.0344, y: 88.7712}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2707173350546742319
@@ -994,7 +994,7 @@ GameObject:
   - component: {fileID: 3487495748980783045}
   - component: {fileID: 8894848782400650953}
   - component: {fileID: 3836965442735221696}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Back_HealthBarBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1010,7 +1010,7 @@ RectTransform:
   m_GameObject: {fileID: 5618790891284142120}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4156035, y: 0.22576277, z: 0.58457}
+  m_LocalScale: {x: 0.41534373, y: 0.22576277, z: 0.58457}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1566236421123492621}
@@ -1018,7 +1018,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -140.5, y: 300.76074}
+  m_AnchoredPosition: {x: -142.1, y: 300.76074}
   m_SizeDelta: {x: 306.0344, y: 88.7712}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8894848782400650953
@@ -1125,7 +1125,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Level
+  m_text: 'Level '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1205,7 +1205,7 @@ GameObject:
   - component: {fileID: 3671474292812999666}
   - component: {fileID: 2025080153337656046}
   - component: {fileID: 2498901626579638550}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1290,7 +1290,7 @@ GameObject:
   - component: {fileID: 3345181981265375140}
   - component: {fileID: 2310437135736985068}
   - component: {fileID: 2455252876558398866}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: FrontHealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1306,7 +1306,7 @@ RectTransform:
   m_GameObject: {fileID: 6455318421634209182}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4172726, y: 0.21729666, z: 0.58457}
+  m_LocalScale: {x: 0.4068408, y: 0.21729666, z: 0.58457}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1566236421123492621}
@@ -1314,7 +1314,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -141.3, y: 300.76074}
+  m_AnchoredPosition: {x: -142.90001, y: 300.76074}
   m_SizeDelta: {x: 306.0344, y: 88.7712}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2310437135736985068
@@ -1367,7 +1367,7 @@ GameObject:
   - component: {fileID: 6039676850612257934}
   - component: {fileID: 5500089105510817875}
   - component: {fileID: 5479804788423807184}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: PlayerUi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1472,7 +1472,7 @@ GameObject:
   - component: {fileID: 4577578779003623722}
   - component: {fileID: 592618851923473783}
   - component: {fileID: 3822362747582756072}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1560,7 +1560,7 @@ GameObject:
   - component: {fileID: 1059641261059286897}
   - component: {fileID: 3122562823849818508}
   - component: {fileID: 731452204598689661}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: FrontXpBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1576,7 +1576,7 @@ RectTransform:
   m_GameObject: {fileID: 8336263737077082278}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3447438, y: 0.11401472, z: 0.29521954}
+  m_LocalScale: {x: 0.3490531, y: 0.11401472, z: 0.29521954}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2741028088326442928}
@@ -1616,11 +1616,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: f3dcf14e3817dde4096ccf737409aff6, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
+  m_FillMethod: 0
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -1636,9 +1636,9 @@ GameObject:
   - component: {fileID: 4166376170155883828}
   - component: {fileID: 1186962291778600267}
   - component: {fileID: 8036306687199356094}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: SwordHitbox
-  m_TagString: Untagged
+  m_TagString: Ataque
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

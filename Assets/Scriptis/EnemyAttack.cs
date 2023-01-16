@@ -6,7 +6,7 @@ public class EnemyAttack : MonoBehaviour
 {
 
 
-    public float enemyDamage = 3;
+    public float enemyDamageAttack = 3;
     Vector2 enemyAttackOffset;
     public Collider2D attackCollider;
     PlayerHealth playerHealth;
@@ -37,7 +37,7 @@ public class EnemyAttack : MonoBehaviour
                 {
                     Debug.Log("Hago Daño al player");
 
-                    player.health -= enemyDamage;
+                    player.health -= enemyDamageAttack;
                     player.TakeDamage();
 
                 }

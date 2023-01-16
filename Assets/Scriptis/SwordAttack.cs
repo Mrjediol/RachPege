@@ -8,9 +8,11 @@ public class SwordAttack : MonoBehaviour
     public float damage = 3;
     Vector2 rightAttackOffset;
 
+
     private void Start() {
        
         rightAttackOffset = transform.localPosition;
+
     }
 
     public void AttackRight() {
@@ -45,16 +47,19 @@ public class SwordAttack : MonoBehaviour
     */
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.collider.gameObject.tag == "Enemy")
         {
             // Deal damage to the enemy
-            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+            Enemy enemy = collision.collider.gameObject.GetComponent<Enemy>();
 
             if (enemy != null)
             {
+                
+
+
                 Debug.Log("Hago Daño");
 
-                enemy.Health -= damage;
+                enemy.Takehit(damage);
             }
         }
     }

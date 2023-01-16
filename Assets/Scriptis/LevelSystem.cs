@@ -34,7 +34,7 @@ public class LevelSystem : MonoBehaviour
         frontXpBar.fillAmount = currentXp / requiredXp;
         backXpBar.fillAmount = currentXp / requiredXp;
         requiredXp = CalculateRequiredXp();
-        levelText.text = "Level" + level;
+        levelText.text = "Level " + level;
         death = false;
     }
 

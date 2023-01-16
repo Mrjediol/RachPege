@@ -10,11 +10,12 @@ public class PlayerController : MonoBehaviour
     public float collisionOffset = 0.05f;
     public ContactFilter2D movementFilter;
     public SwordAttack swordAttack;
-
     Vector2 movementInput;
     SpriteRenderer spriteRenderer;
     Rigidbody2D rb;
     Animator animator;
+    public Vector2 movementDirection;
+    public Vector2 direction;
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
 
     private void Start()
@@ -25,7 +26,9 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
+
         if (movementInput != Vector2.zero)
+            
         {
             bool success = TryMove(movementInput);
 
@@ -81,8 +84,9 @@ public class PlayerController : MonoBehaviour
         }
 
     }
-    private bool TryMove(Vector2 direction)
+    public bool TryMove(Vector2 direction)
     {
+        
         if (direction != Vector2.zero)
         {
             int count = rb.Cast(
@@ -93,6 +97,7 @@ public class PlayerController : MonoBehaviour
 
             if (count == 0)
             {
+               
                 rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
                 return true;
             }
@@ -105,6 +110,7 @@ public class PlayerController : MonoBehaviour
         {
             return false;
         }
+        
     }
     public void OnMove(InputValue movementValue)
     {

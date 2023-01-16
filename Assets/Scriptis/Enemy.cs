@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
         maxHealth *= enemyLvl;
 
         health = maxHealth;
-        levelText.text = "Level " + enemyLvl;
+        levelText.text = "Lvl." + enemyLvl + "    " + giveXP + " Xp" ;
         healthBar.SetHealth(health,maxHealth);
 
 

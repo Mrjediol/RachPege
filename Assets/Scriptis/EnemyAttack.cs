@@ -10,12 +10,13 @@ public class EnemyAttack : MonoBehaviour
     Vector2 enemyAttackOffset;
     public Collider2D attackCollider;
     PlayerHealth playerHealth;
-
-
+    public float knockBack = 1000f;
+    public DetectionZone detectionZone;
+    public GameObject playerObject;
     // Start is called before the first frame update
     void Start()
     {
-
+        Rigidbody2D playerRigidbody = playerObject.GetComponent<Rigidbody2D>();
         enemyAttackOffset = transform.localPosition;
     }
 
@@ -35,9 +36,21 @@ public class EnemyAttack : MonoBehaviour
             
                 if (player != null)
                 {
-                    Debug.Log("Hago Daño al player");
 
-                    player.health -= enemyDamageAttack;
+                Debug.Log("Hago Daño al player");
+
+               
+
+                Rigidbody2D playerRigidbody = playerObject.GetComponent<Rigidbody2D>();
+
+                Vector2 direction = (playerRigidbody.transform.position - transform.position).normalized;
+
+                playerRigidbody.AddForce(knockBack * Time.fixedDeltaTime * direction);
+
+                
+
+               
+                player.health -= enemyDamageAttack;
                     player.TakeDamage();
 
                 }

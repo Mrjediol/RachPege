@@ -16,14 +16,16 @@ public class EnemyAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Rigidbody2D playerRigidbody = playerObject.GetComponent<Rigidbody2D>();
+        
         enemyAttackOffset = transform.localPosition;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        //Rigidbody2D playerRigidbody = playerObject.GetComponent<Rigidbody2D>();
+        playerObject = GameObject.Find("Player");
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

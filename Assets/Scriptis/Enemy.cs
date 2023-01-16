@@ -9,14 +9,18 @@ public class Enemy : MonoBehaviour
     public DetectionZone detectionZone;
     public float moveSpeed = 10f;
     Rigidbody2D rb;
-
-
-
+    public float giveXP;
+    public float enemyLvl;
+    public float health = 1;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        enemyDamage *= enemyLvl;
+        giveXP *= enemyLvl;
+        health *= enemyLvl;
+
 
     }
     void FixedUpdate()
@@ -49,7 +53,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public float health = 1;
+ 
 
     public void Damaged()
     {
@@ -59,13 +63,15 @@ public class Enemy : MonoBehaviour
     }
     public void Defeated(){
 
+        
+
         animator.SetTrigger("Defeated");
     }
 
     public void RemoveEnemy() 
     {
         LevelSystem XP = FindObjectOfType<LevelSystem>();
-        XP.Death();
+        XP.GainExperienceFlatRate(giveXP);
         Destroy(gameObject);
     }
 }

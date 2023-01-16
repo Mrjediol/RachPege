@@ -7,36 +7,29 @@ public class DashAbility : MonoBehaviour
 {
     public float dashSpeed = 20f;
     public Vector2 movementDirection;
-    public float dashCooldown = 1.0f;
-    private float currentCooldown = 0.0f;
-    private bool onCooldown = false;
-    private Rigidbody2D rb;
-
-    void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
+    private bool isDashing;
+    private float dashTime = 0.2f;
+    private float dashTimer;
 
     void Update()
     {
         movementDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        if (onCooldown)
-        {
-            currentCooldown -= Time.deltaTime;
-            if (currentCooldown <= 0)
-            {
-                onCooldown = false;
-                currentCooldown = 0;
-            }
-            return;
-        }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (!onCooldown)
+            isDashing = true;
+            dashTimer = dashTime;
+        }
+
+        if (isDashing)
+        {
+            if (dashTimer > 0)
             {
-                onCooldown = true;
-                currentCooldown = dashCooldown;
-                rb.MovePosition(rb.position + movementDirection * dashSpeed * Time.deltaTime);
+                transform.position = transform.position + (Vector3)movementDirection * dashSpeed * Time.deltaTime;
+                dashTimer -= Time.deltaTime;
+            }
+            else
+            {
+                isDashing = false;
             }
         }
     }

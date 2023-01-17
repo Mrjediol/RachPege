@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 408944122, guid: ac21bd1ca7cc5ea4798d117cceff9259, type: 3}
+      propertyPath: dashSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 876481307865465269, guid: ac21bd1ca7cc5ea4798d117cceff9259, type: 3}
       propertyPath: m_Name
       value: Player
@@ -178,6 +182,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1186962291778600267, guid: ac21bd1ca7cc5ea4798d117cceff9259, type: 3}
+      propertyPath: damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5706709144670735825, guid: ac21bd1ca7cc5ea4798d117cceff9259, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5706709144670735825, guid: ac21bd1ca7cc5ea4798d117cceff9259, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac21bd1ca7cc5ea4798d117cceff9259, type: 3}
 --- !u!1 &210217571
@@ -209,11 +225,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 342449ca6dce7b94b8d1cc3692ddab44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyCount: 10
-  Cd: 10.1
-  Minlvl: 1
-  Maxlvl: 5
-  dispersion: 0.43
+  enemyCount: 8
+  Cd: 1
+  Minlvl: 4
+  Maxlvl: 12
+  dispersion: 0.38
   activeEnemies: 0
   prefabToSpawn: {fileID: 7151398860587865777, guid: 4e9d3ee4d7db7e04ab563f699e9447e4, type: 3}
 --- !u!4 &210217573
@@ -35924,11 +35940,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 342449ca6dce7b94b8d1cc3692ddab44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyCount: 1
-  Cd: 60.1
-  Minlvl: 1
-  Maxlvl: 5
-  dispersion: 0.2
+  enemyCount: 3
+  Cd: 30.7
+  Minlvl: 14
+  Maxlvl: 23
+  dispersion: 0.4
   activeEnemies: 0
   prefabToSpawn: {fileID: 7151398860587865777, guid: 4e9d3ee4d7db7e04ab563f699e9447e4, type: 3}
 --- !u!4 &1378641538
@@ -36059,13 +36075,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 342449ca6dce7b94b8d1cc3692ddab44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyCount: 6
-  Cd: 20
+  enemyCount: 3
+  Cd: 7.9
   Minlvl: 1
-  Maxlvl: 5
+  Maxlvl: 10
   dispersion: 0.2
   activeEnemies: 0
-  prefabToSpawn: {fileID: 7151398860587865777, guid: 4e9d3ee4d7db7e04ab563f699e9447e4, type: 3}
+  prefabToSpawn: {fileID: 1386035437287764865, guid: 3d128995ac0e42644b29e0035b9bac6d, type: 3}
 --- !u!4 &1833180792
 Transform:
   m_ObjectHideFlags: 0

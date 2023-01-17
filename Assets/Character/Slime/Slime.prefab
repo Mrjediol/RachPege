@@ -198,7 +198,7 @@ MonoBehaviour:
   healthBar: {fileID: 2451222176803549479}
   levelText: {fileID: 1020522697}
   healthText: {fileID: 1287060573}
-  knowback: 5000
+  knowback: 3500
   spawner: {fileID: 0}
 --- !u!50 &5355658714989571138
 Rigidbody2D:
@@ -275,6 +275,7 @@ GameObject:
   - component: {fileID: 8317928344965967949}
   - component: {fileID: 5853699776828522402}
   - component: {fileID: 1503890108}
+  - component: {fileID: 2349702879690984139}
   m_Layer: 0
   m_Name: Attack
   m_TagString: Untagged
@@ -327,9 +328,30 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0049951137, y: -0.054946776}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.40009668
+--- !u!50 &2349702879690984139
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7560681829863142630}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1001 &6630717502781082490
 PrefabInstance:
   m_ObjectHideFlags: 0

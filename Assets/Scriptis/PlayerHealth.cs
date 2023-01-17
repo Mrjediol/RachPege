@@ -84,7 +84,9 @@ public class PlayerHealth : MonoBehaviour
     public void IncreaseHealth(int level)
     {
         maxhealth += (health * 0.01f) * ((100 - level) * 0.1f);
+        maxhealth = Mathf.Round(maxhealth);
         health += (health * 0.01f) * ((100 - level) * 0.1f);
+        health = Mathf.Round(health);
     }
 
 }

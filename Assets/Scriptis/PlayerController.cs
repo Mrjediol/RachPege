@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     public Vector2 movementDirection;
     public Vector2 direction;
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
-
+    
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();

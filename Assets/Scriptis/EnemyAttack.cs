@@ -58,8 +58,8 @@ public class EnemyAttack : MonoBehaviour
                 
 
                
-                player.health -= enemyDamageAttack;
-                    player.TakeDamage();
+                //player.health -= enemyDamageAttack;
+                    player.TakeDamage(enemyDamageAttack);
 
                 }
             

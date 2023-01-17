@@ -83,7 +83,8 @@ public class LevelSystem : MonoBehaviour
         backXpBar.fillAmount = 0f;
         currentXp = Mathf.RoundToInt(currentXp - requiredXp);
         GetComponent<PlayerHealth>().IncreaseHealth(level);
-        GetComponentInChildren<SwordAttack>().IncreaseDamage(level);
+         SwordAttack [] swordattacks = GetComponentsInChildren<SwordAttack>();
+        //for ()
        
         requiredXp = CalculateRequiredXp();
         levelText.text = "Level" + level;

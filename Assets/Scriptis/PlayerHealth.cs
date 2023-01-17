@@ -13,7 +13,7 @@ public class PlayerHealth : MonoBehaviour
     public Image frontHealthBar;
     public Image backHealthBar;
     public TextMeshProUGUI healthText;
-
+    public bool damagable = true;
     Animator animator;
     private void Start()
     {
@@ -67,13 +67,21 @@ public class PlayerHealth : MonoBehaviour
 
  
     
-      
+    //  public void Damagable()
+    //{
+    //    damagable = false;
+    //}
 
            
-    public void TakeDamage()
+    public void TakeDamage(float damage)
     {
-        animator.SetTrigger("Damaged");
-        lerpTimer = 0f;
+        if (damagable == true)
+        {
+            health -= damage;
+            animator.SetTrigger("Damaged");
+            lerpTimer = 0f;
+        }
+        
     }
 
     public void RestoreHealth(float healAmout)

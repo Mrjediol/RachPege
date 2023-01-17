@@ -16,7 +16,7 @@ public class Spawner : MonoBehaviour
     [Range(0.1f, 5f)]
     public float dispersion;
     private float heat;
-    public int activeEnemies = 0;
+    private int activeEnemies = 0;
     public GameObject prefabToSpawn;
 
     public Action onEnemyKilled;

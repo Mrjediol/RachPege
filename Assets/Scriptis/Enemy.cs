@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
     public TextMeshProUGUI levelText;
     public TextMeshProUGUI healthText;
     public float knowback = 1000f;
-
+    public bool damagable = true;
 
     public Spawner spawner;
     public delegate void OnEnemyKilled();
@@ -81,20 +81,22 @@ public class Enemy : MonoBehaviour
     public void Damaged()
     {
 
-        Debug.Log ("te imaginas que funciona");
+        //Debug.Log ("te imaginas que funciona");
         animator.SetTrigger("Damaged");
     }
     public void Takehit(float damageRevice)
     {
-       
-        Debug.Log("tlol");
+        if (damagable == true)
+        {
+            Debug.Log(gameObject.name);
 
-        Vector2 direction = (transform.position - detectionZone.detectedObjs[0].transform.position).normalized;
+            //Vector2 direction = (transform.position - detectionZone.detectedObjs[0].transform.position).normalized;
 
-        rb.AddForce(knowback * Time.fixedDeltaTime * direction);
+            //rb.AddForce(knowback * Time.fixedDeltaTime * direction);
 
-        Health -= damageRevice;
-        healthBar.SetHealth(health, maxHealth);
+            Health -= damageRevice;
+            healthBar.SetHealth(health, maxHealth);
+        }
     }
     public void Defeated(){
 

@@ -13,6 +13,7 @@ public class EnemyAttack : MonoBehaviour
     public float knockBack = 1000f;
     public DetectionZone detectionZone;
     public GameObject playerObject;
+    //public GameObject DamageTake;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,7 +42,12 @@ public class EnemyAttack : MonoBehaviour
 
                 Debug.Log("Hago Daño al player");
 
-               
+
+                //RectTransform textTransform = Instantiate(DamageTake).GetComponent<RectTransform>();
+                //textTransform.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+
+                //Canvas canvas = GameObject.FindObjectOfType<Canvas>();
+                //textTransform.SetParent(canvas.transform);
 
                 Rigidbody2D playerRigidbody = playerObject.GetComponent<Rigidbody2D>();
 

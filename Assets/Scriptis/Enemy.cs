@@ -18,11 +18,22 @@ public class Enemy : MonoBehaviour
     public TextMeshProUGUI levelText;
     public TextMeshProUGUI healthText;
     public float knowback = 1000f;
+
+
+    public Spawner spawner;
+    public delegate void OnEnemyKilled();
+
+
+
     private void Start()
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-      
+
+
+        spawner.onEnemyKilled += RemoveEnemy;
+
+
         enemyDamage *= enemyLvl;
         giveXP *= enemyLvl;
         maxHealth *= enemyLvl;
@@ -92,10 +103,16 @@ public class Enemy : MonoBehaviour
         animator.SetTrigger("Defeated");
     }
 
-    public void RemoveEnemy() 
+    public void RemoveEnemy()
     {
         LevelSystem XP = FindObjectOfType<LevelSystem>();
         XP.GainExperienceFlatRate(giveXP);
+        spawner.DecreaseActiveEnemies();
         Destroy(gameObject);
     }
+
+
+
+
+
 }

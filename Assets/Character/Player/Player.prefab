@@ -116,6 +116,7 @@ Transform:
   - {fileID: 4240941109077132633}
   - {fileID: 3902344121388573378}
   - {fileID: 3671474292812999666}
+  - {fileID: 4837755734275210642}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -221,6 +222,8 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   swordAttack: {fileID: 1186962291778600267}
+  movementDirection: {x: 0, y: 0}
+  direction: {x: 0, y: 0}
 --- !u!61 &876481307865465273
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1225,7 +1228,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4577578779003623722}
-  - {fileID: 4837755734275210642}
   m_Father: {fileID: 876481307865465272}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1382,7 +1384,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7451453598501134572}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.006278645, y: 0.006213085, z: 0.006455153}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1392,8 +1394,8 @@ RectTransform:
   - {fileID: 6018915403998146538}
   - {fileID: 8245249179902727004}
   - {fileID: 8518668948588471474}
-  m_Father: {fileID: 3671474292812999666}
-  m_RootOrder: 1
+  m_Father: {fileID: 876481307865465272}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

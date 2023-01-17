@@ -750,6 +750,7 @@ MonoBehaviour:
   levelText: {fileID: 1020522697}
   healthText: {fileID: 1287060573}
   knowback: 3000
+  spawner: {fileID: 0}
 --- !u!50 &5355658714989571138
 Rigidbody2D:
   serializedVersion: 4

@@ -198,7 +198,7 @@ MonoBehaviour:
   healthBar: {fileID: 2451222176803549479}
   levelText: {fileID: 1020522697}
   healthText: {fileID: 1287060573}
-  knowback: 10000
+  knowback: 3000
   damagable: 1
   spawner: {fileID: 0}
 --- !u!50 &5355658714989571138

@@ -130,6 +130,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 446252510, guid: ac21bd1ca7cc5ea4798d117cceff9259, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 446252516, guid: ac21bd1ca7cc5ea4798d117cceff9259, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1723586465, guid: ac21bd1ca7cc5ea4798d117cceff9259, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1723586471, guid: ac21bd1ca7cc5ea4798d117cceff9259, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1901122245, guid: ac21bd1ca7cc5ea4798d117cceff9259, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1901122251, guid: ac21bd1ca7cc5ea4798d117cceff9259, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913082359, guid: ac21bd1ca7cc5ea4798d117cceff9259, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913082360, guid: ac21bd1ca7cc5ea4798d117cceff9259, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 876481307865465269, guid: ac21bd1ca7cc5ea4798d117cceff9259, type: 3}
       propertyPath: m_Name
       value: Player

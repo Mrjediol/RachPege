@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swordCollider: {fileID: 1128841151947891082}
-  damage: 20
+  damage: 30
 --- !u!95 &1128841151947891080
 Animator:
   serializedVersion: 4

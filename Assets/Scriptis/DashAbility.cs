@@ -8,9 +8,14 @@ public class DashAbility : MonoBehaviour
     public float dashSpeed = 20f;
     public Vector2 movementDirection;
     private bool isDashing;
-    private float dashTime = 0.2f;
+    public float dashTime = 0.2f;
     private float dashTimer;
+    Rigidbody2D rb;
 
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
     void Update()
     {
         movementDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
@@ -24,7 +29,8 @@ public class DashAbility : MonoBehaviour
         {
             if (dashTimer > 0)
             {
-                transform.position = transform.position + (Vector3)movementDirection * dashSpeed * Time.deltaTime;
+
+                rb.AddForce((Vector3)movementDirection * dashSpeed * Time.deltaTime);
                 dashTimer -= Time.deltaTime;
             }
             else

@@ -198,7 +198,7 @@ MonoBehaviour:
   healthBar: {fileID: 2451222176803549479}
   levelText: {fileID: 1020522697}
   healthText: {fileID: 1287060573}
-  knowback: 3000
+  knowback: 10000
   damagable: 1
   spawner: {fileID: 0}
 --- !u!50 &5355658714989571138
@@ -213,9 +213,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 1
-  m_AngularDrag: 1
+  m_Mass: 3
+  m_LinearDrag: 3
+  m_AngularDrag: 3
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -262,7 +262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyDamageAttack: 3
   attackCollider: {fileID: 3838356490477080603}
-  knockBack: 1000
+  knockBack: 15000
   detectionZone: {fileID: 363960779091539119}
   playerObject: {fileID: 0}
 --- !u!1 &7560681829863142630

@@ -130,38 +130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 446252510, guid: ac21bd1ca7cc5ea4798d117cceff9259, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 446252516, guid: ac21bd1ca7cc5ea4798d117cceff9259, type: 3}
-      propertyPath: m_SortingOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1723586465, guid: ac21bd1ca7cc5ea4798d117cceff9259, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1723586471, guid: ac21bd1ca7cc5ea4798d117cceff9259, type: 3}
-      propertyPath: m_SortingOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1901122245, guid: ac21bd1ca7cc5ea4798d117cceff9259, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1901122251, guid: ac21bd1ca7cc5ea4798d117cceff9259, type: 3}
-      propertyPath: m_SortingOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1913082359, guid: ac21bd1ca7cc5ea4798d117cceff9259, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1913082360, guid: ac21bd1ca7cc5ea4798d117cceff9259, type: 3}
-      propertyPath: m_SortingOrder
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 876481307865465269, guid: ac21bd1ca7cc5ea4798d117cceff9259, type: 3}
       propertyPath: m_Name
       value: Player
@@ -369,7 +337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 342449ca6dce7b94b8d1cc3692ddab44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyCount: 8
+  enemyCount: 1
   Cd: 1
   Minlvl: 4
   Maxlvl: 12
@@ -35180,53 +35148,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1325764005
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1325764007}
-  - component: {fileID: 1325764008}
-  m_Layer: 0
-  m_Name: disparoplasma
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1325764007
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1325764005}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.1759751, y: 0.43703625, z: 0.0013006878}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1325764008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1325764005}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b562636d0b3f7cb4d8489b1be04291ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 1128841151947891081, guid: 2d712f00e08c26a4bb1fa01041dadbe5, type: 3}
-  speed: 5
-  destroyDelay: 3
 --- !u!1 &1366016069
 GameObject:
   m_ObjectHideFlags: 0
@@ -36230,7 +36151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 342449ca6dce7b94b8d1cc3692ddab44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyCount: 3
+  enemyCount: 2
   Cd: 30.7
   Minlvl: 14
   Maxlvl: 23
@@ -36364,7 +36285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 342449ca6dce7b94b8d1cc3692ddab44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyCount: 3
+  enemyCount: 1
   Cd: 7.9
   Minlvl: 1
   Maxlvl: 10

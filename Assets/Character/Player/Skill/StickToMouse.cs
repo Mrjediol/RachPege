@@ -8,7 +8,7 @@ public class StickToMouse : MonoBehaviour
 {
     public GameObject prefab; //asigna el prefab en el inspector
     public float speed = 3f; // Velocidad a la que se moverá el objeto
-    public float destroyDelay = 3f; //tiempo para destruir el objeto en segundos
+    public float destroyDelay = 1f; //tiempo para destruir el objeto en segundos
     private Transform player; //objeto al que se movera el prefab
     private GameObject instantiatedPrefab;
 

@@ -1634,6 +1634,7 @@ GameObject:
   - component: {fileID: 3644433916296508360}
   - component: {fileID: 3644433916296508361}
   - component: {fileID: 3644433916296508358}
+  - component: {fileID: 384530101}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1756,3 +1757,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &384530101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3644433916296508356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaaceab013d96934cb83bd7ac0012448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteToFlip: {fileID: 0}
+  flipButton: {fileID: 3644433916296508358}

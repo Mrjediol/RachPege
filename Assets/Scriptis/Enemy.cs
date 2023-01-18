@@ -92,19 +92,14 @@ public class Enemy : MonoBehaviour
             healthBar.SetHealth(health, maxHealth);
             Debug.Log(gameObject.name);
             // Check if the list is not empty before trying to access an element
-            if (detectionZone.detectedObjs.Count > 0)
-            {
-                Vector2 direction = (transform.position - detectionZone.detectedObjs[0].transform.position).normalized;
+            SwordAttack swordAttack = FindObjectOfType<SwordAttack>();
+
+            Vector2 direction = (transform.position - swordAttack.transform.position).normalized;
 
                 rb.AddForce(knowback * Time.fixedDeltaTime * direction);
 
                
-            }
-            else
-            {
-                // Do something if the list is empty
-                Debug.Log("List is empty. There are no elements to access.");
-            }
+           
         }
     }
 

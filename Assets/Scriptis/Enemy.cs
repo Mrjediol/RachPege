@@ -16,7 +16,6 @@ public class Enemy : MonoBehaviour
     public float maxHealth = 5;
     public EnemyHealthBar healthBar;
     public TextMeshProUGUI levelText;
-    public TextMeshProUGUI xpText;
     public TextMeshProUGUI healthText;
     public float knowback = 1000f;
     public bool damagable = true;
@@ -39,10 +38,7 @@ public class Enemy : MonoBehaviour
         giveXP *= enemyLvl;
         maxHealth *= enemyLvl;
         health = maxHealth;
- 
-        levelText.text = "Lvl." + enemyLvl;
-        xpText.text =giveXP + " Xp";
-
+        levelText.text = "Lvl." + enemyLvl + "    " + giveXP + " Xp" ;
         healthBar.SetHealth(health,maxHealth);
 
 

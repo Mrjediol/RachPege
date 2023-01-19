@@ -664,7 +664,7 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: aaddbaf9-988f-4c4d-9f91-a289e8e27316
+  m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!95 &6323194403517148654
@@ -741,7 +741,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00bd37e26723cd74da6274273129bc64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashSpeed: 4000
+  dashSpeed: 3
   movementDirection: {x: 0, y: 0}
   dashTime: 0.2
 --- !u!1 &3578799851994865869

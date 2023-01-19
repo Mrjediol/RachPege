@@ -849,7 +849,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3644433915280614118
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1745,9 +1745,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: aaaceab013d96934cb83bd7ac0012448, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
-        m_MethodName: 
+      - m_Target: {fileID: 384530101}
+        m_TargetAssemblyTypeName: FlipScript, Assembly-CSharp
+        m_MethodName: FlipSprite
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

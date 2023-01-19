@@ -31,7 +31,7 @@ public class SwordAttack : MonoBehaviour
 
     public void IncreaseDamage(int level)
     {
-        damage += (damage * 0.05f) * ((100 - level) * 0.1f);
+        damage += level;
         damage = Mathf.Round(damage);
     }
 

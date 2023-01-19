@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+
 public class LevelSystem : MonoBehaviour
 {
 
@@ -28,6 +29,7 @@ public class LevelSystem : MonoBehaviour
     public float divisionMultiplier = 7;
     private bool death;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,11 +38,18 @@ public class LevelSystem : MonoBehaviour
         requiredXp = CalculateRequiredXp();
         levelText.text = "Level " + level;
         death = false;
+
+
+    }
+    public void Awake()
+    {
+        level = PlayerPrefs.GetInt("CurrentLevel", 1);
     }
 
     // Update is called once per frame
     void Update()
     {
+
 
         UpdateXpUI();
         if (death == true)
@@ -83,11 +92,19 @@ public class LevelSystem : MonoBehaviour
         backXpBar.fillAmount = 0f;
         currentXp = Mathf.RoundToInt(currentXp - requiredXp);
         GetComponent<PlayerHealth>().IncreaseHealth(level);
-         SwordAttack [] swordattacks = GetComponentsInChildren<SwordAttack>();
+       
         //for ()
        
         requiredXp = CalculateRequiredXp();
         levelText.text = "Level" + level;
+
+        PlayerPrefs.SetInt("CurrentLevel", level); // guardar el nivel actual
+        PlayerPrefs.Save();
+        SwordAttack[] swordAttacks = FindObjectsOfType<SwordAttack>();
+        for (int i = 0; i < swordAttacks.Length; i++)
+        {
+            swordAttacks[i].IncreaseDamage(level);
+        }
     }
     public void GainExperienceScalable(float xpGained, int passedLevel)
     {

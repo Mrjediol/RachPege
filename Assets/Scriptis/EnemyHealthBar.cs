@@ -25,6 +25,6 @@ public class EnemyHealthBar : MonoBehaviour
     }
     void Update()
     {
-        slider.transform.position = Camera.main.WorldToScreenPoint(transform.parent.position + Offset);
+        //slider.transform.position = Camera.main.WorldToScreenPoint(transform.parent.position + Offset);
     }
 }

@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     public float enemyDamage = 3;
     public DetectionZone detectionZone;
     public float moveSpeed = 10f;
+    public float dashSpeed = 1000f;
     Rigidbody2D rb;
     public float giveXP;
     public float enemyLvl;
@@ -54,6 +55,15 @@ public class Enemy : MonoBehaviour
 
             rb.AddForce(moveSpeed * Time.fixedDeltaTime * direction);
             healthText.text = Health + "/" + maxHealth;
+        }
+    }
+
+    public void Dash()
+    {
+        if (detectionZone.detectedObjs != null && detectionZone.detectedObjs.Count > 0)
+        {
+            Vector2 direction = (detectionZone.detectedObjs[0].transform.position - transform.position).normalized;
+            rb.AddForce(dashSpeed * Time.fixedDeltaTime * direction);
         }
     }
     public float Health 

@@ -131,6 +131,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -830500168881095382, guid: ac21bd1ca7cc5ea4798d117cceff9259, type: 3}
+      propertyPath: maxhealth
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -830500168881095382, guid: ac21bd1ca7cc5ea4798d117cceff9259, type: 3}
       propertyPath: healthText
       value: 
       objectReference: {fileID: 611543518346251949}
@@ -144,7 +148,7 @@ PrefabInstance:
       objectReference: {fileID: 991279614570327471}
     - target: {fileID: 408944122, guid: ac21bd1ca7cc5ea4798d117cceff9259, type: 3}
       propertyPath: dashSpeed
-      value: 20000
+      value: 4000
       objectReference: {fileID: 0}
     - target: {fileID: 1913082359, guid: ac21bd1ca7cc5ea4798d117cceff9259, type: 3}
       propertyPath: m_IsActive
@@ -200,7 +204,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 876481307865465278, guid: ac21bd1ca7cc5ea4798d117cceff9259, type: 3}
       propertyPath: m_Mass
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3890700909860083455, guid: ac21bd1ca7cc5ea4798d117cceff9259, type: 3}
       propertyPath: xpText
@@ -262,7 +266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyCount: 7
-  Cd: 14.5
+  Cd: 1
   Minlvl: 75
   Maxlvl: 100
   dispersion: 0.18
@@ -36302,7 +36306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyCount: 5
-  Cd: 7.9
+  Cd: 1
   Minlvl: 33
   Maxlvl: 66
   dispersion: 0.2

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class PlayerHealth : MonoBehaviour
     public TextMeshProUGUI healthText;
     public bool damagable = true;
     Animator animator;
+    public int Scene;
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -95,6 +97,11 @@ public class PlayerHealth : MonoBehaviour
         maxhealth = Mathf.Round(maxhealth);
         health += (health * 0.01f) * ((100 - level) * 0.1f);
         health = Mathf.Round(health);
+    }
+
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(Scene);
     }
 
 }

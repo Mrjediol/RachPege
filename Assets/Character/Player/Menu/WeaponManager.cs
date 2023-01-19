@@ -5,7 +5,7 @@ using UnityEngine;
 public class WeaponManager : MonoBehaviour
 {
     public static GameObject currentWeapon;
-
+    public GameObject weaponsMenu;
     public static void EquipWeapon(GameObject weapon)
     {
         if (currentWeapon != null)
@@ -14,5 +14,13 @@ public class WeaponManager : MonoBehaviour
         }
 
         currentWeapon = weapon;
+    }
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            weaponsMenu.SetActive(!weaponsMenu.activeSelf);
+            Time.timeScale = 0;
+        }
     }
 }

@@ -12,6 +12,8 @@ public class EquipWeapon : MonoBehaviour
         GameObject weapon = Instantiate(weaponPrefab, weaponHold.position, weaponHold.rotation);
         weapon.transform.parent = weaponHold;
         WeaponManager.EquipWeapon(weapon);
+        Time.timeScale = 1;
         weaponsMenu.SetActive(false);
     }
+   
 }

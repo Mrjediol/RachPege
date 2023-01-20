@@ -19,7 +19,7 @@ public class LevelSystem : MonoBehaviour
     public Image backXpBar;
     public TextMeshProUGUI levelText;
     public TextMeshProUGUI xpText;
-
+    public DashAbility dashAbility;
     [Header("Multipliers")]
     [Range(1f,300f)]
     public float addtionMultiplies = 300;
@@ -33,28 +33,41 @@ public class LevelSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        currentXp = PlayerPrefs.GetFloat("CurrentXp", 1);
+        requiredXp = CalculateRequiredXp();
         frontXpBar.fillAmount = currentXp / requiredXp;
         backXpBar.fillAmount = currentXp / requiredXp;
-        requiredXp = CalculateRequiredXp();
+        
         levelText.text = "Level " + level;
         death = false;
-
+        dashAbility.GetComponent<DashAbility>();
 
     }
     public void Awake()
     {
         level = PlayerPrefs.GetInt("CurrentLevel", 1);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (level >= dashAbility.levelRequirement)
+        {
+            dashAbility.Unlock();
 
+        }
+        else
+        {
+            dashAbility.Lock();
+        }
 
         UpdateXpUI();
         if (death == true)
         {
             GainExperienceFlatRate(20);
+            
+
         }
         if (currentXp > requiredXp)
         {
@@ -84,6 +97,8 @@ public class LevelSystem : MonoBehaviour
     {
         currentXp += xpGained;
         lerpTimer = 0f;
+        PlayerPrefs.SetFloat("CurrentXp", currentXp); // guardar el nivel actual
+        PlayerPrefs.Save();
     }
     public void LevelUp()
     {
@@ -96,7 +111,7 @@ public class LevelSystem : MonoBehaviour
         //for ()
        
         requiredXp = CalculateRequiredXp();
-        levelText.text = "Level" + level;
+        levelText.text = "Level " + level;
 
         PlayerPrefs.SetInt("CurrentLevel", level); // guardar el nivel actual
         PlayerPrefs.Save();
@@ -105,6 +120,7 @@ public class LevelSystem : MonoBehaviour
         {
             swordAttacks[i].IncreaseDamage(level);
         }
+       
     }
     public void GainExperienceScalable(float xpGained, int passedLevel)
     {

@@ -9,6 +9,7 @@ public class MoveMouseDirection : MonoBehaviour
     public float destroyDelay = 1f; //tiempo para destruir el objeto en segundos
     private Transform player; //objeto al que se movera el prefab
     public GameObject prefab;
+    [SerializeField] private AudioSource Shoot;
     void Start()
     {
         player = GameObject.Find("Player").transform; // busca el objeto player
@@ -18,6 +19,7 @@ public class MoveMouseDirection : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            Shoot.Play();
             Vector3 mousePos = Input.mousePosition;
             Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
             worldPos.z = player.position.z;

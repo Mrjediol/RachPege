@@ -11,6 +11,8 @@ public class DashAbility : MonoBehaviour
     private float dashTimer;
     public float cooldown = 0.5f;
     private float cooldownTimer;
+    public bool isUnlocked = false;
+    public int levelRequirement = 5;
     Rigidbody2D rb;
     [SerializeField] private AudioSource dashSoundEffect;
     public bool hasPlayedSound;
@@ -22,7 +24,7 @@ public class DashAbility : MonoBehaviour
     void Update()
     {
         movementDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        if (Input.GetKeyDown(KeyCode.Space) && cooldownTimer <= 0)
+        if (isUnlocked && Input.GetKeyDown(KeyCode.Space) && cooldownTimer <= 0)
         {
             isDashing = true;
             dashTimer = dashTime;
@@ -54,5 +56,14 @@ public class DashAbility : MonoBehaviour
         {
             cooldownTimer -= Time.deltaTime;
         }
+    }
+    public void Unlock()
+    {
+        isUnlocked = true;
+    }
+
+    public void Lock()
+    {
+        isUnlocked = false;
     }
 }

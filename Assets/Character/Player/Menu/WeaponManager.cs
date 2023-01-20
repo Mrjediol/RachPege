@@ -15,12 +15,12 @@ public class WeaponManager : MonoBehaviour
 
         currentWeapon = weapon;
     }
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            weaponsMenu.SetActive(!weaponsMenu.activeSelf);
-            Time.timeScale = 0;
-        }
-    }
+    //void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.E))
+    //    {
+    //        weaponsMenu.SetActive(!weaponsMenu.activeSelf);
+    //        Time.timeScale = 0;
+    //    }
+    //}
 }

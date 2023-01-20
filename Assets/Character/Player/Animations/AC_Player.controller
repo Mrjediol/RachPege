@@ -152,9 +152,6 @@ AnimatorStateMachine:
     m_State: {fileID: -5567961655587796105}
     m_Position: {x: 2630, y: -1230, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: -2598630674637329000}
-    m_Position: {x: 3420, y: -2220, z: 0}
-  - serializedVersion: 1
     m_State: {fileID: -3788312266415186778}
     m_Position: {x: 2910, y: -1320, z: 0}
   - serializedVersion: 1
@@ -664,32 +661,6 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
---- !u!1102 &-2598630674637329000
-AnimatorState:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: player_atackRight
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 1cfba7289e513424dbeed3b133a387ec, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
 --- !u!1101 &-1822864509950455327
 AnimatorStateTransition:
   m_ObjectHideFlags: 1

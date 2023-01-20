@@ -17,12 +17,15 @@ public class PlayerController : MonoBehaviour
     public Vector2 movementDirection;
     public Vector2 direction;
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
-    
+    [SerializeField] private AudioSource swordAttackSound;
+    public bool hasPlayedSound = false;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        hasPlayedSound = false;
     }
     private void FixedUpdate()
     {
@@ -119,8 +122,28 @@ public class PlayerController : MonoBehaviour
 
     private void OnFire()
     {
+        //if (!hasPlayedSound)
+        //{
+        //    swordAttackSound.Play();
+        //    hasPlayedSound = true;
+        //}
         animator.SetTrigger("swordAttack");
         //Debug.Log("fire pressed");
+    }
+
+    public void PlayAnimation(string animation)
+    {
+        if (!hasPlayedSound)
+        {
+            swordAttackSound.Play();
+            hasPlayedSound = true;
+        }
+        animator.Play(animation);
+    }
+
+    public void OnAnimationEnd()
+    {
+        hasPlayedSound = false;
     }
 
     public void SwordAttack()

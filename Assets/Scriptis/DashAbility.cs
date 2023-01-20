@@ -1,4 +1,3 @@
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,25 +9,37 @@ public class DashAbility : MonoBehaviour
     private bool isDashing;
     public float dashTime = 0.2f;
     private float dashTimer;
+    public float cooldown = 0.5f;
+    private float cooldownTimer;
     Rigidbody2D rb;
-
+    [SerializeField] private AudioSource dashSoundEffect;
+    public bool hasPlayedSound;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
+
     void Update()
     {
         movementDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && cooldownTimer <= 0)
         {
             isDashing = true;
             dashTimer = dashTime;
+            cooldownTimer = cooldown;
+            hasPlayedSound = false;
         }
 
         if (isDashing)
         {
             if (dashTimer > 0)
             {
+                if (!hasPlayedSound) 
+                {
+                    dashSoundEffect.Play();
+                    hasPlayedSound = true;
+
+                }
 
                 rb.AddForce((Vector3)movementDirection * dashSpeed * Time.deltaTime);
                 dashTimer -= Time.deltaTime;
@@ -37,6 +48,11 @@ public class DashAbility : MonoBehaviour
             {
                 isDashing = false;
             }
+        }
+
+        if (cooldownTimer > 0)
+        {
+            cooldownTimer -= Time.deltaTime;
         }
     }
 }

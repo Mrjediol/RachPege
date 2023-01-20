@@ -11,7 +11,6 @@ public class LevelSystem : MonoBehaviour
     public int level;
     public float currentXp;
     public float requiredXp;
-
     private float lerpTimer;
     private float delayTimer;
     [Header("UI")]
@@ -28,7 +27,9 @@ public class LevelSystem : MonoBehaviour
     [Range(7f,14f)]
     public float divisionMultiplier = 7;
     private bool death;
-
+    public GameObject dashUnlockedTextPrefab;
+    private GameObject dashUnlockedTextInstance;
+    private bool dashUnlockedTextShowed = false;
 
     // Start is called before the first frame update
     void Start()
@@ -52,17 +53,28 @@ public class LevelSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (level >= dashAbility.levelRequirement)
+        if (level >= dashAbility.levelRequirement && !dashUnlockedTextShowed)
         {
             dashAbility.Unlock();
-
+            dashUnlockedTextInstance = Instantiate(dashUnlockedTextPrefab, transform.position, Quaternion.identity);
+            StartCoroutine(DestroyAfterSeconds(dashUnlockedTextInstance, 2.0f));
+            dashUnlockedTextShowed = true;
         }
-        else
+        else if (level < dashAbility.levelRequirement)
         {
             dashAbility.Lock();
+            dashUnlockedTextShowed = false;
         }
 
-        UpdateXpUI();
+
+        IEnumerator DestroyAfterSeconds(GameObject text, float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        Destroy(text);
+    }
+
+
+    UpdateXpUI();
         if (death == true)
         {
             GainExperienceFlatRate(20);

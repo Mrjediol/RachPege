@@ -10,24 +10,39 @@ public class MoveMouseDirection : MonoBehaviour
     private Transform player; //objeto al que se movera el prefab
     public GameObject prefab;
     [SerializeField] private AudioSource Shoot;
+    public float fireDamage = 5f;
+    public bool piercing = false;
+    public Vector3 scale = new Vector3(1, 1, 1);
+    public float cooldown = 0.5f;
+    private float nextFireTime;
+
     void Start()
     {
         player = GameObject.Find("Player").transform; // busca el objeto player
+        nextFireTime = 0f;
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Time.time > nextFireTime)
         {
-            Shoot.Play();
-            Vector3 mousePos = Input.mousePosition;
-            Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
-            worldPos.z = player.position.z;
-            GameObject instantiatedPrefab = Instantiate(prefab, player.position, Quaternion.identity);
-            Rigidbody2D rb = instantiatedPrefab.GetComponent<Rigidbody2D>();
-            Vector3 direction = (worldPos - player.position).normalized;
-            rb.AddForce(direction * force, ForceMode2D.Impulse);
-            Destroy(instantiatedPrefab, destroyDelay);
+            if (Input.GetMouseButtonDown(0))
+            {
+                Shoot.Play();
+                Vector3 mousePos = Input.mousePosition;
+                Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
+                worldPos.z = player.position.z;
+                GameObject instantiatedPrefab = Instantiate(prefab, player.position, Quaternion.identity);
+                Rigidbody2D rb = instantiatedPrefab.GetComponent<Rigidbody2D>();
+                instantiatedPrefab.transform.parent = transform;
+                instantiatedPrefab.transform.localScale = scale;
+                instantiatedPrefab.GetComponent<AttackCollider>().fireDamage = fireDamage;
+                instantiatedPrefab.GetComponent<AttackCollider>().piercing = piercing;
+                Vector3 direction = (worldPos - player.position).normalized;
+                rb.AddForce(direction * force, ForceMode2D.Impulse);
+                Destroy(instantiatedPrefab, destroyDelay);
+                nextFireTime = Time.time + cooldown;
+            }
         }
     }
 }

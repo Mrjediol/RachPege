@@ -45,10 +45,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47d87f47d5fa89a40bd60200d659b212, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 3
-  destroyDelay: 3
-  prefab: {fileID: 1128841151947891081, guid: 2d712f00e08c26a4bb1fa01041dadbe5, type: 3}
+  force: 1
+  destroyDelay: 2
+  prefab: {fileID: 1128841151947891081, guid: c74fe051e69abc94282c916bd3ec18af, type: 3}
   Shoot: {fileID: -8128554791669776794}
+  fireDamage: 1
+  piercing: 0
+  scale: {x: 0.2, y: 0.2, z: 0.2}
+  cooldown: 0.5
 --- !u!82 &-8128554791669776794
 AudioSource:
   m_ObjectHideFlags: 0

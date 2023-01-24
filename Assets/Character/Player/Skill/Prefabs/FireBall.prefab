@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -208518328741673433}
   m_Layer: 0
   m_Name: FireBall
-  m_TagString: Untagged
+  m_TagString: Fireball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -160,6 +160,7 @@ MonoBehaviour:
   Collider: {fileID: 1128841151947891082}
   fireDamage: 1
   damageOverTime: 5
-  timeBetweenDamage: 0.5
+  timeBetweenDamage: 1
   duration: 5
+  probability: 50
   piercing: 0

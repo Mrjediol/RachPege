@@ -8,6 +8,7 @@ TagManager:
   - Ataque
   - Spawner
   - Canvas
+  - Fireball
   layers:
   - Default
   - TransparentFX

@@ -43,7 +43,7 @@ public class Enemy : MonoBehaviour
         levelText.text = "Lvl." + enemyLvl;
         xpText.text = giveXP + " Xp";
         healthBar.SetHealth(health,maxHealth);
-
+        healthText.text = Health + "/" + maxHealth;
 
 
     }
@@ -54,7 +54,7 @@ public class Enemy : MonoBehaviour
             Vector2 direction = (detectionZone.detectedObjs[0].transform.position - transform.position).normalized;
 
             rb.AddForce(moveSpeed * Time.fixedDeltaTime * direction);
-            healthText.text = Health + "/" + maxHealth;
+            
         }
     }
 
@@ -102,6 +102,7 @@ public class Enemy : MonoBehaviour
         {
             Health -= damageRevice;
             healthBar.SetHealth(health, maxHealth);
+            healthText.text = Health + "/" + maxHealth;
             Debug.Log(gameObject.name);
             // Check if the list is not empty before trying to access an element
             SwordAttack swordAttack = FindObjectOfType<SwordAttack>();

@@ -6,10 +6,13 @@ public class EquipWeapon : MonoBehaviour
     public GameObject weaponPrefab;
     public Transform weaponHold;
     public GameObject weaponsMenu;
+    public GameObject WeaponIMG;
+    //public static GameObject currentWPIMG;
     [SerializeField] private AudioSource ExitMenuWeaponsSound;
     WeaponsMenu weaponsmenu;
     public void Equip()
     {
+        //WeaponIMG.SetActive(true);
         Debug.Log("equip se ejecuta");
         ExitMenuWeaponsSound.Play();
         GameObject weapon = Instantiate(weaponPrefab, weaponHold.position, weaponHold.rotation);
@@ -21,6 +24,13 @@ public class EquipWeapon : MonoBehaviour
         WeaponsMenu wm = FindObjectOfType<WeaponsMenu>();
         wm.isMenuActive = false;
 
+        //if (currentWPIMG.activeInHierarchy)
+        //{
+        //    currentWPIMG.SetActive(false);
+        //}
+
+        //currentWPIMG = WeaponIMG;
+        //currentWPIMG.SetActive(false);
     }
-   
+    
 }

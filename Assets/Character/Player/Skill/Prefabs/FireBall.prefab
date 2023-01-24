@@ -159,4 +159,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Collider: {fileID: 1128841151947891082}
   fireDamage: 1
-  piercing: 0
+  piercing: 1

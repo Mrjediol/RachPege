@@ -26,8 +26,10 @@ public class AttackColliderFire : MonoBehaviour
                 Debug.Log("2");
                 enemy.Takehit(fireDamage);
                 if (piercing == false)
+                {
                     Debug.Log("3");
-                Destroy(gameObject);
+                    Destroy(gameObject);
+                }
             }
             //if (burnEffect != null)
             //{

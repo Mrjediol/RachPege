@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
-
+using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class BurnEffect : MonoBehaviour
 {
@@ -8,7 +9,9 @@ public class BurnEffect : MonoBehaviour
     public float timeBetweenDamage = 1f;
     public float duration = 5f;
     public float probability = 50f;
-    
+    //public Image burnImage;
+    public GameObject burnImage;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Fireball")
@@ -22,6 +25,8 @@ public class BurnEffect : MonoBehaviour
 
     public IEnumerator ApplyBurnDamage()
     {
+        //Image burnImage = GetComponentInChildren<Image>();
+        burnImage.SetActive(true);
         float timeElapsed = 0f;
         while (timeElapsed < duration)
         {
@@ -38,6 +43,7 @@ public class BurnEffect : MonoBehaviour
                 yield break;
             }
         }
+        burnImage.SetActive(false);
     }
 
     public void ApplyDamage(Enemy enemy, float damage)

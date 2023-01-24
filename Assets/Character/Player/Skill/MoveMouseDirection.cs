@@ -36,8 +36,8 @@ public class MoveMouseDirection : MonoBehaviour
                 Rigidbody2D rb = instantiatedPrefab.GetComponent<Rigidbody2D>();
                 instantiatedPrefab.transform.parent = transform;
                 instantiatedPrefab.transform.localScale = scale;
-                instantiatedPrefab.GetComponent<AttackCollider>().fireDamage = fireDamage;
-                instantiatedPrefab.GetComponent<AttackCollider>().piercing = piercing;
+                instantiatedPrefab.GetComponent<AttackColliderFire>().fireDamage = fireDamage;
+                instantiatedPrefab.GetComponent<AttackColliderFire>().piercing = piercing;
                 Vector3 direction = (worldPos - player.position).normalized;
                 rb.AddForce(direction * force, ForceMode2D.Impulse);
                 Destroy(instantiatedPrefab, destroyDelay);

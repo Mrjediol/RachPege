@@ -9,6 +9,7 @@ TagManager:
   - Spawner
   - Canvas
   - Fireball
+  - Iceball
   layers:
   - Default
   - TransparentFX

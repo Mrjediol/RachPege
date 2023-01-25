@@ -8,8 +8,10 @@ public class Enemy : MonoBehaviour
     Animator animator;
     public float enemyDamage = 3;
     public DetectionZone detectionZone;
-    public float moveSpeed = 10f;
-    public float dashSpeed = 1000f;
+    public float moveSpeed = 50f;
+    public float slowedmoveSpeed = 10;
+    public float dashSpeed = 5000f;
+    public float SloweddashSpeed = 500f;
     Rigidbody2D rb;
     public float giveXP;
     public float enemyLvl;
@@ -21,10 +23,10 @@ public class Enemy : MonoBehaviour
     public TextMeshProUGUI healthText;
     public float knowback = 1000f;
     public bool damagable = true;
-
+    
     public Spawner spawner;
     public delegate void OnEnemyKilled();
-
+    public FrozenEffect frozenEffect;
 
 
     private void Start()
@@ -49,11 +51,22 @@ public class Enemy : MonoBehaviour
     }
     void FixedUpdate()
     {   
-        if (detectionZone.detectedObjs.Count > 0)
+        if (detectionZone.detectedObjs != null && detectionZone.detectedObjs.Count > 0)
         {
             Vector2 direction = (detectionZone.detectedObjs[0].transform.position - transform.position).normalized;
 
             rb.AddForce(moveSpeed * Time.fixedDeltaTime * direction);
+            
+        }
+        if (frozenEffect.isFrozen)
+        {
+            moveSpeed = slowedmoveSpeed;
+            dashSpeed = SloweddashSpeed;
+        }
+        else
+        {
+            moveSpeed = 50f;
+            dashSpeed = 5000f;
             
         }
     }

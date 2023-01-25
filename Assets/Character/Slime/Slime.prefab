@@ -337,8 +337,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyDamage: 20
   detectionZone: {fileID: 7536281494251546842}
-  moveSpeed: 30
-  dashSpeed: 1500
+  moveSpeed: 50
+  slowedmoveSpeed: 20
+  dashSpeed: 5000
+  SloweddashSpeed: 1000
   giveXP: 10
   enemyLvl: 2
   health: 1
@@ -350,6 +352,7 @@ MonoBehaviour:
   knowback: 2000
   damagable: 1
   spawner: {fileID: 0}
+  frozenEffect: {fileID: -5748162381286966790}
 --- !u!50 &2866632734358892599
 Rigidbody2D:
   serializedVersion: 4
@@ -539,7 +542,7 @@ MonoBehaviour:
   damageOverTime: 5
   timeBetweenDamage: 1
   duration: 5
-  probability: 90
+  probability: 50
   burnImage: {fileID: 3431780124371048603}
 --- !u!114 &-5748162381286966790
 MonoBehaviour:
@@ -555,9 +558,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageOverTime: 5
   timeBetweenDamage: 2
-  duration: 100
+  duration: 6
   probability: 50
   FrozenImage: {fileID: 7835391540083368001}
+  freezeDuration: 2
+  isFrozen: 0
 --- !u!1 &2610557783955629869
 GameObject:
   m_ObjectHideFlags: 0

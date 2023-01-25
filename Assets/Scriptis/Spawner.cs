@@ -20,7 +20,7 @@ public class Spawner : MonoBehaviour
     public GameObject prefabToSpawn;
 
     public Action onEnemyKilled;
-
+    public float activeRange = 10f;
     Vector2[,] spawnPositions;
     int spawnCounter = 0;
     int maxSpawns = 0;
@@ -43,8 +43,17 @@ public class Spawner : MonoBehaviour
         }
         if (heat <= 0)
         {
-            Spawn(prefabToSpawn);
-            heat = Cd;
+            // Obtén la posición del jugador
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            Vector3 playerPosition = player.transform.position;
+
+            // Comprueba si el jugador está dentro del rango deseado
+            float range = activeRange; // Rango en el que deben aparecer los enemigos
+            if (Vector3.Distance(transform.position, playerPosition) <= range)
+            {
+                Spawn(prefabToSpawn);
+                heat = Cd;
+            }
         }
     }
 

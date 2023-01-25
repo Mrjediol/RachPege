@@ -13,8 +13,10 @@ public class WeaponManager : MonoBehaviour
     public Sprite mySprite;
 
     public GameObject currentfireballBook;
+    public GameObject currentplantballBook;
     public GameObject currenticeballBook;
     public GameObject previuosFire;
+    public GameObject previuosPlant;
     public GameObject previousIce;
     public void EquipWeapon(GameObject weapon)
     {
@@ -78,6 +80,14 @@ public class WeaponManager : MonoBehaviour
         {
             currenticeballBook.SetActive(false);
         }
+        if (currentWeapon.name == "PlantBall(Clone)")
+        {
+            currentplantballBook.SetActive(true);
+        }
+        else
+        {
+            currentplantballBook.SetActive(false);
+        }
         if (previousWeapon.name == "FireBall(Clone)")
         {
             previuosFire.SetActive(true);
@@ -93,6 +103,14 @@ public class WeaponManager : MonoBehaviour
         else
         {
             previousIce.SetActive(false);
+        }
+        if (previousWeapon.name == "PlantBall(Clone)")
+        {
+            previuosPlant.SetActive(true);
+        }
+        else
+        {
+            previuosPlant.SetActive(false);
         }
     }
     void SwitchWeapon()

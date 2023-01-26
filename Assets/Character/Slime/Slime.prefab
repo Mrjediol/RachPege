@@ -559,7 +559,7 @@ MonoBehaviour:
   damageOverTime: 5
   timeBetweenDamage: 2
   duration: 6
-  probability: 50
+  probability: 10
   FrozenImage: {fileID: 7835391540083368001}
   freezeDuration: 2
   isFrozen: 0

@@ -5,15 +5,17 @@ using System;
 
 public class MoveMouseDirectionIce : MonoBehaviour
 {
+
     public float force = 3f; // fuerza a la que se moverá el objeto
     public float destroyDelay = 1f; //tiempo para destruir el objeto en segundos
     private Transform player; //objeto al que se movera el prefab
     public GameObject prefab;
     [SerializeField] private AudioSource Shoot;
     public float fireDamage = 5f;
+    public float IceDamage = 10f;
     public bool piercing = false;
-    public Vector3 scale = new Vector3(1, 1, 1);
-    public float cooldown = 0.5f;
+    public Vector3 scale = new Vector3(0.2f, 0.2f, 0.2f);
+    public float cooldown = 2f;
     private float nextFireTime;
     public float experience;
     void Start()
@@ -43,7 +45,7 @@ public class MoveMouseDirectionIce : MonoBehaviour
                 }
                 if (instantiatedPrefab.name == "IceBall(Clone)")
                 {
-                    instantiatedPrefab.GetComponent<AttackColliderIce>().IceDamage = fireDamage;
+                    instantiatedPrefab.GetComponent<AttackColliderIce>().IceDamage = IceDamage;
                     instantiatedPrefab.GetComponent<AttackColliderIce>().piercing = piercing;
                 }
 

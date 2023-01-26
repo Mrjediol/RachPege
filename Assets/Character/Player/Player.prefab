@@ -735,6 +735,7 @@ MonoBehaviour:
   addtionMultiplies: 300
   powerMultiplier: 2
   divisionMultiplier: 7
+  dashUnlockedTextPrefab: {fileID: 3056267693360742555, guid: 40c606d6029f341489eb0fb767f1cf1e, type: 3}
 --- !u!114 &408944122
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6275837636236803606}
   - component: {fileID: -8128554791669776794}
   - component: {fileID: 5466569665845608035}
-  - component: {fileID: 3577808780074766997}
+  - component: {fileID: 8932923779394617365}
   m_Layer: 0
   m_Name: IceBall
   m_TagString: Untagged
@@ -146,13 +146,13 @@ MonoBehaviour:
   destroyDelay: 1
   prefab: {fileID: 1128841151947891081, guid: 9ba5ecbc3ef08c64fabfe414285742d0, type: 3}
   Shoot: {fileID: -8128554791669776794}
-  fireDamage: 5
-  IceDamage: 5
+  IceDamage: 10
+  fireDamage: 10
   piercing: 0
   scale: {x: 0.2, y: 0.2, z: 0.2}
   cooldown: 2
   experience: 0
---- !u!114 &3577808780074766997
+--- !u!114 &8932923779394617365
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,9 +161,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8027626064776380214}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca50d8733d7ea1744831a08511f63ae7, type: 3}
+  m_Script: {fileID: 11500000, guid: 17f113f4a5d1b3a4888c959437798431, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentXp: 0
   level: 0
-  levelUpXp: 100
+  levelUpXp: 50

@@ -11,11 +11,11 @@ public class MoveMouseDirectionFire : MonoBehaviour
     public GameObject prefab;
     [SerializeField] private AudioSource Shoot;
     public float fireDamage = 5f;
+    public float IceDamage = 5f;
     public bool piercing = false;
     public Vector3 scale = new Vector3(1, 1, 1);
     public float cooldown = 0.5f;
     private float nextFireTime;
-    public float experience;
     void Start()
     {
         player = GameObject.Find("Player").transform; // busca el objeto player
@@ -38,12 +38,12 @@ public class MoveMouseDirectionFire : MonoBehaviour
                 instantiatedPrefab.transform.localScale = scale;
                 if (instantiatedPrefab.name == "FireBall(Clone)") 
                 {
-                    instantiatedPrefab.GetComponent<AttackCollider>().fireDamage = fireDamage;
-                    instantiatedPrefab.GetComponent<AttackCollider>().piercing = piercing;
+                    instantiatedPrefab.GetComponent<AttackColliderFire>().fireDamage = fireDamage;
+                    instantiatedPrefab.GetComponent<AttackColliderFire>().piercing = piercing;
                 }
                 if (instantiatedPrefab.name == "IceBall(Clone)")
                 {
-                    instantiatedPrefab.GetComponent<AttackColliderIce>().IceDamage = fireDamage;
+                    instantiatedPrefab.GetComponent<AttackColliderIce>().IceDamage = IceDamage;
                     instantiatedPrefab.GetComponent<AttackColliderIce>().piercing = piercing;
                 }
 

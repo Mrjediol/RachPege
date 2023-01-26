@@ -11,8 +11,9 @@ public class MoveMouseDirectionIce : MonoBehaviour
     private Transform player; //objeto al que se movera el prefab
     public GameObject prefab;
     [SerializeField] private AudioSource Shoot;
-    public float fireDamage = 5f;
+
     public float IceDamage = 10f;
+    public float fireDamage = 10f;
     public bool piercing = false;
     public Vector3 scale = new Vector3(0.2f, 0.2f, 0.2f);
     public float cooldown = 2f;

@@ -9,7 +9,7 @@ public class AttackColliderIce : MonoBehaviour
 
 
 
-    MoveMouseDirection moveMouseDirection;
+  
     public bool piercing = false;
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -19,12 +19,12 @@ public class AttackColliderIce : MonoBehaviour
             // Deal damage to the enemy
             //Debug.Log("llego a 1");
             Enemy enemy = other.GetComponent<Enemy>();
-            WeaponLevel weaponlevel = GetComponentInParent<WeaponLevel>();
+            WeaponLevelIce weaponlevelIce = GetComponentInParent<WeaponLevelIce>();
             //FrozenEffect frozenEffect = other.GetComponent<FrozenEffect>();
             Debug.Log("1");
             if (enemy != null)
             {
-                weaponlevel.currentXp += IceDamage;
+                weaponlevelIce.currentXp += IceDamage;
                 Debug.Log("2");
                 enemy.Takehit(IceDamage);
                 if (piercing == false)

@@ -18,6 +18,17 @@ public class WeaponManager : MonoBehaviour
     public GameObject previuosFire;
     public GameObject previuosPlant;
     public GameObject previousIce;
+    public GameObject IceXpBar;
+    public GameObject IceLevel;
+    public GameObject FireXpBar;
+    public GameObject FireLevel;
+    
+
+    private void Start()
+    {
+       
+       
+    }
     public void EquipWeapon(GameObject weapon)
     {
         if (currentWeapon != null)
@@ -45,6 +56,30 @@ public class WeaponManager : MonoBehaviour
                 Debug.Log("no equipes dos veces la misma anda");
                 Destroy(currentWeapon);
                 currentWeapon = weapon;
+                if (currentWeapon.name == "IceBall(Clone)")
+                {
+                    currentWeapon.GetComponent<MoveMouseDirectionIce>().enabled = true;
+                    currenticeballBook.SetActive(true);
+                    IceXpBar.SetActive(true);
+                    IceLevel.SetActive(true);
+                    SaveXp savexp = FindObjectOfType<SaveXp>();
+                    WeaponLevelIce weaponlevelIce = FindObjectOfType<WeaponLevelIce>();
+                    weaponlevelIce.level = savexp.Icelevel;
+                    weaponlevelIce.currentXp = savexp.Icecurrentxp;
+
+                }
+                if (currentWeapon.name == "FireBall(Clone)")
+                {
+                    currentWeapon.GetComponent<MoveMouseDirectionFire>().enabled = true;
+                    currentfireballBook.SetActive(true);
+                    FireXpBar.SetActive(true);
+                    FireLevel.SetActive(true);
+                    SaveXp savexp = FindObjectOfType<SaveXp>();
+                    WeaponLevelFire weaponlevelFire = FindObjectOfType<WeaponLevelFire>();
+                    weaponlevelFire.level = savexp.Firelevel;
+                    weaponlevelFire.currentXp = savexp.Firecurrentxp;
+
+                }
                 return;
                 
             }
@@ -62,11 +97,24 @@ public class WeaponManager : MonoBehaviour
         {
             currentWeapon.GetComponent<MoveMouseDirectionFire>().enabled = true;
             currentfireballBook.SetActive(true);
+            FireXpBar.SetActive(true);
+            FireLevel.SetActive(true);
+            SaveXp savexp = FindObjectOfType<SaveXp>();
+            WeaponLevelFire weaponlevelFire = FindObjectOfType<WeaponLevelFire>();
+            weaponlevelFire.level = savexp.Firelevel;
+            weaponlevelFire.currentXp = savexp.Firecurrentxp;
         }
         if (currentWeapon.name == "IceBall(Clone)")
         {
             currentWeapon.GetComponent<MoveMouseDirectionIce>().enabled = true;
             currenticeballBook.SetActive(true);
+            IceXpBar.SetActive(true);
+            IceLevel.SetActive(true);
+            SaveXp savexp = FindObjectOfType<SaveXp>();
+            WeaponLevelIce weaponlevelIce = FindObjectOfType<WeaponLevelIce>();
+            weaponlevelIce.level = savexp.Icelevel;
+            weaponlevelIce.currentXp = savexp.Icecurrentxp;
+            
         }
 
     }
@@ -76,18 +124,35 @@ public class WeaponManager : MonoBehaviour
         if(currentWeapon.name == "FireBall(Clone)")
         {
             currentfireballBook.SetActive(true);
+            FireXpBar.SetActive(true);
+            FireLevel.SetActive(true);
+            SaveXp savexp = FindObjectOfType<SaveXp>();
+            WeaponLevelFire weaponlevelFire = FindObjectOfType<WeaponLevelFire>();
+            weaponlevelFire.level = savexp.Firelevel;
+            weaponlevelFire.currentXp = savexp.Firecurrentxp;
         }
         else
         {
             currentfireballBook.SetActive(false);
+            FireXpBar.SetActive(false);
+            FireLevel.SetActive(false);
         }
         if (currentWeapon.name == "IceBall(Clone)")
         {
             currenticeballBook.SetActive(true);
+            IceXpBar.SetActive(true);
+            IceLevel.SetActive(true);
+            SaveXp savexp = FindObjectOfType<SaveXp>();
+            WeaponLevelIce weaponlevelIce = FindObjectOfType<WeaponLevelIce>();
+            weaponlevelIce.level = savexp.Icelevel;
+            weaponlevelIce.currentXp = savexp.Icecurrentxp;
+
         }
         else
         {
             currenticeballBook.SetActive(false);
+            IceXpBar.SetActive(false);
+            IceLevel.SetActive(false);
         }
         if (currentWeapon.name == "PlantBall(Clone)")
         {
@@ -152,7 +217,27 @@ public class WeaponManager : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+
+
+        if (currentWeapon != null)
+        {
+            if (currentWeapon.name == "IceBall(Clone)")
+            {
+                SaveXp savexp = FindObjectOfType<SaveXp>();
+                WeaponLevelIce weaponlevelIce = FindObjectOfType<WeaponLevelIce>();
+                savexp.Icelevel = weaponlevelIce.level;
+                savexp.Icecurrentxp = weaponlevelIce.currentXp;
+            }
+            if(currentWeapon.name == "FireBall(Clone)")
+            {
+                SaveXp saveXp = FindObjectOfType<SaveXp>();
+                WeaponLevelFire weaponLevelFire = FindObjectOfType<WeaponLevelFire>();
+                saveXp.Firelevel = weaponLevelFire.level;
+                saveXp.Firecurrentxp = weaponLevelFire.currentXp;
+            }
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Q) && previousWeapon != null)
         {
             SwitchWeapon();
         }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1128841151947891082}
   - component: {fileID: 1128841151947891080}
   - component: {fileID: -1445819850547397702}
-  - component: {fileID: -208518328741673433}
+  - component: {fileID: 3800397070101760910}
   m_Layer: 0
   m_Name: FireBall
   m_TagString: Fireball
@@ -145,7 +145,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &-208518328741673433
+--- !u!114 &3800397070101760910
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -154,9 +154,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1128841151947891081}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39a29611ad23ec94b921f3718490e996, type: 3}
+  m_Script: {fileID: 11500000, guid: 131cc91dc1cfc324d96d1843c1f7082a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Collider: {fileID: 1128841151947891082}
-  fireDamage: 1
-  piercing: 1
+  fireDamage: 10
+  piercing: 0

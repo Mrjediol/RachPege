@@ -15,7 +15,7 @@ public class WeaponLevel : MonoBehaviour
     private void Start()
     {
          moveMouseDirectionIce = GetComponent<MoveMouseDirectionIce>();
-            level = 1;
+           
         IceXpBar = GameObject.Find("IceXpBar").GetComponent<Slider>();
     }
     void Update()

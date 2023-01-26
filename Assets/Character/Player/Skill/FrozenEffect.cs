@@ -15,12 +15,12 @@ public class FrozenEffect : MonoBehaviour
     public float freezeDuration = 6f;
     private float freezeTimer = 0f;
     public bool isFrozen = false;
-    Animator animator;
+    //Animator animator;
 
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
+        //IceXpBar = GameObject.Find("IceXpBar").GetComponent<Slider>();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -73,7 +73,7 @@ public class FrozenEffect : MonoBehaviour
     {
         if (isFrozen)
         {
-            animator.SetTrigger("isFrozen");
+            //animator.SetTrigger("isFrozen");
             freezeTimer -= Time.deltaTime;
             if (freezeTimer <= 0f)
             {

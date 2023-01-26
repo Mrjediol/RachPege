@@ -5,15 +5,16 @@ using System;
 
 public class MoveMouseDirection : MonoBehaviour
 {
+    public int weaponDamage = 5;
+    public Vector3 scale = new Vector3(1, 1, 1);
+    public float cooldown = 0.5f;
     public float force = 3f; // fuerza a la que se moverá el objeto
+    public bool piercing = false;
     public float destroyDelay = 1f; //tiempo para destruir el objeto en segundos
     private Transform player; //objeto al que se movera el prefab
     public GameObject prefab;
     [SerializeField] private AudioSource Shoot;
-    public float fireDamage = 5f;
-    public bool piercing = false;
-    public Vector3 scale = new Vector3(1, 1, 1);
-    public float cooldown = 0.5f;
+    public int experience;
     private float nextFireTime;
 
     void Start()
@@ -36,7 +37,7 @@ public class MoveMouseDirection : MonoBehaviour
                 Rigidbody2D rb = instantiatedPrefab.GetComponent<Rigidbody2D>();
                 instantiatedPrefab.transform.parent = transform;
                 instantiatedPrefab.transform.localScale = scale;
-                instantiatedPrefab.GetComponent<AttackColliderFire>().fireDamage = fireDamage;
+                instantiatedPrefab.GetComponent<AttackColliderFire>().firedamage = weaponDamage;
                 instantiatedPrefab.GetComponent<AttackColliderFire>().piercing = piercing;
                 Vector3 direction = (worldPos - player.position).normalized;
                 rb.AddForce(direction * force, ForceMode2D.Impulse);

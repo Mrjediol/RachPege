@@ -5,8 +5,7 @@ using UnityEngine;
 public class AttackColliderIce : MonoBehaviour
 {
     public Collider2D Collider;
-    public int iceDamage = 10;
-    public int experience;
+    public float IceDamage = 10;
 
 
 
@@ -17,7 +16,6 @@ public class AttackColliderIce : MonoBehaviour
     {
         if (other.tag == "Enemy")
         {
-            moveMouseDirection.experience += iceDamage;
             // Deal damage to the enemy
             //Debug.Log("llego a 1");
             Enemy enemy = other.GetComponent<Enemy>();
@@ -26,7 +24,7 @@ public class AttackColliderIce : MonoBehaviour
             if (enemy != null)
             {
                 Debug.Log("2");
-                enemy.Takehit(iceDamage);
+                enemy.Takehit(IceDamage);
                 if (piercing == false)
                 {
                     Debug.Log("3");

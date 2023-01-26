@@ -5,8 +5,8 @@ using UnityEngine;
 public class AttackColliderFire : MonoBehaviour
 {
     public Collider2D Collider;
-    public int firedamage = 10;
-    
+    public float fireDamage = 10;
+
 
 
     MoveMouseDirection moveMouseDirection;
@@ -16,7 +16,6 @@ public class AttackColliderFire : MonoBehaviour
     {
         if (other.tag == "Enemy")
         {
-            moveMouseDirection.experience += firedamage;
             // Deal damage to the enemy
             //Debug.Log("llego a 1");
             Enemy enemy = other.GetComponent<Enemy>();
@@ -25,7 +24,7 @@ public class AttackColliderFire : MonoBehaviour
             if (enemy != null)
             {
                 Debug.Log("2");
-                enemy.Takehit(firedamage);
+                enemy.Takehit(fireDamage);
                 if (piercing == false)
                 {
                     Debug.Log("3");

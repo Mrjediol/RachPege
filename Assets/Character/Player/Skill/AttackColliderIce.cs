@@ -19,10 +19,12 @@ public class AttackColliderIce : MonoBehaviour
             // Deal damage to the enemy
             //Debug.Log("llego a 1");
             Enemy enemy = other.GetComponent<Enemy>();
+            MoveMouseDirection moveMouseDirection = GetComponentInParent<MoveMouseDirection>();
             //FrozenEffect frozenEffect = other.GetComponent<FrozenEffect>();
             Debug.Log("1");
             if (enemy != null)
             {
+                moveMouseDirection.experience += IceDamage;
                 Debug.Log("2");
                 enemy.Takehit(IceDamage);
                 if (piercing == false)

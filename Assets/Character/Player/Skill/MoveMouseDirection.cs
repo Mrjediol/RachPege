@@ -15,7 +15,7 @@ public class MoveMouseDirection : MonoBehaviour
     public Vector3 scale = new Vector3(1, 1, 1);
     public float cooldown = 0.5f;
     private float nextFireTime;
-
+    public float experience;
     void Start()
     {
         player = GameObject.Find("Player").transform; // busca el objeto player

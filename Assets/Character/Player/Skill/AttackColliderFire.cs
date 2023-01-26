@@ -9,21 +9,24 @@ public class AttackColliderFire : MonoBehaviour
 
 
 
-    MoveMouseDirection moveMouseDirection;
+    //MoveMouseDirection moveMouseDirection;
     public bool piercing = false;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Enemy")
         {
+            
             // Deal damage to the enemy
             //Debug.Log("llego a 1");
             Enemy enemy = other.GetComponent<Enemy>();
             BurnEffect burnEffect = other.GetComponent<BurnEffect>();
             Debug.Log("1");
+            MoveMouseDirection moveMouseDirection = GetComponentInParent<MoveMouseDirection>();
             if (enemy != null)
             {
                 Debug.Log("2");
+                moveMouseDirection.experience += fireDamage;
                 enemy.Takehit(fireDamage);
                 if (piercing == false)
                 {

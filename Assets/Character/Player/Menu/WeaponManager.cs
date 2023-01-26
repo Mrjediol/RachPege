@@ -29,7 +29,14 @@ public class WeaponManager : MonoBehaviour
                 previousWeapon = currentWeapon;
                 currentWeapon = weapon;
                 previousWeapon.transform.parent = previousWeaponHold;
-                previousWeapon.GetComponent<MoveMouseDirection>().enabled = false;
+                if (previousWeapon != null && previousWeapon.name == "FireBall(Clone)")
+                {
+                    previousWeapon.GetComponent<MoveMouseDirectionFire>().enabled = false;
+                }
+                if (previousWeapon !=null && previousWeapon.name == "IceBall(Clone)")
+                {
+                    previousWeapon.GetComponent<MoveMouseDirectionIce>().enabled = false;
+                }
                 UiUpdate();
 
             }
@@ -49,14 +56,16 @@ public class WeaponManager : MonoBehaviour
             currentWeapon = weapon;
         }
         currentWeapon.transform.parent = currentWeaponHold;
-        currentWeapon.GetComponent<MoveMouseDirection>().enabled = true;
+        
 
         if (currentWeapon.name == "FireBall(Clone)")
         {
+            currentWeapon.GetComponent<MoveMouseDirectionFire>().enabled = true;
             currentfireballBook.SetActive(true);
         }
         if (currentWeapon.name == "IceBall(Clone)")
         {
+            currentWeapon.GetComponent<MoveMouseDirectionIce>().enabled = true;
             currenticeballBook.SetActive(true);
         }
 
@@ -119,10 +128,26 @@ public class WeaponManager : MonoBehaviour
         currentWeapon = previousWeapon;
         previousWeapon = temp;
         currentWeapon.transform.parent = currentWeaponHold;
-        currentWeapon.GetComponent<MoveMouseDirection>().enabled = true;
+        if (currentWeapon.name == "FireBall(Clone)")
+        {
+            currentWeapon.GetComponent<MoveMouseDirectionFire>().enabled = true;
+        }
+        if (currentWeapon.name == "IceBall(Clone)")
+        {
+            currentWeapon.GetComponent<MoveMouseDirectionIce>().enabled = true;
+        }
+
 
         previousWeapon.transform.parent = previousWeaponHold;
-        previousWeapon.GetComponent<MoveMouseDirection>().enabled = false;
+        if (previousWeapon.name == "FireBall(Clone)")
+        {
+            previousWeapon.GetComponent<MoveMouseDirectionFire>().enabled = false;
+        }
+        if (previousWeapon.name == "IceBall(Clone)")
+        {
+            previousWeapon.GetComponent<MoveMouseDirectionIce>().enabled = false;
+        }
+
         UiUpdate();
     }
     void Update()

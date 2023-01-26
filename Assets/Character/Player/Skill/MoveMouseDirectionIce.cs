@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class MoveMouseDirection : MonoBehaviour
+public class MoveMouseDirectionIce : MonoBehaviour
 {
     public float force = 3f; // fuerza a la que se moverá el objeto
     public float destroyDelay = 1f; //tiempo para destruir el objeto en segundos
@@ -36,8 +36,17 @@ public class MoveMouseDirection : MonoBehaviour
                 Rigidbody2D rb = instantiatedPrefab.GetComponent<Rigidbody2D>();
                 instantiatedPrefab.transform.parent = transform;
                 instantiatedPrefab.transform.localScale = scale;
-                instantiatedPrefab.GetComponent<AttackColliderFire>().fireDamage = fireDamage;
-                instantiatedPrefab.GetComponent<AttackColliderFire>().piercing = piercing;
+                if (instantiatedPrefab.name == "FireBall(Clone)") 
+                {
+                    instantiatedPrefab.GetComponent<AttackCollider>().fireDamage = fireDamage;
+                    instantiatedPrefab.GetComponent<AttackCollider>().piercing = piercing;
+                }
+                if (instantiatedPrefab.name == "IceBall(Clone)")
+                {
+                    instantiatedPrefab.GetComponent<AttackColliderIce>().IceDamage = fireDamage;
+                    instantiatedPrefab.GetComponent<AttackColliderIce>().piercing = piercing;
+                }
+
                 Vector3 direction = (worldPos - player.position).normalized;
                 rb.AddForce(direction * force, ForceMode2D.Impulse);
                 Destroy(instantiatedPrefab, destroyDelay);

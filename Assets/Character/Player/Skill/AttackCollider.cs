@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackColliderFire : MonoBehaviour
+public class AttackCollider : MonoBehaviour
 {
     public Collider2D Collider;
     public float fireDamage = 10;

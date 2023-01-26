@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1128841151947891082}
   - component: {fileID: 1128841151947891080}
   - component: {fileID: -1445819850547397702}
-  - component: {fileID: 5968225571914869938}
+  - component: {fileID: -7860446196130526088}
   m_Layer: 0
   m_Name: IceBall
   m_TagString: Iceball
@@ -145,7 +145,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &5968225571914869938
+--- !u!114 &-7860446196130526088
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

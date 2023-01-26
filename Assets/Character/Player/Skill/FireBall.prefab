@@ -53,6 +53,7 @@ MonoBehaviour:
   piercing: 0
   scale: {x: 0.3, y: 0.3, z: 0.3}
   cooldown: 0.5
+  experience: 0
 --- !u!82 &-8128554791669776794
 AudioSource:
   m_ObjectHideFlags: 0

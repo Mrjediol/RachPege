@@ -14,12 +14,14 @@ public class AttackColliderFire : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        
         if (other.tag == "Enemy")
         {
             
             // Deal damage to the enemy
             //Debug.Log("llego a 1");
             Enemy enemy = other.GetComponent<Enemy>();
+            
             //BurnEffect burnEffect = other.GetComponent<BurnEffect>();
             Debug.Log("1");
             WeaponLevelFire weaponLevelFire = GetComponentInParent<WeaponLevelFire>();
@@ -34,11 +36,19 @@ public class AttackColliderFire : MonoBehaviour
                     Destroy(gameObject);
                 }
             }
+
+            
             //if (burnEffect != null)
             //{
             //    Debug.Log("4");
             //    StartCoroutine(burnEffect.ApplyBurnDamage());
             //}
+        }
+        DPS dps = other.GetComponent<DPS>();
+        if (dps != null)
+        {
+            dps.TakeDamage(fireDamage);
+            Destroy(gameObject);
         }
     }
 }

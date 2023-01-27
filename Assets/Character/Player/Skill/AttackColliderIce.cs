@@ -39,6 +39,12 @@ public class AttackColliderIce : MonoBehaviour
             //    StartCoroutine(burnEffect.ApplyBurnDamage());
             //}
         }
+        DPS dps = other.GetComponent<DPS>();
+        if (dps != null)
+        {
+            dps.TakeDamage(IceDamage);
+            Destroy(gameObject);
+        }
     }
 }
 //    IEnumerator ApplyDamageOverTime(Enemy enemy)

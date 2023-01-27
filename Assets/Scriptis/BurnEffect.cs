@@ -12,6 +12,23 @@ public class BurnEffect : MonoBehaviour
     //public Image burnImage;
     public GameObject burnImage;
 
+
+    private void Update()
+    {
+        WeaponManager weaponManager = FindObjectOfType<WeaponManager>();
+        MoveMouseDirectionFire mouseDirectionFire = FindObjectOfType<MoveMouseDirectionFire>();
+        if (weaponManager.currentWeapon != null)
+        {
+            if(weaponManager.currentWeapon.name == "FireBall(Clone)")
+            {
+                probability = mouseDirectionFire.burnprobability;
+                damageOverTime = mouseDirectionFire.burndamageOverTime;
+                duration = mouseDirectionFire.burnduration;
+                timeBetweenDamage = mouseDirectionFire.burntimeBetweenDamage;
+            }
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Fireball")

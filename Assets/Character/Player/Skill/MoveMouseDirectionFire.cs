@@ -12,6 +12,10 @@ public class MoveMouseDirectionFire : MonoBehaviour
     [SerializeField] private AudioSource Shoot;
     public float fireDamage = 5f;
     public float IceDamage = 5f;
+    public float burnprobability;
+    public float burndamageOverTime = 1f;
+    public float burntimeBetweenDamage = 1f;
+    public float burnduration = 5f;
     public bool piercing = false;
     public Vector3 scale = new Vector3(1, 1, 1);
     public float cooldown = 0.5f;

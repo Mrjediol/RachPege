@@ -51,6 +51,12 @@ public class SwordAttack : MonoBehaviour
                 
             }
         }
+        DPS dps = other.GetComponent<DPS>();
+        if (dps != null)
+        {
+            dps.TakeDamage(damage);
+           
+        }
     }
     
     //private void OnCollisionEnter2D(Collision2D collision)

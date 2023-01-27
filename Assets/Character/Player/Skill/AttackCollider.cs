@@ -40,6 +40,12 @@ public class AttackCollider : MonoBehaviour
             //    StartCoroutine(burnEffect.ApplyBurnDamage());
             //}
         }
+        DPS dps = other.GetComponent<DPS>();
+        if (dps != null)
+        {
+            dps.TakeDamage(fireDamage);
+            Destroy(gameObject);
+        }
     }
 }
 //    IEnumerator ApplyDamageOverTime(Enemy enemy)

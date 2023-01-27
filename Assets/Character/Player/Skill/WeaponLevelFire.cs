@@ -35,6 +35,10 @@ public class WeaponLevelFire : MonoBehaviour
             moveMouseDirectionFire.force = 2f;
             moveMouseDirectionFire.destroyDelay = 1.5f;
             moveMouseDirectionFire.cooldown = 1.5f;
+            moveMouseDirectionFire.burnprobability = 10f;
+            moveMouseDirectionFire.burnduration = 4f;
+            moveMouseDirectionFire.burndamageOverTime = 5f;
+            moveMouseDirectionFire.burntimeBetweenDamage = 2f;
         }
         if (level >= 3)
         {
@@ -44,6 +48,10 @@ public class WeaponLevelFire : MonoBehaviour
             moveMouseDirectionFire.destroyDelay = 1.5f;
             moveMouseDirectionFire.cooldown = 1f;
             moveMouseDirectionFire.piercing = true;
+            moveMouseDirectionFire.burnprobability = 20;
+            moveMouseDirectionFire.burnduration = 4f;
+            moveMouseDirectionFire.burndamageOverTime = 10f;
+            moveMouseDirectionFire.burntimeBetweenDamage = 2f;
         }
         if (level >= 4)
         {
@@ -53,6 +61,10 @@ public class WeaponLevelFire : MonoBehaviour
             moveMouseDirectionFire.destroyDelay = 1.5f;
             moveMouseDirectionFire.cooldown = 0.5f;
             moveMouseDirectionFire.piercing = true;
+            moveMouseDirectionFire.burnprobability = 30;
+            moveMouseDirectionFire.burnduration = 5f;
+            moveMouseDirectionFire.burndamageOverTime = 10f;
+            moveMouseDirectionFire.burntimeBetweenDamage = 1f;
         }
         if (level >= 5)
         {
@@ -62,6 +74,10 @@ public class WeaponLevelFire : MonoBehaviour
             moveMouseDirectionFire.destroyDelay = 1.5f;
             moveMouseDirectionFire.cooldown = 0.25f;
             moveMouseDirectionFire.piercing = true;
+            moveMouseDirectionFire.burnprobability = 50;
+            moveMouseDirectionFire.burnduration = 6f;
+            moveMouseDirectionFire.burndamageOverTime = 20f;
+            moveMouseDirectionFire.burntimeBetweenDamage = 1f;
         }
     }
 

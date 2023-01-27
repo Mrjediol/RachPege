@@ -542,7 +542,7 @@ MonoBehaviour:
   damageOverTime: 5
   timeBetweenDamage: 1
   duration: 5
-  probability: 50
+  probability: 0
   burnImage: {fileID: 3431780124371048603}
 --- !u!114 &-5748162381286966790
 MonoBehaviour:

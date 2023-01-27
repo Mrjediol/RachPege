@@ -18,10 +18,22 @@ public class FrozenEffect : MonoBehaviour
     //Animator animator;
 
 
-    private void Start()
-    {
-        //IceXpBar = GameObject.Find("IceXpBar").GetComponent<Slider>();
-    }
+    //private void Update()
+    //{
+    //    WeaponManager weaponManager = FindObjectOfType<WeaponManager>();
+    //    MoveMouseDirectionIce mouseDirectionIce = FindObjectOfType<MoveMouseDirectionIce>();
+    //    if (weaponManager.currentWeapon != null)
+    //    {
+    //        if (weaponManager.currentWeapon.name == "IceBall(Clone)")
+    //        {
+    //            probability = mouseDirectionIce.fronzedprobability;
+    //            damageOverTime = mouseDirectionIce.frozendamageOverTime;
+    //            duration = mouseDirectionIce.frozenduration;
+    //            timeBetweenDamage = mouseDirectionIce.frozentimeBetweenDamage;
+    //            freezeDuration = mouseDirectionIce.frozenFreezeduration;
+    //        }
+    //    }
+    //}
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Iceball")

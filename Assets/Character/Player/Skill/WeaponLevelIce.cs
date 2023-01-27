@@ -15,11 +15,9 @@ public class WeaponLevelIce : MonoBehaviour
     private TextMeshProUGUI IceLevel;
     private void Start()
     {
-         moveMouseDirectionIce = GetComponent<MoveMouseDirectionIce>();
-           
+        moveMouseDirectionIce = GetComponent<MoveMouseDirectionIce>();
         IceXpBar = GameObject.Find("IceXpBar").GetComponent<Slider>();
         IceLevel = GameObject.Find("IceLevel").GetComponent<TextMeshProUGUI>();
-        
     }
     void Update()
     {
@@ -37,6 +35,11 @@ public class WeaponLevelIce : MonoBehaviour
             moveMouseDirectionIce.force = 2f;
             moveMouseDirectionIce.destroyDelay = 1.5f;
             moveMouseDirectionIce.cooldown = 1.5f;
+            moveMouseDirectionIce.fronzedprobability = 10f;
+            moveMouseDirectionIce.frozenduration = 4f;
+            moveMouseDirectionIce.frozendamageOverTime = 5f;
+            moveMouseDirectionIce.frozentimeBetweenDamage = 2f;
+           
         }
         if (level >= 3)
         {
@@ -46,24 +49,36 @@ public class WeaponLevelIce : MonoBehaviour
             moveMouseDirectionIce.destroyDelay = 1.5f;
             moveMouseDirectionIce.cooldown = 1f;
             moveMouseDirectionIce.piercing = true;
+            moveMouseDirectionIce.fronzedprobability = 25f;
+            moveMouseDirectionIce.frozenduration = 6f;
+            moveMouseDirectionIce.frozendamageOverTime = 5f;
+            moveMouseDirectionIce.frozentimeBetweenDamage = 2f;
         }
         if (level >= 4)
         {
-            moveMouseDirectionIce.scale = new Vector3(0.7f, 0.7f, 0.7f);
-            moveMouseDirectionIce.IceDamage = 100f;
+            moveMouseDirectionIce.scale = new Vector3(0.6f, 0.6f, 0.6f);
+            moveMouseDirectionIce.IceDamage = 75f;
             moveMouseDirectionIce.force = 4f;
             moveMouseDirectionIce.destroyDelay = 1.5f;
             moveMouseDirectionIce.cooldown = 0.5f;
             moveMouseDirectionIce.piercing = true;
+            moveMouseDirectionIce.fronzedprobability = 50f;
+            moveMouseDirectionIce.frozenduration = 8f;
+            moveMouseDirectionIce.frozendamageOverTime = 10f;
+            moveMouseDirectionIce.frozentimeBetweenDamage = 2f;
         }
         if (level >= 5)
         {
-            moveMouseDirectionIce.scale = new Vector3(1f, 1f, 1f);
-            moveMouseDirectionIce.IceDamage = 200f;
+            moveMouseDirectionIce.scale = new Vector3(0.8f, 0.8f, 0.8f);
+            moveMouseDirectionIce.IceDamage = 100f;
             moveMouseDirectionIce.force = 5f;
             moveMouseDirectionIce.destroyDelay = 1.5f;
             moveMouseDirectionIce.cooldown = 0.25f;
             moveMouseDirectionIce.piercing = true;
+            moveMouseDirectionIce.fronzedprobability = 75f;
+            moveMouseDirectionIce.frozenduration = 10f;
+            moveMouseDirectionIce.frozendamageOverTime = 5f;
+            moveMouseDirectionIce.frozentimeBetweenDamage = 2f;
         }
     }
 

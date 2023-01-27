@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class MoveMouseDirectionIce : MonoBehaviour
 {
@@ -14,19 +15,37 @@ public class MoveMouseDirectionIce : MonoBehaviour
 
     public float IceDamage = 10f;
     public float fireDamage = 10f;
+    public float fronzedprobability;
+    public float frozendamageOverTime = 1f;
+    public float frozentimeBetweenDamage = 1f;
+    public float frozenduration = 5f;
+    public float frozenFreezeduration = 2f;
     public bool piercing = false;
     public Vector3 scale = new Vector3(0.2f, 0.2f, 0.2f);
     public float cooldown = 2f;
     private float nextFireTime;
     public float experience;
+    public Slider iceCd;
     void Start()
     {
         player = GameObject.Find("Player").transform; // busca el objeto player
         nextFireTime = 0f;
-    }
+        iceCd = GameObject.Find("iceCd").GetComponent<Slider>();
 
+    }
+    
     void Update()
     {
+       
+        if (iceCd.value >= 1.0f)
+        {
+            iceCd.gameObject.SetActive(false);
+        }
+        else
+        {
+            iceCd.gameObject.SetActive(true);
+        }
+
         if (Time.time > nextFireTime)
         {
             if (Input.GetMouseButtonDown(0))
@@ -56,5 +75,8 @@ public class MoveMouseDirectionIce : MonoBehaviour
                 nextFireTime = Time.time + cooldown;
             }
         }
+        iceCd.value = nextFireTime > Time.time ? 1 - (nextFireTime - Time.time) / cooldown : 1;
+
+
     }
 }

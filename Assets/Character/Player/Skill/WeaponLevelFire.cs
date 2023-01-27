@@ -15,8 +15,7 @@ public class WeaponLevelFire : MonoBehaviour
     private TextMeshProUGUI FireLevel;
     private void Start()
     {
-         moveMouseDirectionFire = GetComponent<MoveMouseDirectionFire>();
-           
+        moveMouseDirectionFire = GetComponent<MoveMouseDirectionFire>(); 
         FireXpBar = GameObject.Find("FireXpBar").GetComponent<Slider>();
         FireLevel = GameObject.Find("FireLevel").GetComponent<TextMeshProUGUI>();
     }

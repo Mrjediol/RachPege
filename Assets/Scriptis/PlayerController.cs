@@ -130,7 +130,21 @@ public class PlayerController : MonoBehaviour
         animator.SetTrigger("swordAttack");
         //Debug.Log("fire pressed");
     }
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "ManaStart" )
+        {
+            ManaSystem mana = GetComponent<ManaSystem>();
+            if(mana.maxMana > mana.currentMana)
+            {
+                mana.currentMana += 50f;
 
+                Destroy(other.gameObject);
+            }
+            
+        }
+
+    }
     public void PlayAnimation(string animation)
     {
         if (!hasPlayedSound)

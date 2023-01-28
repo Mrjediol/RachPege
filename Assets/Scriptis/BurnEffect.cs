@@ -12,22 +12,30 @@ public class BurnEffect : MonoBehaviour
     //public Image burnImage;
     public GameObject burnImage;
 
-    
-    //private void Update()
-    //{
-    //    WeaponManager weaponManager = FindObjectOfType<WeaponManager>();
-    //    MoveMouseDirectionFire mouseDirectionFire = FindObjectOfType<MoveMouseDirectionFire>();
-    //    if (weaponManager.currentWeapon != null)
-    //    {
-    //        if (weaponManager.currentWeapon.name == "FireBall(Clone)")
-    //        {
-    //            probability = mouseDirectionFire.burnprobability;
-    //            damageOverTime = mouseDirectionFire.burndamageOverTime;
-    //            duration = mouseDirectionFire.burnduration;
-    //            timeBetweenDamage = mouseDirectionFire.burntimeBetweenDamage;
-    //        }
-    //    }
-    //}
+    WeaponManager weaponManager;
+    SaveState saveState;
+    private void Start()
+    {
+
+        weaponManager = FindObjectOfType<WeaponManager>();
+        saveState = FindObjectOfType<SaveState>();
+    }
+    private void Update()
+    {
+
+        if (weaponManager.currentWeapon != null)
+        {
+            if (weaponManager.currentWeapon.name == "IceBall(Clone)")
+            {
+                probability = saveState.burnprobability;
+                damageOverTime = saveState.burndamageOverTime;
+                duration = saveState.burnduration;
+                timeBetweenDamage = saveState.burntimeBetweenDamage;
+   
+            }
+        }
+
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {

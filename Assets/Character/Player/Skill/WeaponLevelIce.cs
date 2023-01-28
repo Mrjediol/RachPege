@@ -13,11 +13,14 @@ public class WeaponLevelIce : MonoBehaviour
     MoveMouseDirectionIce moveMouseDirectionIce;
     private Slider IceXpBar;
     private TextMeshProUGUI IceLevel;
+    SaveState saveState;
     private void Start()
     {
+        saveState = FindObjectOfType<SaveState>();
         moveMouseDirectionIce = GetComponent<MoveMouseDirectionIce>();
         IceXpBar = GameObject.Find("IceXpBar").GetComponent<Slider>();
         IceLevel = GameObject.Find("IceLevel").GetComponent<TextMeshProUGUI>();
+        
     }
     void Update()
     {
@@ -35,10 +38,10 @@ public class WeaponLevelIce : MonoBehaviour
             moveMouseDirectionIce.force = 2f;
             moveMouseDirectionIce.destroyDelay = 1.5f;
             moveMouseDirectionIce.cooldown = 1.5f;
-            moveMouseDirectionIce.fronzedprobability = 10f;
-            moveMouseDirectionIce.frozenduration = 4f;
-            moveMouseDirectionIce.frozendamageOverTime = 5f;
-            moveMouseDirectionIce.frozentimeBetweenDamage = 2f;
+            saveState.fronzedprobability = 10f;
+            saveState.frozenduration = 4f;
+            saveState.frozendamageOverTime = 5f;
+            saveState.frozentimeBetweenDamage = 2f;
            
         }
         if (level >= 3)
@@ -49,10 +52,10 @@ public class WeaponLevelIce : MonoBehaviour
             moveMouseDirectionIce.destroyDelay = 1.5f;
             moveMouseDirectionIce.cooldown = 1f;
             moveMouseDirectionIce.piercing = true;
-            moveMouseDirectionIce.fronzedprobability = 25f;
-            moveMouseDirectionIce.frozenduration = 6f;
-            moveMouseDirectionIce.frozendamageOverTime = 5f;
-            moveMouseDirectionIce.frozentimeBetweenDamage = 2f;
+            saveState.fronzedprobability = 25f;
+            saveState.frozenduration = 6f;
+            saveState.frozendamageOverTime = 5f;
+            saveState.frozentimeBetweenDamage = 2f;
         }
         if (level >= 4)
         {
@@ -62,10 +65,10 @@ public class WeaponLevelIce : MonoBehaviour
             moveMouseDirectionIce.destroyDelay = 1.5f;
             moveMouseDirectionIce.cooldown = 0.5f;
             moveMouseDirectionIce.piercing = true;
-            moveMouseDirectionIce.fronzedprobability = 50f;
-            moveMouseDirectionIce.frozenduration = 8f;
-            moveMouseDirectionIce.frozendamageOverTime = 10f;
-            moveMouseDirectionIce.frozentimeBetweenDamage = 2f;
+            saveState.fronzedprobability = 50f;
+            saveState.frozenduration = 8f;
+            saveState.frozendamageOverTime = 10f;
+            saveState.frozentimeBetweenDamage = 2f;
         }
         if (level >= 5)
         {
@@ -75,10 +78,10 @@ public class WeaponLevelIce : MonoBehaviour
             moveMouseDirectionIce.destroyDelay = 1.5f;
             moveMouseDirectionIce.cooldown = 0.25f;
             moveMouseDirectionIce.piercing = true;
-            moveMouseDirectionIce.fronzedprobability = 75f;
-            moveMouseDirectionIce.frozenduration = 10f;
-            moveMouseDirectionIce.frozendamageOverTime = 5f;
-            moveMouseDirectionIce.frozentimeBetweenDamage = 2f;
+            saveState.fronzedprobability = 75f;
+            saveState.frozenduration = 10f;
+            saveState.frozendamageOverTime = 5f;
+            saveState.frozentimeBetweenDamage = 2f;
         }
     }
 

@@ -17,28 +17,28 @@ public class FrozenEffect : MonoBehaviour
     public bool isFrozen = false;
     //Animator animator;
     WeaponManager weaponManager;
-    MoveMouseDirectionIce mouseDirectionIce;
-
+    SaveState saveState;
     private void Start()
     {
 
-
+        weaponManager = FindObjectOfType<WeaponManager>();
+        saveState = FindObjectOfType<SaveState>();
     }
     private void Update()
     {
-        WeaponManager weaponManager = FindObjectOfType<WeaponManager>();
-        MoveMouseDirectionIce mouseDirectionIce = FindObjectOfType<MoveMouseDirectionIce>();
-        if (weaponManager.currentWeapon != null)
-        {
-            if (weaponManager.currentWeapon.name == "IceBall(Clone)")
+       
+            if (weaponManager.currentWeapon != null)
             {
-                probability = mouseDirectionIce.fronzedprobability;
-                damageOverTime = mouseDirectionIce.frozendamageOverTime;
-                duration = mouseDirectionIce.frozenduration;
-                timeBetweenDamage = mouseDirectionIce.frozentimeBetweenDamage;
-                freezeDuration = mouseDirectionIce.frozenFreezeduration;
+                if (weaponManager.currentWeapon.name == "IceBall(Clone)")
+                {
+                    probability = saveState.fronzedprobability;
+                    damageOverTime = saveState.frozendamageOverTime;
+                    duration = saveState.frozenduration;
+                    timeBetweenDamage = saveState.frozentimeBetweenDamage;
+                    freezeDuration = saveState.frozenFreezeduration;
+                }
             }
-        }
+        
     }
     private void OnTriggerEnter2D(Collider2D other)
     {

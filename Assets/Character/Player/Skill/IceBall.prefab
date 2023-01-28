@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6275837636236803606}
   - component: {fileID: -8128554791669776794}
   - component: {fileID: 5466569665845608035}
-  - component: {fileID: 8932923779394617365}
+  - component: {fileID: -47902435255331407}
   m_Layer: 0
   m_Name: IceBall
   m_TagString: Untagged
@@ -151,8 +151,8 @@ MonoBehaviour:
   piercing: 0
   scale: {x: 0.2, y: 0.2, z: 0.2}
   cooldown: 2
-  experience: 0
---- !u!114 &8932923779394617365
+  manaCost: 10
+--- !u!114 &-47902435255331407
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -164,6 +164,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17f113f4a5d1b3a4888c959437798431, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentXp: 0
-  level: 0
-  levelUpXp: 50
+  currentXp: 1
+  level: 1
+  levelUpXp: 100

@@ -25,6 +25,11 @@ public class WeaponManager : MonoBehaviour
     public Slider iceCd;
     public Slider fireCd;
 
+    SaveXp savexp;
+    private void Start()
+    {
+        savexp = FindObjectOfType<SaveXp>();
+    }
     public void EquipWeapon(GameObject weapon)
     {
         if (currentWeapon != null)
@@ -221,19 +226,27 @@ public class WeaponManager : MonoBehaviour
 
         if (currentWeapon != null)
         {
+
             if (currentWeapon.name == "IceBall(Clone)")
             {
-                SaveXp savexp = FindObjectOfType<SaveXp>();
-                WeaponLevelIce weaponlevelIce = FindObjectOfType<WeaponLevelIce>();
-                savexp.Icelevel = weaponlevelIce.level;
-                savexp.Icecurrentxp = weaponlevelIce.currentXp;
+                WeaponLevelIce weaponlevelIce = GetComponentInChildren<WeaponLevelIce>();
+                Debug.Log("hielo equip");
+                if (weaponlevelIce != null)
+                {
+                    Debug.Log("guardame hielo");
+                    savexp.Icelevel = weaponlevelIce.level;
+                    savexp.Icecurrentxp = weaponlevelIce.currentXp;
+                }
             }
             if(currentWeapon.name == "FireBall(Clone)")
             {
-                SaveXp saveXp = FindObjectOfType<SaveXp>();
-                WeaponLevelFire weaponLevelFire = FindObjectOfType<WeaponLevelFire>();
-                saveXp.Firelevel = weaponLevelFire.level;
-                saveXp.Firecurrentxp = weaponLevelFire.currentXp;
+                Debug.Log("fuego equip");
+                WeaponLevelFire weaponlevelFire = GetComponentInChildren<WeaponLevelFire>();
+                if (weaponlevelFire != null)
+                {
+                    savexp.Firelevel = weaponlevelFire.level;
+                    savexp.Firecurrentxp = weaponlevelFire.currentXp;
+                }
             }
         }
         

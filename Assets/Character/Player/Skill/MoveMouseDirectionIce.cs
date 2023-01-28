@@ -12,16 +12,12 @@ public class MoveMouseDirectionIce : MonoBehaviour
     [SerializeField] private AudioSource Shoot;
     public float IceDamage = 10f;
     public float fireDamage = 10f;
-    public float fronzedprobability;
-    public float frozendamageOverTime = 1f;
-    public float frozentimeBetweenDamage = 1f;
-    public float frozenduration = 5f;
-    public float frozenFreezeduration = 2f;
+    
     public bool piercing = false;
     public Vector3 scale = new Vector3(0.2f, 0.2f, 0.2f);
     public float cooldown = 2f;
     private float nextFireTime;
-    public Slider iceCd;
+    private Slider iceCd;
     public float manaCost = 10f;
     void Start()
     {

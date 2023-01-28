@@ -28,7 +28,10 @@ public class AttackColliderFire : MonoBehaviour
             if (enemy != null)
             {
                 Debug.Log("2");
-                weaponLevelFire.currentXp += fireDamage;
+                if (weaponLevelFire.level < 5f)
+                {
+                    weaponLevelFire.currentXp += fireDamage;
+                }
                 enemy.Takehit(fireDamage);
                 if (piercing == false)
                 {

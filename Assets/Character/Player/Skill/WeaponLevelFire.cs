@@ -9,26 +9,41 @@ public class WeaponLevelFire : MonoBehaviour
 {
     public float currentXp;
     public int level;
-    public float levelUpXp = 50;
+    public float levelUpXp = 10000;
     MoveMouseDirectionFire moveMouseDirectionFire;
     private Slider FireXpBar;
     private TextMeshProUGUI FireLevel;
+    private TextMeshProUGUI FireLevelUp;
     SaveState saveState;
+    SaveXp saveXp;
     private void Start()
     {
         saveState = FindObjectOfType<SaveState>();
         moveMouseDirectionFire = GetComponent<MoveMouseDirectionFire>(); 
         FireXpBar = GameObject.Find("FireXpBar").GetComponent<Slider>();
         FireLevel = GameObject.Find("FireLevel").GetComponent<TextMeshProUGUI>();
+        FireLevelUp = GameObject.Find("FireLevelUp").GetComponent<TextMeshProUGUI>();
+        saveXp = FindObjectOfType<SaveXp>();
     }
     void Update()
     {
-        FireLevel.text = "Lvl. " + level;
+        if (level < 5f)
+        {
+            FireLevel.text = "Lvl. " + level;
+            FireLevelUp.text = currentXp + "/" + levelUpXp;
+        }
+
         if (currentXp >= levelUpXp)
         {
             LevelUp();
         }
         FireXpBar.value = currentXp / levelUpXp;
+        saveXp.Firelevel = level;
+        saveXp.Firecurrentxp = currentXp;
+        if (level >= 1)
+        {
+            levelUpXp = 75;
+        }
         if (level >= 2)
         {
             moveMouseDirectionFire.scale = new Vector3(0.3f, 0.3f, 0.3f);
@@ -40,6 +55,7 @@ public class WeaponLevelFire : MonoBehaviour
             saveState.burnduration = 4f;
             saveState.burndamageOverTime = 5f;
             saveState.burntimeBetweenDamage = 2f;
+            levelUpXp = 500f;
         }
         if (level >= 3)
         {
@@ -53,6 +69,7 @@ public class WeaponLevelFire : MonoBehaviour
             saveState.burnduration = 4f;
             saveState.burndamageOverTime = 10f;
             saveState.burntimeBetweenDamage = 2f;
+            levelUpXp = 1250f;
         }
         if (level >= 4)
         {
@@ -66,6 +83,7 @@ public class WeaponLevelFire : MonoBehaviour
             saveState.burnduration = 5f;
             saveState.burndamageOverTime = 10f;
             saveState.burntimeBetweenDamage = 1f;
+            levelUpXp = 2500f;
         }
         if (level >= 5)
         {
@@ -79,14 +97,25 @@ public class WeaponLevelFire : MonoBehaviour
             saveState.burnduration = 6f;
             saveState.burndamageOverTime = 20f;
             saveState.burntimeBetweenDamage = 1f;
+            FireLevel.fontSize = 26f;
+            FireLevel.text = "Max Lvl. " + level;
+            FireLevelUp.text ="";
         }
     }
 
     void LevelUp()
     {
         level++;
-        currentXp -= levelUpXp;
-        levelUpXp = Mathf.RoundToInt(levelUpXp * 5f); // aumenta la cantidad de XP necesaria para subir de nivel
-        FireXpBar.value = 0;
+        if (level >= 5)
+        {
+            FireXpBar.value = 100;
+            level = 5;
+        }
+        else
+        {
+            currentXp -= levelUpXp;
+            FireXpBar.value = 0;
+        }
+
     }
 }

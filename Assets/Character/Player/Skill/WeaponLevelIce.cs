@@ -9,28 +9,42 @@ public class WeaponLevelIce : MonoBehaviour
 {
     public float currentXp;
     public int level;
-    public float levelUpXp = 100;
+    public float levelUpXp = 10000f;
     MoveMouseDirectionIce moveMouseDirectionIce;
     private Slider IceXpBar;
     private TextMeshProUGUI IceLevel;
+    private TextMeshProUGUI IceLevelUp;
     SaveState saveState;
+    SaveXp saveXp;
     private void Start()
     {
         saveState = FindObjectOfType<SaveState>();
         moveMouseDirectionIce = GetComponent<MoveMouseDirectionIce>();
         IceXpBar = GameObject.Find("IceXpBar").GetComponent<Slider>();
         IceLevel = GameObject.Find("IceLevel").GetComponent<TextMeshProUGUI>();
-        
+        IceLevelUp = GameObject.Find("IceLevelUp").GetComponent<TextMeshProUGUI>();
+        saveXp = FindObjectOfType<SaveXp>();
     }
     void Update()
     {
-        IceLevel.text = "Lvl. " + level;
-
+        if(level < 5f)
+        {
+            IceLevel.text = "Lvl. " + level;
+            IceLevelUp.text = currentXp + "/" + levelUpXp;
+        }
+        
         if (currentXp >= levelUpXp)
         {
             LevelUp();
         }
         IceXpBar.value = currentXp / levelUpXp;
+        //Guardo la Experiencia en saveXp, para recogerla cuando equipe arma o cambie.
+        saveXp.Icecurrentxp = currentXp;
+        saveXp.Icelevel = level;
+        if (level >= 1)
+        {
+            levelUpXp = 100;
+        }
         if (level >= 2)
         {
             moveMouseDirectionIce.scale = new Vector3(0.3f, 0.3f, 0.3f);
@@ -42,7 +56,7 @@ public class WeaponLevelIce : MonoBehaviour
             saveState.frozenduration = 4f;
             saveState.frozendamageOverTime = 5f;
             saveState.frozentimeBetweenDamage = 2f;
-           
+            levelUpXp = 350f;
         }
         if (level >= 3)
         {
@@ -56,6 +70,7 @@ public class WeaponLevelIce : MonoBehaviour
             saveState.frozenduration = 6f;
             saveState.frozendamageOverTime = 5f;
             saveState.frozentimeBetweenDamage = 2f;
+            levelUpXp = 800f;
         }
         if (level >= 4)
         {
@@ -69,6 +84,7 @@ public class WeaponLevelIce : MonoBehaviour
             saveState.frozenduration = 8f;
             saveState.frozendamageOverTime = 10f;
             saveState.frozentimeBetweenDamage = 2f;
+            levelUpXp = 1500f;
         }
         if (level >= 5)
         {
@@ -82,15 +98,26 @@ public class WeaponLevelIce : MonoBehaviour
             saveState.frozenduration = 10f;
             saveState.frozendamageOverTime = 5f;
             saveState.frozentimeBetweenDamage = 2f;
+            IceLevel.fontSize = 26f;
+            IceLevel.text = "Max Lvl. " + level;
+            IceLevelUp.text = "";
         }
     }
 
     void LevelUp()
     {
-        level++;
-        currentXp -= levelUpXp;
-        levelUpXp = Mathf.RoundToInt(levelUpXp * 5f); // aumenta la cantidad de XP necesaria para subir de nivel
-        IceXpBar.value = 0;
-        
+        level++;      
+        if (level >= 5)
+        {
+            IceXpBar.value = 100;
+            level = 5;
+        }
+        else
+        {
+            currentXp -= levelUpXp;
+            IceXpBar.value = 0;
+        }
+
     }
 }
+/*levelUpXp = Mathf.RoundToInt(levelUpXp * 5f);*/ // aumenta la cantidad de XP necesaria para subir de nivel

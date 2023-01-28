@@ -24,7 +24,10 @@ public class AttackColliderIce : MonoBehaviour
             //Debug.Log("1");
             if (enemy != null)
             {
-                weaponlevelIce.currentXp += IceDamage;
+                if (weaponlevelIce.level < 5f)
+                {
+                    weaponlevelIce.currentXp += IceDamage;
+                }
                 //Debug.Log("2");
                 enemy.Takehit(IceDamage);
                 if (piercing == false)

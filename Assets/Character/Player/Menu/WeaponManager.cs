@@ -11,7 +11,6 @@ public class WeaponManager : MonoBehaviour
     public Transform previousWeaponHold;
     public GameObject weaponsMenu;
     public Sprite mySprite;
-
     public GameObject currentfireballBook;
     public GameObject currentplantballBook;
     public GameObject currenticeballBook;
@@ -20,16 +19,12 @@ public class WeaponManager : MonoBehaviour
     public GameObject previousIce;
     public GameObject IceXpBar;
     public GameObject IceLevel;
+    public GameObject IceLevelUp;
     public GameObject FireXpBar;
     public GameObject FireLevel;
+    public GameObject FireLevelUp;
     public Slider iceCd;
     public Slider fireCd;
-
-    SaveXp savexp;
-    private void Start()
-    {
-        savexp = FindObjectOfType<SaveXp>();
-    }
     public void EquipWeapon(GameObject weapon)
     {
         if (currentWeapon != null)
@@ -63,6 +58,7 @@ public class WeaponManager : MonoBehaviour
                     currenticeballBook.SetActive(true);
                     IceXpBar.SetActive(true);
                     IceLevel.SetActive(true);
+                    IceLevelUp.SetActive(true);
                     SaveXp savexp = FindObjectOfType<SaveXp>();
                     WeaponLevelIce weaponlevelIce = FindObjectOfType<WeaponLevelIce>();
                     weaponlevelIce.level = savexp.Icelevel;
@@ -76,6 +72,7 @@ public class WeaponManager : MonoBehaviour
                     currentfireballBook.SetActive(true);
                     FireXpBar.SetActive(true);
                     FireLevel.SetActive(true);
+                    FireLevelUp.SetActive(true);
                     SaveXp savexp = FindObjectOfType<SaveXp>();
                     WeaponLevelFire weaponlevelFire = FindObjectOfType<WeaponLevelFire>();
                     weaponlevelFire.level = savexp.Firelevel;
@@ -101,6 +98,7 @@ public class WeaponManager : MonoBehaviour
             currentfireballBook.SetActive(true);
             FireXpBar.SetActive(true);
             FireLevel.SetActive(true);
+            FireLevelUp.SetActive(true);
             SaveXp savexp = FindObjectOfType<SaveXp>();
             WeaponLevelFire weaponlevelFire = FindObjectOfType<WeaponLevelFire>();
             weaponlevelFire.level = savexp.Firelevel;
@@ -113,6 +111,7 @@ public class WeaponManager : MonoBehaviour
             currenticeballBook.SetActive(true);
             IceXpBar.SetActive(true);
             IceLevel.SetActive(true);
+            IceLevelUp.SetActive(true);
             SaveXp savexp = FindObjectOfType<SaveXp>();
             WeaponLevelIce weaponlevelIce = FindObjectOfType<WeaponLevelIce>();
             weaponlevelIce.level = savexp.Icelevel;
@@ -129,6 +128,7 @@ public class WeaponManager : MonoBehaviour
             currentfireballBook.SetActive(true);
             FireXpBar.SetActive(true);
             FireLevel.SetActive(true);
+            FireLevelUp.SetActive(true);
             SaveXp savexp = FindObjectOfType<SaveXp>();
             WeaponLevelFire weaponlevelFire = FindObjectOfType<WeaponLevelFire>();
             weaponlevelFire.level = savexp.Firelevel;
@@ -139,6 +139,7 @@ public class WeaponManager : MonoBehaviour
             currentfireballBook.SetActive(false);
             FireXpBar.SetActive(false);
             FireLevel.SetActive(false);
+            FireLevelUp.SetActive(false);
             fireCd.gameObject.SetActive(false);
         }
         if (currentWeapon.name == "IceBall(Clone)")
@@ -146,6 +147,7 @@ public class WeaponManager : MonoBehaviour
             currenticeballBook.SetActive(true);
             IceXpBar.SetActive(true);
             IceLevel.SetActive(true);
+            IceLevelUp.SetActive(true);
             SaveXp savexp = FindObjectOfType<SaveXp>();
             WeaponLevelIce weaponlevelIce = FindObjectOfType<WeaponLevelIce>();
             weaponlevelIce.level = savexp.Icelevel;
@@ -157,6 +159,7 @@ public class WeaponManager : MonoBehaviour
             currenticeballBook.SetActive(false);
             IceXpBar.SetActive(false);
             IceLevel.SetActive(false);
+            IceLevelUp.SetActive(false);
             iceCd.gameObject.SetActive(false);
         }
         if (currentWeapon.name == "PlantBall(Clone)")
@@ -222,61 +225,9 @@ public class WeaponManager : MonoBehaviour
     }
     void Update()
     {
-
-
-        if (currentWeapon != null)
-        {
-
-            if (currentWeapon.name == "IceBall(Clone)")
-            {
-                WeaponLevelIce weaponlevelIce = GetComponentInChildren<WeaponLevelIce>();
-                Debug.Log("hielo equip");
-                if (weaponlevelIce != null)
-                {
-                    Debug.Log("guardame hielo");
-                    savexp.Icelevel = weaponlevelIce.level;
-                    savexp.Icecurrentxp = weaponlevelIce.currentXp;
-                }
-            }
-            if(currentWeapon.name == "FireBall(Clone)")
-            {
-                Debug.Log("fuego equip");
-                WeaponLevelFire weaponlevelFire = GetComponentInChildren<WeaponLevelFire>();
-                if (weaponlevelFire != null)
-                {
-                    savexp.Firelevel = weaponlevelFire.level;
-                    savexp.Firecurrentxp = weaponlevelFire.currentXp;
-                }
-            }
-        }
-        
         if (Input.GetKeyDown(KeyCode.Q) && previousWeapon != null)
         {
             SwitchWeapon();
         }
     }
 }
-
-//public class WeaponManager : MonoBehaviour
-//{
-//    public static GameObject currentWeapon;
-//    public GameObject weaponsMenu;
-//    public static void EquipWeapon(GameObject weapon)
-//    {
-//        if (currentWeapon != null)
-//        {
-//            Destroy(currentWeapon);
-//        }
-
-//        currentWeapon = weapon;
-//    }
-
-//}
-//void Update()
-//{
-//    if (Input.GetKeyDown(KeyCode.E))
-//    {
-//        weaponsMenu.SetActive(!weaponsMenu.activeSelf);
-//        Time.timeScale = 0;
-//    }
-//}

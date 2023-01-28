@@ -55,6 +55,7 @@ MonoBehaviour:
   piercing: 0
   scale: {x: 0.2, y: 0.2, z: 0.2}
   cooldown: 2
+  fireCd: {fileID: 0}
 --- !u!82 &-8128554791669776794
 AudioSource:
   m_ObjectHideFlags: 0
@@ -164,5 +165,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentXp: 0
-  level: 0
-  levelUpXp: 50
+  level: 1
+  levelUpXp: 10000

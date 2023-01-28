@@ -20,16 +20,16 @@ public class AttackColliderIce : MonoBehaviour
             //Debug.Log("llego a 1");
             Enemy enemy = other.GetComponent<Enemy>();
             WeaponLevelIce weaponlevelIce = GetComponentInParent<WeaponLevelIce>();
-            //FrozenEffect frozenEffect = other.GetComponent<FrozenEffect>();
-            Debug.Log("1");
+            //frozeneffect frozeneffect = other.getcomponent<frozeneffect>();
+            //Debug.Log("1");
             if (enemy != null)
             {
                 weaponlevelIce.currentXp += IceDamage;
-                Debug.Log("2");
+                //Debug.Log("2");
                 enemy.Takehit(IceDamage);
                 if (piercing == false)
                 {
-                    Debug.Log("3");
+                    //Debug.Log("3");
                     Destroy(gameObject);
                 }
             }

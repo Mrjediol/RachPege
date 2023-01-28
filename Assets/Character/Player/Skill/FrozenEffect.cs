@@ -16,24 +16,30 @@ public class FrozenEffect : MonoBehaviour
     private float freezeTimer = 0f;
     public bool isFrozen = false;
     //Animator animator;
+    WeaponManager weaponManager;
+    MoveMouseDirectionIce mouseDirectionIce;
+
+    private void Start()
+    {
 
 
-    //private void Update()
-    //{
-    //    WeaponManager weaponManager = FindObjectOfType<WeaponManager>();
-    //    MoveMouseDirectionIce mouseDirectionIce = FindObjectOfType<MoveMouseDirectionIce>();
-    //    if (weaponManager.currentWeapon != null)
-    //    {
-    //        if (weaponManager.currentWeapon.name == "IceBall(Clone)")
-    //        {
-    //            probability = mouseDirectionIce.fronzedprobability;
-    //            damageOverTime = mouseDirectionIce.frozendamageOverTime;
-    //            duration = mouseDirectionIce.frozenduration;
-    //            timeBetweenDamage = mouseDirectionIce.frozentimeBetweenDamage;
-    //            freezeDuration = mouseDirectionIce.frozenFreezeduration;
-    //        }
-    //    }
-    //}
+    }
+    private void Update()
+    {
+        WeaponManager weaponManager = FindObjectOfType<WeaponManager>();
+        MoveMouseDirectionIce mouseDirectionIce = FindObjectOfType<MoveMouseDirectionIce>();
+        if (weaponManager.currentWeapon != null)
+        {
+            if (weaponManager.currentWeapon.name == "IceBall(Clone)")
+            {
+                probability = mouseDirectionIce.fronzedprobability;
+                damageOverTime = mouseDirectionIce.frozendamageOverTime;
+                duration = mouseDirectionIce.frozenduration;
+                timeBetweenDamage = mouseDirectionIce.frozentimeBetweenDamage;
+                freezeDuration = mouseDirectionIce.frozenFreezeduration;
+            }
+        }
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Iceball")
@@ -50,11 +56,11 @@ public class FrozenEffect : MonoBehaviour
         //Image burnImage = GetComponentInChildren<Image>();
         FrozenImage.SetActive(true);
 
-        
+
         float timeElapsed = 0f;
         while (timeElapsed < duration)
         {
-            
+
 
             Enemy enemy = GetComponent<Enemy>();
             if (enemy != null)
@@ -64,7 +70,7 @@ public class FrozenEffect : MonoBehaviour
                 timeElapsed += timeBetweenDamage;
                 isFrozen = true;
                 freezeTimer = freezeDuration;
-                
+
 
                 yield return new WaitForSeconds(timeBetweenDamage);
             }

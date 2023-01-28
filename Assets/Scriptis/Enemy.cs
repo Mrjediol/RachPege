@@ -26,8 +26,9 @@ public class Enemy : MonoBehaviour
     
     public Spawner spawner;
     public delegate void OnEnemyKilled();
-    public FrozenEffect frozenEffect;
-
+    //public FrozenEffect frozenEffect;
+    //public bool isFrozen = false;
+    //private float freezeTimer;
 
     private void Start()
     {
@@ -58,19 +59,27 @@ public class Enemy : MonoBehaviour
             rb.AddForce(moveSpeed * Time.fixedDeltaTime * direction);
             
         }
-        if (frozenEffect.isFrozen)
-        {
-            moveSpeed = slowedmoveSpeed;
-            dashSpeed = SloweddashSpeed;
-        }
-        else
-        {
-            moveSpeed = 50f;
-            dashSpeed = 5000f;
-            
-        }
+        //if (isFrozen)
+        //{
+        //    freezeTimer -= Time.deltaTime;
+        //    moveSpeed = slowedmoveSpeed;
+        //    dashSpeed = SloweddashSpeed;
+        //    if (freezeTimer <= 0f)
+
+        //    {
+        //        isFrozen = false;
+
+        //    }
+        //    else
+        //    {
+        //        moveSpeed = 50f;
+        //        dashSpeed = 5000f;
+
+        //    }
+        //}
     }
 
+ 
     public void Dash()
     {
         if (detectionZone.detectedObjs != null && detectionZone.detectedObjs.Count > 0)

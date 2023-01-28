@@ -224,7 +224,6 @@ GameObject:
   - component: {fileID: 7897990421460196787}
   - component: {fileID: 7897990421460196784}
   - component: {fileID: 9214129145398872329}
-  - component: {fileID: -5748162381286966790}
   m_Layer: 6
   m_Name: Slime
   m_TagString: Enemy
@@ -352,7 +351,7 @@ MonoBehaviour:
   knowback: 2000
   damagable: 1
   spawner: {fileID: 0}
-  frozenEffect: {fileID: -5748162381286966790}
+  frozenEffect: {fileID: 0}
 --- !u!50 &2866632734358892599
 Rigidbody2D:
   serializedVersion: 4
@@ -544,25 +543,6 @@ MonoBehaviour:
   duration: 5
   probability: 0
   burnImage: {fileID: 3431780124371048603}
---- !u!114 &-5748162381286966790
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1306823446721168568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ca4a86cd88e6824081d8f98a4ad240a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageOverTime: 5
-  timeBetweenDamage: 2
-  duration: 6
-  probability: 10
-  FrozenImage: {fileID: 7835391540083368001}
-  freezeDuration: 2
-  isFrozen: 0
 --- !u!1 &2610557783955629869
 GameObject:
   m_ObjectHideFlags: 0

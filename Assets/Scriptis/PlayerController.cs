@@ -140,7 +140,7 @@ public class PlayerController : MonoBehaviour
             {
                 float amountToAdd = Mathf.Min(manaValue.manaValue, mana.maxMana - mana.currentMana);
                 mana.currentMana +=amountToAdd;
-
+                manaValue.CreateFloatingText();
                 Destroy(other.gameObject);
             } 
         }

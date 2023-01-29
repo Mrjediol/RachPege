@@ -25,7 +25,7 @@ public class SaveXp : MonoBehaviour
         PlayerPrefs.SetInt("Firelevel", Firelevel); // guardar el nivel actual
         PlayerPrefs.Save();
         PlayerPrefs.SetFloat("Firecurrentxp", Firecurrentxp); // guardar la Experiencia actual
-        PlayerPrefs.Save();
+        PlayerPrefs.Save(); 
 
     }
 

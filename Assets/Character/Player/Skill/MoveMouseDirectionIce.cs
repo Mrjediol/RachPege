@@ -5,20 +5,20 @@ using System;
 using UnityEngine.UI;
 public class MoveMouseDirectionIce : MonoBehaviour
 {
-    public float force = 3f; // fuerza a la que se moverá el objeto
-    public float destroyDelay = 1f; //tiempo para destruir el objeto en segundos
     private Transform player; //objeto al que se movera el prefab
-    public GameObject prefab;
-    [SerializeField] private AudioSource Shoot;
-    public float IceDamage = 10f;
-    public float fireDamage = 10f;
-    
-    public bool piercing = false;
-    public Vector3 scale = new Vector3(0.2f, 0.2f, 0.2f);
-    public float cooldown = 2f;
     private float nextFireTime;
     private Slider iceCd;
+    public float force = 3f; // fuerza a la que se moverá el objeto
+    public float destroyDelay = 1f; //tiempo para destruir el objeto en segundos
+    public float IceDamage = 10f;
+    public float fireDamage = 10f;
     public float manaCost = 10f;
+    public float cooldown = 2f;
+    public bool piercing = false;
+    public Vector3 scale = new Vector3(0.2f, 0.2f, 0.2f);
+    public GameObject prefab;
+    [SerializeField] private AudioSource Shoot;
+
     void Start()
     {
         player = GameObject.Find("Player").transform; // busca el objeto player
@@ -41,11 +41,12 @@ public class MoveMouseDirectionIce : MonoBehaviour
 
         if (Time.time > nextFireTime)
         {
-            ManaSystem manaSystem = FindObjectOfType<ManaSystem>();
-            if(manaSystem.currentMana > manaCost) 
+            if (Input.GetMouseButtonDown(0))
             {
-                if (Input.GetMouseButtonDown(0))
+                ManaSystem manaSystem = FindObjectOfType<ManaSystem>();
+                if(manaSystem.currentMana > manaCost) 
                 {
+                
                     Shoot.Play();
                     Vector3 mousePos = Input.mousePosition;
                     Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);

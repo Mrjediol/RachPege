@@ -351,6 +351,7 @@ MonoBehaviour:
   healthText: {fileID: 7838397888181490379}
   knowback: 2000
   damagable: 1
+  manaStarPrefab: {fileID: 4447463466640513174, guid: deaa50a1376b05b4180904b132209b4b, type: 3}
   spawner: {fileID: 0}
 --- !u!50 &2866632734358892599
 Rigidbody2D:

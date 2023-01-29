@@ -135,15 +135,15 @@ public class PlayerController : MonoBehaviour
         if (other.tag == "ManaStart" )
         {
             ManaSystem mana = GetComponent<ManaSystem>();
+            ManaValue manaValue = other.GetComponent<ManaValue>();
             if(mana.maxMana > mana.currentMana)
             {
-                mana.currentMana += 50f;
+                float amountToAdd = Mathf.Min(manaValue.manaValue, mana.maxMana - mana.currentMana);
+                mana.currentMana +=amountToAdd;
 
                 Destroy(other.gameObject);
-            }
-            
+            } 
         }
-
     }
     public void PlayAnimation(string animation)
     {

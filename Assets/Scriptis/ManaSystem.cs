@@ -21,11 +21,9 @@ public class ManaSystem : MonoBehaviour
     }
     private void Update()
     {
-        if (currentMana < maxMana)
-        {
-            manaBar.fillAmount = Mathf.MoveTowards(manaBar.fillAmount, 1f, Time.deltaTime * (0.01f * manaregen));
-            currentMana = Mathf.MoveTowards(currentMana / maxMana, 1f, Time.deltaTime * (0.01f * manaregen)) * maxMana;
-        }
+        manaBar.fillAmount = Mathf.MoveTowards(currentMana / maxMana, 1f, Time.deltaTime * (0.01f * manaregen));
+        currentMana = Mathf.MoveTowards(currentMana / maxMana, 1f, Time.deltaTime * (0.01f * manaregen)) * maxMana;
+
         if (currentMana < 0)
         {
             currentMana = 0;

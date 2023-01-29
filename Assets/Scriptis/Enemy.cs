@@ -23,6 +23,7 @@ public class Enemy : MonoBehaviour
     public TextMeshProUGUI healthText;
     public float knowback = 1000f;
     public bool damagable = true;
+    public GameObject manaStarPrefab;
     
     public Spawner spawner;
     public delegate void OnEnemyKilled();
@@ -150,6 +151,23 @@ public class Enemy : MonoBehaviour
         LevelSystem XP = FindObjectOfType<LevelSystem>();
         XP.GainExperienceFlatRate(giveXP);
         spawner.DecreaseActiveEnemies();
+        // Instanciar el prefab de la estrella de mana
+        GameObject manaStar = Instantiate(manaStarPrefab, transform.position, Quaternion.identity);
+        // Establecer el valor de manaValue en función del nivel del enemigo
+        float manaValue = 0;
+        if (enemyLvl == 1)
+        {
+            manaValue = 50;
+        }
+        else if (enemyLvl >= 100)
+        {
+            manaValue = 250;
+        }
+        else
+        {
+            manaValue = 50f + (enemyLvl - 1f) * 2f;
+        }
+        manaStar.GetComponent<ManaValue>().manaValue = manaValue;
         Destroy(gameObject);
     }
 

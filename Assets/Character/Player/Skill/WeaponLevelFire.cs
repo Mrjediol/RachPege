@@ -51,6 +51,7 @@ public class WeaponLevelFire : MonoBehaviour
             moveMouseDirectionFire.force = 2f;
             moveMouseDirectionFire.destroyDelay = 1.5f;
             moveMouseDirectionFire.cooldown = 1.5f;
+            moveMouseDirectionFire.manaCost = 15f;
             saveState.burnprobability = 10f;
             saveState.burnduration = 4f;
             saveState.burndamageOverTime = 5f;
@@ -64,6 +65,7 @@ public class WeaponLevelFire : MonoBehaviour
             moveMouseDirectionFire.force = 3f;
             moveMouseDirectionFire.destroyDelay = 1.5f;
             moveMouseDirectionFire.cooldown = 1f;
+            moveMouseDirectionFire.manaCost = 25f;
             moveMouseDirectionFire.piercing = true;
             saveState.burnprobability = 20;
             saveState.burnduration = 4f;
@@ -78,6 +80,7 @@ public class WeaponLevelFire : MonoBehaviour
             moveMouseDirectionFire.force = 4f;
             moveMouseDirectionFire.destroyDelay = 1.5f;
             moveMouseDirectionFire.cooldown = 0.5f;
+            moveMouseDirectionFire.manaCost = 35f;
             moveMouseDirectionFire.piercing = true;
             saveState.burnprobability = 30;
             saveState.burnduration = 5f;
@@ -92,6 +95,7 @@ public class WeaponLevelFire : MonoBehaviour
             moveMouseDirectionFire.force = 5f;
             moveMouseDirectionFire.destroyDelay = 1.5f;
             moveMouseDirectionFire.cooldown = 0.25f;
+            moveMouseDirectionFire.manaCost = 50f;
             moveMouseDirectionFire.piercing = true;
             saveState.burnprobability = 50;
             saveState.burnduration = 6f;

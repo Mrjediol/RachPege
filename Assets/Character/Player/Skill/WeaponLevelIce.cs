@@ -52,6 +52,7 @@ public class WeaponLevelIce : MonoBehaviour
             moveMouseDirectionIce.force = 2f;
             moveMouseDirectionIce.destroyDelay = 1.5f;
             moveMouseDirectionIce.cooldown = 1.5f;
+            moveMouseDirectionIce.manaCost = 15f;
             saveState.fronzedprobability = 10f;
             saveState.frozenduration = 4f;
             saveState.frozendamageOverTime = 5f;
@@ -65,6 +66,7 @@ public class WeaponLevelIce : MonoBehaviour
             moveMouseDirectionIce.force = 3f;
             moveMouseDirectionIce.destroyDelay = 1.5f;
             moveMouseDirectionIce.cooldown = 1f;
+            moveMouseDirectionIce.manaCost = 20f;
             moveMouseDirectionIce.piercing = true;
             saveState.fronzedprobability = 25f;
             saveState.frozenduration = 6f;
@@ -79,6 +81,7 @@ public class WeaponLevelIce : MonoBehaviour
             moveMouseDirectionIce.force = 4f;
             moveMouseDirectionIce.destroyDelay = 1.5f;
             moveMouseDirectionIce.cooldown = 0.5f;
+            moveMouseDirectionIce.manaCost = 25f;
             moveMouseDirectionIce.piercing = true;
             saveState.fronzedprobability = 50f;
             saveState.frozenduration = 8f;
@@ -93,6 +96,7 @@ public class WeaponLevelIce : MonoBehaviour
             moveMouseDirectionIce.force = 5f;
             moveMouseDirectionIce.destroyDelay = 1.5f;
             moveMouseDirectionIce.cooldown = 0.25f;
+            moveMouseDirectionIce.manaCost = 30f;
             moveMouseDirectionIce.piercing = true;
             saveState.fronzedprobability = 75f;
             saveState.frozenduration = 10f;

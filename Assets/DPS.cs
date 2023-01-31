@@ -11,7 +11,7 @@ public class DPS : MonoBehaviour
     private float lastAttackTime;
     private float damagePerSecond;
     private TextMeshProUGUI DpsText;
-
+    public GameObject damageText;
     private void Start()
     {
         DpsText = GameObject.Find("DpsText").GetComponent<TextMeshProUGUI>();
@@ -28,6 +28,13 @@ public class DPS : MonoBehaviour
         // Restar el daño de la vida
         health -= damage;
         // Calcular el DPS
+        RectTransform textTransform = Instantiate(damageText).GetComponent<RectTransform>();
+        textTransform.GetComponent<TextMeshProUGUI>().text = "- " + damage.ToString();
+        textTransform.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+
+        GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");
+        textTransform.SetParent(canvas.transform);
+
         damagePerSecond = damage / lastAttackTime;
         lastAttackTime = 0;
         damagePerSecond = Mathf.Round(damagePerSecond * 10) / 10f;

@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
     public float knowback = 1000f;
     public bool damagable = true;
     public GameObject manaStarPrefab;
-    
+    public GameObject damageText;
     public Spawner spawner;
     public delegate void OnEnemyKilled();
     //public FrozenEffect frozenEffect;
@@ -118,6 +118,7 @@ public class Enemy : MonoBehaviour
 
         //Debug.Log ("te imaginas que funciona");
         animator.SetTrigger("Damaged");
+       
     }
     public void Takehit(float damageRevice)
     {
@@ -126,6 +127,12 @@ public class Enemy : MonoBehaviour
             Health -= damageRevice;
             healthBar.SetHealth(health, maxHealth);
             healthText.text = Health + "/" + maxHealth;
+            RectTransform textTransform = Instantiate(damageText).GetComponent<RectTransform>();
+            textTransform.GetComponent<TextMeshProUGUI>().text = damageRevice.ToString();
+            textTransform.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+
+            GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");
+            textTransform.SetParent(canvas.transform);
             Debug.Log(gameObject.name);
             // Check if the list is not empty before trying to access an element
             SwordAttack swordAttack = FindObjectOfType<SwordAttack>();

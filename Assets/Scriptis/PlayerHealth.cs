@@ -83,7 +83,7 @@ public class PlayerHealth : MonoBehaviour
             health -= damage;
             animator.SetTrigger("Damaged");
             RectTransform textTransform = Instantiate(damageText).GetComponent<RectTransform>();
-            textTransform.GetComponent<TextMeshProUGUI>().text = damage.ToString();
+            textTransform.GetComponent<TextMeshProUGUI>().text = "- " + damage.ToString();
             textTransform.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
 
             GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");
@@ -97,6 +97,12 @@ public class PlayerHealth : MonoBehaviour
     public void RestoreHealth(float healAmout)
     {
         health += healAmout;
+        RectTransform textTransform = Instantiate(damageText).GetComponent<RectTransform>();
+        textTransform.GetComponent<TextMeshProUGUI>().text = "+ " + healAmout.ToString();
+        textTransform.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+
+        GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");
+        textTransform.SetParent(canvas.transform);
         lerpTimer = 0f;
     }
     public void IncreaseHealth(int level)

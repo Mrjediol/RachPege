@@ -136,7 +136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2281252000640622299
 Transform:
   m_ObjectHideFlags: 0
@@ -352,6 +352,7 @@ MonoBehaviour:
   knowback: 2000
   damagable: 1
   manaStarPrefab: {fileID: 4447463466640513174, guid: deaa50a1376b05b4180904b132209b4b, type: 3}
+  damageText: {fileID: 517097095551127783, guid: ef0902c0dbda15e41bb12c0d69dd7928, type: 3}
   spawner: {fileID: 0}
 --- !u!50 &2866632734358892599
 Rigidbody2D:

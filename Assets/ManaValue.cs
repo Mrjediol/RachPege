@@ -47,7 +47,7 @@ public class ManaValue : MonoBehaviour
         canvasGO.AddComponent<GraphicRaycaster>();
 
         /*TextMeshProUGUI */
-        floatingText = new GameObject().AddComponent<TextMeshProUGUI>();
+        floatingText = new GameObject("floatingText").AddComponent<TextMeshProUGUI>();
         floatingText.text = "+ " + manaValue;
         floatingText.transform.SetParent(canvasGO.transform);
         floatingText.rectTransform.localPosition = Vector3.zero;
@@ -62,7 +62,8 @@ public class ManaValue : MonoBehaviour
     {
         if (floatingText != null)
         {
-            floatingText.rectTransform.localPosition += new Vector3(0, speed * Time.deltaTime, 0);
+            Debug.Log("floatingText existe");
+            floatingText.rectTransform.localPosition -= new Vector3(0, speed * Time.deltaTime, 0);
 
         }  //GameObject manaStarText = Instantiate(manaStarTextPrefab, transform.position, Quaternion.identity);
     }

@@ -17,6 +17,7 @@ public class InstantiateOnClick : MonoBehaviour
             worldPos.z = 0; // aseguramos que la posición en z sea 0 para evitar problemas con la profundidad de la cámara
             GameObject instantiatedPrefab = Instantiate(prefab, worldPos, Quaternion.identity);
             Destroy(instantiatedPrefab, destroyDelay);
+            
         }
     }
 }

@@ -34,13 +34,13 @@ public class SwordAttack : MonoBehaviour
         damage += level;
         damage = Mathf.Round(damage);
     }
-
+    Enemy enemy;
     private void OnTriggerEnter2D(Collider2D other) 
     {
         if(other.tag == "Enemy") {
             // Deal damage to the enemy
             //Debug.Log("llego a 1");
-            Enemy enemy = other.GetComponent<Enemy>();
+             enemy = other.GetComponent<Enemy>();
 
             if(enemy != null) {
                 //Debug.Log("Hago Daño");
@@ -58,7 +58,7 @@ public class SwordAttack : MonoBehaviour
            
         }
     }
-    
+
     //private void OnCollisionEnter2D(Collision2D collision)
     //{
     //    if (collision.collider.gameObject.tag == "Enemy")
@@ -68,7 +68,7 @@ public class SwordAttack : MonoBehaviour
 
     //        if (enemy != null)
     //        {
-                
+
 
 
     //            Debug.Log("Hago Daño");
@@ -77,5 +77,5 @@ public class SwordAttack : MonoBehaviour
     //        }
     //    }
     //}
-    
+   
 }

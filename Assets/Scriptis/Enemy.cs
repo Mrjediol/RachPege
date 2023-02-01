@@ -27,15 +27,15 @@ public class Enemy : MonoBehaviour
     public GameObject damageText;
     public Spawner spawner;
     public delegate void OnEnemyKilled();
-    //public FrozenEffect frozenEffect;
-    //public bool isFrozen = false;
-    //private float freezeTimer;
+    public FrozenEffect frozenEffect;
+    public bool isFrozen = false;
+    private float freezeTimer;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-
+        frozenEffect = GetComponent<FrozenEffect>();
 
         spawner.onEnemyKilled += RemoveEnemy;
 
@@ -60,24 +60,27 @@ public class Enemy : MonoBehaviour
             rb.AddForce(moveSpeed * Time.fixedDeltaTime * direction);
             
         }
-        //if (isFrozen)
-        //{
-        //    freezeTimer -= Time.deltaTime;
-        //    moveSpeed = slowedmoveSpeed;
-        //    dashSpeed = SloweddashSpeed;
-        //    if (freezeTimer <= 0f)
+        
+        isFrozen = frozenEffect.isFrozen;
+        if (isFrozen)
+        {
+            freezeTimer -= Time.deltaTime;
+            moveSpeed = slowedmoveSpeed;
+            dashSpeed = SloweddashSpeed;
+            if (freezeTimer <= 0f)
 
-        //    {
-        //        isFrozen = false;
+            {
+                isFrozen = false;
 
-        //    }
-        //    else
-        //    {
-        //        moveSpeed = 50f;
-        //        dashSpeed = 5000f;
+            }
+        }
+        else
+        {
+            moveSpeed = 50f;
+            dashSpeed = 5000f;
 
-        //    }
-        //}
+        }
+        
     }
 
  
@@ -145,7 +148,45 @@ public class Enemy : MonoBehaviour
            
         }
     }
+    public float forceMagnitude = 50f;
+    bool attackActive = true;
+    
+    public IEnumerator VoidAttack(float damageRevice)
+    {
+        Debug.Log("llego al void");
+        Health -= damageRevice;
+        healthBar.SetHealth(health, maxHealth);
+        healthText.text = Health + "/" + maxHealth;
+        VoidAttack voidAttack = FindObjectOfType<VoidAttack>();
+        RectTransform textTransform = Instantiate(damageText).GetComponent<RectTransform>();
+        textTransform.GetComponent<TextMeshProUGUI>().text = damageRevice.ToString();
+        textTransform.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
 
+        GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");
+        textTransform.SetParent(canvas.transform);
+        //Vector2 direction = (transform.position + voidAttack.transform.position).normalized;
+
+        //rb.AddForce(knowback * Time.fixedDeltaTime * direction);
+        //Vector2 direction = (voidAttack.transform.position - transform.position).normalized;
+
+        while (attackActive)
+        {
+          
+            Vector2 direction1 = (voidAttack.transform.position - transform.position).normalized;
+            rb.AddForce(forceMagnitude * Time.fixedDeltaTime * direction1);
+            yield return null;
+        }
+
+
+
+    }
+    
+
+ 
+    public void StopVoidAttack()
+    {
+        attackActive = false;
+    }
     public void Defeated(){
 
         

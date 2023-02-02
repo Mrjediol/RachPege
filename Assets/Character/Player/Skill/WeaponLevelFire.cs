@@ -106,10 +106,26 @@ public class WeaponLevelFire : MonoBehaviour
             FireLevelUp.text ="";
         }
     }
+    public void GetXp(float xp)
+    {
+        currentXp += xp;
+        StartCoroutine(WaitAndSave());
+    }
 
+    private IEnumerator WaitAndSave()
+    {
+        yield return new WaitForEndOfFrame();
+        saveXp.SaveFireXp();
+    }
+    private IEnumerator WaitAndSaveLvl()
+    {
+        yield return new WaitForEndOfFrame();
+        saveXp.SaveFireLevel();
+    }
     void LevelUp()
     {
         level++;
+        StartCoroutine(WaitAndSaveLvl());
         if (level >= 5)
         {
             FireXpBar.value = 100;

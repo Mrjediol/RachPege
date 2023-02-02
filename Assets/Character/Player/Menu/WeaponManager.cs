@@ -12,19 +12,25 @@ public class WeaponManager : MonoBehaviour
     public GameObject weaponsMenu;
     public Sprite mySprite;
     public GameObject currentfireballBook;
+    public GameObject currentVoid;
     public GameObject currentplantballBook;
     public GameObject currenticeballBook;
     public GameObject previuosFire;
     public GameObject previuosPlant;
     public GameObject previousIce;
+    public GameObject previuosVoid;
     public GameObject IceXpBar;
     public GameObject IceLevel;
     public GameObject IceLevelUp;
     public GameObject FireXpBar;
     public GameObject FireLevel;
     public GameObject FireLevelUp;
+    public GameObject VoidXpBar;
+    public GameObject VoidLevel;
+    public GameObject VoidLevelUp;
     public Slider iceCd;
     public Slider fireCd;
+    public Slider voidCd;
     public void EquipWeapon(GameObject weapon)
     {
         if (currentWeapon != null)
@@ -79,6 +85,19 @@ public class WeaponManager : MonoBehaviour
                     weaponlevelFire.currentXp = savexp.Firecurrentxp;
                     fireCd.gameObject.SetActive(true);
                 }
+                if (currentWeapon.name == "Void(Clone)")
+                {
+                    currentWeapon.GetComponent<InstantiateOnClickVoid>().enabled = true;
+                    currentVoid.SetActive(true);
+                    VoidXpBar.SetActive(true);
+                    VoidLevel.SetActive(true);
+                    VoidLevelUp.SetActive(true);
+                    SaveXp savexp = FindObjectOfType<SaveXp>();
+                    //WeaponLevelVoid weaponlevelVoid = FindObjectOfType<WeaponLevelVoid>();
+                    //weaponlevelVoid.level = savexp.Voidlevel;
+                    //weaponlevelVoid.currentXp = savexp.Voidcurrentxp;
+                    voidCd.gameObject.SetActive(true);
+                }
                 return;
                 
             }
@@ -117,6 +136,19 @@ public class WeaponManager : MonoBehaviour
             weaponlevelIce.level = savexp.Icelevel;
             weaponlevelIce.currentXp = savexp.Icecurrentxp;
             iceCd.gameObject.SetActive(true);
+        }
+        if (currentWeapon.name == "Void(Clone)")
+        {
+            currentWeapon.GetComponent<InstantiateOnClickVoid>().enabled = true;
+            currentVoid.SetActive(true);
+            VoidXpBar.SetActive(true);
+            VoidLevel.SetActive(true);
+            VoidLevelUp.SetActive(true);
+            SaveXp savexp = FindObjectOfType<SaveXp>();
+            //WeaponLevelVoid weaponlevelVoid = FindObjectOfType<WeaponLevelVoid>();
+            //weaponlevelVoid.level = savexp.Voidlevel;
+            //weaponlevelVoid.currentXp = savexp.Voidcurrentxp;
+            voidCd.gameObject.SetActive(true);
         }
 
     }
@@ -162,6 +194,25 @@ public class WeaponManager : MonoBehaviour
             IceLevelUp.SetActive(false);
             iceCd.gameObject.SetActive(false);
         }
+        if (currentWeapon.name == "Void(Clone)")
+        {
+            currentVoid.SetActive(true);
+            VoidXpBar.SetActive(true);
+            VoidLevel.SetActive(true);
+            VoidLevelUp.SetActive(true);
+            SaveXp savexp = FindObjectOfType<SaveXp>();
+            //WeaponLevelVoid weaponlevelVoid = FindObjectOfType<WeaponLevelVoid>();
+            //weaponlevelVoid.level = savexp.Voidlevel;
+            //weaponlevelVoid.currentXp = savexp.Voidcurrentxp;
+        }
+        else
+        {
+            currentVoid.SetActive(false);
+            VoidXpBar.SetActive(false);
+            VoidLevel.SetActive(false);
+            VoidLevelUp.SetActive(false);
+            voidCd.gameObject.SetActive(false);
+        }
         if (currentWeapon.name == "PlantBall(Clone)")
         {
             currentplantballBook.SetActive(true);
@@ -177,6 +228,14 @@ public class WeaponManager : MonoBehaviour
         else
         {
             previuosFire.SetActive(false);
+        }
+        if (previousWeapon.name == "Void(Clone)")
+        {
+            previuosVoid.SetActive(true);
+        }
+        else
+        {
+            previuosVoid.SetActive(false);
         }
         if (previousWeapon.name == "IceBall(Clone)")
         {

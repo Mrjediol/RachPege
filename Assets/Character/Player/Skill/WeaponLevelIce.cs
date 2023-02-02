@@ -107,10 +107,26 @@ public class WeaponLevelIce : MonoBehaviour
             IceLevelUp.text = "";
         }
     }
+    public void GetXp(float xp)
+    {
+        currentXp += xp;
+        StartCoroutine(WaitAndSave());
+    }
 
+    private IEnumerator WaitAndSave()
+    {
+        yield return new WaitForEndOfFrame();
+        saveXp.SaveIceXp();
+    }
+    private IEnumerator WaitAndSaveLvl()
+    {
+        yield return new WaitForEndOfFrame();
+        saveXp.SaveIceLevel();
+    }
     void LevelUp()
     {
-        level++;      
+        level++;
+        StartCoroutine(WaitAndSaveLvl());
         if (level >= 5)
         {
             IceXpBar.value = 100;

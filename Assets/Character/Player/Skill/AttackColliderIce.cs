@@ -26,7 +26,9 @@ public class AttackColliderIce : MonoBehaviour
             {
                 if (weaponlevelIce.level < 5f)
                 {
-                    weaponlevelIce.currentXp += IceDamage;
+                    
+                    weaponlevelIce.GetXp(IceDamage);
+                   
                 }
                 //Debug.Log("2");
                 enemy.Takehit(IceDamage);

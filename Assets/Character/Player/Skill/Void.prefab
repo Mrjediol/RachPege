@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3624608969283580025}
   - component: {fileID: 3624608969283580022}
+  - component: {fileID: 5816006853620538617}
   m_Layer: 0
   m_Name: Void
   m_TagString: Untagged
@@ -51,3 +52,18 @@ MonoBehaviour:
   scale: {x: 1, y: 1, z: 1}
   Shoot: {fileID: 0}
   voidCd: {fileID: 0}
+--- !u!114 &5816006853620538617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3624608969283580027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71cf81e32b8563c48acd5ad1ffe9e6f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentXp: 1
+  level: 1
+  levelUpXp: 10000

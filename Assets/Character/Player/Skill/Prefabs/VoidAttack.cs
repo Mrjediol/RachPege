@@ -5,7 +5,7 @@ using UnityEngine;
 public class VoidAttack : MonoBehaviour
 {
     public Collider2D voidCollider;
-    public float damage = 10;
+    public float damage = 30;
     Enemy enemy;
     public float rotationSpeed = 100f;
 
@@ -22,9 +22,16 @@ public class VoidAttack : MonoBehaviour
             // Deal damage to the enemy
             Debug.Log("llego a 1");
              enemy = other.GetComponent<Enemy>();
-
+            WeaponLevelVoid weaponLevelVoid = FindObjectOfType<WeaponLevelVoid>();
             if (enemy != null)
             {
+                
+                if (weaponLevelVoid.level < 5f)
+                {
+
+                    weaponLevelVoid.GetXp(damage);
+                    
+                }
                 Debug.Log("llego a 2");
                 StartCoroutine(enemy.VoidAttack(damage));
             }

@@ -41,7 +41,7 @@ public class SaveXp : MonoBehaviour
         PlayerPrefs.SetFloat("Firecurrentxp", Firecurrentxp); // guardar la Experiencia actual
         PlayerPrefs.Save();
     }
-    public void VoidIceLevel()
+    public void SaveVoidLevel()
     {
         PlayerPrefs.SetInt("Voidlevel", Voidlevel); // guardar el nivel actual
         PlayerPrefs.Save();

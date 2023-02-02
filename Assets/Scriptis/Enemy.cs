@@ -157,6 +157,7 @@ public class Enemy : MonoBehaviour
         Health -= damageRevice;
         healthBar.SetHealth(health, maxHealth);
         healthText.text = Health + "/" + maxHealth;
+        damageRevice = damageRevice * 2f;
         VoidAttack voidAttack = FindObjectOfType<VoidAttack>();
         RectTransform textTransform = Instantiate(damageText).GetComponent<RectTransform>();
         textTransform.GetComponent<TextMeshProUGUI>().text = damageRevice.ToString();
@@ -169,7 +170,7 @@ public class Enemy : MonoBehaviour
         //rb.AddForce(knowback * Time.fixedDeltaTime * direction);
         //Vector2 direction = (voidAttack.transform.position - transform.position).normalized;
 
-        while (attackActive)
+        while (attackActive && gameObject != null)
         {
           
             Vector2 direction1 = (voidAttack.transform.position - transform.position).normalized;

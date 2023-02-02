@@ -93,9 +93,9 @@ public class WeaponManager : MonoBehaviour
                     VoidLevel.SetActive(true);
                     VoidLevelUp.SetActive(true);
                     SaveXp savexp = FindObjectOfType<SaveXp>();
-                    //WeaponLevelVoid weaponlevelVoid = FindObjectOfType<WeaponLevelVoid>();
-                    //weaponlevelVoid.level = savexp.Voidlevel;
-                    //weaponlevelVoid.currentXp = savexp.Voidcurrentxp;
+                    WeaponLevelVoid weaponlevelVoid = FindObjectOfType<WeaponLevelVoid>();
+                    weaponlevelVoid.level = savexp.Voidlevel;
+                    weaponlevelVoid.currentXp = savexp.Voidcurrentxp;
                     voidCd.gameObject.SetActive(true);
                 }
                 return;
@@ -145,9 +145,9 @@ public class WeaponManager : MonoBehaviour
             VoidLevel.SetActive(true);
             VoidLevelUp.SetActive(true);
             SaveXp savexp = FindObjectOfType<SaveXp>();
-            //WeaponLevelVoid weaponlevelVoid = FindObjectOfType<WeaponLevelVoid>();
-            //weaponlevelVoid.level = savexp.Voidlevel;
-            //weaponlevelVoid.currentXp = savexp.Voidcurrentxp;
+            WeaponLevelVoid weaponlevelVoid = FindObjectOfType<WeaponLevelVoid>();
+            weaponlevelVoid.level = savexp.Voidlevel;
+            weaponlevelVoid.currentXp = savexp.Voidcurrentxp;
             voidCd.gameObject.SetActive(true);
         }
 
@@ -201,9 +201,9 @@ public class WeaponManager : MonoBehaviour
             VoidLevel.SetActive(true);
             VoidLevelUp.SetActive(true);
             SaveXp savexp = FindObjectOfType<SaveXp>();
-            //WeaponLevelVoid weaponlevelVoid = FindObjectOfType<WeaponLevelVoid>();
-            //weaponlevelVoid.level = savexp.Voidlevel;
-            //weaponlevelVoid.currentXp = savexp.Voidcurrentxp;
+            WeaponLevelVoid weaponlevelVoid = FindObjectOfType<WeaponLevelVoid>();
+            weaponlevelVoid.level = savexp.Voidlevel;
+            weaponlevelVoid.currentXp = savexp.Voidcurrentxp;
         }
         else
         {

@@ -7,7 +7,7 @@ public class InstantiateOnClickVoid : MonoBehaviour
 {
 
     public GameObject prefab; //asigna el prefab en el inspector
-    public float destroyDelay = 3f; //tiempo para destruir el objeto en segundos
+    public float destroyDelay = 10f; //tiempo para destruir el objeto en segundos
     public float manaCost = 50f;
     public float cooldown = 4f;
     public Vector3 scale = new Vector3(1, 1, 1);

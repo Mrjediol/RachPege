@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   voidCollider: {fileID: 1128841151947891082}
-  damage: 1
+  damage: 3
   rotationSpeed: 50
 --- !u!58 &1972608471907881878
 CircleCollider2D:

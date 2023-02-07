@@ -38,4 +38,29 @@ public class EquipChoice : MonoBehaviour
         Time.timeScale = 1;
         choiceMenu.SetActive(false);
     }
+    public void FastIce()
+    {
+        currentChoise.currentmodeIceFast = true;
+        currentChoise.currentmodeIceMedium = false;
+        currentChoise.currentmodeIceSlow = false;
+        Time.timeScale = 1;
+        choiceMenu.SetActive(false);
+    }
+
+    public void MediumIce()
+    {
+        currentChoise.currentmodeIceFast = false;
+        currentChoise.currentmodeIceMedium = true;
+        currentChoise.currentmodeIceSlow = false;
+        Time.timeScale = 1;
+        choiceMenu.SetActive(false);
+    }
+    public void SlowIce()
+    {
+        currentChoise.currentmodeIceFast = false;
+        currentChoise.currentmodeIceMedium = false;
+        currentChoise.currentmodeIceSlow = true;
+        Time.timeScale = 1;
+        choiceMenu.SetActive(false);
+    }
 }

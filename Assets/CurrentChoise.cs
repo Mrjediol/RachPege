@@ -8,6 +8,9 @@ public class CurrentChoise : MonoBehaviour
     public bool currentmodeFast;
     public bool currentmodeMedium;
     public bool currentmodeSlow;
+    public bool currentmodeIceFast;
+    public bool currentmodeIceMedium;
+    public bool currentmodeIceSlow;
     void Start()
     {
         

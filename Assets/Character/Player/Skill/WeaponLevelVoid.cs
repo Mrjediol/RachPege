@@ -40,41 +40,42 @@ public class WeaponLevelVoid : MonoBehaviour
         saveXp.Voidcurrentxp = currentXp;
         if (level >= 1)
         {
-            levelUpXp = 75;
+            levelUpXp = 100;
+            instantiateOnClickVoid.scale = new Vector3(0.15f, 0.15f, 0.15f);
         }
         if (level >= 2)
         {
-            instantiateOnClickVoid.scale = new Vector3(0.3f, 0.3f, 0.3f);
+            instantiateOnClickVoid.scale = new Vector3(0.2f, 0.2f, 0.2f);
             //instantiateOnClickVoid.fireDamage = 25f;
             //instantiateOnClickVoid.force = 2f;
             instantiateOnClickVoid.destroyDelay = 8f;
             instantiateOnClickVoid.cooldown = 14f;
             instantiateOnClickVoid.manaCost = 15f;
-            levelUpXp = 500f;
+            levelUpXp = 300f;
         }
         if (level >= 3)
         {
-            instantiateOnClickVoid.scale = new Vector3(0.4f, 0.4f, 0.4f);
+            instantiateOnClickVoid.scale = new Vector3(0.25f, 0.25f, 0.25f);
             //instantiateOnClickVoid.fireDamage = 50f;
             instantiateOnClickVoid.destroyDelay = 8f;
             instantiateOnClickVoid.cooldown = 12f;
             instantiateOnClickVoid.manaCost = 25f;
-            levelUpXp = 1250f;
+            levelUpXp = 600f;
         }
         if (level >= 4)
         {
-            instantiateOnClickVoid.scale = new Vector3(0.7f, 0.7f, 0.7f);
+            instantiateOnClickVoid.scale = new Vector3(0.3f, 0.3f, 0.3f);
             //instantiateOnClickVoid.fireDamage = 100f;
             //instantiateOnClickVoid.force = 4f;
             instantiateOnClickVoid.destroyDelay = 8f;
             instantiateOnClickVoid.cooldown = 10f;
             instantiateOnClickVoid.manaCost = 35f;
             //instantiateOnClickVoid.piercing = true;
-            levelUpXp = 2500f;
+            levelUpXp = 1000f;
         }
         if (level >= 5)
         {
-            instantiateOnClickVoid.scale = new Vector3(1f, 1f, 1f);
+            instantiateOnClickVoid.scale = new Vector3(0.5f, 0.5f, 0.5f);
             //instantiateOnClickVoid.fireDamage = 200f;
             //instantiateOnClickVoid.force = 5f;
             instantiateOnClickVoid.destroyDelay = 8f;

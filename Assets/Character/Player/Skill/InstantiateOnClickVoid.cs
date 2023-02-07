@@ -45,6 +45,7 @@ public class InstantiateOnClickVoid : MonoBehaviour
                     worldPos.z = 0; // aseguramos que la posición en z sea 0 para evitar problemas con la profundidad de la cámara
                     GameObject instantiatedPrefab = Instantiate(prefab, worldPos, Quaternion.identity);
                     instantiatedPrefab.transform.parent = transform;
+                    instantiatedPrefab.transform.localScale = scale;
                     manaSystem.ReduceMana(manaCost);
                     Destroy(instantiatedPrefab, destroyDelay);
                     nextFireTime = Time.time + cooldown;

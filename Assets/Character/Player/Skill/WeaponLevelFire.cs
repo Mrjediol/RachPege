@@ -16,6 +16,7 @@ public class WeaponLevelFire : MonoBehaviour
     private TextMeshProUGUI FireLevelUp;
     SaveState saveState;
     SaveXp saveXp;
+    CurrentChoise currentChoise;
     private void Start()
     {
         saveState = FindObjectOfType<SaveState>();
@@ -24,6 +25,7 @@ public class WeaponLevelFire : MonoBehaviour
         FireLevel = GameObject.Find("FireLevel").GetComponent<TextMeshProUGUI>();
         FireLevelUp = GameObject.Find("FireLevelUp").GetComponent<TextMeshProUGUI>();
         saveXp = FindObjectOfType<SaveXp>();
+        currentChoise = FindObjectOfType<CurrentChoise>();
     }
     void Update()
     {
@@ -44,7 +46,7 @@ public class WeaponLevelFire : MonoBehaviour
         {
             levelUpXp = 75;
         }
-        if (level >= 2)
+        if (level >= 2 && currentChoise.currentmodeMedium == true)
         {
             moveMouseDirectionFire.scale = new Vector3(0.3f, 0.3f, 0.3f);
             moveMouseDirectionFire.fireDamage = 25f;
@@ -58,6 +60,35 @@ public class WeaponLevelFire : MonoBehaviour
             saveState.burntimeBetweenDamage = 2f;
             levelUpXp = 500f;
         }
+        if (level >= 2 && currentChoise.currentmodeSlow == true)
+        {
+            moveMouseDirectionFire.scale = new Vector3(0.6f, 0.6f, 0.6f);
+            moveMouseDirectionFire.fireDamage = 50f;
+            moveMouseDirectionFire.force = 1.5f;
+            moveMouseDirectionFire.destroyDelay = 2f;
+            moveMouseDirectionFire.cooldown = 3f;
+            moveMouseDirectionFire.manaCost = 30f;
+            saveState.burnprobability = 10f;
+            saveState.burnduration = 4f;
+            saveState.burndamageOverTime = 5f;
+            saveState.burntimeBetweenDamage = 2f;
+            levelUpXp = 500f;
+        }
+        if (level >= 2 && currentChoise.currentmodeFast == true)
+        {
+            moveMouseDirectionFire.scale = new Vector3(0.1f, 0.1f, 0.1f);
+            moveMouseDirectionFire.fireDamage = 7f;
+            moveMouseDirectionFire.force = 4f;
+            moveMouseDirectionFire.destroyDelay = 1.5f;
+            moveMouseDirectionFire.cooldown = 0.5f;
+            moveMouseDirectionFire.manaCost = 5f;
+            saveState.burnprobability = 10f;
+            saveState.burnduration = 4f;
+            saveState.burndamageOverTime = 5f;
+            saveState.burntimeBetweenDamage = 2f;
+            levelUpXp = 500f;
+        }
+
         if (level >= 3)
         {
             moveMouseDirectionFire.scale = new Vector3(0.4f, 0.4f, 0.4f);

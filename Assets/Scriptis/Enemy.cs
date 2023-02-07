@@ -149,7 +149,7 @@ public class Enemy : MonoBehaviour
         }
     }
     public float forceMagnitude = 50f;
-    bool attackActive = true;
+    //bool attackActive = true;
     
     public IEnumerator VoidAttack(float damageRevice)
     {
@@ -170,24 +170,25 @@ public class Enemy : MonoBehaviour
         //rb.AddForce(knowback * Time.fixedDeltaTime * direction);
         //Vector2 direction = (voidAttack.transform.position - transform.position).normalized;
 
-        while (attackActive && gameObject != null)
+        while (/*attackActive && */(this != null))
         {
-          
+            if (gameObject == null) yield break;
             Vector2 direction1 = (voidAttack.transform.position - transform.position).normalized;
             rb.AddForce(forceMagnitude * Time.fixedDeltaTime * direction1);
             yield return null;
         }
-
+        //yield return new WaitForEndOfFrame();
+        //StopVoidAttack();
 
 
     }
     
 
  
-    public void StopVoidAttack()
-    {
-        attackActive = false;
-    }
+    //public void StopVoidAttack()
+    //{
+    //    attackActive = false;
+    //}
     public void Defeated(){
 
         

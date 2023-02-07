@@ -21,8 +21,8 @@ public class VoidAttack : MonoBehaviour
 
             // Deal damage to the enemy
             Debug.Log("llego a 1");
-             enemy = other.GetComponent<Enemy>();
-            WeaponLevelVoid weaponLevelVoid = FindObjectOfType<WeaponLevelVoid>();
+            enemy = other.GetComponent<Enemy>();
+            WeaponLevelVoid weaponLevelVoid = GetComponentInParent<WeaponLevelVoid>();
             if (enemy != null)
             {
                 
@@ -34,6 +34,7 @@ public class VoidAttack : MonoBehaviour
                 }
                 Debug.Log("llego a 2");
                 StartCoroutine(enemy.VoidAttack(damage));
+                
             }
 
 
@@ -50,12 +51,12 @@ public class VoidAttack : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void OnDestroy()
-    {
-        if (enemy != null)
-        {
-            enemy.StopVoidAttack();
-        }
-    }
+    //private void OnDestroy()
+    //{
+    //    if (enemy != null)
+    //    {
+    //        enemy.StopVoidAttack();
+    //    }
+    //}
 
 }

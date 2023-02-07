@@ -268,6 +268,10 @@ public class WeaponManager : MonoBehaviour
         {
             currentWeapon.GetComponent<MoveMouseDirectionIce>().enabled = true;
         }
+        if (currentWeapon.name == "Void(Clone)")
+        {
+            currentWeapon.GetComponent<InstantiateOnClickVoid>().enabled = true;
+        }
 
 
         previousWeapon.transform.parent = previousWeaponHold;
@@ -278,6 +282,10 @@ public class WeaponManager : MonoBehaviour
         if (previousWeapon.name == "IceBall(Clone)")
         {
             previousWeapon.GetComponent<MoveMouseDirectionIce>().enabled = false;
+        }
+        if (previousWeapon.name == "Void(Clone)")
+        {
+            previousWeapon.GetComponent<InstantiateOnClickVoid>().enabled = false;
         }
 
         UiUpdate();

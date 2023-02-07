@@ -44,6 +44,7 @@ public class InstantiateOnClickVoid : MonoBehaviour
                     Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
                     worldPos.z = 0; // aseguramos que la posición en z sea 0 para evitar problemas con la profundidad de la cámara
                     GameObject instantiatedPrefab = Instantiate(prefab, worldPos, Quaternion.identity);
+                    instantiatedPrefab.transform.parent = transform;
                     manaSystem.ReduceMana(manaCost);
                     Destroy(instantiatedPrefab, destroyDelay);
                     nextFireTime = Time.time + cooldown;

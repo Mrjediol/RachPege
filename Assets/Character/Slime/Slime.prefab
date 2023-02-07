@@ -354,6 +354,9 @@ MonoBehaviour:
   manaStarPrefab: {fileID: 4447463466640513174, guid: deaa50a1376b05b4180904b132209b4b, type: 3}
   damageText: {fileID: 517097095551127783, guid: ef0902c0dbda15e41bb12c0d69dd7928, type: 3}
   spawner: {fileID: 0}
+  frozenEffect: {fileID: 0}
+  isFrozen: 0
+  forceMagnitude: 50
 --- !u!50 &2866632734358892599
 Rigidbody2D:
   serializedVersion: 4
@@ -543,7 +546,7 @@ MonoBehaviour:
   damageOverTime: 5
   timeBetweenDamage: 1
   duration: 5
-  probability: 0
+  probability: 20
   burnImage: {fileID: 3431780124371048603}
 --- !u!114 &4312959138485422228
 MonoBehaviour:

@@ -64,11 +64,11 @@ public class WeaponLevelFire : MonoBehaviour
         {
             moveMouseDirectionFire.scale = new Vector3(0.6f, 0.6f, 0.6f);
             moveMouseDirectionFire.fireDamage = 50f;
-            moveMouseDirectionFire.force = 1.5f;
+            moveMouseDirectionFire.force = 1f;
             moveMouseDirectionFire.destroyDelay = 2f;
             moveMouseDirectionFire.cooldown = 3f;
             moveMouseDirectionFire.manaCost = 30f;
-            saveState.burnprobability = 10f;
+            saveState.burnprobability = 20f;
             saveState.burnduration = 4f;
             saveState.burndamageOverTime = 5f;
             saveState.burntimeBetweenDamage = 2f;
@@ -76,20 +76,20 @@ public class WeaponLevelFire : MonoBehaviour
         }
         if (level >= 2 && currentChoise.currentmodeFast == true)
         {
-            moveMouseDirectionFire.scale = new Vector3(0.1f, 0.1f, 0.1f);
-            moveMouseDirectionFire.fireDamage = 7f;
-            moveMouseDirectionFire.force = 4f;
+            moveMouseDirectionFire.scale = new Vector3(0.15f, 0.15f, 0.15f);
+            moveMouseDirectionFire.fireDamage = 12.5f;
+            moveMouseDirectionFire.force = 3f;
             moveMouseDirectionFire.destroyDelay = 1.5f;
             moveMouseDirectionFire.cooldown = 0.5f;
-            moveMouseDirectionFire.manaCost = 5f;
-            saveState.burnprobability = 10f;
+            moveMouseDirectionFire.manaCost = 7.5f;
+            saveState.burnprobability = 5f;
             saveState.burnduration = 4f;
             saveState.burndamageOverTime = 5f;
             saveState.burntimeBetweenDamage = 2f;
             levelUpXp = 500f;
         }
 
-        if (level >= 3)
+        if (level >= 3 && currentChoise.currentmodeMedium == true)
         {
             moveMouseDirectionFire.scale = new Vector3(0.4f, 0.4f, 0.4f);
             moveMouseDirectionFire.fireDamage = 50f;
@@ -104,9 +104,39 @@ public class WeaponLevelFire : MonoBehaviour
             saveState.burntimeBetweenDamage = 2f;
             levelUpXp = 1250f;
         }
-        if (level >= 4)
+        if (level >= 3 && currentChoise.currentmodeFast == true)
         {
-            moveMouseDirectionFire.scale = new Vector3(0.7f, 0.7f, 0.7f);
+            moveMouseDirectionFire.scale = new Vector3(0.2f, 0.2f, 0.4f);
+            moveMouseDirectionFire.fireDamage = 25f;
+            moveMouseDirectionFire.force = 4f;
+            moveMouseDirectionFire.destroyDelay = 1.5f;
+            moveMouseDirectionFire.cooldown = 0.5f;
+            moveMouseDirectionFire.manaCost = 12.5f;
+            moveMouseDirectionFire.piercing = true;
+            saveState.burnprobability = 10;
+            saveState.burnduration = 4f;
+            saveState.burndamageOverTime = 10f;
+            saveState.burntimeBetweenDamage = 2f;
+            levelUpXp = 1250f;
+        }
+        if (level >= 3 && currentChoise.currentmodeSlow == true)
+        {
+            moveMouseDirectionFire.scale = new Vector3(0.8f, 0.8f, 0.8f);
+            moveMouseDirectionFire.fireDamage = 100f;
+            moveMouseDirectionFire.force = 2f;
+            moveMouseDirectionFire.destroyDelay = 1.5f;
+            moveMouseDirectionFire.cooldown = 2f;
+            moveMouseDirectionFire.manaCost = 50f;
+            moveMouseDirectionFire.piercing = true;
+            saveState.burnprobability = 40;
+            saveState.burnduration = 4f;
+            saveState.burndamageOverTime = 10f;
+            saveState.burntimeBetweenDamage = 2f;
+            levelUpXp = 1250f;
+        }
+        if (level >= 4 && currentChoise.currentmodeMedium == true)
+        {
+            moveMouseDirectionFire.scale = new Vector3(0.5f, 0.5f, 0.5f);
             moveMouseDirectionFire.fireDamage = 100f;
             moveMouseDirectionFire.force = 4f;
             moveMouseDirectionFire.destroyDelay = 1.5f;
@@ -119,9 +149,39 @@ public class WeaponLevelFire : MonoBehaviour
             saveState.burntimeBetweenDamage = 1f;
             levelUpXp = 2500f;
         }
-        if (level >= 5)
+        if (level >= 4 && currentChoise.currentmodeFast == true)
+        {
+            moveMouseDirectionFire.scale = new Vector3(0.25f, 0.25f, 0.25f);
+            moveMouseDirectionFire.fireDamage = 50f;
+            moveMouseDirectionFire.force = 5f;
+            moveMouseDirectionFire.destroyDelay = 1.5f;
+            moveMouseDirectionFire.cooldown = 0.25f;
+            moveMouseDirectionFire.manaCost = 17.5f;
+            moveMouseDirectionFire.piercing = true;
+            saveState.burnprobability = 15;
+            saveState.burnduration = 5f;
+            saveState.burndamageOverTime = 10f;
+            saveState.burntimeBetweenDamage = 1f;
+            levelUpXp = 2500f;
+        }
+        if (level >= 4 && currentChoise.currentmodeSlow == true)
         {
             moveMouseDirectionFire.scale = new Vector3(1f, 1f, 1f);
+            moveMouseDirectionFire.fireDamage = 200f;
+            moveMouseDirectionFire.force = 3f;
+            moveMouseDirectionFire.destroyDelay = 1.5f;
+            moveMouseDirectionFire.cooldown = 0.5f;
+            moveMouseDirectionFire.manaCost = 70f;
+            moveMouseDirectionFire.piercing = true;
+            saveState.burnprobability = 60;
+            saveState.burnduration = 5f;
+            saveState.burndamageOverTime = 10f;
+            saveState.burntimeBetweenDamage = 1f;
+            levelUpXp = 2500f;
+        }
+        if (level >= 5 && currentChoise.currentmodeMedium == true)
+        {
+            moveMouseDirectionFire.scale = new Vector3(0.7f, 0.7f, 0.7f);
             moveMouseDirectionFire.fireDamage = 200f;
             moveMouseDirectionFire.force = 5f;
             moveMouseDirectionFire.destroyDelay = 1.5f;
@@ -135,6 +195,40 @@ public class WeaponLevelFire : MonoBehaviour
             FireLevel.fontSize = 26f;
             FireLevel.text = "Max Lvl. " + level;
             FireLevelUp.text ="";
+        }
+        if (level >= 5 && currentChoise.currentmodeFast == true)
+        {
+            moveMouseDirectionFire.scale = new Vector3(0.35f, 0.35f, 0.35f);
+            moveMouseDirectionFire.fireDamage = 100f;
+            moveMouseDirectionFire.force = 6f;
+            moveMouseDirectionFire.destroyDelay = 1.5f;
+            moveMouseDirectionFire.cooldown = 0.25f;
+            moveMouseDirectionFire.manaCost = 25f;
+            moveMouseDirectionFire.piercing = true;
+            saveState.burnprobability = 25;
+            saveState.burnduration = 6f;
+            saveState.burndamageOverTime = 20f;
+            saveState.burntimeBetweenDamage = 1f;
+            FireLevel.fontSize = 26f;
+            FireLevel.text = "Max Lvl. " + level;
+            FireLevelUp.text = "";
+        }
+        if (level >= 5 && currentChoise.currentmodeSlow == true)
+        {
+            moveMouseDirectionFire.scale = new Vector3(1.4f, 1.4f, 1.4f);
+            moveMouseDirectionFire.fireDamage = 400f;
+            moveMouseDirectionFire.force = 4f;
+            moveMouseDirectionFire.destroyDelay = 1.5f;
+            moveMouseDirectionFire.cooldown = 0.5f;
+            moveMouseDirectionFire.manaCost = 100f;
+            moveMouseDirectionFire.piercing = true;
+            saveState.burnprobability = 100;
+            saveState.burnduration = 6f;
+            saveState.burndamageOverTime = 20f;
+            saveState.burntimeBetweenDamage = 1f;
+            FireLevel.fontSize = 26f;
+            FireLevel.text = "Max Lvl. " + level;
+            FireLevelUp.text = "";
         }
     }
     public void GetXp(float xp)

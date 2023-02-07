@@ -25,7 +25,7 @@ public class BurnEffect : MonoBehaviour
 
         if (weaponManager.currentWeapon != null)
         {
-            if (weaponManager.currentWeapon.name == "IceBall(Clone)")
+            if (weaponManager.currentWeapon.name == "FireBall(Clone)")
             {
                 probability = saveState.burnprobability;
                 damageOverTime = saveState.burndamageOverTime;

@@ -15,11 +15,20 @@ public class InstantiateOnClickVoid : MonoBehaviour
     //public GameObject prefab;
     public Slider voidCd;
     private float nextFireTime;
-
+    public float range = 0.5f;
+    private LineRenderer lineRenderer;
+    PlayerController player;
+    public GameObject line;
     void Start()
     {
         nextFireTime = 0f;
         voidCd = GameObject.Find("voidCd").GetComponent<Slider>();
+        lineRenderer = GetComponentInChildren<LineRenderer>();
+        lineRenderer.positionCount = 2;
+        lineRenderer.startWidth = 0.1f;
+        lineRenderer.endWidth = 0.1f;
+        player = FindObjectOfType<PlayerController>();
+
     }
     void Update()
     {
@@ -39,19 +48,33 @@ public class InstantiateOnClickVoid : MonoBehaviour
 
                 if (manaSystem.currentMana > manaCost)
                 {
-
                     Vector3 mousePos = Input.mousePosition;
                     Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
                     worldPos.z = 0; // aseguramos que la posición en z sea 0 para evitar problemas con la profundidad de la cámara
-                    GameObject instantiatedPrefab = Instantiate(prefab, worldPos, Quaternion.identity);
-                    instantiatedPrefab.transform.parent = transform;
-                    instantiatedPrefab.transform.localScale = scale;
-                    manaSystem.ReduceMana(manaCost);
-                    Destroy(instantiatedPrefab, destroyDelay);
-                    nextFireTime = Time.time + cooldown;
+
+                    float distance = Vector3.Distance(worldPos, player.transform.position);
+                    if (distance <= range)
+                    {
+
+                        GameObject instantiatedPrefab = Instantiate(prefab, worldPos, Quaternion.identity);
+                        instantiatedPrefab.transform.parent = transform;
+                        instantiatedPrefab.transform.localScale = scale;
+                        manaSystem.ReduceMana(manaCost);
+                        Destroy(instantiatedPrefab, destroyDelay);
+                        nextFireTime = Time.time + cooldown;
+                    }
                 }
             }
         }
         voidCd.value = nextFireTime > Time.time ? 1 - (nextFireTime - Time.time) / cooldown : 1;
+        // Actualiza la posición de la línea
+        Vector3 playerPos1 = transform.position;
+        Vector3 endPos = playerPos1 + Vector3.right * range;
+        lineRenderer.SetPositions(new Vector3[] { playerPos1, endPos });
     }
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.yellow;
+    //    Gizmos.DrawWireSphere(player.transform.position, range);
+    //}
 }

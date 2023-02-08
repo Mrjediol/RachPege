@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+using UnityEngine.InputSystem;
 
 public class LevelSystem : MonoBehaviour
 {
@@ -30,7 +30,7 @@ public class LevelSystem : MonoBehaviour
     public GameObject dashUnlockedTextPrefab;
     private GameObject dashUnlockedTextInstance;
     private bool dashUnlockedTextShowed = false;
-
+    public GameObject dashUnlockedVideo;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,33 +43,58 @@ public class LevelSystem : MonoBehaviour
         death = false;
         dashAbility.GetComponent<DashAbility>();
 
+
     }
     public void Awake()
     {
         level = PlayerPrefs.GetInt("CurrentLevel", 1);
-        
+        if (level >= dashAbility.levelRequirement)
+        {
+            dashUnlockedTextShowed = true;
+        }
     }
-
+    public void stopTimeOnLock()
+    {
+        Time.timeScale = 0;
+    }
+    public void ShowTutorial()
+    {
+        dashUnlockedVideo.SetActive(true);
+    }
     // Update is called once per frame
     void Update()
     {
+        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        {
+            Time.timeScale = 1;
+            dashUnlockedVideo.SetActive(false);
+        }
         if (level >= dashAbility.levelRequirement && !dashUnlockedTextShowed)
         {
+            
             dashAbility.Unlock();
             dashUnlockedTextInstance = Instantiate(dashUnlockedTextPrefab, transform.position, Quaternion.identity);
+            stopTimeOnLock();
+            ShowTutorial();
             StartCoroutine(DestroyAfterSeconds(dashUnlockedTextInstance, 2.0f));
             dashUnlockedTextShowed = true;
+        }
+        if(level >= dashAbility.levelRequirement)
+        {
+            dashAbility.Unlock();
         }
         else if (level < dashAbility.levelRequirement)
         {
             dashAbility.Lock();
             dashUnlockedTextShowed = false;
         }
-
+        
 
         IEnumerator DestroyAfterSeconds(GameObject text, float seconds)
     {
         yield return new WaitForSeconds(seconds);
+        Time.timeScale = 1;
+        dashUnlockedVideo.SetActive(false);
         Destroy(text);
     }
 

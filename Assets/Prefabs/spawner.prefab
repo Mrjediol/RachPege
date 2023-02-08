@@ -49,5 +49,5 @@ MonoBehaviour:
   Minlvl: 1
   Maxlvl: 5
   dispersion: 0.2
-  activeEnemies: 0
   prefabToSpawn: {fileID: 7151398860587865777, guid: 4e9d3ee4d7db7e04ab563f699e9447e4, type: 3}
+  activeRange: 10

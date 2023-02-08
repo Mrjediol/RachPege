@@ -42,6 +42,7 @@ public class WeaponLevelVoid : MonoBehaviour
         {
             levelUpXp = 100;
             instantiateOnClickVoid.scale = new Vector3(0.15f, 0.15f, 0.15f);
+            instantiateOnClickVoid.range = 0.7f;
         }
         if (level >= 2)
         {
@@ -51,6 +52,7 @@ public class WeaponLevelVoid : MonoBehaviour
             instantiateOnClickVoid.destroyDelay = 8f;
             instantiateOnClickVoid.cooldown = 14f;
             instantiateOnClickVoid.manaCost = 15f;
+            instantiateOnClickVoid.range = 0.9f;
             levelUpXp = 300f;
         }
         if (level >= 3)
@@ -60,6 +62,7 @@ public class WeaponLevelVoid : MonoBehaviour
             instantiateOnClickVoid.destroyDelay = 8f;
             instantiateOnClickVoid.cooldown = 12f;
             instantiateOnClickVoid.manaCost = 25f;
+            instantiateOnClickVoid.range = 1.1f;
             levelUpXp = 600f;
         }
         if (level >= 4)
@@ -70,6 +73,7 @@ public class WeaponLevelVoid : MonoBehaviour
             instantiateOnClickVoid.destroyDelay = 8f;
             instantiateOnClickVoid.cooldown = 10f;
             instantiateOnClickVoid.manaCost = 35f;
+            instantiateOnClickVoid.range = 1.4f;
             //instantiateOnClickVoid.piercing = true;
             levelUpXp = 1000f;
         }
@@ -81,6 +85,7 @@ public class WeaponLevelVoid : MonoBehaviour
             instantiateOnClickVoid.destroyDelay = 8f;
             instantiateOnClickVoid.cooldown = 8f;
             instantiateOnClickVoid.manaCost = 50f;
+            instantiateOnClickVoid.range = 1.8f;
             VoidLevel.fontSize = 26f;
             VoidLevel.text = "Max Lvl. " + level;
             VoidLevelUp.text ="";

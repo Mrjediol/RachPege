@@ -12,6 +12,8 @@ public class SaveXp : MonoBehaviour
     public int Voidlevel;
     public float Raycurrentxp;
     public int Raylevel;
+    public float Blastcurrentxp;
+    public int Blastlevel;
 
     void Start()
     {
@@ -23,6 +25,8 @@ public class SaveXp : MonoBehaviour
         Voidcurrentxp = PlayerPrefs.GetFloat("Voidcurrentxp", 1);
         Raylevel = PlayerPrefs.GetInt("Raylevel", 1);
         Raycurrentxp = PlayerPrefs.GetFloat("Raycurrentxp", 1);
+        Blastlevel = PlayerPrefs.GetInt("Blastlevel", 1);
+        Blastcurrentxp = PlayerPrefs.GetFloat("Blastcurrentxp", 1);
     }
    
     public void SaveIceLevel()
@@ -43,6 +47,16 @@ public class SaveXp : MonoBehaviour
     public void SaveFireXp()
     {
         PlayerPrefs.SetFloat("Firecurrentxp", Firecurrentxp); // guardar la Experiencia actual
+        PlayerPrefs.Save();
+    }
+    public void SaveBlastLevel()
+    {
+        PlayerPrefs.SetInt("Blastlevel", Blastlevel); // guardar el nivel actual
+        PlayerPrefs.Save();
+    }
+    public void SaveBlastXp()
+    {
+        PlayerPrefs.SetFloat("Blastcurrentxp", Blastcurrentxp); // guardar la Experiencia actual
         PlayerPrefs.Save();
     }
     public void SaveVoidLevel()

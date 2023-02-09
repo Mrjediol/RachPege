@@ -13,23 +13,24 @@ public class InstantiateOnClickFire : MonoBehaviour
     public Vector3 scale = new Vector3(1, 1, 1);
     [SerializeField] private AudioSource Shoot;
     ////public GameObject prefab;
-    public Slider FireBlastdCd;
+    public Slider blastCd;
     private float nextFireTime;
 
     void Start()
     {
+        blastCd = GameObject.Find("blastCd").GetComponent<Slider>();
         nextFireTime = 0f;
-        //FireBlastdCd = GameObject.Find("FireBlastCd").GetComponent<Slider>();
+       
     }
     void Update()
     {
-        if (FireBlastdCd.value >= 1.0f)
+        if (blastCd.value >= 1.0f)
         {
-            FireBlastdCd.gameObject.SetActive(false);
+            blastCd.gameObject.SetActive(false);
         }
         else
         {
-            FireBlastdCd.gameObject.SetActive(true);
+            blastCd.gameObject.SetActive(true);
         }
         if (Time.time > nextFireTime)
         {
@@ -45,11 +46,12 @@ public class InstantiateOnClickFire : MonoBehaviour
                     worldPos.z = 0; // aseguramos que la posición en z sea 0 para evitar problemas con la profundidad de la cámara
                     GameObject instantiatedPrefab = Instantiate(prefab, worldPos, Quaternion.identity);
                     manaSystem.ReduceMana(manaCost);
+                    instantiatedPrefab.transform.parent = transform;
                     Destroy(instantiatedPrefab, destroyDelay);
                     nextFireTime = Time.time + cooldown;
                 }
             }
         }
-        FireBlastdCd.value = nextFireTime > Time.time ? 1 - (nextFireTime - Time.time) / cooldown : 1;
+        blastCd.value = nextFireTime > Time.time ? 1 - (nextFireTime - Time.time) / cooldown : 1;
     }
 }

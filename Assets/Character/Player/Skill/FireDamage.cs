@@ -7,9 +7,11 @@ public class FireDamage : MonoBehaviour
     public float damage = 100f;
     private float damageStartTime;
     private List<Enemy> enemiesInside = new List<Enemy>();
+    WeaponLevelBlast weaponLevelBlast;
     private void Start()
     {
         damageStartTime = Time.time + 6.45f;
+        weaponLevelBlast = GetComponentInParent<WeaponLevelBlast>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -45,6 +47,11 @@ public class FireDamage : MonoBehaviour
         foreach (Enemy enemy in enemiesInside)
         {
             enemy.Takehit(damage);
+            if (weaponLevelBlast.level < 5f)
+            {
+                weaponLevelBlast.GetXp(damage);
+            }
+            
         }
         this.GetComponent<Collider2D>().enabled = false;
     }

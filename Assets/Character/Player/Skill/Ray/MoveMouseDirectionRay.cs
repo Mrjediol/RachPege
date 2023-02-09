@@ -17,24 +17,25 @@ public class MoveMouseDirectionRay : MonoBehaviour
     public Vector3 scale = new Vector3(1, 1, 1);
     [SerializeField] private AudioSource Shoot;
     public GameObject prefab;
-    public Slider fireCd;
+    public Slider rayCd;
     public GameObject weaponsMenu;
     void Start()
     {
+        rayCd = GameObject.Find("rayCd").GetComponent<Slider>();
         player = GameObject.Find("Player").transform; // busca el objeto player
         nextFireTime = 0f;
-        //fireCd = GameObject.Find("fireCd").GetComponent<Slider>();
+ 
     }
 
     void Update()
     {
-        if (fireCd.value >= 1.0f)
+        if (rayCd.value >= 1.0f)
         {
-            fireCd.gameObject.SetActive(false);
+            rayCd.gameObject.SetActive(false);
         }
         else
         {
-            fireCd.gameObject.SetActive(true);
+            rayCd.gameObject.SetActive(true);
         }
         if (Time.time > nextFireTime)
         {
@@ -60,7 +61,7 @@ public class MoveMouseDirectionRay : MonoBehaviour
                 }
             }
         }
-        fireCd.value = nextFireTime > Time.time ? 1 - (nextFireTime - Time.time) / cooldown : 1;
+        rayCd.value = nextFireTime > Time.time ? 1 - (nextFireTime - Time.time) / cooldown : 1;
     }
     public void Teleport(Vector3 destination)
     {

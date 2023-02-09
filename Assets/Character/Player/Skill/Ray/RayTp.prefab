@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6275837636236803606}
   - component: {fileID: -8128554791669776794}
   - component: {fileID: -5307048483096740667}
+  - component: {fileID: 7984537438019201864}
   m_Layer: 0
   m_Name: RayTp
   m_TagString: Untagged
@@ -150,5 +151,21 @@ MonoBehaviour:
   scale: {x: 1, y: 1, z: 1}
   Shoot: {fileID: -8128554791669776794}
   prefab: {fileID: 1128841151947891081, guid: 22b699bde92415d40b8a2f9708f2a36e, type: 3}
-  fireCd: {fileID: 0}
+  rayCd: {fileID: 0}
   weaponsMenu: {fileID: 3242671307815251011, guid: faf1aae5cebb9064291da0ef1b5d5ca2, type: 3}
+--- !u!114 &7984537438019201864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8027626064776380214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d20dfb6b05ac80840b3546346cc7d192, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentXp: 1
+  level: 1
+  levelUpXp: 10000
+  rotationSpeed: 50

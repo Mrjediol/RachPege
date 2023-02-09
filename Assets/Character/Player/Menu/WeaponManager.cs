@@ -15,10 +15,12 @@ public class WeaponManager : MonoBehaviour
     public GameObject currentVoid;
     public GameObject currentplantballBook;
     public GameObject currenticeballBook;
+    public GameObject currentRay;
     public GameObject previuosFire;
     public GameObject previuosPlant;
     public GameObject previousIce;
     public GameObject previuosVoid;
+    public GameObject previuosRay;
     public GameObject IceXpBar;
     public GameObject IceLevel;
     public GameObject IceLevelUp;
@@ -28,9 +30,13 @@ public class WeaponManager : MonoBehaviour
     public GameObject VoidXpBar;
     public GameObject VoidLevel;
     public GameObject VoidLevelUp;
+    public GameObject RayXpBar;
+    public GameObject RayLevel;
+    public GameObject RayLevelUp;
     public Slider iceCd;
     public Slider fireCd;
     public Slider voidCd;
+    public Slider RayCd;
     public void EquipWeapon(GameObject weapon)
     {
         if (currentWeapon != null)
@@ -55,9 +61,14 @@ public class WeaponManager : MonoBehaviour
                     previousWeapon.GetComponent<InstantiateOnClickVoid>().enabled = false;
                     previousWeapon.GetComponentInChildren<LineRenderer>().enabled = false;
                 }
+                if (previousWeapon != null && previousWeapon.name == "RayTp(Clone)")
+                {
+                    previousWeapon.GetComponent<MoveMouseDirectionRay>().enabled = false;
+                }
                 UiUpdate();
 
             }
+            
             else
             {
                 Debug.Log("no equipes dos veces la misma anda");
@@ -103,6 +114,19 @@ public class WeaponManager : MonoBehaviour
                     weaponlevelVoid.level = savexp.Voidlevel;
                     weaponlevelVoid.currentXp = savexp.Voidcurrentxp;
                     voidCd.gameObject.SetActive(true);
+                }
+                if (currentWeapon.name == "RayTp(Clone)")
+                {
+                    currentWeapon.GetComponent<MoveMouseDirectionRay>().enabled = true;
+                    currentRay.SetActive(true);
+                    RayXpBar.SetActive(true);
+                    RayLevel.SetActive(true);
+                    RayLevelUp.SetActive(true);
+                    SaveXp savexp = FindObjectOfType<SaveXp>();
+                    WeaponLevelRay weaponlevelRay = FindObjectOfType<WeaponLevelRay>();
+                    weaponlevelRay.level = savexp.Raylevel;
+                    weaponlevelRay.currentXp = savexp.Raycurrentxp;
+                    RayCd.gameObject.SetActive(true);
                 }
                 return;
                 
@@ -157,7 +181,19 @@ public class WeaponManager : MonoBehaviour
             weaponlevelVoid.currentXp = savexp.Voidcurrentxp;
             voidCd.gameObject.SetActive(true);
         }
-
+        if (currentWeapon.name == "RayTp(Clone)")
+        {
+            currentWeapon.GetComponent<MoveMouseDirectionRay>().enabled = true;
+            currentRay.SetActive(true);
+            RayXpBar.SetActive(true);
+            RayLevel.SetActive(true);
+            RayLevelUp.SetActive(true);
+            SaveXp savexp = FindObjectOfType<SaveXp>();
+            WeaponLevelRay weaponlevelRay = FindObjectOfType<WeaponLevelRay>();
+            weaponlevelRay.level = savexp.Raylevel;
+            weaponlevelRay.currentXp = savexp.Raycurrentxp;
+            RayCd.gameObject.SetActive(true);
+        }
     }
 
     void UiUpdate()
@@ -201,6 +237,26 @@ public class WeaponManager : MonoBehaviour
             IceLevelUp.SetActive(false);
             iceCd.gameObject.SetActive(false);
         }
+        if (currentWeapon.name == "RayTp(Clone)")
+        {
+            currentRay.SetActive(true);
+            RayXpBar.SetActive(true);
+            RayLevel.SetActive(true);
+            RayLevelUp.SetActive(true);
+            SaveXp savexp = FindObjectOfType<SaveXp>();
+            WeaponLevelRay weaponLevelRay = FindObjectOfType<WeaponLevelRay>();
+            weaponLevelRay.level = savexp.Raylevel;
+            weaponLevelRay.currentXp = savexp.Raycurrentxp;
+
+        }
+        else
+        {
+            currentRay.SetActive(false);
+            RayXpBar.SetActive(false);
+            RayLevel.SetActive(false);
+            RayLevelUp.SetActive(false);
+            RayCd.gameObject.SetActive(false);
+        }
         if (currentWeapon.name == "Void(Clone)")
         {
             currentVoid.SetActive(true);
@@ -235,6 +291,14 @@ public class WeaponManager : MonoBehaviour
         else
         {
             previuosFire.SetActive(false);
+        }
+        if (previousWeapon.name == "RayTp(Clone)")
+        {
+            previuosRay.SetActive(true);
+        }
+        else
+        {
+            previuosRay.SetActive(false);
         }
         if (previousWeapon.name == "Void(Clone)")
         {
@@ -280,7 +344,10 @@ public class WeaponManager : MonoBehaviour
             currentWeapon.GetComponent<InstantiateOnClickVoid>().enabled = true;
             currentWeapon.GetComponentInChildren<LineRenderer>().enabled = true;
         }
-
+        if (currentWeapon.name == "RayTp(Clone)")
+        {
+            currentWeapon.GetComponent<MoveMouseDirectionRay>().enabled = true;
+        }
 
         previousWeapon.transform.parent = previousWeaponHold;
         if (previousWeapon.name == "FireBall(Clone)")
@@ -290,6 +357,10 @@ public class WeaponManager : MonoBehaviour
         if (previousWeapon.name == "IceBall(Clone)")
         {
             previousWeapon.GetComponent<MoveMouseDirectionIce>().enabled = false;
+        }
+        if (previousWeapon.name == "RayTp(Clone)")
+        {
+            previousWeapon.GetComponent<MoveMouseDirectionRay>().enabled = false;
         }
         if (previousWeapon.name == "Void(Clone)")
         {

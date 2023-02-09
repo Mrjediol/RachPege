@@ -36,16 +36,12 @@ public class AttackColliderRay : MonoBehaviour
             timeToLive = originalTimeToLive;
             Enemy enemy = other.GetComponent<Enemy>(); 
             Debug.Log("1");
-            //WeaponLevelFire weaponLevelFire = GetComponentInParent<WeaponLevelFire>();
+            WeaponLevelRay weaponLevelRay = GetComponentInParent<WeaponLevelRay>();
             if (enemy != null)
             {
                 //Debug.Log("2");
-                //if (weaponLevelFire.level < 5f)
-                //{
-                //    weaponLevelFire.GetXp(fireDamage);
-                //    //Savexpfire()
-                //}
                
+
                 enemyCount++;
                 enemy.Takehit(fireDamage * enemyCount);
                 ManaSystem mana = FindObjectOfType<ManaSystem>();
@@ -54,9 +50,14 @@ public class AttackColliderRay : MonoBehaviour
                     float amountToAdd = Mathf.Min(manaRecieve * enemyCount, mana.maxMana - mana.currentMana);
                     mana.currentMana += amountToAdd;
                 }
+                if (weaponLevelRay.level < 5f)
+                {
+                    weaponLevelRay.GetXp((fireDamage * enemyCount)/2f);
+                    //Savexpfire()
+                }
             }
         }
-        if (!other.CompareTag("Enemy") && !other.CompareTag("Player") && !other.CompareTag("DetectionZone") && !other.CompareTag("ManaStart"))
+        if (!other.CompareTag("Enemy") && !other.CompareTag("Player") && !other.CompareTag("DetectionZone") && !other.CompareTag("ManaStart") && !other.CompareTag("VoidAttack"))
         {
             Debug.Log(other.name);
             Destroy(gameObject);

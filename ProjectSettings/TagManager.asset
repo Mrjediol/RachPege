@@ -12,6 +12,7 @@ TagManager:
   - Iceball
   - ManaStart
   - DetectionZone
+  - VoidAttack
   layers:
   - Default
   - TransparentFX

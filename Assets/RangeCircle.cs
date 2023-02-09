@@ -22,7 +22,7 @@ public class RangeCircle : MonoBehaviour
     private void Update()
     {
   
-            float range = instantiateOnClickVoid.range;
+        float range = instantiateOnClickVoid.range;
         transform.position = player.position;
         float x;
         float y;

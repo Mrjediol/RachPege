@@ -72,8 +72,4 @@ public class MoveMouseDirectionFire : MonoBehaviour
         }
         fireCd.value = nextFireTime > Time.time ? 1 - (nextFireTime - Time.time) / cooldown : 1;
     }
-    void OnFire()
-    {
-
-    }
 }

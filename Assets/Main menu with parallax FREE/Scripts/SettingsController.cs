@@ -32,7 +32,7 @@ public class SettingsController : MonoBehaviour {
             resolutionDrop.options.Add(new Dropdown.OptionData(resolution.ToString()));
         }
 
-        loadSettings();
+        //loadSettings();
     }
 
     public void FullscreenToggle()
@@ -73,15 +73,15 @@ public class SettingsController : MonoBehaviour {
         MenuController.instance.closeOptions();
     }
 
-    public void loadSettings()
-    {
-        gameSettings = JsonUtility.FromJson<Settings>(File.ReadAllText( Application.persistentDataPath + "/gamesettings.json"));
-        fullscreenToggle.isOn = gameSettings.fullscreen;
-        resolutionDrop.value = gameSettings.resolutionIndex;
-        antialiasingDrop.value = gameSettings.antialiasing;
-        vSyncDrop.value = gameSettings.vSync;
-        textQualityDrop.value = gameSettings.textureQuality;
-        volume.value = gameSettings.volume;
-        resolutionDrop.RefreshShownValue();
-    }
+    //public void loadSettings()
+    //{
+    //    gameSettings = JsonUtility.FromJson<Settings>(File.ReadAllText( Application.persistentDataPath + "/gamesettings.json"));
+    //    fullscreenToggle.isOn = gameSettings.fullscreen;
+    //    resolutionDrop.value = gameSettings.resolutionIndex;
+    //    antialiasingDrop.value = gameSettings.antialiasing;
+    //    vSyncDrop.value = gameSettings.vSync;
+    //    textQualityDrop.value = gameSettings.textureQuality;
+    //    volume.value = gameSettings.volume;
+    //    resolutionDrop.RefreshShownValue();
+    //}
 }

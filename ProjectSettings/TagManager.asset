@@ -11,6 +11,7 @@ TagManager:
   - Fireball
   - Iceball
   - ManaStart
+  - DetectionZone
   layers:
   - Default
   - TransparentFX

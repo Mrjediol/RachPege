@@ -21,12 +21,8 @@ public class MoveMouseDirectionAuto : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             CreatePrefab();
-            InvokeRepeating("CreatePrefab", delayBetweenShots, delayBetweenShots);
         }
-        if (Input.GetMouseButtonUp(0))
-        {
-            CancelInvoke("CreatePrefab");
-        }
+       
     }
     void CreatePrefab()
     {

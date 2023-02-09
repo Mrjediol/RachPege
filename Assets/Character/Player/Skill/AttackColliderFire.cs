@@ -30,11 +30,11 @@ public class AttackColliderFire : MonoBehaviour
                 Debug.Log("2");
                 if (weaponLevelFire.level < 5f)
                 {
-                  
+
                     weaponLevelFire.GetXp(fireDamage);
                     //Savexpfire()
                 }
-                
+
                 enemy.Takehit(fireDamage);
                 if (piercing == false)
                 {

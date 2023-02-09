@@ -15,6 +15,7 @@ public class WeaponLevelVoid : MonoBehaviour
     private TextMeshProUGUI VoidLevel;
     private TextMeshProUGUI VoidLevelUp;
     SaveXp saveXp;
+    public float rotationSpeed = 50f;
     private void Start()
     {
         instantiateOnClickVoid = GetComponent<InstantiateOnClickVoid>();
@@ -22,6 +23,7 @@ public class WeaponLevelVoid : MonoBehaviour
         VoidLevel = GameObject.Find("VoidLevel").GetComponent<TextMeshProUGUI>();
         VoidLevelUp = GameObject.Find("VoidLevelUp").GetComponent<TextMeshProUGUI>();
         saveXp = FindObjectOfType<SaveXp>();
+
     }
     void Update()
     {
@@ -43,10 +45,12 @@ public class WeaponLevelVoid : MonoBehaviour
             levelUpXp = 100;
             instantiateOnClickVoid.scale = new Vector3(0.15f, 0.15f, 0.15f);
             instantiateOnClickVoid.range = 0.7f;
+            rotationSpeed = 50f;
         }
         if (level >= 2)
         {
             instantiateOnClickVoid.scale = new Vector3(0.2f, 0.2f, 0.2f);
+            
             //instantiateOnClickVoid.fireDamage = 25f;
             //instantiateOnClickVoid.force = 2f;
             instantiateOnClickVoid.destroyDelay = 8f;
@@ -54,11 +58,15 @@ public class WeaponLevelVoid : MonoBehaviour
             instantiateOnClickVoid.manaCost = 15f;
             instantiateOnClickVoid.range = 0.9f;
             levelUpXp = 300f;
+
+            rotationSpeed = 60f;
         }
         if (level >= 3)
         {
             instantiateOnClickVoid.scale = new Vector3(0.25f, 0.25f, 0.25f);
             //instantiateOnClickVoid.fireDamage = 50f;
+
+            rotationSpeed = 70f;
             instantiateOnClickVoid.destroyDelay = 8f;
             instantiateOnClickVoid.cooldown = 12f;
             instantiateOnClickVoid.manaCost = 25f;
@@ -70,6 +78,7 @@ public class WeaponLevelVoid : MonoBehaviour
             instantiateOnClickVoid.scale = new Vector3(0.3f, 0.3f, 0.3f);
             //instantiateOnClickVoid.fireDamage = 100f;
             //instantiateOnClickVoid.force = 4f;
+            rotationSpeed = 80f;
             instantiateOnClickVoid.destroyDelay = 8f;
             instantiateOnClickVoid.cooldown = 10f;
             instantiateOnClickVoid.manaCost = 35f;
@@ -82,6 +91,7 @@ public class WeaponLevelVoid : MonoBehaviour
             instantiateOnClickVoid.scale = new Vector3(0.5f, 0.5f, 0.5f);
             //instantiateOnClickVoid.fireDamage = 200f;
             //instantiateOnClickVoid.force = 5f;
+            rotationSpeed = 100f;
             instantiateOnClickVoid.destroyDelay = 8f;
             instantiateOnClickVoid.cooldown = 8f;
             instantiateOnClickVoid.manaCost = 50f;

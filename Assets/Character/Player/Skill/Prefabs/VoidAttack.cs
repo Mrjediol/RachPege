@@ -8,10 +8,16 @@ public class VoidAttack : MonoBehaviour
     public float damage = 30;
     Enemy enemy;
     public float rotationSpeed = 100f;
+    WeaponLevelVoid weaponLevelVoid;
 
+    private void Start()
+    {
+        weaponLevelVoid = GetComponentInParent<WeaponLevelVoid>();
+    }
     private void Update()
     {
         transform.Rotate(0, 0, rotationSpeed * Time.fixedDeltaTime);
+        rotationSpeed = weaponLevelVoid.rotationSpeed;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {

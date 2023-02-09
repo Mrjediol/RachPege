@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
     public FrozenEffect frozenEffect;
     public bool isFrozen = false;
     private float freezeTimer;
-
+    [SerializeField] private AudioSource damaged;
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -121,7 +121,7 @@ public class Enemy : MonoBehaviour
 
         //Debug.Log ("te imaginas que funciona");
         animator.SetTrigger("Damaged");
-       
+        damaged.Play();
     }
     public void Takehit(float damageRevice)
     {

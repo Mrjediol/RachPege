@@ -356,6 +356,7 @@ MonoBehaviour:
   spawner: {fileID: 0}
   frozenEffect: {fileID: 0}
   isFrozen: 0
+  damaged: {fileID: 7897990421460196787}
   forceMagnitude: 50
 --- !u!50 &2866632734358892599
 Rigidbody2D:
@@ -433,7 +434,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 904f8d967181c7145bc21bb733692d6f, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.155
+  m_Volume: 0.424
   m_Pitch: 1
   Loop: 0
   Mute: 0

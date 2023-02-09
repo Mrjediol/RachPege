@@ -50,6 +50,11 @@ public class WeaponManager : MonoBehaviour
                 {
                     previousWeapon.GetComponent<MoveMouseDirectionIce>().enabled = false;
                 }
+                if (previousWeapon != null && previousWeapon.name == "Void(Clone)")
+                {
+                    previousWeapon.GetComponent<InstantiateOnClickVoid>().enabled = false;
+                    previousWeapon.GetComponentInChildren<LineRenderer>().enabled = false;
+                }
                 UiUpdate();
 
             }
@@ -88,6 +93,7 @@ public class WeaponManager : MonoBehaviour
                 if (currentWeapon.name == "Void(Clone)")
                 {
                     currentWeapon.GetComponent<InstantiateOnClickVoid>().enabled = true;
+                    currentWeapon.GetComponentInChildren<LineRenderer>().enabled = true;
                     currentVoid.SetActive(true);
                     VoidXpBar.SetActive(true);
                     VoidLevel.SetActive(true);
@@ -140,6 +146,7 @@ public class WeaponManager : MonoBehaviour
         if (currentWeapon.name == "Void(Clone)")
         {
             currentWeapon.GetComponent<InstantiateOnClickVoid>().enabled = true;
+            currentWeapon.GetComponentInChildren<LineRenderer>().enabled = true;
             currentVoid.SetActive(true);
             VoidXpBar.SetActive(true);
             VoidLevel.SetActive(true);
@@ -271,6 +278,7 @@ public class WeaponManager : MonoBehaviour
         if (currentWeapon.name == "Void(Clone)")
         {
             currentWeapon.GetComponent<InstantiateOnClickVoid>().enabled = true;
+            currentWeapon.GetComponentInChildren<LineRenderer>().enabled = true;
         }
 
 
@@ -286,6 +294,7 @@ public class WeaponManager : MonoBehaviour
         if (previousWeapon.name == "Void(Clone)")
         {
             previousWeapon.GetComponent<InstantiateOnClickVoid>().enabled = false;
+            previousWeapon.GetComponentInChildren<LineRenderer>().enabled = false;
         }
 
         UiUpdate();

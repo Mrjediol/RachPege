@@ -14,29 +14,31 @@ public class RangeCircle : MonoBehaviour
         lineRenderer.positionCount = numSegments + 1;
         lineRenderer.useWorldSpace = false;
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        transform.position = player.position;
+        //transform.position = player.position;
         instantiateOnClickVoid = GetComponentInParent<InstantiateOnClickVoid>();
 
     }
 
     private void Update()
     {
-        float range = instantiateOnClickVoid.range;
+  
+            float range = instantiateOnClickVoid.range;
         transform.position = player.position;
         float x;
         float y;
         float z = 0f;
-
         float angle = 20f;
-
-        for (int i = 0; i < (numSegments + 1); i++)
+        if (lineRenderer != null)
         {
-            x = Mathf.Sin(Mathf.Deg2Rad * angle) * range;
-            y = Mathf.Cos(Mathf.Deg2Rad * angle) * range;
+            for (int i = 0; i < (numSegments + 1); i++)
+            {
+                x = Mathf.Sin(Mathf.Deg2Rad * angle) * range;
+                y = Mathf.Cos(Mathf.Deg2Rad * angle) * range;
 
-            lineRenderer.SetPosition(i, new Vector3(x, y, z));
-            lineRenderer.transform.Rotate(0, 0, rotationSpeed * Time.fixedDeltaTime);
-            angle += (360f / numSegments);
+                lineRenderer.SetPosition(i, new Vector3(x, y, z));
+                lineRenderer.transform.Rotate(0, 0, rotationSpeed * Time.deltaTime);
+                angle += (360f / numSegments);
+            }
         }
 
     }

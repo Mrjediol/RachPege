@@ -1,5 +1,6 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class EquipWeapon : MonoBehaviour
 {
@@ -9,7 +10,6 @@ public class EquipWeapon : MonoBehaviour
     //public GameObject WeaponIMG;
 
     [SerializeField] private AudioSource ExitMenuWeaponsSound;
-    WeaponsMenu weaponsmenu;
     public WeaponManager weaponManager;
     public void Equip()
     {
@@ -20,12 +20,14 @@ public class EquipWeapon : MonoBehaviour
 
         weaponManager.EquipWeapon(weapon);
         weapon.transform.parent = weaponHold;
-
         Time.timeScale = 1;
         weaponsMenu.SetActive(false);
         WeaponsMenu wm = FindObjectOfType<WeaponsMenu>();
         wm.isMenuActive = false;
+
+        
     }
+
     //if (currentWPIMG.activeInHierarchy)
     //{
     //    currentWPIMG.SetActive(false);

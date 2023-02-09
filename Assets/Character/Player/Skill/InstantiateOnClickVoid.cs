@@ -68,9 +68,7 @@ public class InstantiateOnClickVoid : MonoBehaviour
         }
         voidCd.value = nextFireTime > Time.time ? 1 - (nextFireTime - Time.time) / cooldown : 1;
         // Actualiza la posición de la línea
-        Vector3 playerPos1 = transform.position;
-        Vector3 endPos = playerPos1 + Vector3.right * range;
-        lineRenderer.SetPositions(new Vector3[] { playerPos1, endPos });
+
     }
     //private void OnDrawGizmos()
     //{

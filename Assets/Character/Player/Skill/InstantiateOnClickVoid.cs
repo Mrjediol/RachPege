@@ -20,6 +20,7 @@ public class InstantiateOnClickVoid : MonoBehaviour
     PlayerController player;
     public GameObject line;
     WeaponsMenu weaponsMenu;
+    CurrentCd currentCd;
     void Start()
     {
         nextFireTime = 0f;
@@ -30,11 +31,14 @@ public class InstantiateOnClickVoid : MonoBehaviour
         lineRenderer.endWidth = 0.1f;
         player = FindObjectOfType<PlayerController>();
         weaponsMenu = FindObjectOfType<WeaponsMenu>();
+        currentCd = GetComponentInParent<CurrentCd>();
+        nextFireTime = currentCd.voidCd;
     }
     void Update()
     {
         if (weaponsMenu.isMenuActive == true)
             return;
+        currentCd.voidCd = nextFireTime;
         if (voidCd.value >= 1.0f)
         {
             voidCd.gameObject.SetActive(false);
@@ -69,6 +73,7 @@ public class InstantiateOnClickVoid : MonoBehaviour
                 }
             }
         }
+        
         voidCd.value = nextFireTime > Time.time ? 1 - (nextFireTime - Time.time) / cooldown : 1;
         // Actualiza la posición de la línea
 

@@ -19,18 +19,22 @@ public class MoveMouseDirectionFire : MonoBehaviour
     public GameObject prefab;
     public Slider fireCd;
     WeaponsMenu weaponsMenu;
+    CurrentCd currentCd;
     void Start()
     {
         player = GameObject.Find("Player").transform; // busca el objeto player
         nextFireTime = 0f;
         fireCd = GameObject.Find("fireCd").GetComponent<Slider>();
         weaponsMenu = FindObjectOfType<WeaponsMenu>();
+        currentCd = GetComponentInParent<CurrentCd>();
+        nextFireTime = currentCd.fireBallCd;
     }
 
     void Update()
     {
         if (weaponsMenu.isMenuActive == true)
            return;
+        currentCd.fireBallCd = nextFireTime;
         if (fireCd.value >= 1.0f)
         {
             fireCd.gameObject.SetActive(false);

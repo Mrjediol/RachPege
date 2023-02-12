@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Gold
   m_EditorClassIdentifier: 
   colorMode: 3
-  topLeft: {r: 0, g: 0.8542309, b: 1, a: 1}
-  topRight: {r: 0, g: 0.083981276, b: 1, a: 1}
-  bottomLeft: {r: 0, g: 0.71989226, b: 1, a: 1}
-  bottomRight: {r: 0, g: 0.92158175, b: 1, a: 1}
+  topLeft: {r: 0.026667118, g: 0, b: 1, a: 1}
+  topRight: {r: 0.02745098, g: 0, b: 1, a: 1}
+  bottomLeft: {r: 0, g: 0.569185, b: 1, a: 1}
+  bottomRight: {r: 0, g: 0.57254905, b: 1, a: 1}

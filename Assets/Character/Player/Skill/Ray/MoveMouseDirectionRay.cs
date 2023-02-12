@@ -19,18 +19,22 @@ public class MoveMouseDirectionRay : MonoBehaviour
     public GameObject prefab;
     public Slider rayCd;
     WeaponsMenu weaponsMenu;
+    CurrentCd currentCd;
     void Start()
     {
         rayCd = GameObject.Find("rayCd").GetComponent<Slider>();
         player = GameObject.Find("Player").transform; // busca el objeto player
         nextFireTime = 0f;
         weaponsMenu = FindObjectOfType<WeaponsMenu>();
+        currentCd = GetComponentInParent<CurrentCd>();
+        nextFireTime = currentCd.rayCd;
     }
 
     void Update()
     {
         if (weaponsMenu.isMenuActive == true)
             return;
+        currentCd.rayCd = nextFireTime;
         if (rayCd.value >= 1.0f)
         {
             rayCd.gameObject.SetActive(false);
@@ -51,12 +55,16 @@ public class MoveMouseDirectionRay : MonoBehaviour
                     Vector3 mousePos = Input.mousePosition;
                     Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
                     worldPos.z = player.position.z;
-                    GameObject instantiatedPrefab = Instantiate(prefab, player.position, Quaternion.identity);
+
+                    Vector3 direction = (worldPos - player.position).normalized;
+                    Vector3 spawnPosition = player.position + (direction/8);
+
+                    GameObject instantiatedPrefab = Instantiate(prefab, spawnPosition, Quaternion.identity);
                     Rigidbody2D rb = instantiatedPrefab.GetComponent<Rigidbody2D>();
                     instantiatedPrefab.transform.parent = transform;
                     //instantiatedPrefab.transform.localScale = scale;
                     manaSystem.ReduceMana(manaCost);
-                    Vector3 direction = (worldPos - player.position).normalized;
+                    
                     rb.AddForce(direction * force, ForceMode2D.Impulse);
                     //Destroy(instantiatedPrefab, destroyDelay);
                     nextFireTime = Time.time + cooldown;

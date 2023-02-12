@@ -43,6 +43,12 @@ public class WeaponManager : MonoBehaviour
     public Slider voidCd;
     public Slider RayCd;
     public Slider blastCd;
+    WeaponsMenu weaponsMenu1;
+
+    private void Start()
+    {
+        weaponsMenu1 = FindObjectOfType<WeaponsMenu>();
+    }
     public void EquipWeapon(GameObject weapon)
     {
         if (currentWeapon != null)
@@ -390,6 +396,8 @@ public class WeaponManager : MonoBehaviour
     }
     void SwitchWeapon()
     {
+        if (weaponsMenu1.isMenuActive == true)
+            return;
         GameObject temp = currentWeapon;
         currentWeapon = previousWeapon;
         previousWeapon = temp;

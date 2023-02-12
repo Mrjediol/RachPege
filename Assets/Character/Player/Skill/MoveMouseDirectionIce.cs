@@ -19,12 +19,15 @@ public class MoveMouseDirectionIce : MonoBehaviour
     public GameObject prefab;
     [SerializeField] private AudioSource Shoot;
     WeaponsMenu weaponsMenu;
+    CurrentCd currentCd;
     void Start()
     {
         player = GameObject.Find("Player").transform; // busca el objeto player
         nextFireTime = 0f;
         iceCd = GameObject.Find("iceCd").GetComponent<Slider>();
         weaponsMenu = FindObjectOfType<WeaponsMenu>();
+        currentCd = GetComponentInParent<CurrentCd>();
+        nextFireTime = currentCd.iceBallCd;
     }
     
     void Update()
@@ -32,6 +35,7 @@ public class MoveMouseDirectionIce : MonoBehaviour
 
         if (weaponsMenu.isMenuActive == true)
             return;
+        currentCd.iceBallCd = nextFireTime;
         if (iceCd.value >= 1.0f)
         {
             iceCd.gameObject.SetActive(false);

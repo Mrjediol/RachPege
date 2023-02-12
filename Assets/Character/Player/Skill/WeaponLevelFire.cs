@@ -80,7 +80,7 @@ public class WeaponLevelFire : MonoBehaviour
             moveMouseDirectionFire.fireDamage = 12.5f;
             moveMouseDirectionFire.force = 3f;
             moveMouseDirectionFire.destroyDelay = 1.5f;
-            moveMouseDirectionFire.cooldown = 0.5f;
+            moveMouseDirectionFire.cooldown = 0.75f;
             moveMouseDirectionFire.manaCost = 7.5f;
             saveState.burnprobability = 5f;
             saveState.burnduration = 4f;

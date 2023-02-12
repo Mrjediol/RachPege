@@ -18,17 +18,19 @@ public class MoveMouseDirectionRay : MonoBehaviour
     [SerializeField] private AudioSource Shoot;
     public GameObject prefab;
     public Slider rayCd;
-    public GameObject weaponsMenu;
+    WeaponsMenu weaponsMenu;
     void Start()
     {
         rayCd = GameObject.Find("rayCd").GetComponent<Slider>();
         player = GameObject.Find("Player").transform; // busca el objeto player
         nextFireTime = 0f;
- 
+        weaponsMenu = FindObjectOfType<WeaponsMenu>();
     }
 
     void Update()
     {
+        if (weaponsMenu.isMenuActive == true)
+            return;
         if (rayCd.value >= 1.0f)
         {
             rayCd.gameObject.SetActive(false);

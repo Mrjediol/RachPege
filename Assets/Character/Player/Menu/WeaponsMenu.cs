@@ -9,7 +9,7 @@ public class WeaponsMenu : MonoBehaviour
     [SerializeField] private AudioSource ExitMenuWeaponsSound;
 
     public bool isMenuActive = false;
-
+    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))

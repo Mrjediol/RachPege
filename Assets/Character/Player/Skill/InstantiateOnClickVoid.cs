@@ -19,6 +19,7 @@ public class InstantiateOnClickVoid : MonoBehaviour
     private LineRenderer lineRenderer;
     PlayerController player;
     public GameObject line;
+    WeaponsMenu weaponsMenu;
     void Start()
     {
         nextFireTime = 0f;
@@ -28,10 +29,12 @@ public class InstantiateOnClickVoid : MonoBehaviour
         lineRenderer.startWidth = 0.1f;
         lineRenderer.endWidth = 0.1f;
         player = FindObjectOfType<PlayerController>();
-
+        weaponsMenu = FindObjectOfType<WeaponsMenu>();
     }
     void Update()
     {
+        if (weaponsMenu.isMenuActive == true)
+            return;
         if (voidCd.value >= 1.0f)
         {
             voidCd.gameObject.SetActive(false);

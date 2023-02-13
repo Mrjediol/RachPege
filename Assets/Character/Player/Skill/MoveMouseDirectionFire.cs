@@ -20,6 +20,7 @@ public class MoveMouseDirectionFire : MonoBehaviour
     public Slider fireCd;
     WeaponsMenu weaponsMenu;
     CurrentCd currentCd;
+    PauseMenu pauseMenu;
     void Start()
     {
         player = GameObject.Find("Player").transform; // busca el objeto player
@@ -28,12 +29,13 @@ public class MoveMouseDirectionFire : MonoBehaviour
         weaponsMenu = FindObjectOfType<WeaponsMenu>();
         currentCd = GetComponentInParent<CurrentCd>();
         nextFireTime = currentCd.fireBallCd;
+        pauseMenu = FindObjectOfType<PauseMenu>();
     }
 
     void Update()
     {
-        if (weaponsMenu.isMenuActive == true)
-           return;
+        if (weaponsMenu.isMenuActive == true || pauseMenu.GameIsPause == true)
+            return;
         currentCd.fireBallCd = nextFireTime;
         if (fireCd.value >= 1.0f)
         {

@@ -20,6 +20,7 @@ public class MoveMouseDirectionIce : MonoBehaviour
     [SerializeField] private AudioSource Shoot;
     WeaponsMenu weaponsMenu;
     CurrentCd currentCd;
+    PauseMenu pauseMenu;
     void Start()
     {
         player = GameObject.Find("Player").transform; // busca el objeto player
@@ -28,12 +29,13 @@ public class MoveMouseDirectionIce : MonoBehaviour
         weaponsMenu = FindObjectOfType<WeaponsMenu>();
         currentCd = GetComponentInParent<CurrentCd>();
         nextFireTime = currentCd.iceBallCd;
+        pauseMenu = FindObjectOfType<PauseMenu>();
     }
     
     void Update()
     {
 
-        if (weaponsMenu.isMenuActive == true)
+        if (weaponsMenu.isMenuActive == true || pauseMenu.GameIsPause == true)
             return;
         currentCd.iceBallCd = nextFireTime;
         if (iceCd.value >= 1.0f)

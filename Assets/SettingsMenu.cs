@@ -6,13 +6,27 @@ using UnityEngine.UI;
 using TMPro;
 public class SettingsMenu : MonoBehaviour
 {
-    public AudioMixer audioMixer;
+    public AudioMixer gameAudioMixer;
+    public AudioMixer musicAudioMixer;
 
     public TMP_Dropdown resolutionDropdown;
 
+    public Toggle gameToggle;
+    public Toggle musicToggle;
+
+    private float gamevolume;
+    public float musicVolume;
+    public PauseMenu pauseMenu;
     Resolution[] resolutions;
     private void Start()
+
     {
+        gameAudioMixer.GetFloat("volume", out gamevolume);
+        musicAudioMixer.GetFloat("musicVolume", out musicVolume);
+        musicVolume = 0;
+        gameToggle.onValueChanged.AddListener(MuteGameVolume);
+        musicToggle.onValueChanged.AddListener(MuteMusicVolume);
+
         resolutions = Screen.resolutions;
 
         resolutionDropdown.ClearOptions();
@@ -37,11 +51,47 @@ public class SettingsMenu : MonoBehaviour
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
     }
+   
+    public void SetVolumeMusic(float volume)
+    {
+        musicAudioMixer.SetFloat("musicVolume", volume);
+        musicVolume = volume;
+    }
+
+    public void MuteMusicVolume(bool isMuted)
+    {
+        
+        if (!isMuted)
+        {
+            musicAudioMixer.SetFloat("musicVolume", -80f);
+            pauseMenu.imMuted = false;
+        }
+        else
+        {
+            musicAudioMixer.SetFloat("musicVolume", musicVolume);
+            pauseMenu.imMuted = true;
+        }
+    }
     public void SetVolume(float volume)
     {
-        audioMixer.SetFloat("volume", volume);
-        Debug.Log(volume);
+        gameAudioMixer.SetFloat("volume", volume);
+        gamevolume = volume;
     }
+
+    public void MuteGameVolume(bool isMuted)
+    {
+        if (!isMuted)
+            
+        {
+            gameAudioMixer.SetFloat("volume", -80f);
+        }
+        else
+        {
+            gameAudioMixer.SetFloat("volume", gamevolume);
+        }
+    }
+
+    
     public void SetFullscreen (bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;

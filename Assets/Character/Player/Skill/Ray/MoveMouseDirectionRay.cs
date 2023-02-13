@@ -19,6 +19,7 @@ public class MoveMouseDirectionRay : MonoBehaviour
     public GameObject prefab;
     public Slider rayCd;
     WeaponsMenu weaponsMenu;
+    PauseMenu pauseMenu;
     CurrentCd currentCd;
     void Start()
     {
@@ -28,11 +29,12 @@ public class MoveMouseDirectionRay : MonoBehaviour
         weaponsMenu = FindObjectOfType<WeaponsMenu>();
         currentCd = GetComponentInParent<CurrentCd>();
         nextFireTime = currentCd.rayCd;
+        pauseMenu = FindObjectOfType<PauseMenu>();
     }
 
     void Update()
     {
-        if (weaponsMenu.isMenuActive == true)
+        if (weaponsMenu.isMenuActive == true || pauseMenu.GameIsPause == true)
             return;
         currentCd.rayCd = nextFireTime;
         if (rayCd.value >= 1.0f)

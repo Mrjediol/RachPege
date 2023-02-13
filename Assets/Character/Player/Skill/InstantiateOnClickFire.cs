@@ -17,6 +17,7 @@ public class InstantiateOnClickFire : MonoBehaviour
     private float nextFireTime;
     WeaponsMenu weaponsMenu;
     CurrentCd currentCd;
+    PauseMenu pauseMenu;
     void Start()
     {
         blastCd = GameObject.Find("blastCd").GetComponent<Slider>();
@@ -24,10 +25,11 @@ public class InstantiateOnClickFire : MonoBehaviour
         weaponsMenu = FindObjectOfType<WeaponsMenu>();
         currentCd = GetComponentInParent<CurrentCd>();
         nextFireTime = currentCd.fireBlastCd;
+        pauseMenu = FindObjectOfType<PauseMenu>();
     }
     void Update()
     {
-        if (weaponsMenu.isMenuActive == true)
+        if (weaponsMenu.isMenuActive == true || pauseMenu.GameIsPause == true)
             return;
         currentCd.fireBlastCd = nextFireTime;
         if (blastCd.value >= 1.0f)

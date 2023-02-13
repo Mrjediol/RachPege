@@ -21,6 +21,7 @@ public class InstantiateOnClickVoid : MonoBehaviour
     public GameObject line;
     WeaponsMenu weaponsMenu;
     CurrentCd currentCd;
+    PauseMenu pauseMenu;
     void Start()
     {
         nextFireTime = 0f;
@@ -33,10 +34,11 @@ public class InstantiateOnClickVoid : MonoBehaviour
         weaponsMenu = FindObjectOfType<WeaponsMenu>();
         currentCd = GetComponentInParent<CurrentCd>();
         nextFireTime = currentCd.voidCd;
+        pauseMenu = FindObjectOfType<PauseMenu>();
     }
     void Update()
     {
-        if (weaponsMenu.isMenuActive == true)
+        if (weaponsMenu.isMenuActive == true || pauseMenu.GameIsPause == true)
             return;
         currentCd.voidCd = nextFireTime;
         if (voidCd.value >= 1.0f)

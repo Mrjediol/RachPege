@@ -776,13 +776,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 656bcfee388f80f439c97996f879d453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameAudioMixer: {fileID: 24100000, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
-  musicAudioMixer: {fileID: 24100000, guid: 5699f92a4b8b06642832e75c9daa900e, type: 2}
+  audioMixer: {fileID: 24100000, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
   resolutionDropdown: {fileID: 1474421191}
-  gameToggle: {fileID: 0}
-  musicToggle: {fileID: 0}
-  musicVolume: 0
-  pauseMenu: {fileID: 0}
 --- !u!1 &356826584
 GameObject:
   m_ObjectHideFlags: 0

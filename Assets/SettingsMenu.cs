@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+//using UnityEngine.SceneManagement;
 using TMPro;
+using System.Diagnostics;
 public class SettingsMenu : MonoBehaviour
 {
     public AudioMixer gameAudioMixer;
@@ -100,5 +102,12 @@ public class SettingsMenu : MonoBehaviour
     {
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+    }
+    public void DeleteProgres()
+    {
+        PlayerPrefs.DeleteAll();
+        Process.Start(Application.dataPath.Replace("_Data", ".exe"));
+        Application.Quit();
+        //SceneManager.LoadScene("Menu");
     }
 }

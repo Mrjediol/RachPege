@@ -16,7 +16,7 @@ public class Veil : MonoBehaviour
             _instance = FindObjectOfType<Veil>();
             if (_instance == null)
             {
-                GameObject prefab = Resources.Load("CanvasVeil") as GameObject;
+                GameObject prefab = Resources.Load("Veil") as GameObject;
                 GameObject go = GameObject.Instantiate(prefab);
                 _instance = go.GetComponent<Veil>();
             }
@@ -28,6 +28,11 @@ public class Veil : MonoBehaviour
     public float animationTime = 0.5f;
     public bool fadeOutOnAwake;
 
+        private void Start()
+        {
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
+    
     private void Awake()
     {
         if (instance != this)
@@ -36,13 +41,21 @@ public class Veil : MonoBehaviour
             return;
         }
 
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
         if (fadeOutOnAwake)
         {
             StartCoroutine(Fade(0));
         }
     }
-
+    
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "Menu")
+        {
+            StartCoroutine(Fade(0));
+            Time.timeScale = 1f;
+        }
+    }
     IEnumerator Fade(float to)
     {
       
@@ -58,16 +71,16 @@ public class Veil : MonoBehaviour
         canvasGroup.alpha = to;
     }
 
-    public void LoadScene(string nextScene)
+    public void LoadScene()
     {
-        StartCoroutine(DoLoadScene(nextScene));
+        StartCoroutine(DoLoadScene());
     }
 
-    IEnumerator DoLoadScene(string nextScene)
+    IEnumerator DoLoadScene()
     {
         yield return StartCoroutine(Fade(1));
         //SceneManager.LoadScene(nextScene);
-        AsyncOperation op = SceneManager.LoadSceneAsync(nextScene);
+        AsyncOperation op = SceneManager.LoadSceneAsync("Game");
         op.allowSceneActivation = false;
         while (op.progress < 0.9f)
         {

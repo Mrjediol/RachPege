@@ -398,6 +398,8 @@ public class WeaponManager : MonoBehaviour
     {
         if (weaponsMenu1.isMenuActive == true)
             return;
+        if (Time.timeScale == 0)
+            return;
         GameObject temp = currentWeapon;
         currentWeapon = previousWeapon;
         previousWeapon = temp;

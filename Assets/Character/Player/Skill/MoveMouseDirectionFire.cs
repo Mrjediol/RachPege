@@ -18,23 +18,20 @@ public class MoveMouseDirectionFire : MonoBehaviour
     [SerializeField] private AudioSource Shoot;
     public GameObject prefab;
     public Slider fireCd;
-    WeaponsMenu weaponsMenu;
     CurrentCd currentCd;
-    PauseMenu pauseMenu;
     void Start()
     {
         player = GameObject.Find("Player").transform; // busca el objeto player
         nextFireTime = 0f;
         fireCd = GameObject.Find("fireCd").GetComponent<Slider>();
-        weaponsMenu = FindObjectOfType<WeaponsMenu>();
         currentCd = GetComponentInParent<CurrentCd>();
         nextFireTime = currentCd.fireBallCd;
-        pauseMenu = FindObjectOfType<PauseMenu>();
+
     }
 
     void Update()
     {
-        if (weaponsMenu.isMenuActive == true || pauseMenu.GameIsPause == true)
+        if (Time.timeScale == 0)
             return;
         currentCd.fireBallCd = nextFireTime;
         if (fireCd.value >= 1.0f)

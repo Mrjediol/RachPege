@@ -18,8 +18,6 @@ public class MoveMouseDirectionRay : MonoBehaviour
     [SerializeField] private AudioSource Shoot;
     public GameObject prefab;
     public Slider rayCd;
-    WeaponsMenu weaponsMenu;
-    PauseMenu pauseMenu;
     CurrentCd currentCd;
     public LayerMask terrainLayer;
     void Start()
@@ -27,16 +25,14 @@ public class MoveMouseDirectionRay : MonoBehaviour
         rayCd = GameObject.Find("rayCd").GetComponent<Slider>();
         player = GameObject.Find("Player").transform; // busca el objeto player
         nextFireTime = 0f;
-        weaponsMenu = FindObjectOfType<WeaponsMenu>();
         currentCd = GetComponentInParent<CurrentCd>();
         nextFireTime = currentCd.rayCd;
-        pauseMenu = FindObjectOfType<PauseMenu>();
-        
+
     }
 
     void Update()
     {
-        if (weaponsMenu.isMenuActive == true || pauseMenu.GameIsPause == true)
+        if (Time.timeScale == 0)
             return;
         currentCd.rayCd = nextFireTime;
         if (rayCd.value >= 1.0f)

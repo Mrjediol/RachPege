@@ -8,10 +8,11 @@ public class EquipChoice : MonoBehaviour
 
     CurrentChoise currentChoise;
     public GameObject choiceMenu;
+    FireWeaponChoice fireWeaponChoice;
     private void Start()
     {
         currentChoise = FindObjectOfType<CurrentChoise>();
-
+        fireWeaponChoice = FindObjectOfType<FireWeaponChoice>();
     }
         public void Fast()
     {
@@ -20,6 +21,7 @@ public class EquipChoice : MonoBehaviour
         currentChoise.currentmodeSlow = false;
         Time.timeScale = 1;
         choiceMenu.SetActive(false);
+        fireWeaponChoice.ischoiceMenuActive = false;
     }
 
     public void Medium()
@@ -29,6 +31,7 @@ public class EquipChoice : MonoBehaviour
         currentChoise.currentmodeSlow = false;
         Time.timeScale = 1;
         choiceMenu.SetActive(false);
+        fireWeaponChoice.ischoiceMenuActive = false;
     }
     public void Slow()
     {
@@ -37,6 +40,7 @@ public class EquipChoice : MonoBehaviour
         currentChoise.currentmodeSlow = true;
         Time.timeScale = 1;
         choiceMenu.SetActive(false);
+        fireWeaponChoice.ischoiceMenuActive = false;
     }
     public void FastIce()
     {
@@ -45,6 +49,7 @@ public class EquipChoice : MonoBehaviour
         currentChoise.currentmodeIceSlow = false;
         Time.timeScale = 1;
         choiceMenu.SetActive(false);
+        fireWeaponChoice.ischoiceMenuActive = false;
     }
 
     public void MediumIce()
@@ -54,6 +59,7 @@ public class EquipChoice : MonoBehaviour
         currentChoise.currentmodeIceSlow = false;
         Time.timeScale = 1;
         choiceMenu.SetActive(false);
+        fireWeaponChoice.ischoiceMenuActive = false;
     }
     public void SlowIce()
     {
@@ -62,5 +68,6 @@ public class EquipChoice : MonoBehaviour
         currentChoise.currentmodeIceSlow = true;
         Time.timeScale = 1;
         choiceMenu.SetActive(false);
+        fireWeaponChoice.ischoiceMenuActive = false;
     }
 }

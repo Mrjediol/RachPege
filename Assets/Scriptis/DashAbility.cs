@@ -24,6 +24,8 @@ public class DashAbility : MonoBehaviour
     void Update()
     {
         movementDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        if (Time.timeScale == 0)
+            return;
         if (isUnlocked && Input.GetKeyDown(KeyCode.Space) && cooldownTimer <= 0)
         {
             isDashing = true;

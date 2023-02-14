@@ -129,6 +129,10 @@ public class PlayerController : MonoBehaviour
         //    swordAttackSound.Play();
         //    hasPlayedSound = true;
         //}
+        if(Time.timeScale == 0)
+        {
+            return;
+        }
         animator.SetTrigger("swordAttack");
         //Debug.Log("fire pressed");
     }

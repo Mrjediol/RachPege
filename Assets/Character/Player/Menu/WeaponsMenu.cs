@@ -7,13 +7,25 @@ public class WeaponsMenu : MonoBehaviour
     public GameObject weaponsMenu;
     [SerializeField] private AudioSource WeaponsMenuSound;
     [SerializeField] private AudioSource ExitMenuWeaponsSound;
-
+    Death death;
+    PauseMenu pauseMenu;
+    FireWeaponChoice fireWeaponChoice;
+    LevelSystem levelSystem;
     public bool isMenuActive = false;
-    
+
+    private void Start()
+    {
+        pauseMenu = FindObjectOfType<PauseMenu>();
+        death = FindObjectOfType<Death>();
+        fireWeaponChoice = FindObjectOfType<FireWeaponChoice>();
+        levelSystem = FindObjectOfType<LevelSystem>();
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
+            if (pauseMenu.GameIsPause == true || death.isDead == true || fireWeaponChoice.ischoiceMenuActive == true || levelSystem.unlokingActive == true)
+                return;
             if (isMenuActive == false)
             {
                 WeaponsMenuSound.Play();

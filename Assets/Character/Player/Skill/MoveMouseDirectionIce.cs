@@ -18,24 +18,21 @@ public class MoveMouseDirectionIce : MonoBehaviour
     public Vector3 scale = new Vector3(0.2f, 0.2f, 0.2f);
     public GameObject prefab;
     [SerializeField] private AudioSource Shoot;
-    WeaponsMenu weaponsMenu;
     CurrentCd currentCd;
-    PauseMenu pauseMenu;
     void Start()
     {
         player = GameObject.Find("Player").transform; // busca el objeto player
         nextFireTime = 0f;
         iceCd = GameObject.Find("iceCd").GetComponent<Slider>();
-        weaponsMenu = FindObjectOfType<WeaponsMenu>();
         currentCd = GetComponentInParent<CurrentCd>();
         nextFireTime = currentCd.iceBallCd;
-        pauseMenu = FindObjectOfType<PauseMenu>();
+
     }
     
     void Update()
     {
 
-        if (weaponsMenu.isMenuActive == true || pauseMenu.GameIsPause == true)
+        if (Time.timeScale == 0)
             return;
         currentCd.iceBallCd = nextFireTime;
         if (iceCd.value >= 1.0f)

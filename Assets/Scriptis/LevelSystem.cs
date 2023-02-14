@@ -13,6 +13,7 @@ public class LevelSystem : MonoBehaviour
     public float requiredXp;
     private float lerpTimer;
     private float delayTimer;
+    public bool unlokingActive;
     [Header("UI")]
     public Image frontXpBar;
     public Image backXpBar;
@@ -64,11 +65,7 @@ public class LevelSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Keyboard.current.spaceKey.wasPressedThisFrame)
-        {
-            Time.timeScale = 1;
-            dashUnlockedVideo.SetActive(false);
-        }
+       
         if (level >= dashAbility.levelRequirement && !dashUnlockedTextShowed)
         {
             
@@ -78,8 +75,15 @@ public class LevelSystem : MonoBehaviour
             ShowTutorial();
             StartCoroutine(DestroyAfterSeconds(dashUnlockedTextInstance, 2.0f));
             dashUnlockedTextShowed = true;
+            unlokingActive = true;
+            
         }
-        if(level >= dashAbility.levelRequirement)
+        if (Keyboard.current.spaceKey.wasPressedThisFrame && unlokingActive == true)
+        {
+            Time.timeScale = 1;
+            dashUnlockedVideo.SetActive(false);
+        }
+        if (level >= dashAbility.levelRequirement)
         {
             dashAbility.Unlock();
         }
@@ -96,6 +100,7 @@ public class LevelSystem : MonoBehaviour
         Time.timeScale = 1;
         dashUnlockedVideo.SetActive(false);
         Destroy(text);
+        unlokingActive = false;
     }
 
 

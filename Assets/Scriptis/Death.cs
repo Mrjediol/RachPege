@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Death : MonoBehaviour
 {
     public GameObject deathScreen;
     public Vector3 currentSpawnPoint;
-
+    public bool isDead;
+    private Color deathScreenColor;
 
     private void Start()
     {
         LoadCheckPoint();
+        deathScreenColor = deathScreen.GetComponentInChildren<Image>().color;
     }
     // Llamado cuando el jugador muere
     private void OnTriggerEnter2D(Collider2D collision)
@@ -42,6 +45,7 @@ public class Death : MonoBehaviour
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<BoxCollider2D>().enabled = false;
         GetComponent<PlayerHealth>().enabled = false;
+        isDead = true;
         // Activar la pantalla de muerte
         deathScreen.SetActive(true);
 
@@ -57,6 +61,13 @@ public class Death : MonoBehaviour
         // Mover al jugador al punto de spawn actual
         transform.position = currentSpawnPoint;
 
+        // Gradualmente disminuir el alpha de la pantalla de muerte
+        while (deathScreenColor.a > 0)
+        {
+            deathScreenColor.a -= Time.deltaTime / 3f;
+            deathScreen.GetComponentInChildren<Image>().color = deathScreenColor;
+            yield return null;
+        }
         // Reactivar el controlador del jugador y el modelo del jugador
         GetComponent<PlayerHealth>().enabled = true;
         PlayerHealth playerHealth = GetComponent<PlayerHealth>();
@@ -69,6 +80,10 @@ public class Death : MonoBehaviour
         GetComponent<BoxCollider2D>().enabled = true;
         // Desactivar la pantalla de muerte
         deathScreen.SetActive(false);
+        isDead = false;
+        // Restaurar el valor original del alpha de la pantalla de muerte
+        deathScreenColor.a = 1f;
+        deathScreen.GetComponentInChildren<Image>().color = deathScreenColor;
     }
 }
 

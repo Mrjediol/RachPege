@@ -152,7 +152,9 @@ MonoBehaviour:
   Shoot: {fileID: -8128554791669776794}
   prefab: {fileID: 1128841151947891081, guid: 22b699bde92415d40b8a2f9708f2a36e, type: 3}
   rayCd: {fileID: 0}
-  weaponsMenu: {fileID: 3242671307815251011, guid: faf1aae5cebb9064291da0ef1b5d5ca2, type: 3}
+  terrainLayer:
+    serializedVersion: 2
+    m_Bits: 136
 --- !u!114 &7984537438019201864
 MonoBehaviour:
   m_ObjectHideFlags: 0

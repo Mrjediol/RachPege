@@ -41,7 +41,7 @@ public class Veil : MonoBehaviour
             return;
         }
 
-        //DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject);
         if (fadeOutOnAwake)
         {
             StartCoroutine(Fade(0));
@@ -71,16 +71,16 @@ public class Veil : MonoBehaviour
         canvasGroup.alpha = to;
     }
 
-    public void LoadScene()
+    public void LoadScene(string nextScene)
     {
-        StartCoroutine(DoLoadScene());
+        StartCoroutine(DoLoadScene(nextScene));
     }
 
-    IEnumerator DoLoadScene()
+    IEnumerator DoLoadScene(string nextScene)
     {
         yield return StartCoroutine(Fade(1));
         //SceneManager.LoadScene(nextScene);
-        AsyncOperation op = SceneManager.LoadSceneAsync("Game");
+        AsyncOperation op = SceneManager.LoadSceneAsync(nextScene);
         op.allowSceneActivation = false;
         while (op.progress < 0.9f)
         {

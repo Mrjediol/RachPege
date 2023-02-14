@@ -21,6 +21,7 @@ public class MoveMouseDirectionRay : MonoBehaviour
     WeaponsMenu weaponsMenu;
     PauseMenu pauseMenu;
     CurrentCd currentCd;
+    public LayerMask terrainLayer;
     void Start()
     {
         rayCd = GameObject.Find("rayCd").GetComponent<Slider>();
@@ -30,6 +31,7 @@ public class MoveMouseDirectionRay : MonoBehaviour
         currentCd = GetComponentInParent<CurrentCd>();
         nextFireTime = currentCd.rayCd;
         pauseMenu = FindObjectOfType<PauseMenu>();
+        
     }
 
     void Update()
@@ -53,23 +55,24 @@ public class MoveMouseDirectionRay : MonoBehaviour
             ManaSystem manaSystem = FindObjectOfType<ManaSystem>();
             if (manaSystem.currentMana > manaCost)
             {
-                Shoot.Play();
-                    Vector3 mousePos = Input.mousePosition;
-                    Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
-                    worldPos.z = player.position.z;
+            Vector3 mousePos = Input.mousePosition;
+            Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
+            worldPos.z = player.position.z;
+            Vector3 direction = (worldPos - player.position).normalized;
+            Vector3 spawnPosition = player.position - (player.up * 0.0147f) + (direction / 10);
+                   if (Physics2D.OverlapCircle(spawnPosition,0.05f, terrainLayer) == null)
+                    { 
+                            Shoot.Play();
+                            GameObject instantiatedPrefab = Instantiate(prefab, spawnPosition, Quaternion.identity);
+                            Rigidbody2D rb = instantiatedPrefab.GetComponent<Rigidbody2D>();
+                            instantiatedPrefab.transform.parent = transform;
+                            //instantiatedPrefab.transform.localScale = scale;
+                            manaSystem.ReduceMana(manaCost);
 
-                    Vector3 direction = (worldPos - player.position).normalized;
-                    Vector3 spawnPosition = player.position + (direction/8);
-
-                    GameObject instantiatedPrefab = Instantiate(prefab, spawnPosition, Quaternion.identity);
-                    Rigidbody2D rb = instantiatedPrefab.GetComponent<Rigidbody2D>();
-                    instantiatedPrefab.transform.parent = transform;
-                    //instantiatedPrefab.transform.localScale = scale;
-                    manaSystem.ReduceMana(manaCost);
-                    
-                    rb.AddForce(direction * force, ForceMode2D.Impulse);
-                    //Destroy(instantiatedPrefab, destroyDelay);
-                    nextFireTime = Time.time + cooldown;
+                            rb.AddForce(direction * force, ForceMode2D.Impulse);
+                            //Destroy(instantiatedPrefab, destroyDelay);
+                            nextFireTime = Time.time + cooldown;
+                    }
                 }
             }
         }

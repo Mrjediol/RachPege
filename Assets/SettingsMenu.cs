@@ -103,11 +103,13 @@ public class SettingsMenu : MonoBehaviour
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
-    public void DeleteProgres()
+    public void DeleteProgres(string nextScene)
     {
         PlayerPrefs.DeleteAll();
-        Process.Start(Application.dataPath.Replace("_Data", ".exe"));
-        Application.Quit();
+        //Process.Start(Application.dataPath.Replace("_Data", ".exe"));
+        //Application.Quit();
         //SceneManager.LoadScene("Menu");
+        Veil.instance.LoadScene(nextScene);
     }
+
 }

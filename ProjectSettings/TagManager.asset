@@ -18,11 +18,11 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Terrain
   - Water
   - UI
   - Enemy
-  - 
+  - fences
   - 
   - 
   - Player
@@ -56,6 +56,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3983194563
+    locked: 0
+  - name: Terrain
+    uniqueID: 586951583
     locked: 0
   - name: arboles
     uniqueID: 1783211419

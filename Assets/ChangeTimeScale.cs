@@ -9,7 +9,7 @@ public class ChangeTimeScale : MonoBehaviour
     {
         if (Keyboard.current.jKey.isPressed)
         {
-            Time.timeScale = 0.2f;
+            Time.timeScale = 0.02f;
         }
         else if (Keyboard.current.kKey.isPressed)
         {

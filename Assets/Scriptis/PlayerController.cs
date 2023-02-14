@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         hasPlayedSound = false;
+        Death death = GetComponent<Death>();
+        transform.position = death.currentSpawnPoint;
     }
     private void FixedUpdate()
     {

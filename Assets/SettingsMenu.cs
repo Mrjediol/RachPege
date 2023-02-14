@@ -5,7 +5,7 @@ using UnityEngine.Audio;
 using UnityEngine.UI;
 //using UnityEngine.SceneManagement;
 using TMPro;
-using System.Diagnostics;
+
 public class SettingsMenu : MonoBehaviour
 {
     public AudioMixer gameAudioMixer;
@@ -106,10 +106,10 @@ public class SettingsMenu : MonoBehaviour
     public void DeleteProgres(string nextScene)
     {
         PlayerPrefs.DeleteAll();
-        //Process.Start(Application.dataPath.Replace("_Data", ".exe"));
-        //Application.Quit();
-        //SceneManager.LoadScene("Menu");
-        Veil.instance.LoadScene(nextScene);
+        //Veil.instance.LoadScene(nextScene);
     }
 
 }
+//Process.Start(Application.dataPath.Replace("_Data", ".exe"));
+//Application.Quit();
+//SceneManager.LoadScene("Menu");

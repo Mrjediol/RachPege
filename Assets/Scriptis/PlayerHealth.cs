@@ -35,6 +35,7 @@ public class PlayerHealth : MonoBehaviour
         }
         if (health <= 0)
         {
+
             animator.SetTrigger("Defeated");
         }
 
@@ -111,11 +112,6 @@ public class PlayerHealth : MonoBehaviour
         maxhealth = Mathf.Round(maxhealth);
         health += (health * 0.01f) * ((100 - level) * 0.1f);
         health = Mathf.Round(health);
-    }
-
-    public void ReloadScene()
-    {
-        SceneManager.LoadScene(Scene);
     }
 
 }

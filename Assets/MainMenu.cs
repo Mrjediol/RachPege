@@ -8,5 +8,9 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
+    public void OpenGame(string nextScene)
+    {
+        Veil.instance.LoadScene(nextScene);
+    }
 }
 

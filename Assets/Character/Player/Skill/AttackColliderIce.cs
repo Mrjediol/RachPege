@@ -44,6 +44,11 @@ public class AttackColliderIce : MonoBehaviour
             //    StartCoroutine(burnEffect.ApplyBurnDamage());
             //}
         }
+        if (!other.CompareTag("Enemy") && !other.CompareTag("CheckPoint") && !other.CompareTag("Player") && !other.CompareTag("DetectionZone") && !other.CompareTag("ManaStart") && !other.CompareTag("VoidAttack"))
+        {
+            Debug.Log(other.name);
+            Destroy(gameObject);
+        }
         DPS dps = other.GetComponent<DPS>();
         if (dps != null)
         {

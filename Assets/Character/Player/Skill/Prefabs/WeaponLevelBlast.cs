@@ -46,6 +46,7 @@ public class WeaponLevelBlast : MonoBehaviour
             InstantiateOnClickFire.scale = new Vector3(0.15f, 0.15f, 0.15f);
             InstantiateOnClickFire.cooldown = 3f;
             InstantiateOnClickFire.manaCost = 15f;
+            InstantiateOnClickFire.range = 0.7f;
         }
         if (level >= 2)
         {
@@ -55,6 +56,7 @@ public class WeaponLevelBlast : MonoBehaviour
             InstantiateOnClickFire.cooldown = 2f;
             InstantiateOnClickFire.manaCost = 20f;
             levelUpXp = 300f;
+            InstantiateOnClickFire.range = 0.9f;
         }
         if (level >= 3)
         {
@@ -64,6 +66,7 @@ public class WeaponLevelBlast : MonoBehaviour
             InstantiateOnClickFire.cooldown = 1.5f;
             InstantiateOnClickFire.manaCost = 25f;
             levelUpXp = 600f;
+            InstantiateOnClickFire.range = 1.1f;
         }
         if (level >= 4)
         {
@@ -73,6 +76,7 @@ public class WeaponLevelBlast : MonoBehaviour
             rotationSpeed = 80f;
             InstantiateOnClickFire.cooldown = 1f;
             InstantiateOnClickFire.manaCost = 35f;
+            InstantiateOnClickFire.range = 1.4f;
             //instantiateOnClickVoid.piercing = true;
             levelUpXp = 1000f;
         }
@@ -82,6 +86,7 @@ public class WeaponLevelBlast : MonoBehaviour
             //instantiateOnClickVoid.fireDamage = 200f;
             //instantiateOnClickVoid.force = 5f;
             InstantiateOnClickFire.cooldown =  0.5f;
+            InstantiateOnClickFire.range = 1.8f;
             InstantiateOnClickFire.manaCost = 50f;
             BlastLevel.fontSize = 26f;
             BlastLevel.text = "Max Lvl. " + level;

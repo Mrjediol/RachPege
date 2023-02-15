@@ -242,6 +242,9 @@ MonoBehaviour:
   voidCd: {fileID: 0}
   range: 1
   line: {fileID: 2880297752694000053}
+  terrainLayer:
+    serializedVersion: 2
+    m_Bits: 136
 --- !u!114 &5816006853620538617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,3 +260,4 @@ MonoBehaviour:
   currentXp: 1
   level: 1
   levelUpXp: 10000
+  rotationSpeed: 50

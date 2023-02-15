@@ -152,6 +152,9 @@ MonoBehaviour:
   scale: {x: 0.2, y: 0.2, z: 0.2}
   prefab: {fileID: 1128841151947891081, guid: 9ba5ecbc3ef08c64fabfe414285742d0, type: 3}
   Shoot: {fileID: -8128554791669776794}
+  terrainLayer:
+    serializedVersion: 2
+    m_Bits: 136
 --- !u!114 &-47902435255331407
 MonoBehaviour:
   m_ObjectHideFlags: 0

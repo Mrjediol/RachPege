@@ -19,7 +19,7 @@ public class InstantiateOnClickVoid : MonoBehaviour
     private LineRenderer lineRenderer;
     PlayerController player;
     public GameObject line;
-
+    public LayerMask terrainLayer;
     CurrentCd currentCd;
 
     void Start()
@@ -62,13 +62,15 @@ public class InstantiateOnClickVoid : MonoBehaviour
                     float distance = Vector3.Distance(worldPos, player.transform.position);
                     if (distance <= range)
                     {
-
-                        GameObject instantiatedPrefab = Instantiate(prefab, worldPos, Quaternion.identity);
-                        instantiatedPrefab.transform.parent = transform;
-                        instantiatedPrefab.transform.localScale = scale;
-                        manaSystem.ReduceMana(manaCost);
-                        Destroy(instantiatedPrefab, destroyDelay);
-                        nextFireTime = Time.time + cooldown;
+                        if (Physics2D.OverlapCircle(worldPos,0.3f, terrainLayer) == null)
+                        {
+                            GameObject instantiatedPrefab = Instantiate(prefab, worldPos, Quaternion.identity);
+                            instantiatedPrefab.transform.parent = transform;
+                            instantiatedPrefab.transform.localScale = scale;
+                            manaSystem.ReduceMana(manaCost);
+                            Destroy(instantiatedPrefab, destroyDelay);
+                            nextFireTime = Time.time + cooldown;
+                        }
                     }
                 }
             }

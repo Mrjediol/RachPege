@@ -15,14 +15,23 @@ public class InstantiateOnClickFire : MonoBehaviour
     ////public GameObject prefab;
     public Slider blastCd;
     private float nextFireTime;
-
+    public LayerMask terrainLayer;
+    private LineRenderer lineRenderer;
+    public GameObject line;
     CurrentCd currentCd;
+    public float range = 0.5f;
+    PlayerController player;
     void Start()
     {
         blastCd = GameObject.Find("blastCd").GetComponent<Slider>();
         nextFireTime = 0f;
+        lineRenderer = GetComponentInChildren<LineRenderer>();
+        lineRenderer.positionCount = 2;
+        lineRenderer.startWidth = 0.1f;
+        lineRenderer.endWidth = 0.1f;
         currentCd = GetComponentInParent<CurrentCd>();
         nextFireTime = currentCd.fireBlastCd;
+        player = FindObjectOfType<PlayerController>();
     }
     void Update()
     {
@@ -45,15 +54,23 @@ public class InstantiateOnClickFire : MonoBehaviour
 
                 if (manaSystem.currentMana > manaCost)
                 {
-
                     Vector3 mousePos = Input.mousePosition;
                     Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
                     worldPos.z = 0; // aseguramos que la posición en z sea 0 para evitar problemas con la profundidad de la cámara
-                    GameObject instantiatedPrefab = Instantiate(prefab, worldPos, Quaternion.identity);
-                    manaSystem.ReduceMana(manaCost);
-                    instantiatedPrefab.transform.parent = transform;
-                    Destroy(instantiatedPrefab, destroyDelay);
-                    nextFireTime = Time.time + cooldown;
+
+                    float distance = Vector3.Distance(worldPos, player.transform.position);
+                    if (distance <= range)
+                    {
+                        if (Physics2D.OverlapCircle(worldPos, 0.3f, terrainLayer) == null)
+                        {
+
+                            GameObject instantiatedPrefab = Instantiate(prefab, worldPos, Quaternion.identity);
+                            manaSystem.ReduceMana(manaCost);
+                            instantiatedPrefab.transform.parent = transform;
+                            Destroy(instantiatedPrefab, destroyDelay);
+                            nextFireTime = Time.time + cooldown;
+                        }
+                    }
                 }
             }
         }

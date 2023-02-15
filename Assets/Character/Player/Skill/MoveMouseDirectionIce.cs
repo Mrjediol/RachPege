@@ -19,6 +19,7 @@ public class MoveMouseDirectionIce : MonoBehaviour
     public GameObject prefab;
     [SerializeField] private AudioSource Shoot;
     CurrentCd currentCd;
+    public LayerMask terrainLayer;
     void Start()
     {
         player = GameObject.Find("Player").transform; // busca el objeto player
@@ -51,32 +52,36 @@ public class MoveMouseDirectionIce : MonoBehaviour
                 ManaSystem manaSystem = FindObjectOfType<ManaSystem>();
                 if(manaSystem.currentMana > manaCost) 
                 {
-                
-                    Shoot.Play();
                     Vector3 mousePos = Input.mousePosition;
                     Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
                     worldPos.z = player.position.z;
-                    GameObject instantiatedPrefab = Instantiate(prefab, player.position, Quaternion.identity);
-                    Rigidbody2D rb = instantiatedPrefab.GetComponent<Rigidbody2D>();
-                    instantiatedPrefab.transform.parent = transform;
-                    instantiatedPrefab.transform.localScale = scale;
-                    if (instantiatedPrefab.name == "FireBall(Clone)")
-                    {
-                        instantiatedPrefab.GetComponent<AttackCollider>().fireDamage = fireDamage;
-                        instantiatedPrefab.GetComponent<AttackCollider>().piercing = piercing;
-                    }
-                    if (instantiatedPrefab.name == "IceBall(Clone)")
-                    {
-                        instantiatedPrefab.GetComponent<AttackColliderIce>().IceDamage = IceDamage;
-                        instantiatedPrefab.GetComponent<AttackColliderIce>().piercing = piercing;
-                    }
-                    manaSystem.ReduceMana(manaCost);
-                    //manaSystem.currentMana -= manaCost;
                     Vector3 direction = (worldPos - player.position).normalized;
-                    rb.AddForce(direction * force, ForceMode2D.Impulse);
+                    Vector3 spawnPosition = player.position - (player.up * 0.0147f) + (direction / 10);
+                    if (Physics2D.OverlapCircle(spawnPosition, 0.05f, terrainLayer) == null)
+                    {
+                        Shoot.Play();
 
-                    Destroy(instantiatedPrefab, destroyDelay);
-                    nextFireTime = Time.time + cooldown;
+                        GameObject instantiatedPrefab = Instantiate(prefab, spawnPosition, Quaternion.identity);
+                        Rigidbody2D rb = instantiatedPrefab.GetComponent<Rigidbody2D>();
+                        instantiatedPrefab.transform.parent = transform;
+                        instantiatedPrefab.transform.localScale = scale;
+                        if (instantiatedPrefab.name == "FireBall(Clone)")
+                        {
+                            instantiatedPrefab.GetComponent<AttackCollider>().fireDamage = fireDamage;
+                            instantiatedPrefab.GetComponent<AttackCollider>().piercing = piercing;
+                        }
+                        if (instantiatedPrefab.name == "IceBall(Clone)")
+                        {
+                            instantiatedPrefab.GetComponent<AttackColliderIce>().IceDamage = IceDamage;
+                            instantiatedPrefab.GetComponent<AttackColliderIce>().piercing = piercing;
+                        }
+                        manaSystem.ReduceMana(manaCost);
+                        //manaSystem.currentMana -= manaCost;
+                        rb.AddForce(direction * force, ForceMode2D.Impulse);
+
+                        Destroy(instantiatedPrefab, destroyDelay);
+                        nextFireTime = Time.time + cooldown;
+                    }
                 }
             }
         }

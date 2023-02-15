@@ -80,6 +80,7 @@ public class WeaponManager : MonoBehaviour
                 if (previousWeapon != null && previousWeapon.name == "Blast(Clone)")
                 {
                     previousWeapon.GetComponent<InstantiateOnClickFire>().enabled = false;
+                    previousWeapon.GetComponentInChildren<LineRenderer>().enabled = false;
                 }
                 UiUpdate();
 
@@ -147,6 +148,7 @@ public class WeaponManager : MonoBehaviour
                 if (currentWeapon.name == "Blast(Clone)")
                 {
                     currentWeapon.GetComponent<InstantiateOnClickFire>().enabled = true;
+                    currentWeapon.GetComponentInChildren<LineRenderer>().enabled = true;
                     currentBlast.SetActive(true);
                     BlastXpBar.SetActive(true);
                     BlastLevel.SetActive(true);
@@ -226,6 +228,7 @@ public class WeaponManager : MonoBehaviour
         if (currentWeapon.name == "Blast(Clone)")
         {
             currentWeapon.GetComponent<InstantiateOnClickFire>().enabled = true;
+            currentWeapon.GetComponentInChildren<LineRenderer>().enabled = true;
             currentBlast.SetActive(true);
             BlastXpBar.SetActive(true);
             BlastLevel.SetActive(true);
@@ -424,6 +427,7 @@ public class WeaponManager : MonoBehaviour
         if (currentWeapon.name == "Blast(Clone)")
         {
             currentWeapon.GetComponent<InstantiateOnClickFire>().enabled = true;
+            currentWeapon.GetComponentInChildren<LineRenderer>().enabled = true;
         }
 
         previousWeapon.transform.parent = previousWeaponHold;
@@ -442,6 +446,7 @@ public class WeaponManager : MonoBehaviour
         if (previousWeapon.name == "Blast(Clone)")
         {
             previousWeapon.GetComponent<InstantiateOnClickFire>().enabled = false;
+            previousWeapon.GetComponentInChildren<LineRenderer>().enabled = false;
         }
         if (previousWeapon.name == "Void(Clone)")
         {

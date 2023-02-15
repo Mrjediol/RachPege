@@ -51,3 +51,8 @@ MonoBehaviour:
   scale: {x: 1, y: 1, z: 1}
   Shoot: {fileID: 0}
   voidCd: {fileID: 0}
+  range: 0.5
+  line: {fileID: 0}
+  terrainLayer:
+    serializedVersion: 2
+    m_Bits: 136

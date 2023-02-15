@@ -96,7 +96,7 @@ Con este proyecto pretendo aprender y desarrollar mis habilidades para la creaci
 
 - **Sword**: Ataque Melee que viene por defecto desbloqueado. Su daño escala con el nivel del personaje.
 
-(./png/void.png)
+![Landing_pro](./png/void.png)
 
 - **FireGun**: Arma a distancia que dispara un proyectil de fuego que puede quemar a los enemigos con cierta probabilidad, el daño, tamaño, velocidad de proyectil, cooldown. etc escalan con el nivel del arma. 
 
@@ -104,23 +104,23 @@ Con este proyecto pretendo aprender y desarrollar mis habilidades para la creaci
 
 - **IceGun**: Arma a distancia que dispara un proyectil de hielo que puede congelar a los enemigos con cierta probabilidad, el daño, tamaño, velocidad de proyectil, cooldown. etc escalan con el nivel del arma. 
 
-![Landing_pro](./png/Void.png)
+![Landing_pro](./png/void.png)
 
 - **RayGun**: Arma a distancia que dispara un proyectil que teletransporta al player a la ubicaciones en la que se destruye, por cada enemigo que atraviese reinicia su duración y hace que llegue mas lejos, haciendo mas daño a cada enemigo y ganando mas experiencia por cada enemigo golpeado.
 
-![Landing_pro](./png/Void.png)
+![Landing_pro](./png/void.png)
 
 - **BlastGun**: Arma que crea una explosion en la posición del raton.
 
 
-![Landing_pro](./png/Void.png)
+![Landing_pro](./png/void.png)
 
 - **VoidGun**: Arma a distancia que instancia un proyectil en la posicion del mouse, el daño, tamaño, cooldown. etc escalan con el nivel del arma. 
-![Landing_pro](./png/Void.png)
+![Landing_pro](./png/void.png)
 
 - **AniquilitationGun**: Página inicial donde podremos encontrar las campañas y tendremos acceso a un buscador directo de las mismas.
 
-![Landing_pro](./png/Void.png)
+![Landing_pro](./png/void.png)
 
 
 

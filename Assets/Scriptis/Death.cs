@@ -14,6 +14,7 @@ public class Death : MonoBehaviour
     {
         LoadCheckPoint();
         deathScreenColor = deathScreen.GetComponentInChildren<Image>().color;
+        transform.position = currentSpawnPoint;
     }
     // Llamado cuando el jugador muere
     private void OnTriggerEnter2D(Collider2D collision)

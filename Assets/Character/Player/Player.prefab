@@ -627,6 +627,7 @@ GameObject:
   - component: {fileID: 876481307865465272}
   - component: {fileID: 876481307865465275}
   - component: {fileID: 876481307865465278}
+  - component: {fileID: 292187474}
   - component: {fileID: 876481307865465279}
   - component: {fileID: 876481307865465273}
   - component: {fileID: 5016516211896440436}
@@ -636,6 +637,7 @@ GameObject:
   - component: {fileID: 408944122}
   - component: {fileID: 287564109}
   - component: {fileID: 287564120}
+  - component: {fileID: 292187461}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -736,6 +738,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &292187474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876481307865465269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff96988ccac626f458d3eb6d40e700e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathScreen: {fileID: 0}
+  currentSpawnPoint: {x: 0, y: 0, z: 0}
+  isDead: 0
 --- !u!114 &876481307865465279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -866,7 +883,7 @@ MonoBehaviour:
   healthText: {fileID: 0}
   damagable: 1
   Scene: 0
-  damageText: {fileID: 0}
+  damageText: {fileID: 517097095551127783, guid: d051389f48474a64daf5d4e124f162a6, type: 3}
 --- !u!114 &3890700909860083455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -882,6 +899,7 @@ MonoBehaviour:
   level: 1
   currentXp: 0
   requiredXp: 50
+  unlokingActive: 0
   frontXpBar: {fileID: 0}
   backXpBar: {fileID: 0}
   levelText: {fileID: 0}
@@ -932,7 +950,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.85467434
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -1017,7 +1035,7 @@ AudioSource:
   m_GameObject: {fileID: 876481307865465269}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
   m_audioClip: {fileID: 8300000, guid: fe0b1f9aeb45b41b089175aeeabd5d95, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.682
@@ -1028,7 +1046,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.86048794
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -1104,6 +1122,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &292187461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876481307865465269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 513709f6de3983442b8590e0d0c04f00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manaBar: {fileID: 0}
+  manaText: {fileID: 0}
+  maxMana: 100
+  currentMana: 0
+  manaregen: 1
 --- !u!1 &3578799851994865869
 GameObject:
   m_ObjectHideFlags: 0
@@ -1211,7 +1246,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: fe0b1f9aeb45b41b089175aeeabd5d95, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1309,6 +1344,7 @@ GameObject:
   - component: {fileID: 5596928073629615656}
   - component: {fileID: 34006423}
   - component: {fileID: 1288105714}
+  - component: {fileID: 1796690011}
   m_Layer: 10
   m_Name: SwordHitboxDown
   m_TagString: Untagged
@@ -1403,7 +1439,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: fe0b1f9aeb45b41b089175aeeabd5d95, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1488,6 +1524,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1796690011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4214544626528342798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41f7bad5e01a7f841a7f845f4f5f7435, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swordCollider: {fileID: 0}
+  damage: 10
 --- !u!1 &6107201951040526297
 GameObject:
   m_ObjectHideFlags: 0

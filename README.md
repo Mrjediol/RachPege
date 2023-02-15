@@ -116,6 +116,7 @@ Con este proyecto pretendo aprender y desarrollar mis habilidades para la creaci
 ![Landing_pro](./png/void.png)
 
 - **VoidGun**: Arma a distancia que instancia un proyectil en la posicion del mouse, el daño, tamaño, cooldown. etc escalan con el nivel del arma. 
+
 ![Landing_pro](./png/void.png)
 
 - **AniquilitationGun**: Página inicial donde podremos encontrar las campañas y tendremos acceso a un buscador directo de las mismas.

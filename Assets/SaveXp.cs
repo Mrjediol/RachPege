@@ -14,11 +14,15 @@ public class SaveXp : MonoBehaviour
     public int Raylevel;
     public float Blastcurrentxp;
     public int Blastlevel;
+    public float Aniquilationcurrentxp;
+    public int Aniquilationlevel;
 
     void Start()
     {
         Icelevel = PlayerPrefs.GetInt("Icelevel", 1);
         Icecurrentxp = PlayerPrefs.GetFloat("Icecurrentxp", 1);
+        Aniquilationlevel = PlayerPrefs.GetInt("Aniquilationlevel", 1);
+        Aniquilationcurrentxp = PlayerPrefs.GetFloat("Aniquilationcurrentxp", 1);
         Firelevel = PlayerPrefs.GetInt("Firelevel", 1);
         Firecurrentxp = PlayerPrefs.GetFloat("Firecurrentxp", 1);
         Voidlevel = PlayerPrefs.GetInt("Voidlevel", 1);
@@ -37,6 +41,16 @@ public class SaveXp : MonoBehaviour
     public void SaveIceXp()
     {
         PlayerPrefs.SetFloat("Icecurrentxp", Icecurrentxp); // guardar la Experiencia actual
+        PlayerPrefs.Save();
+    }
+    public void SaveAniquilationLevel()
+    {
+        PlayerPrefs.SetInt("Aniquilationlevel", Aniquilationlevel); // guardar el nivel actual
+        PlayerPrefs.Save();
+    }
+    public void SaveAniquilationXp()
+    {
+        PlayerPrefs.SetFloat("Aniquilationcurrentxp", Aniquilationcurrentxp); // guardar la Experiencia actual
         PlayerPrefs.Save();
     }
     public void SaveFireLevel()

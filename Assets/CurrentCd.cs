@@ -9,4 +9,5 @@ public class CurrentCd : MonoBehaviour
     public float iceBallCd;
     public float voidCd;
     public float fireBlastCd;
+    public float AniquilationCd;
 }

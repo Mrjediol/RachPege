@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4907638075438982855}
   - component: {fileID: 4907638075438982848}
+  - component: {fileID: -9096760318359556486}
   m_Layer: 0
   m_Name: Aniquilation
   m_TagString: Untagged
@@ -45,11 +46,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 5001761086528505886, guid: 6df4155dcff9adc40a6b22c97be67ab5, type: 3}
-  destroyDelay: 1
+  additionalPrefab: {fileID: 475339917148854191, guid: 5fccf11efbc93c646960807621f78534, type: 3}
+  manaCost: 1
+  cooldown: 2
+  destroyDelay: 0.6
+  scale: {x: 0.3, y: 0.3, z: 0.3}
   limit: 5
-  manaCost: 100
-  cooldown: 20
-  scale: {x: 1, y: 1, z: 1}
+  damage: 50
+  initialDamage: 50
   Shoot: {fileID: 0}
-  blastCd: {fileID: 0}
-  additionalPrefab: {fileID: 5740132451700409239, guid: b4ef532e002634d4f8bb009d88601df6, type: 3}
+  AniquilationCd: {fileID: 0}
+  AniquilationCdPre: {fileID: 1992645027600560271, guid: eea60ba2ea35e7e4c8f13959caf80a6f, type: 3}
+--- !u!114 &-9096760318359556486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4907638075438982849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f89f29fd0e60f154780953365b624968, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentXp: 1
+  level: 1
+  levelUpXp: 10000

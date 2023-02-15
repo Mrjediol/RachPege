@@ -17,10 +17,12 @@ public class WeaponManager : MonoBehaviour
     public GameObject currenticeballBook;
     public GameObject currentRay;
     public GameObject currentBlast;
+    public GameObject currentAniquilation;
     public GameObject previuosFire;
     public GameObject previuosPlant;
     public GameObject previousIce;
     public GameObject previuosVoid;
+    public GameObject previuosAniquilation;
     public GameObject previuosRay;
     public GameObject previuosBlast;
     public GameObject IceXpBar;
@@ -32,6 +34,9 @@ public class WeaponManager : MonoBehaviour
     public GameObject VoidXpBar;
     public GameObject VoidLevel;
     public GameObject VoidLevelUp;
+    public GameObject AniquilationXpBar;
+    public GameObject AniquilationLevel;
+    public GameObject AniquilationLevelUp;
     public GameObject RayXpBar;
     public GameObject RayLevel;
     public GameObject RayLevelUp;
@@ -43,11 +48,16 @@ public class WeaponManager : MonoBehaviour
     public Slider voidCd;
     public Slider RayCd;
     public Slider blastCd;
+    public Slider AniquilationCd;
     WeaponsMenu weaponsMenu1;
+    SaveXp savexp;
 
+    public bool PreAni;
     private void Start()
     {
         weaponsMenu1 = FindObjectOfType<WeaponsMenu>();
+        
+        savexp = FindObjectOfType<SaveXp>();
     }
     public void EquipWeapon(GameObject weapon)
     {
@@ -91,6 +101,8 @@ public class WeaponManager : MonoBehaviour
                 Debug.Log("no equipes dos veces la misma anda");
                 Destroy(currentWeapon);
                 currentWeapon = weapon;
+                if (currentWeapon.name != "Aniquilation(Clone)")
+                    PreAni = true;
                 if (currentWeapon.name == "IceBall(Clone)")
                 {
                     currentWeapon.GetComponent<MoveMouseDirectionIce>().enabled = true;
@@ -98,11 +110,23 @@ public class WeaponManager : MonoBehaviour
                     IceXpBar.SetActive(true);
                     IceLevel.SetActive(true);
                     IceLevelUp.SetActive(true);
-                    SaveXp savexp = FindObjectOfType<SaveXp>();
                     WeaponLevelIce weaponlevelIce = FindObjectOfType<WeaponLevelIce>();
                     weaponlevelIce.level = savexp.Icelevel;
                     weaponlevelIce.currentXp = savexp.Icecurrentxp;
                     iceCd.gameObject.SetActive(true);
+
+                }
+                if (currentWeapon.name == "Aniquilation(Clone)")
+                {
+                    currentWeapon.GetComponent<InstantiateAniquilation>().enabled = true;
+                    currentAniquilation.SetActive(true);
+                    AniquilationXpBar.SetActive(true);
+                    AniquilationLevel.SetActive(true);
+                    AniquilationLevelUp.SetActive(true);
+                    WeaponLevelAniquilation weaponLevelAniquilation = FindObjectOfType<WeaponLevelAniquilation>();
+                    weaponLevelAniquilation.level = savexp.Aniquilationlevel;
+                    weaponLevelAniquilation.currentXp = savexp.Aniquilationcurrentxp;
+                    AniquilationCd.gameObject.SetActive(true);
 
                 }
                 if (currentWeapon.name == "FireBall(Clone)")
@@ -112,7 +136,6 @@ public class WeaponManager : MonoBehaviour
                     FireXpBar.SetActive(true);
                     FireLevel.SetActive(true);
                     FireLevelUp.SetActive(true);
-                    SaveXp savexp = FindObjectOfType<SaveXp>();
                     WeaponLevelFire weaponlevelFire = FindObjectOfType<WeaponLevelFire>();
                     weaponlevelFire.level = savexp.Firelevel;
                     weaponlevelFire.currentXp = savexp.Firecurrentxp;
@@ -126,7 +149,6 @@ public class WeaponManager : MonoBehaviour
                     VoidXpBar.SetActive(true);
                     VoidLevel.SetActive(true);
                     VoidLevelUp.SetActive(true);
-                    SaveXp savexp = FindObjectOfType<SaveXp>();
                     WeaponLevelVoid weaponlevelVoid = FindObjectOfType<WeaponLevelVoid>();
                     weaponlevelVoid.level = savexp.Voidlevel;
                     weaponlevelVoid.currentXp = savexp.Voidcurrentxp;
@@ -139,7 +161,6 @@ public class WeaponManager : MonoBehaviour
                     RayXpBar.SetActive(true);
                     RayLevel.SetActive(true);
                     RayLevelUp.SetActive(true);
-                    SaveXp savexp = FindObjectOfType<SaveXp>();
                     WeaponLevelRay weaponlevelRay = FindObjectOfType<WeaponLevelRay>();
                     weaponlevelRay.level = savexp.Raylevel;
                     weaponlevelRay.currentXp = savexp.Raycurrentxp;
@@ -153,7 +174,6 @@ public class WeaponManager : MonoBehaviour
                     BlastXpBar.SetActive(true);
                     BlastLevel.SetActive(true);
                     BlastLevelUp.SetActive(true);
-                    SaveXp savexp = FindObjectOfType<SaveXp>();
                     WeaponLevelBlast weaponLevelBlast = FindObjectOfType<WeaponLevelBlast>();
                     weaponLevelBlast.level = savexp.Blastlevel;
                     weaponLevelBlast.currentXp = savexp.Blastcurrentxp;
@@ -185,6 +205,8 @@ public class WeaponManager : MonoBehaviour
             weaponlevelFire.currentXp = savexp.Firecurrentxp;
             fireCd.gameObject.SetActive(true);
         }
+        if (currentWeapon.name != "Aniquilation(Clone)")
+            PreAni = true;
         if (currentWeapon.name == "IceBall(Clone)")
         {
             currentWeapon.GetComponent<MoveMouseDirectionIce>().enabled = true;
@@ -197,6 +219,20 @@ public class WeaponManager : MonoBehaviour
             weaponlevelIce.level = savexp.Icelevel;
             weaponlevelIce.currentXp = savexp.Icecurrentxp;
             iceCd.gameObject.SetActive(true);
+        }
+        if (currentWeapon.name == "Aniquilation(Clone)")
+        {
+            currentWeapon.GetComponent<InstantiateAniquilation>().enabled = true;
+            currentAniquilation.SetActive(true);
+            AniquilationXpBar.SetActive(true);
+            AniquilationLevel.SetActive(true);
+            AniquilationLevelUp.SetActive(true);
+            WeaponLevelAniquilation weaponLevelAniquilation = FindObjectOfType<WeaponLevelAniquilation>();
+            weaponLevelAniquilation.level = savexp.Aniquilationlevel;
+            weaponLevelAniquilation.currentXp = savexp.Aniquilationcurrentxp;
+            AniquilationCd.gameObject.SetActive(true);
+            PreAni = false;
+
         }
         if (currentWeapon.name == "Void(Clone)")
         {
@@ -243,6 +279,8 @@ public class WeaponManager : MonoBehaviour
 
     void UiUpdate()
     {
+        if (currentWeapon.name != "Aniquilation(Clone)")
+            PreAni = true;
         if(currentWeapon.name == "FireBall(Clone)")
         {
             currentfireballBook.SetActive(true);
@@ -281,6 +319,24 @@ public class WeaponManager : MonoBehaviour
             IceLevel.SetActive(false);
             IceLevelUp.SetActive(false);
             iceCd.gameObject.SetActive(false);
+        }
+        if (currentWeapon.name == "Aniquilation(Clone)")
+        {
+            currentAniquilation.SetActive(true);
+            AniquilationXpBar.SetActive(true);
+            AniquilationLevel.SetActive(true);
+            AniquilationLevelUp.SetActive(true);
+            WeaponLevelAniquilation weaponLevelAniquilation = FindObjectOfType<WeaponLevelAniquilation>();
+            weaponLevelAniquilation.level = savexp.Aniquilationlevel;
+            weaponLevelAniquilation.currentXp = savexp.Aniquilationcurrentxp;
+        }
+        else
+        {
+            currentAniquilation.SetActive(false);
+            AniquilationXpBar.SetActive(false);
+            AniquilationLevel.SetActive(false);
+            AniquilationLevelUp.SetActive(false);
+            AniquilationCd.gameObject.SetActive(false);
         }
         if (currentWeapon.name == "Blast(Clone)")
         {
@@ -364,6 +420,15 @@ public class WeaponManager : MonoBehaviour
         {
             previuosRay.SetActive(false);
         }
+        if (previousWeapon.name == "Aniquilation(Clone)")
+        {
+            previuosAniquilation.SetActive(true);
+            AniquilationCd.gameObject.SetActive(false);
+        }
+        else
+        {
+            previuosAniquilation.SetActive(false);
+        }
         if (previousWeapon.name == "Blast(Clone)")
         {
             previuosBlast.SetActive(true);
@@ -424,6 +489,11 @@ public class WeaponManager : MonoBehaviour
         {
             currentWeapon.GetComponent<MoveMouseDirectionRay>().enabled = true;
         }
+        if (currentWeapon.name == "Aniquilation(Clone)")
+        {
+            PreAni = false;
+            currentWeapon.GetComponent<InstantiateAniquilation>().enabled = true;
+        }
         if (currentWeapon.name == "Blast(Clone)")
         {
             currentWeapon.GetComponent<InstantiateOnClickFire>().enabled = true;
@@ -441,7 +511,13 @@ public class WeaponManager : MonoBehaviour
         }
         if (previousWeapon.name == "RayTp(Clone)")
         {
+            Debug.Log("estoy en previous ray");
             previousWeapon.GetComponent<MoveMouseDirectionRay>().enabled = false;
+        }
+        if (previousWeapon.name == "Aniquilation(Clone)")
+        {
+            PreAni = true;
+            //previousWeapon.GetComponent<InstantiateAniquilation>().enabled = false;
         }
         if (previousWeapon.name == "Blast(Clone)")
         {

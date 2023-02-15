@@ -96,11 +96,11 @@ Con este proyecto pretendo aprender y desarrollar mis habilidades para la creaci
 
 - **Sword**: Ataque Melee que viene por defecto desbloqueado. Su daño escala con el nivel del personaje.
 
-![Landing_pro](./png/Void.png)
+(./png/void.png)
 
 - **FireGun**: Arma a distancia que dispara un proyectil de fuego que puede quemar a los enemigos con cierta probabilidad, el daño, tamaño, velocidad de proyectil, cooldown. etc escalan con el nivel del arma. 
 
-![Landing_pro](./png/Void.png)
+![Landing_pro](./png/void.png)
 
 - **IceGun**: Arma a distancia que dispara un proyectil de hielo que puede congelar a los enemigos con cierta probabilidad, el daño, tamaño, velocidad de proyectil, cooldown. etc escalan con el nivel del arma. 
 

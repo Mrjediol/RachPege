@@ -6,13 +6,20 @@ public class SwordAttack : MonoBehaviour
 {
     public Collider2D swordCollider;
     public float damage = 10;
+    public float initialdamage = 10;
     Vector2 rightAttackOffset;
-    
+
+    LevelSystem levelSystem;
 
     private void Start() {
        
         rightAttackOffset = transform.localPosition;
-
+        levelSystem = GetComponentInParent<LevelSystem>();
+        DamageValue();
+    }
+   public void DamageValue()
+   {
+        damage = 10f + (levelSystem.level * 2f);
     }
 
     public void AttackRight() {

@@ -32,6 +32,8 @@ public class LevelSystem : MonoBehaviour
     private GameObject dashUnlockedTextInstance;
     private bool dashUnlockedTextShowed = false;
     public GameObject dashUnlockedVideo;
+
+    SwordAttack swordAttack;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,7 +45,7 @@ public class LevelSystem : MonoBehaviour
         levelText.text = "Level " + level;
         death = false;
         dashAbility.GetComponent<DashAbility>();
-
+        swordAttack = GetComponentInChildren<SwordAttack>();
 
     }
     public void Awake()
@@ -92,6 +94,7 @@ public class LevelSystem : MonoBehaviour
             dashAbility.Lock();
             dashUnlockedTextShowed = false;
         }
+
         
 
         IEnumerator DestroyAfterSeconds(GameObject text, float seconds)
@@ -149,7 +152,7 @@ public class LevelSystem : MonoBehaviour
         backXpBar.fillAmount = 0f;
         currentXp = Mathf.RoundToInt(currentXp - requiredXp);
         GetComponent<PlayerHealth>().IncreaseHealth(level);
-        
+        swordAttack.DamageValue();
 
         //for ()
        

@@ -51,12 +51,11 @@ MonoBehaviour:
   cooldown: 2
   destroyDelay: 0.6
   scale: {x: 0.3, y: 0.3, z: 0.3}
-  limit: 5
+  limit: 1
   damage: 50
   initialDamage: 50
   Shoot: {fileID: 0}
   AniquilationCd: {fileID: 0}
-  AniquilationCdPre: {fileID: 1992645027600560271, guid: eea60ba2ea35e7e4c8f13959caf80a6f, type: 3}
 --- !u!114 &-9096760318359556486
 MonoBehaviour:
   m_ObjectHideFlags: 0

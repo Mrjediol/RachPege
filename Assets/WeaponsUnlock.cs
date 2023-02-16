@@ -66,37 +66,31 @@ public class WeaponsUnlock : MonoBehaviour
     {
         if (levelSystem.level >= levelRequired.fireLevelRequired && fireunLocked == false)
         {
-            CanvasActiver("Fire", fireWeapon, fireunLocked);
-            fireunLocked = true;
+            CanvasActiver("Fire", fireWeapon,ref fireunLocked);
         }
         if (levelSystem.level >= levelRequired.IceLevelRequired && IceunLocked == false)
         {
-            CanvasActiver("Ice", iceWeapon, IceunLocked);
-            IceunLocked = true;
+            CanvasActiver("Ice", iceWeapon,ref IceunLocked);
         }
         if (levelSystem.level >= levelRequired.RayLevelRequired && RayunLocked == false)
         {
-            CanvasActiver("Ray", rayWeapon, RayunLocked);
-            RayunLocked = true;
+            CanvasActiver("Ray", rayWeapon,ref RayunLocked);
         }
         if (levelSystem.level >= levelRequired.BlastLevelRequired && BlastunLocked == false)
         {
-            CanvasActiver("Blast", blastWeapon, BlastunLocked);
-            BlastunLocked = true;
+            CanvasActiver("Blast", blastWeapon,ref BlastunLocked);
         }
         if (levelSystem.level >= levelRequired.VoidLevelRequired && VoidunLocked == false)
         {
-            CanvasActiver("Void", voidWeapon, VoidunLocked);
-            VoidunLocked = true;
+            CanvasActiver("Void", voidWeapon,ref VoidunLocked);
         }
         if (levelSystem.level >= levelRequired.AniquilationLevelRequired && AniquilationunLocked == false)
         {
-            CanvasActiver("Aniquilation" , AniquilationWeapon, AniquilationunLocked);
-            AniquilationunLocked = true;
+            CanvasActiver("Aniquilation" , AniquilationWeapon,ref AniquilationunLocked);
         }
     }
 
-    public void CanvasActiver(string weapon, GameObject name, bool locked)
+    public void CanvasActiver(string weapon, GameObject name,ref bool locked)
     {
         name.SetActive(true);
         locked = true;

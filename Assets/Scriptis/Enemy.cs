@@ -6,40 +6,36 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
     Animator animator;
-    public float enemyDamage = 3;
-    public DetectionZone detectionZone;
-    public float moveSpeed = 50f;
-    public float slowedmoveSpeed = 10;
-    public float dashSpeed = 5000f;
-    public float SloweddashSpeed = 500f;
     Rigidbody2D rb;
-    public float giveXP;
-    public float enemyLvl;
-    public float health;
+    public float SloweddashSpeed = 500f;
+    public float slowedmoveSpeed = 10;
+    public float moveSpeed = 50f;
+    public float dashSpeed = 5000f;
+    public float knowback = 1000f;
     public float maxHealth = 5;
+    public float enemyDamage = 3;
+    public float health;
+    public float enemyLvl;
+    public float giveXP;
+    public bool damagable = true;
+    public bool isFrozen = false;
     public EnemyHealthBar healthBar;
     public TextMeshProUGUI levelText;
     public TextMeshProUGUI xpText;
     public TextMeshProUGUI healthText;
-    public float knowback = 1000f;
-    public bool damagable = true;
     public GameObject manaStarPrefab;
     public GameObject damageText;
     public Spawner spawner;
-    public delegate void OnEnemyKilled();
     public FrozenEffect frozenEffect;
-    public bool isFrozen = false;
     private float freezeTimer;
+    public delegate void OnEnemyKilled();
     [SerializeField] private AudioSource damaged;
     private void Start()
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         frozenEffect = GetComponent<FrozenEffect>();
-
         spawner.onEnemyKilled += RemoveEnemy;
-
-
         enemyDamage *= enemyLvl;
         giveXP *= enemyLvl;
         maxHealth *= enemyLvl;
@@ -48,50 +44,30 @@ public class Enemy : MonoBehaviour
         xpText.text = giveXP + " Xp";
         healthBar.SetHealth(health,maxHealth);
         healthText.text = Health + "/" + maxHealth;
-
-
     }
-    void FixedUpdate()
-    {   
-        if (detectionZone.detectedObjs != null && detectionZone.detectedObjs.Count > 0)
-        {
-            Vector2 direction = (detectionZone.detectedObjs[0].transform.position - transform.position).normalized;
+    //void FixedUpdate()
+    //{   
+    //    isFrozen = frozenEffect.isFrozen;
+    //    if (isFrozen)
+    //    {
+    //        freezeTimer -= Time.deltaTime;
+    //        moveSpeed = slowedmoveSpeed;
+    //        dashSpeed = SloweddashSpeed;
+    //        if (freezeTimer <= 0f)
 
-            rb.AddForce(moveSpeed * Time.fixedDeltaTime * direction);
-            
-        }
+    //        {
+    //            isFrozen = false;
+
+    //        }
+    //    }
+    //    else
+    //    {
+    //        moveSpeed = 50f;
+    //        dashSpeed = 5000f;
+
+    //    }
         
-        isFrozen = frozenEffect.isFrozen;
-        if (isFrozen)
-        {
-            freezeTimer -= Time.deltaTime;
-            moveSpeed = slowedmoveSpeed;
-            dashSpeed = SloweddashSpeed;
-            if (freezeTimer <= 0f)
-
-            {
-                isFrozen = false;
-
-            }
-        }
-        else
-        {
-            moveSpeed = 50f;
-            dashSpeed = 5000f;
-
-        }
-        
-    }
-
- 
-    public void Dash()
-    {
-        if (detectionZone.detectedObjs != null && detectionZone.detectedObjs.Count > 0)
-        {
-            Vector2 direction = (detectionZone.detectedObjs[0].transform.position - transform.position).normalized;
-            rb.AddForce(dashSpeed * Time.fixedDeltaTime * direction);
-        }
-    }
+    //}
     public float Health 
 
     {
@@ -118,7 +94,6 @@ public class Enemy : MonoBehaviour
 
     public void Damaged()
     {
-
         //Debug.Log ("te imaginas que funciona");
         animator.SetTrigger("Damaged");
         damaged.Play();
@@ -142,14 +117,11 @@ public class Enemy : MonoBehaviour
 
             Vector2 direction = (transform.position - swordAttack.transform.position).normalized;
 
-                rb.AddForce(knowback * Time.fixedDeltaTime * direction);
-
-               
-           
+            rb.AddForce(knowback * Time.fixedDeltaTime * direction);               
         }
     }
+
     public float forceMagnitude = 50f;
-    //bool attackActive = true;
     
     public IEnumerator VoidAttack(float damageRevice)
     {
@@ -177,22 +149,9 @@ public class Enemy : MonoBehaviour
             rb.AddForce(forceMagnitude * Time.fixedDeltaTime * direction1);
             yield return null;
         }
-        //yield return new WaitForEndOfFrame();
-        //StopVoidAttack();
-
-
     }
-    
-
- 
-    //public void StopVoidAttack()
-    //{
-    //    attackActive = false;
-    //}
-    public void Defeated(){
-
-        
-
+    public void Defeated()
+    {
         animator.SetTrigger("Defeated");
     }
 

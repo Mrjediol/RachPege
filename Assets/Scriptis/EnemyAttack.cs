@@ -9,10 +9,11 @@ public class EnemyAttack : MonoBehaviour
     public float enemyDamageAttack = 3;
     Vector2 enemyAttackOffset;
     public Collider2D attackCollider;
-    PlayerHealth playerHealth;
+    
     public float knockBack = 1000f;
-    public DetectionZone detectionZone;
     public GameObject playerObject;
+
+    PlayerHealth playerHealth;
     //public GameObject DamageTake;
     // Start is called before the first frame update
     void Start()

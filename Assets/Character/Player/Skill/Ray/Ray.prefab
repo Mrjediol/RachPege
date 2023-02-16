@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -1445819850547397702}
   - component: {fileID: -8461227565661542877}
   - component: {fileID: 3813170591649362474}
+  - component: {fileID: 6541645059264972452}
   m_Layer: 0
   m_Name: Ray
   m_TagString: Untagged
@@ -143,3 +144,17 @@ CircleCollider2D:
   m_Offset: {x: 0.15338622, y: 0}
   serializedVersion: 2
   m_Radius: 2.5345366
+--- !u!114 &6541645059264972452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128841151947891081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae4a8d21fc17f6745af912c9fa8e11a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitEffect: {fileID: 1141330259687333427, guid: 6718dc24203da53468af9ada8fef7d6d, type: 3}
+  scale: {x: 0.2, y: 0.2, z: 0.2}

@@ -95,8 +95,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slime
       objectReference: {fileID: 0}
+    - target: {fileID: 8217858861646891882, guid: 4e9d3ee4d7db7e04ab563f699e9447e4, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: e2c9dbe18e0f8334b92b3361c6db43ff, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e9d3ee4d7db7e04ab563f699e9447e4, type: 3}
+--- !u!1 &4455511452125383967 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7151398860587865777, guid: 4e9d3ee4d7db7e04ab563f699e9447e4, type: 3}
+  m_PrefabInstance: {fileID: 6839832384358538158}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1928243879773172898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4455511452125383967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3888eb49fbacb074bb280142a46c94b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MovingUp: 0
+  MovingDown: 0
+  MovingLeft: 0
+  MovingRight: 0
+  desiredDirection: 0
 --- !u!4 &4455511452125383968 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7151398860587865742, guid: 4e9d3ee4d7db7e04ab563f699e9447e4, type: 3}

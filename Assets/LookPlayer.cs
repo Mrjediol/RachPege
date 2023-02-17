@@ -17,6 +17,7 @@ public class LookPlayer : MonoBehaviour
 
     // Referencia al componente Animator del objeto enemigo
     private Animator animator;
+    SpriteRenderer sprite;
 
     // Función que se llama una vez al inicio del juego
     void Start()
@@ -24,6 +25,7 @@ public class LookPlayer : MonoBehaviour
         // Obtener la referencia al componente Animator
         animator = GetComponent<Animator>();
         player = FindObjectOfType<PlayerController>().transform;
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     // Función que se llama una vez por cada frame
@@ -62,16 +64,28 @@ public class LookPlayer : MonoBehaviour
         MovingRight = diffX > 0 && Mathf.Abs(diffX) > Mathf.Abs(diffY);
 
 
-        if (MovingRight)
+        if (MovingRight) 
+        { 
+            sprite.flipX = false;
             return 0;
-        if (MovingLeft)
-            return 1;
+        }
         if (MovingUp)
-            return 2;
+            return 1;
         if (MovingDown)
+            return 2;
+        if (MovingLeft)
+        {
+            Debug.Log("Deberia estar activo a la izquierda");
+            sprite.flipX = true;
             return 3;
+        }
+        else
+        {
+            Debug.Log("No miro a la izquierda");
+            
+        }
         //bool[] directions = new bool[] { (bool)MovingDown, (bool)MovingUp, (bool)MovingLeft, (bool)MovingRight };
-        return -1;
+        return 4;
     }
 }
 

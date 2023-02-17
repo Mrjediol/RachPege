@@ -29,6 +29,7 @@ public class IdleState : StateMachineBehaviour
         {
             animator.SetTrigger("Run");
         }
+
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
@@ -36,6 +37,7 @@ public class IdleState : StateMachineBehaviour
     {
         {
             animator.ResetTrigger("Run");
+            
         }
     }
 

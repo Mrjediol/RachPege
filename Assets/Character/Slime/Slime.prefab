@@ -97,7 +97,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5755805097320756016}
   - component: {fileID: 147717055230801901}
-  - component: {fileID: 2274598639652837151}
   - component: {fileID: 529524163849195994}
   - component: {fileID: 2866632734358892599}
   - component: {fileID: 6404075330241940590}
@@ -106,6 +105,9 @@ GameObject:
   - component: {fileID: 7897990421460196784}
   - component: {fileID: 9214129145398872329}
   - component: {fileID: 4312959138485422228}
+  - component: {fileID: 8971693231332910880}
+  - component: {fileID: 3806095689927777020}
+  - component: {fileID: 4244996898611551740}
   m_Layer: 6
   m_Name: Slime
   m_TagString: Enemy
@@ -184,26 +186,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &2274598639652837151
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1306823446721168568}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b9ea6b4f3846e594ba508b819bc112cb, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &529524163849195994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -410,7 +392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundEffect: {fileID: 7897990421460196787}
-  anim: {fileID: 2274598639652837151}
+  anim: {fileID: 0}
 --- !u!114 &9214129145398872329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -447,6 +429,59 @@ MonoBehaviour:
   FrozenImage: {fileID: 7835391540083368001}
   freezeDuration: 6
   isFrozen: 0
+--- !u!95 &8971693231332910880
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306823446721168568}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: e2c9dbe18e0f8334b92b3361c6db43ff, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3806095689927777020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306823446721168568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3888eb49fbacb074bb280142a46c94b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MovingUp: 0
+  MovingDown: 0
+  MovingLeft: 0
+  MovingRight: 0
+  desiredDirection: 0
+--- !u!114 &4244996898611551740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306823446721168568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d8b7dd2a09f4d8689488f4ac8877, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyDamageAttack: 3
+  attackCollider: {fileID: 6404075330241940590}
+  knockBack: 1000
+  playerObject: {fileID: 0}
 --- !u!1 &3431780124371048603
 GameObject:
   m_ObjectHideFlags: 0

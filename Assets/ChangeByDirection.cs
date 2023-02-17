@@ -43,16 +43,22 @@ public class ChangeByDirection : StateMachineBehaviour
 
         // Determine the desired direction of movement
         int direction = lookPlayer.desiredDirection;
-
         // Check that the desired direction is within the range of valid indices
         if (direction >= 0 && direction < animations.Length && animations[direction] != null)
         {
             // Override the current clip with the desired clip for the given direction
+
             overrideController[currentClip] = animations[direction];
+            animator.runtimeAnimatorController = overrideController;
+            //var overrides = new List<KeyValuePair<AnimationClip, AnimationClip>>(overrideController.overridesCount);
+            //overrideController.GetOverrides(overrides);
+            //overrideController.ApplyOverrides(overrides);
         }
 
-
     }
+
+        
+
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {

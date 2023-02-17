@@ -149,11 +149,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 446252510}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41f7bad5e01a7f841a7f845f4f5f7435, type: 3}
+  m_Script: {fileID: 11500000, guid: f1afc09d7b07aad4cb0feeaab93db830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   swordCollider: {fileID: 446252513}
   damage: 10
+  initialdamage: 10
 --- !u!1 &1723586465
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,11 +304,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1723586465}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41f7bad5e01a7f841a7f845f4f5f7435, type: 3}
+  m_Script: {fileID: 11500000, guid: f1afc09d7b07aad4cb0feeaab93db830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   swordCollider: {fileID: 1723586468}
   damage: 10
+  initialdamage: 10
 --- !u!1 &1901122245
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,11 +459,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1901122245}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41f7bad5e01a7f841a7f845f4f5f7435, type: 3}
+  m_Script: {fileID: 11500000, guid: f1afc09d7b07aad4cb0feeaab93db830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   swordCollider: {fileID: 1901122248}
   damage: 10
+  initialdamage: 10
 --- !u!1 &1913082359
 GameObject:
   m_ObjectHideFlags: 0
@@ -611,11 +614,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1913082359}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41f7bad5e01a7f841a7f845f4f5f7435, type: 3}
+  m_Script: {fileID: 11500000, guid: f1afc09d7b07aad4cb0feeaab93db830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   swordCollider: {fileID: 5538181838146593363}
   damage: 10
+  initialdamage: 10
 --- !u!1 &876481307865465269
 GameObject:
   m_ObjectHideFlags: 0
@@ -1183,11 +1187,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3578799851994865869}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41f7bad5e01a7f841a7f845f4f5f7435, type: 3}
+  m_Script: {fileID: 11500000, guid: f1afc09d7b07aad4cb0feeaab93db830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   swordCollider: {fileID: 7090719765015073558}
   damage: 10
+  initialdamage: 10
 --- !u!61 &7090719765015073558
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1344,7 +1349,6 @@ GameObject:
   - component: {fileID: 5596928073629615656}
   - component: {fileID: 34006423}
   - component: {fileID: 1288105714}
-  - component: {fileID: 1796690011}
   m_Layer: 10
   m_Name: SwordHitboxDown
   m_TagString: Untagged
@@ -1376,11 +1380,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4214544626528342798}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41f7bad5e01a7f841a7f845f4f5f7435, type: 3}
+  m_Script: {fileID: 11500000, guid: f1afc09d7b07aad4cb0feeaab93db830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   swordCollider: {fileID: 5596928073629615656}
   damage: 10
+  initialdamage: 10
 --- !u!61 &5596928073629615656
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1524,20 +1529,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1796690011
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4214544626528342798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41f7bad5e01a7f841a7f845f4f5f7435, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  swordCollider: {fileID: 0}
-  damage: 10
 --- !u!1 &6107201951040526297
 GameObject:
   m_ObjectHideFlags: 0
@@ -1788,11 +1779,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8523266800655996423}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41f7bad5e01a7f841a7f845f4f5f7435, type: 3}
+  m_Script: {fileID: 11500000, guid: f1afc09d7b07aad4cb0feeaab93db830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   swordCollider: {fileID: 8036306687199356094}
   damage: 10
+  initialdamage: 10
 --- !u!61 &8036306687199356094
 BoxCollider2D:
   m_ObjectHideFlags: 0

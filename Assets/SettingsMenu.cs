@@ -15,7 +15,7 @@ public class SettingsMenu : MonoBehaviour
 
     public Toggle gameToggle;
     public Toggle musicToggle;
-
+    
     private float gamevolume;
     public float musicVolume;
     public PauseMenu pauseMenu;
@@ -23,6 +23,7 @@ public class SettingsMenu : MonoBehaviour
     private void Start()
 
     {
+
         gameAudioMixer.GetFloat("volume", out gamevolume);
         musicAudioMixer.GetFloat("musicVolume", out musicVolume);
         musicVolume = 0;
@@ -106,7 +107,9 @@ public class SettingsMenu : MonoBehaviour
     public void DeleteProgres(string nextScene)
     {
         PlayerPrefs.DeleteAll();
-        //Veil.instance.LoadScene(nextScene);
+        pauseMenu.Resume();
+        Veil.instance.LoadScene(nextScene);
+        
     }
 
 }

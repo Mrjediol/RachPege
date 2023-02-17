@@ -28,10 +28,10 @@ public class Veil : MonoBehaviour
     public float animationTime = 0.5f;
     public bool fadeOutOnAwake;
 
-        private void Start()
-        {
-            SceneManager.sceneLoaded += OnSceneLoaded;
-        }
+        //private void Start()
+        //{
+        //    SceneManager.sceneLoaded += OnSceneLoaded;
+        //}
     
     private void Awake()
     {
@@ -48,14 +48,14 @@ public class Veil : MonoBehaviour
         }
     }
     
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        if (scene.name == "Menu")
-        {
-            StartCoroutine(Fade(0));
-            Time.timeScale = 1f;
-        }
-    }
+    //private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    //{
+    //    if (scene.name == "Menu")
+    //    {
+    //        StartCoroutine(Fade(0));
+    //        Time.timeScale = 1f;
+    //    }
+    //}
     IEnumerator Fade(float to)
     {
       

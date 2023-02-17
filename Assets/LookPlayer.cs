@@ -40,7 +40,7 @@ public class LookPlayer : MonoBehaviour
         float diffY = playerPosition.y - enemy.y;
 
         desiredDirection = GetDesiredDirection(diffY, diffX);
-        Debug.Log(desiredDirection);
+        //Debug.Log(desiredDirection);
         // TODO:
 
         // Establecer los parámetros de la animación en función de los booleanos
@@ -75,15 +75,10 @@ public class LookPlayer : MonoBehaviour
             return 2;
         if (MovingLeft)
         {
-            Debug.Log("Deberia estar activo a la izquierda");
             sprite.flipX = true;
             return 3;
         }
-        else
-        {
-            Debug.Log("No miro a la izquierda");
-            
-        }
+       
         //bool[] directions = new bool[] { (bool)MovingDown, (bool)MovingUp, (bool)MovingLeft, (bool)MovingRight };
         return 4;
     }

@@ -378,4 +378,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasGroup: {fileID: 6434187467598663247}
   animationTime: 0.5
-  fadeOutOnAwake: 0
+  fadeOutOnAwake: 1

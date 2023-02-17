@@ -161,11 +161,11 @@ public class LevelSystem : MonoBehaviour
 
         PlayerPrefs.SetInt("CurrentLevel", level); // guardar el nivel actual
         PlayerPrefs.Save();
-        SwordAttack[] swordAttacks = FindObjectsOfType<SwordAttack>();
-        for (int i = 0; i < swordAttacks.Length; i++)
-        {
-            swordAttacks[i].IncreaseDamage(level);
-        }
+
+        //for (int i = 0; i < swordAttacks.Length; i++)
+        //{
+        //    swordAttacks[i].IncreaseDamage(level);
+        //}
        
     }
     public void GainExperienceScalable(float xpGained, int passedLevel)

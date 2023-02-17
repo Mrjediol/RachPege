@@ -32,6 +32,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private AudioSource damaged;
     private void Start()
     {
+
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         frozenEffect = GetComponent<FrozenEffect>();
@@ -45,6 +46,7 @@ public class Enemy : MonoBehaviour
         healthBar.SetHealth(health,maxHealth);
         healthText.text = Health + "/" + maxHealth;
     }
+
     //void FixedUpdate()
     //{   
     //    isFrozen = frozenEffect.isFrozen;
@@ -66,7 +68,7 @@ public class Enemy : MonoBehaviour
     //        dashSpeed = 5000f;
 
     //    }
-        
+
     //}
     public float Health 
 
@@ -179,5 +181,6 @@ public class Enemy : MonoBehaviour
         manaStar.GetComponent<ManaValue>().manaValue = manaValue;
         Destroy(gameObject);
     }
+
 
 }

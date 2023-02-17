@@ -36,11 +36,7 @@ public class SwordAttack : MonoBehaviour
         swordCollider.enabled = false;
     }
 
-    public void IncreaseDamage(int level)
-    {
-        damage += level;
-        damage = Mathf.Round(damage);
-    }
+
     Enemy enemy;
     private void OnTriggerEnter2D(Collider2D other) 
     {

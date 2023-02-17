@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1128841151947891080}
   - component: {fileID: -1445819850547397702}
   - component: {fileID: -7860446196130526088}
+  - component: {fileID: 698932695356357637}
   m_Layer: 0
   m_Name: IceBall
   m_TagString: Iceball
@@ -160,3 +161,17 @@ MonoBehaviour:
   Collider: {fileID: 1128841151947891082}
   IceDamage: 10
   piercing: 0
+--- !u!114 &698932695356357637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128841151947891081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae4a8d21fc17f6745af912c9fa8e11a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitEffect: {fileID: 5112403345868107898, guid: 6f34ef0d986e9db4199cf75805f79753, type: 3}
+  scale: {x: 0.1, y: 0.1, z: 0.1}

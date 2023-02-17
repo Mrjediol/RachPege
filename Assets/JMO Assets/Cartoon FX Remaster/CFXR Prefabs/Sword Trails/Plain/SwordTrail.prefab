@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6710139492206580334}
   - component: {fileID: 6710139492206580335}
   m_Layer: 0
-  m_Name: CFXR4 Sword Trail PLAIN (360 Spiral)
+  m_Name: SwordTrail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 7068946719839169863}
   - component: {fileID: 6515708773085540824}
   - component: {fileID: 2493335974819200145}
+  - component: {fileID: 659655674953186241}
   m_Layer: 0
   m_Name: AniquilationAtack
   m_TagString: VoidAttack
@@ -177,3 +178,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459c6939ee784e249822161b2e5a2b4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &659655674953186241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6511330224182932887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae4a8d21fc17f6745af912c9fa8e11a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitEffect: {fileID: 8194992990867289339, guid: 99bc28c0d45f51c4fbac01080b73edc7, type: 3}
+  scale: {x: 0.2, y: 0.2, z: 0.2}

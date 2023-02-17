@@ -16,6 +16,9 @@ TagManager:
   - WeaponMenu
   - CheckPoint
   - FxTemporaire
+  - Fence
+  - Arboles
+  - FireFence
   layers:
   - Default
   - TransparentFX

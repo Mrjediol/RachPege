@@ -9,7 +9,8 @@ public class Death : MonoBehaviour
     public Vector3 currentSpawnPoint;
     public bool isDead;
     private Color deathScreenColor;
-
+    public GameObject respawnEffect;
+    public Vector3 scale = new Vector3(0.2f, 0.2f, 0.2f);
     private void Start()
     {
         LoadCheckPoint();
@@ -61,6 +62,28 @@ public class Death : MonoBehaviour
 
         // Mover al jugador al punto de spawn actual
         transform.position = currentSpawnPoint;
+
+
+
+        GameObject effect = Instantiate(respawnEffect, currentSpawnPoint, Quaternion.identity);
+        effect.transform.localScale = scale;
+        effect.transform.localRotation = Quaternion.Euler(-90f, 0f, 0f);
+        ParticleSystem ps = effect.GetComponent<ParticleSystem>();
+        Renderer psRenderer = ps.GetComponent<Renderer>();
+        psRenderer.sortingOrder = 11;
+
+        // Iterar a través de los transformadores hijos de la ParticleSystem
+        foreach (Transform child in ps.transform)
+        {
+            // Obtener el componente Renderer de cada hijo
+            Renderer childRenderer = child.GetComponent<Renderer>();
+
+            // Si el hijo tiene un componente Renderer, ajustar su sorting order
+            if (childRenderer != null)
+            {
+                childRenderer.sortingOrder = 11;
+            }
+        }
 
         // Gradualmente disminuir el alpha de la pantalla de muerte
         while (deathScreenColor.a > 0)

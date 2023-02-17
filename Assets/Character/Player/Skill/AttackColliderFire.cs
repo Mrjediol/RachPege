@@ -7,7 +7,9 @@ public class AttackColliderFire : MonoBehaviour
     public Collider2D Collider;
     public float fireDamage = 10;
 
+    public GameObject hitEffect;
 
+    public Vector3 scale = new Vector3(0.2f, 0.2f, 0.2f);
 
     //MoveMouseDirection moveMouseDirection;
     public bool piercing = false;
@@ -39,7 +41,7 @@ public class AttackColliderFire : MonoBehaviour
                 if (piercing == false)
                 {
                     Debug.Log("3");
-                    Destroy(gameObject);
+                    Destroy(gameObject, 2f);
                 }
             }
 
@@ -50,10 +52,38 @@ public class AttackColliderFire : MonoBehaviour
             //    StartCoroutine(burnEffect.ApplyBurnDamage());
             //}
         }
-        if (!other.CompareTag("Enemy") && !other.CompareTag("CheckPoint") && !other.CompareTag("Player") && !other.CompareTag("DetectionZone") && !other.CompareTag("ManaStart") && !other.CompareTag("VoidAttack"))
+        if (!other.CompareTag("Enemy") && !other.CompareTag("Arboles") && !other.CompareTag("CheckPoint") && !other.CompareTag("Player") && !other.CompareTag("DetectionZone") && !other.CompareTag("ManaStart") && !other.CompareTag("VoidAttack"))
         {
-            Debug.Log(other.name);
+            Debug.Log(other.tag);
             Destroy(gameObject);
+        }
+        if (other.CompareTag("Fence"))
+        {
+            Destroy(other.gameObject ,1f);
+            Transform Fence = other.GetComponent<Transform>();
+            Vector3 fencePos = Fence.transform.position;
+            fencePos.y -= 0.05f;
+            GameObject effect = Instantiate(hitEffect, fencePos, Quaternion.identity);
+            effect.transform.localScale = scale;
+            //ParticleSystem ps = effect.GetComponent<ParticleSystem>();
+            //Renderer psRenderer = ps.GetComponent<Renderer>();
+            //psRenderer.sortingOrder = 11;
+            ParticleSystem ps = effect.GetComponent<ParticleSystem>();
+            Renderer psRenderer = ps.GetComponent<Renderer>();
+            psRenderer.sortingOrder = 11;
+
+            // Iterar a través de los transformadores hijos de la ParticleSystem
+            foreach (Transform child in ps.transform)
+            {
+                // Obtener el componente Renderer de cada hijo
+                Renderer childRenderer = child.GetComponent<Renderer>();
+
+                // Si el hijo tiene un componente Renderer, ajustar su sorting order
+                if (childRenderer != null)
+                {
+                    childRenderer.sortingOrder = 11;
+                }
+            }
         }
         DPS dps = other.GetComponent<DPS>();
         if (dps != null)

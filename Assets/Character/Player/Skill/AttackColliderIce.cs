@@ -8,8 +8,10 @@ public class AttackColliderIce : MonoBehaviour
     public float IceDamage = 10;
 
 
+    public GameObject hitEffect;
 
-  
+    public Vector3 scale = new Vector3(0.2f, 0.2f, 0.2f);
+
     public bool piercing = false;
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -48,6 +50,17 @@ public class AttackColliderIce : MonoBehaviour
         {
             Debug.Log(other.name);
             Destroy(gameObject);
+        }
+        if (other.CompareTag("FireFence"))
+        {
+            Destroy(other.gameObject, 0.8f);
+            Transform fireFence = other.GetComponent<Transform>();
+
+            GameObject effect = Instantiate(hitEffect, fireFence.transform.position, Quaternion.identity);
+            effect.transform.localScale = scale;
+            ParticleSystem ps = effect.GetComponent<ParticleSystem>();
+            Renderer psRenderer = ps.GetComponent<Renderer>();
+            psRenderer.sortingOrder = 11;
         }
         DPS dps = other.GetComponent<DPS>();
         if (dps != null)

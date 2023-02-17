@@ -160,6 +160,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Collider: {fileID: 1128841151947891082}
   fireDamage: 10
+  hitEffect: {fileID: 8764043878647920493, guid: c4ed38c72957f2241ad144a1614956d9, type: 3}
+  scale: {x: 0.2, y: 0.2, z: 0.2}
   piercing: 0
 --- !u!114 &1677020199055556605
 MonoBehaviour:

@@ -19,7 +19,20 @@ public class EffectOnColiision : MonoBehaviour
             ParticleSystem ps = effect.GetComponent<ParticleSystem>();
             Renderer psRenderer = ps.GetComponent<Renderer>();
             psRenderer.sortingOrder = 11;
-            
+
+            // Iterar a través de los transformadores hijos de la ParticleSystem
+            foreach (Transform child in ps.transform)
+            {
+                // Obtener el componente Renderer de cada hijo
+                Renderer childRenderer = child.GetComponent<Renderer>();
+
+                // Si el hijo tiene un componente Renderer, ajustar su sorting order
+                if (childRenderer != null)
+                {
+                    childRenderer.sortingOrder = 11;
+                }
+            }
+
         }
     }
 }

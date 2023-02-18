@@ -19,6 +19,10 @@ TagManager:
   - Fence
   - Arboles
   - FireFence
+  - Water
+  - Torch
+  - Rock
+  - Ignore
   layers:
   - Default
   - TransparentFX

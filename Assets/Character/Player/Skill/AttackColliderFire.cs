@@ -10,7 +10,6 @@ public class AttackColliderFire : MonoBehaviour
     public GameObject hitEffect;
 
     public Vector3 scale = new Vector3(0.2f, 0.2f, 0.2f);
-
     //MoveMouseDirection moveMouseDirection;
     public bool piercing = false;
 
@@ -41,7 +40,7 @@ public class AttackColliderFire : MonoBehaviour
                 if (piercing == false)
                 {
                     Debug.Log("3");
-                    Destroy(gameObject, 2f);
+                    Destroy(gameObject);
                 }
             }
 
@@ -52,7 +51,7 @@ public class AttackColliderFire : MonoBehaviour
             //    StartCoroutine(burnEffect.ApplyBurnDamage());
             //}
         }
-        if (!other.CompareTag("Enemy") && !other.CompareTag("Arboles") && !other.CompareTag("CheckPoint") && !other.CompareTag("Player") && !other.CompareTag("DetectionZone") && !other.CompareTag("ManaStart") && !other.CompareTag("VoidAttack"))
+        if (!other.CompareTag("Enemy") && !other.CompareTag("Ignore") && !other.CompareTag("Arboles") && !other.CompareTag("CheckPoint") && !other.CompareTag("Player") && !other.CompareTag("DetectionZone") && !other.CompareTag("ManaStart") && !other.CompareTag("VoidAttack"))
         {
             Debug.Log(other.tag);
             Destroy(gameObject);

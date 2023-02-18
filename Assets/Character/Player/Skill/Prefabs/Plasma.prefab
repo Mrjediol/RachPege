@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1128841151947891079}
   - component: {fileID: 1128841151947891076}
-  - component: {fileID: 1128841151947891082}
   - component: {fileID: 1128841151947891083}
   - component: {fileID: 1128841151947891080}
   - component: {fileID: -1445819850547397702}
@@ -88,22 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &1128841151947891082
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1128841151947891081}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.023799334, y: 0.018631496}
-  serializedVersion: 2
-  m_Radius: 0.46545509
 --- !u!114 &1128841151947891083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,11 +96,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1128841151947891081}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41f7bad5e01a7f841a7f845f4f5f7435, type: 3}
+  m_Script: {fileID: 11500000, guid: 39a29611ad23ec94b921f3718490e996, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swordCollider: {fileID: 1128841151947891082}
-  damage: 100
+  Collider: {fileID: 0}
+  fireDamage: 10
+  piercing: 0
 --- !u!95 &1128841151947891080
 Animator:
   serializedVersion: 4

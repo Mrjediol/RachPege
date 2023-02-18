@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Death : MonoBehaviour
 {
     public GameObject deathScreen;
-    public Vector3 currentSpawnPoint;
+    public Vector3 currentSpawnPoint = new Vector3(-0, -10, 0);
     public bool isDead;
     private Color deathScreenColor;
     public GameObject respawnEffect;
@@ -16,13 +16,14 @@ public class Death : MonoBehaviour
         LoadCheckPoint();
         deathScreenColor = deathScreen.GetComponentInChildren<Image>().color;
         transform.position = currentSpawnPoint;
+ 
     }
     // Llamado cuando el jugador muere
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("CheckPoint"))
         {
-            currentSpawnPoint = transform.position;
+            currentSpawnPoint = collision.transform.position;
             SaveCheckPoint();
         }
     }
@@ -35,6 +36,7 @@ public class Death : MonoBehaviour
     }
     public void LoadCheckPoint()
     {
+        
         float x = PlayerPrefs.GetFloat("currentSpawnPoint.x");
         float y = PlayerPrefs.GetFloat("currentSpawnPoint.y");
         float z = PlayerPrefs.GetFloat("currentSpawnPoint.z");

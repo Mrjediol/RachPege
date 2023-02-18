@@ -9,11 +9,11 @@ public class Enemy : MonoBehaviour
     Rigidbody2D rb;
     public float SloweddashSpeed = 500f;
     public float slowedmoveSpeed = 10;
-    public float moveSpeed = 50f;
-    public float dashSpeed = 5000f;
+    public float moveSpeed = 0.1f;
     public float knowback = 1000f;
     public float maxHealth = 5;
-    public float enemyDamage = 3;
+    public float enemyDamage = 5;
+    public Vector3 scale = new Vector3(0.001f, 0.001f, 0.001f);
     public float health;
     public float enemyLvl;
     public float giveXP;
@@ -37,7 +37,6 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         frozenEffect = GetComponent<FrozenEffect>();
         spawner.onEnemyKilled += RemoveEnemy;
-        enemyDamage *= enemyLvl;
         giveXP *= enemyLvl;
         maxHealth *= enemyLvl;
         health = maxHealth;
@@ -45,6 +44,10 @@ public class Enemy : MonoBehaviour
         xpText.text = giveXP + " Xp";
         healthBar.SetHealth(health,maxHealth);
         healthText.text = Health + "/" + maxHealth;
+        enemyDamage += enemyLvl * 3f;
+        moveSpeed += enemyLvl / 100f;
+        transform.localScale += scale * enemyLvl;
+        Debug.Log(moveSpeed);
     }
 
     //void FixedUpdate()

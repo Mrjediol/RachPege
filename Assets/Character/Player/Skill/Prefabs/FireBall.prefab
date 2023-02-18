@@ -162,6 +162,7 @@ MonoBehaviour:
   fireDamage: 10
   hitEffect: {fileID: 8764043878647920493, guid: c4ed38c72957f2241ad144a1614956d9, type: 3}
   scale: {x: 0.2, y: 0.2, z: 0.2}
+  popUpTextFire: {fileID: 453342948896287744, guid: aa9176ca5666a13408e0c47e52f54c62, type: 3}
   piercing: 0
 --- !u!114 &1677020199055556605
 MonoBehaviour:

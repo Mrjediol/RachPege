@@ -8,6 +8,11 @@ public class AttackCollision : MonoBehaviour
     public Collider2D attackCollider;
     public float knockBack = 1000f;
 
+    private void Start()
+    {
+        Enemy enemy = GetComponentInParent<Enemy>();
+        enemyDamageAttack = enemy.enemyDamage;
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))

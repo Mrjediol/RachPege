@@ -20,6 +20,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioSource swordAttackSound;
     public bool hasPlayedSound = false;
 
+    public GameObject Effect;
+    public Vector3 scale = new Vector3(0.2f, 0.2f, 0.2f);
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -148,6 +151,15 @@ public class PlayerController : MonoBehaviour
                 mana.currentMana +=amountToAdd;
                 manaValue.CreateFloatingText();
                 Destroy(other.gameObject);
+
+
+                GameObject effect = Instantiate(Effect, other.transform.position, Quaternion.identity);
+                effect.transform.localScale = scale;
+
+                ParticleSystem ps = effect.GetComponent<ParticleSystem>();
+                Renderer psRenderer = ps.GetComponent<Renderer>();
+                psRenderer.sortingOrder = 11;
+
             } 
         }
     }

@@ -21,7 +21,10 @@ public class PlayerHealth : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
+        LevelSystem player = GetComponent<LevelSystem>();
+        maxhealth += player.level * 5f;
         health = maxhealth;
+
     }
 
     private void Update()
@@ -108,9 +111,9 @@ public class PlayerHealth : MonoBehaviour
     }
     public void IncreaseHealth(int level)
     {
-        maxhealth += (health * 0.01f) * ((100 - level) * 0.1f);
+        maxhealth += level * 5f;
         maxhealth = Mathf.Round(maxhealth);
-        health += (health * 0.01f) * ((100 - level) * 0.1f);
+        health += level * 5f;
         health = Mathf.Round(health);
     }
 

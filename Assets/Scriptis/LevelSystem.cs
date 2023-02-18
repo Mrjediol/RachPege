@@ -7,6 +7,8 @@ using UnityEngine.InputSystem;
 
 public class LevelSystem : MonoBehaviour
 {
+    public GameObject Effect;
+    public Vector3 scale = new Vector3(0.2f, 0.2f, 0.2f);
 
     public int level;
     public float currentXp;
@@ -155,7 +157,12 @@ public class LevelSystem : MonoBehaviour
         swordAttack.DamageValue();
 
         //for ()
-       
+        GameObject effect = Instantiate(Effect, transform.position, Quaternion.identity);
+        effect.transform.localScale = scale;
+        ParticleSystem ps = effect.GetComponent<ParticleSystem>();
+        Renderer psRenderer = ps.GetComponent<Renderer>();
+        psRenderer.sortingOrder = 11;
+
         requiredXp = CalculateRequiredXp();
         levelText.text = "Level " + level;
 

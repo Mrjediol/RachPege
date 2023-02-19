@@ -10,6 +10,9 @@ public class PlayerHealth : MonoBehaviour
     public float health;
     public float lerpTimer;
     public float maxhealth = 100;
+    public float cooldownTime = 15f;
+    private bool canHeal = true;
+
     public float chipSpeed = 2f;
     public Image frontHealthBar;
     public Image backHealthBar;
@@ -18,12 +21,20 @@ public class PlayerHealth : MonoBehaviour
     Animator animator;
     public int Scene;
     public GameObject damageText;
+    private float cooldownTimer = 0f;
+    public Slider cooldownSlider;
+    public GameObject HealEffect;
+    public Vector3 scale = new Vector3(0.2f, 0.2f, 0.2f);
+    LevelSystem levelSystem;
     private void Start()
     {
         animator = GetComponent<Animator>();
-        LevelSystem player = GetComponent<LevelSystem>();
-        maxhealth += player.level * 5f;
+        levelSystem = GetComponent<LevelSystem>();
+        int level = levelSystem.level;
+        maxhealth += 5f * (level * level) + 5 * level;
         health = maxhealth;
+        cooldownSlider.minValue = 0f;
+        cooldownSlider.maxValue = cooldownTime;
 
     }
 
@@ -31,10 +42,23 @@ public class PlayerHealth : MonoBehaviour
     {
         health = Mathf.Clamp(health, 0, maxhealth);
         UpdateHealthUI();
-       
-        if (Input.GetKeyDown(KeyCode.H))
+        if (canHeal)
         {
-            RestoreHealth(Random.Range(5, 10));
+            cooldownSlider.value = 0f;
+        }
+        else
+        {
+            cooldownTimer += Time.deltaTime;
+            cooldownSlider.value = cooldownTime - cooldownTimer;
+            if (cooldownTimer >= cooldownTime)
+            {
+                canHeal = true;
+                cooldownTimer = 0f;
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.H) && canHeal && health < maxhealth)
+        {
+            RestoreHealth(maxhealth * 0.6f);
         }
         if (health <= 0)
         {
@@ -43,6 +67,7 @@ public class PlayerHealth : MonoBehaviour
         }
 
     }
+   
 
     void UpdateHealthUI()
     {
@@ -92,7 +117,7 @@ public class PlayerHealth : MonoBehaviour
 
             GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");
             textTransform.SetParent(canvas.transform);
-            
+            levelSystem.WasHit();
             lerpTimer = 0f;
         }
         
@@ -101,19 +126,30 @@ public class PlayerHealth : MonoBehaviour
     public void RestoreHealth(float healAmout)
     {
         health += healAmout;
+        health = Mathf.Min(health, maxhealth);
         RectTransform textTransform = Instantiate(damageText).GetComponent<RectTransform>();
         textTransform.GetComponent<TextMeshProUGUI>().text = "+ " + healAmout.ToString();
         textTransform.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
 
+        GameObject effect = Instantiate(HealEffect, transform.position, Quaternion.identity);
+        effect.transform.localScale = scale;
+        effect.transform.localRotation = Quaternion.Euler(-90f, 0f, 0f);
+        ParticleSystem ps = effect.GetComponent<ParticleSystem>();
+        Renderer psRenderer = ps.GetComponent<Renderer>();
+        psRenderer.sortingOrder = 11;
+        psRenderer.sortingLayerName = "arboles";
+
         GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");
         textTransform.SetParent(canvas.transform);
+        canHeal = false;
         lerpTimer = 0f;
+
     }
     public void IncreaseHealth(int level)
     {
-        maxhealth += level * 5f;
+        maxhealth += 5f * (level * level) + 5 * level;
         maxhealth = Mathf.Round(maxhealth);
-        health += level * 5f;
+        health += 5f * (level * level) + 5 * level;
         health = Mathf.Round(health);
     }
 

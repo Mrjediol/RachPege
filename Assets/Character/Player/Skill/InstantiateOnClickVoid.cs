@@ -21,7 +21,7 @@ public class InstantiateOnClickVoid : MonoBehaviour
     public GameObject line;
     public LayerMask terrainLayer;
     CurrentCd currentCd;
-
+    Death death;
     void Start()
     {
         nextFireTime = 0f;
@@ -33,10 +33,11 @@ public class InstantiateOnClickVoid : MonoBehaviour
         player = FindObjectOfType<PlayerController>();
         currentCd = GetComponentInParent<CurrentCd>();
         nextFireTime = currentCd.voidCd;
+        death = FindObjectOfType<Death>();
     }
     void Update()
     {
-        if (Time.timeScale == 0)
+        if (Time.timeScale == 0 || death.isDead == true)
             return;
         currentCd.voidCd = nextFireTime;
         if (voidCd.value >= 1.0f)

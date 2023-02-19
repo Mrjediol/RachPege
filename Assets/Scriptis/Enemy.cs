@@ -37,14 +37,15 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         frozenEffect = GetComponent<FrozenEffect>();
         spawner.onEnemyKilled += RemoveEnemy;
-        giveXP *= enemyLvl;
-        maxHealth *= enemyLvl;
+        giveXP = 5 * (enemyLvl * enemyLvl) + 5 * enemyLvl;
+        maxHealth += 3 * (enemyLvl * enemyLvl) + 3 * enemyLvl;
+        enemyDamage += 4 * (enemyLvl * enemyLvl) + 4 * enemyLvl;
+        Debug.Log(giveXP + " " + enemyLvl);
         health = maxHealth;
         levelText.text = "Lvl." + enemyLvl;
         xpText.text = giveXP + " Xp";
         healthBar.SetHealth(health,maxHealth);
         healthText.text = Health + "/" + maxHealth;
-        enemyDamage += enemyLvl * 3f;
         moveSpeed += enemyLvl / 100f;
         transform.localScale += scale * enemyLvl;
         Debug.Log(moveSpeed);
@@ -163,7 +164,7 @@ public class Enemy : MonoBehaviour
     public void RemoveEnemy()
     {
         LevelSystem XP = FindObjectOfType<LevelSystem>();
-        XP.GainExperienceFlatRate(giveXP);
+        XP.GainExperience(giveXP);
         spawner.DecreaseActiveEnemies();
         // Instanciar el prefab de la estrella de mana
         GameObject manaStar = Instantiate(manaStarPrefab, transform.position, Quaternion.identity);

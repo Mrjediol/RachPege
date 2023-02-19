@@ -13,10 +13,13 @@ public class ManaSystem : MonoBehaviour
     public float maxMana;
     public float currentMana;
     public float manaregen = 1;
-
-    void Awake()
+    LevelSystem levelsystem;
+    void Start()
     {
-        LevelSystem levelsystem = GetComponent<LevelSystem>();
+        levelsystem = GetComponent<LevelSystem>();
+        maxMana = 100 + (levelsystem.level * 10f);
+        
+        currentMana = Mathf.Min(maxMana, currentMana);
         currentMana = 100 + (levelsystem.level * 10f);
     }
     private void Update()
@@ -29,7 +32,6 @@ public class ManaSystem : MonoBehaviour
             currentMana = 0;
         }
         manaText.text = "" + Mathf.FloorToInt(currentMana);
-        LevelSystem levelsystem = GetComponent<LevelSystem>();
         maxMana = 100 + (levelsystem.level * 10f);
         manaregen = 1 + (levelsystem.level / 5);
     }

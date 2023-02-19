@@ -11,14 +11,12 @@ public class RunState : StateMachineBehaviour
 
     Transform player;
     Rigidbody2D rb;
-    LookPlayer lookPlayer;
     Enemy enemy;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = animator.GetComponent<Rigidbody2D>();
-        lookPlayer = animator.GetComponent<LookPlayer>();
         enemy = animator.GetComponent<Enemy>();
         speed = enemy.moveSpeed;
     }
@@ -26,6 +24,7 @@ public class RunState : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+
         Vector2 target = new Vector2(player.position.x, player.position.y);
         Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
         rb.MovePosition(newPos);

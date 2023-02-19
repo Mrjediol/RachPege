@@ -21,6 +21,7 @@ public class InstantiateOnClickFire : MonoBehaviour
     CurrentCd currentCd;
     public float range = 0.5f;
     PlayerController player;
+    Death death;
     void Start()
     {
         blastCd = GameObject.Find("blastCd").GetComponent<Slider>();
@@ -32,10 +33,11 @@ public class InstantiateOnClickFire : MonoBehaviour
         currentCd = GetComponentInParent<CurrentCd>();
         nextFireTime = currentCd.fireBlastCd;
         player = FindObjectOfType<PlayerController>();
+        death = FindObjectOfType<Death>();
     }
     void Update()
     {
-        if (Time.timeScale == 0)
+        if (Time.timeScale == 0 || death.isDead == true)
             return;
         currentCd.fireBlastCd = nextFireTime;
         if (blastCd.value >= 1.0f)

@@ -11,15 +11,19 @@ public class SwordAttack : MonoBehaviour
 
     LevelSystem levelSystem;
 
-    private void Start() {
+    private void Start() 
+    {
        
         rightAttackOffset = transform.localPosition;
         levelSystem = GetComponentInParent<LevelSystem>();
-        DamageValue();
+        damage = PlayerPrefs.GetFloat("damage", damage);
     }
    public void DamageValue()
    {
-        damage = 10f + (levelSystem.level * 2f);
+        float level = levelSystem.level;
+        damage = 1f * ((level * level) + 1f * level) / 2;
+        PlayerPrefs.SetFloat("damage", damage);
+        PlayerPrefs.Save();
     }
 
     public void AttackRight() {

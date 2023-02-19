@@ -29,6 +29,7 @@ public class InstantiateAniquilation : MonoBehaviour
     private Mouse mouse;
     GameObject instantiatedAdditionalPrefab;
     WeaponManager weaponManager;
+    Death death;
     void Start()
     {
         AniquilationCd = GameObject.Find("aniquilationCd").GetComponent<Slider>();
@@ -41,6 +42,7 @@ public class InstantiateAniquilation : MonoBehaviour
         initialPosition = Vector3.zero;
         player = FindObjectOfType<PlayerController>();
         weaponManager = FindObjectOfType<WeaponManager>();
+        death = FindObjectOfType<Death>();
     }
 
     void Update()
@@ -59,7 +61,7 @@ public class InstantiateAniquilation : MonoBehaviour
         }
         if (Time.time > nextFireTime)
         {
-            if (Time.timeScale == 0)
+            if (Time.timeScale == 0 || death.isDead == true)
                 return;
             if (mouse.rightButton.wasPressedThisFrame && Time.time >= nextFireTime)
             {

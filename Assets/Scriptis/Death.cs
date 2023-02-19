@@ -10,13 +10,14 @@ public class Death : MonoBehaviour
     public bool isDead;
     private Color deathScreenColor;
     public GameObject respawnEffect;
-    public Vector3 scale = new Vector3(0.2f, 0.2f, 0.2f);
+    public Vector3 scale = new(0.2f, 0.2f, 0.2f);
+
     private void Start()
     {
         LoadCheckPoint();
         deathScreenColor = deathScreen.GetComponentInChildren<Image>().color;
         transform.position = currentSpawnPoint;
- 
+        
     }
     // Llamado cuando el jugador muere
     private void OnTriggerEnter2D(Collider2D collision)
@@ -46,6 +47,7 @@ public class Death : MonoBehaviour
     {
         // Desactivar el controlador del jugador y el modelo del jugador
         GetComponent<PlayerController>().enabled = false;
+        GetComponent<DashAbility>().enabled = false;
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<BoxCollider2D>().enabled = false;
         GetComponent<PlayerHealth>().enabled = false;
@@ -73,7 +75,7 @@ public class Death : MonoBehaviour
         ParticleSystem ps = effect.GetComponent<ParticleSystem>();
         Renderer psRenderer = ps.GetComponent<Renderer>();
         psRenderer.sortingOrder = 11;
-
+        psRenderer.sortingLayerName = "arboles";
         // Iterar a través de los transformadores hijos de la ParticleSystem
         foreach (Transform child in ps.transform)
         {
@@ -84,6 +86,7 @@ public class Death : MonoBehaviour
             if (childRenderer != null)
             {
                 childRenderer.sortingOrder = 11;
+                psRenderer.sortingLayerName = "arboles";
             }
         }
 
@@ -102,6 +105,7 @@ public class Death : MonoBehaviour
             playerHealth.health = playerHealth.maxhealth;
         }
         GetComponent<PlayerController>().enabled = true;
+        GetComponent<DashAbility>().enabled = true;
         GetComponent<SpriteRenderer>().enabled = true;
         GetComponent<BoxCollider2D>().enabled = true;
         // Desactivar la pantalla de muerte

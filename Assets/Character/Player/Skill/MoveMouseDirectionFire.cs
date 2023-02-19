@@ -21,6 +21,8 @@ public class MoveMouseDirectionFire : MonoBehaviour
     public Slider fireCd;
     CurrentCd currentCd;
     public LayerMask terrainLayer;
+    Death death;
+       
     void Start()
     {
         player = GameObject.Find("Player").transform; // busca el objeto player
@@ -28,12 +30,12 @@ public class MoveMouseDirectionFire : MonoBehaviour
         fireCd = GameObject.Find("fireCd").GetComponent<Slider>();
         currentCd = GetComponentInParent<CurrentCd>();
         nextFireTime = currentCd.fireBallCd;
-
+        death = FindObjectOfType<Death>();
     }
 
     void Update()
     {
-        if (Time.timeScale == 0)
+        if (Time.timeScale == 0 || death.isDead == true)
             return;
         currentCd.fireBallCd = nextFireTime;
         if (fireCd.value >= 1.0f)

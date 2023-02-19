@@ -20,6 +20,7 @@ public class MoveMouseDirectionIce : MonoBehaviour
     [SerializeField] private AudioSource Shoot;
     CurrentCd currentCd;
     public LayerMask terrainLayer;
+    Death death;
     void Start()
     {
         player = GameObject.Find("Player").transform; // busca el objeto player
@@ -27,13 +28,13 @@ public class MoveMouseDirectionIce : MonoBehaviour
         iceCd = GameObject.Find("iceCd").GetComponent<Slider>();
         currentCd = GetComponentInParent<CurrentCd>();
         nextFireTime = currentCd.iceBallCd;
-
+        death = FindObjectOfType<Death>();
     }
     
     void Update()
     {
 
-        if (Time.timeScale == 0)
+        if (Time.timeScale == 0 || death.isDead == true)
             return;
         currentCd.iceBallCd = nextFireTime;
         if (iceCd.value >= 1.0f)

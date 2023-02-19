@@ -20,6 +20,7 @@ public class MoveMouseDirectionRay : MonoBehaviour
     public Slider rayCd;
     CurrentCd currentCd;
     public LayerMask terrainLayer;
+    Death death;
     void Start()
     {
         rayCd = GameObject.Find("rayCd").GetComponent<Slider>();
@@ -27,12 +28,12 @@ public class MoveMouseDirectionRay : MonoBehaviour
         nextFireTime = 0f;
         currentCd = GetComponentInParent<CurrentCd>();
         nextFireTime = currentCd.rayCd;
-
+        death = FindObjectOfType<Death>();
     }
 
     void Update()
     {
-        if (Time.timeScale == 0)
+        if (Time.timeScale == 0 || death.isDead == true)
             return;
         currentCd.rayCd = nextFireTime;
         if (rayCd.value >= 1.0f)

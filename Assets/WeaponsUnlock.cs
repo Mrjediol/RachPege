@@ -21,6 +21,8 @@ public class WeaponsUnlock : MonoBehaviour
     public GameObject voidWeapon;
     public GameObject blastWeapon;
     public GameObject AniquilationWeapon;
+    public GameObject weaponExplication;
+    public GameObject AniquilationExplication;
 
     public Image image;
     public GameObject canvasUnlocked;
@@ -67,6 +69,7 @@ public class WeaponsUnlock : MonoBehaviour
         if (levelSystem.level >= levelRequired.fireLevelRequired && fireunLocked == false)
         {
             CanvasActiver("Fire", fireWeapon,ref fireunLocked);
+            weaponExplication.SetActive(true);
         }
         if (levelSystem.level >= levelRequired.IceLevelRequired && IceunLocked == false)
         {
@@ -87,6 +90,7 @@ public class WeaponsUnlock : MonoBehaviour
         if (levelSystem.level >= levelRequired.AniquilationLevelRequired && AniquilationunLocked == false)
         {
             CanvasActiver("Aniquilation" , AniquilationWeapon,ref AniquilationunLocked);
+            AniquilationExplication.SetActive(true);
         }
     }
 
@@ -97,14 +101,21 @@ public class WeaponsUnlock : MonoBehaviour
         Time.timeScale = 0f;
         canvasUnlocked.SetActive(true);
         levelSystem.unlokingActive = true;
-        StartCoroutine(DeactivateCanvasAfterDelay(2f));
+        StartCoroutine(DeactivateCanvasAfterDelay(30f));
         unlockedText.text = "You Unlocked " + weapon + " Weapon";
         Sprite Sprite = Resources.Load<Sprite>(weapon);
         image.sprite = Sprite;
     }
-    private IEnumerator DeactivateCanvasAfterDelay(float delay)
+    public IEnumerator DeactivateCanvasAfterDelay(float delay)
     {
-        yield return new WaitForSecondsRealtime(delay);
+        if (levelSystem.unlokingActive == true)
+        {
+            yield return new WaitForSecondsRealtime(delay);
+            Desactivate();
+        }
+    }
+    public void Desactivate()
+    {
         canvasUnlocked.SetActive(false);
         Time.timeScale = 1f;
         levelSystem.unlokingActive = false;

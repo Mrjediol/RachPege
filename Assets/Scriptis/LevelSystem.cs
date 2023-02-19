@@ -21,6 +21,7 @@ public class LevelSystem : MonoBehaviour
     public Image backXpBar;
     public TextMeshProUGUI levelText;
     public TextMeshProUGUI xpText;
+    public TextMeshProUGUI MultiplierText;
     public DashAbility dashAbility;
     [Header("Multipliers")]
     [Range(1f,300f)]
@@ -34,29 +35,38 @@ public class LevelSystem : MonoBehaviour
     private GameObject dashUnlockedTextInstance;
     private bool dashUnlockedTextShowed = false;
     public GameObject dashUnlockedVideo;
-
-    SwordAttack swordAttack;
+    public float xpMultiplier = 1f;
+    SwordAttack[] swordAttacks;
     // Start is called before the first frame update
     void Start()
     {
+        level = PlayerPrefs.GetInt("CurrentLevel", 1);
         currentXp = PlayerPrefs.GetFloat("CurrentXp", 1);
-        requiredXp = CalculateRequiredXp();
+        requiredXp = PlayerPrefs.GetFloat("requiredXp", requiredXp);
+        xpMultiplier = PlayerPrefs.GetFloat("xpMultiplier", xpMultiplier);
+        
+        
+
+
         frontXpBar.fillAmount = currentXp / requiredXp;
         backXpBar.fillAmount = currentXp / requiredXp;
         
-        levelText.text = "Level " + level;
+        
         death = false;
         dashAbility.GetComponent<DashAbility>();
-        swordAttack = GetComponentInChildren<SwordAttack>();
-
-    }
-    public void Awake()
-    {
-        level = PlayerPrefs.GetInt("CurrentLevel", 1);
+        swordAttacks = GetComponentsInChildren<SwordAttack>();
+       
+        levelText.text = "Level " + level;
+        
         if (level >= dashAbility.levelRequirement)
         {
             dashUnlockedTextShowed = true;
         }
+        Debug.Log("Current Level: " + level);
+    }
+    public void Awake()
+    {
+        
     }
     public void stopTimeOnLock()
     {
@@ -97,9 +107,20 @@ public class LevelSystem : MonoBehaviour
             dashUnlockedTextShowed = false;
         }
 
-        
+    UpdateXpUI();
 
-        IEnumerator DestroyAfterSeconds(GameObject text, float seconds)
+        if (death == true)
+        {
+            GainExperience(20);
+           
+        }
+        if (currentXp >= requiredXp)
+        {
+            LevelUp();
+        }
+        death = false;
+    }
+    IEnumerator DestroyAfterSeconds(GameObject text, float seconds)
     {
         yield return new WaitForSeconds(seconds);
         Time.timeScale = 1;
@@ -107,22 +128,6 @@ public class LevelSystem : MonoBehaviour
         Destroy(text);
         unlokingActive = false;
     }
-
-
-    UpdateXpUI();
-        if (death == true)
-        {
-            GainExperienceFlatRate(20);
-            
-
-        }
-        if (currentXp > requiredXp)
-        {
-            LevelUp();
-        }
-        death = false;
-    }
-
     public void UpdateXpUI()
     {
         float xpFraction = currentXp / requiredXp;
@@ -138,13 +143,39 @@ public class LevelSystem : MonoBehaviour
                 frontXpBar.fillAmount = Mathf.Lerp(FXP, backXpBar.fillAmount, percentComplete);
             }
         }
-        xpText.text = currentXp + "/" + requiredXp;
+        xpText.text = Mathf.RoundToInt(currentXp) + "/" + Mathf.RoundToInt(requiredXp);
+
+        if (xpMultiplier < 3f)
+        MultiplierText.text = "X " + xpMultiplier;
+        if (xpMultiplier >= 3f)
+            MultiplierText.text = "X 3";
     }
-    public void GainExperienceFlatRate(float xpGained)
+    public void WasHit()
     {
-        currentXp += xpGained;
+        xpMultiplier = 1f;
+        MultiplierText.text = "X " + xpMultiplier;
+        PlayerPrefs.SetFloat("xpMultiplier", xpMultiplier);
+        PlayerPrefs.Save();
+    }
+    public void GainExperience(float xpGained)
+    {
+        
+       
+
+        // Incrementar el multiplicador hasta un máximo de 3.
+        if (xpMultiplier < 3f)
+        {
+            xpMultiplier += 0.1f;
+        }
+
+        // Ganar experiencia multiplicada por el multiplicador actual.
+        float xpToGain = xpGained * xpMultiplier;
+        currentXp += xpToGain;
         lerpTimer = 0f;
-        PlayerPrefs.SetFloat("CurrentXp", currentXp); // guardar el nivel actual
+        PlayerPrefs.SetFloat("xpMultiplier", xpMultiplier);
+        PlayerPrefs.Save();
+        // Guardar el nivel actual en PlayerPrefs.
+        PlayerPrefs.SetFloat("CurrentXp", currentXp);
         PlayerPrefs.Save();
     }
     public void LevelUp()
@@ -154,7 +185,10 @@ public class LevelSystem : MonoBehaviour
         backXpBar.fillAmount = 0f;
         currentXp = Mathf.RoundToInt(currentXp - requiredXp);
         GetComponent<PlayerHealth>().IncreaseHealth(level);
-        swordAttack.DamageValue();
+        foreach (SwordAttack swordAttack in swordAttacks)
+        {
+            swordAttack.DamageValue();
+        }
 
         //for ()
         GameObject effect = Instantiate(Effect, transform.position, Quaternion.identity);
@@ -162,18 +196,21 @@ public class LevelSystem : MonoBehaviour
         ParticleSystem ps = effect.GetComponent<ParticleSystem>();
         Renderer psRenderer = ps.GetComponent<Renderer>();
         psRenderer.sortingOrder = 11;
-
-        requiredXp = CalculateRequiredXp();
+        requiredXp += 100 * level;
+        //requiredXp = CalculateRequiredXp();
         levelText.text = "Level " + level;
 
         PlayerPrefs.SetInt("CurrentLevel", level); // guardar el nivel actual
+        PlayerPrefs.SetFloat("requiredXp", requiredXp); // guardar el nivel actual
+        PlayerPrefs.Save();
+        PlayerPrefs.SetFloat("CurrentXp", currentXp);
         PlayerPrefs.Save();
 
         //for (int i = 0; i < swordAttacks.Length; i++)
         //{
         //    swordAttacks[i].IncreaseDamage(level);
         //}
-       
+
     }
     public void GainExperienceScalable(float xpGained, int passedLevel)
     {
@@ -190,15 +227,20 @@ public class LevelSystem : MonoBehaviour
         lerpTimer = 0f;
         delayTimer = 0f;
     }
-
+   
     private int CalculateRequiredXp()
     {
-        int solvedForRequieredXp = 0;
-        for(int levelCycle = 1; levelCycle <= level; levelCycle++)
-        {
-            solvedForRequieredXp += (int)Mathf.Floor(levelCycle + addtionMultiplies * Mathf.Pow(powerMultiplier, levelCycle / divisionMultiplier));
-        }
-        return solvedForRequieredXp / 4;
+
+        return 100 * (level - 1) + level - 1;
+
+        //int solvedForRequieredXp = 0;
+        //for(int levelCycle = 1; levelCycle <= level; levelCycle++)
+        //{
+        //    solvedForRequieredXp += (int)Mathf.Floor(levelCycle + addtionMultiplies * Mathf.Pow(powerMultiplier, levelCycle / divisionMultiplier));
+        //}
+        //return solvedForRequieredXp / 4;
+
+
     }
     public void Death()
 

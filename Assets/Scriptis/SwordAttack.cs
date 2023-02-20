@@ -8,7 +8,7 @@ public class SwordAttack : MonoBehaviour
     public float damage = 10;
     public float initialdamage = 10;
     Vector2 rightAttackOffset;
-
+    public float knowback;
     LevelSystem levelSystem;
 
     private void Start() 
@@ -55,7 +55,11 @@ public class SwordAttack : MonoBehaviour
                 
                     //enemy.Health -= damage;
                     enemy.Takehit(damage);
-                
+                Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
+                Vector2 direction = (other.transform.position - transform.position).normalized;
+
+                rb.AddForce(knowback * Time.fixedDeltaTime * direction);
+
             }
         }
         DPS dps = other.GetComponent<DPS>();

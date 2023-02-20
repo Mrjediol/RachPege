@@ -10,10 +10,10 @@ public class Enemy : MonoBehaviour
     public float SloweddashSpeed = 500f;
     public float slowedmoveSpeed = 10;
     public float moveSpeed = 0.1f;
+    public float initialSpeed;
     public float knowback = 1000f;
     public float maxHealth = 5;
     public float enemyDamage = 5;
-    public Vector3 scale = new Vector3(0.001f, 0.001f, 0.001f);
     public float health;
     public float enemyLvl;
     public float giveXP;
@@ -30,6 +30,12 @@ public class Enemy : MonoBehaviour
     private float freezeTimer;
     public delegate void OnEnemyKilled();
     [SerializeField] private AudioSource damaged;
+    public Vector2 home;
+
+    // Variables públicas para configurar en el Inspector
+    public float minScale = 0.5f;
+    public float maxScale = 2.0f;
+
     private void Start()
     {
 
@@ -40,17 +46,33 @@ public class Enemy : MonoBehaviour
         giveXP = 5 * (enemyLvl * enemyLvl) + 5 * enemyLvl;
         maxHealth += 3 * (enemyLvl * enemyLvl) + 3 * enemyLvl;
         enemyDamage += 4 * (enemyLvl * enemyLvl) + 4 * enemyLvl;
-        Debug.Log(giveXP + " " + enemyLvl);
         health = maxHealth;
         levelText.text = "Lvl." + enemyLvl;
         xpText.text = giveXP + " Xp";
         healthBar.SetHealth(health,maxHealth);
         healthText.text = Health + "/" + maxHealth;
         moveSpeed += enemyLvl / 100f;
-        transform.localScale += scale * enemyLvl;
-        Debug.Log(moveSpeed);
-    }
 
+        SetEnemyScale(enemyLvl);
+        home = transform.position;
+
+    }
+    private void Awake()
+    {
+        initialSpeed = moveSpeed;
+    }
+    public void SetSpeed() 
+    {
+        moveSpeed = initialSpeed;
+    }
+    void SetEnemyScale(float enemyLvl)
+    {
+        // Interpolar entre el valor mínimo y máximo basado en el nivel del enemigo
+        float scale = Mathf.Lerp(minScale, maxScale, enemyLvl / 100);
+
+        // Establecer la escala del enemigo
+        transform.localScale = scale * Vector3.one;
+    }
     //void FixedUpdate()
     //{   
     //    isFrozen = frozenEffect.isFrozen;
@@ -114,16 +136,15 @@ public class Enemy : MonoBehaviour
             RectTransform textTransform = Instantiate(damageText).GetComponent<RectTransform>();
             textTransform.GetComponent<TextMeshProUGUI>().text = damageRevice.ToString();
             textTransform.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
-
             GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");
             textTransform.SetParent(canvas.transform);
             Debug.Log(gameObject.name);
             // Check if the list is not empty before trying to access an element
-            SwordAttack swordAttack = FindObjectOfType<SwordAttack>();
+            //SwordAttack swordAttack = FindObjectOfType<SwordAttack>();
 
-            Vector2 direction = (transform.position - swordAttack.transform.position).normalized;
+            //Vector2 direction = (transform.position - swordAttack.transform.position).normalized;
 
-            rb.AddForce(knowback * Time.fixedDeltaTime * direction);               
+            //rb.AddForce(knowback * Time.fixedDeltaTime * direction);               
         }
     }
 

@@ -20,19 +20,19 @@ public class Spawner : MonoBehaviour
     public GameObject prefabToSpawn;
 
     public Action onEnemyKilled;
-    public float activeRange = 10f;
+    public float activeRange = 2f;
     Vector2[,] spawnPositions;
     int spawnCounter = 0;
     int maxSpawns = 0;
 
     private void Start()
     {
-        heat = Cd;
         spawnPositions = new Vector2[3, 3];
         for (int i = 0; i < 3; i++)
             for (int j = 0; j < 3; j++)
                 spawnPositions[i, j] = new Vector2(i * dispersion, j * dispersion);
         maxSpawns = spawnPositions.GetLength(0) * spawnPositions.GetLength(1);
+        heat = 0;
     }
 
     void Update()
@@ -55,6 +55,7 @@ public class Spawner : MonoBehaviour
                 heat = Cd;
             }
         }
+
     }
 
     void Spawn(GameObject prefabToSpawn)

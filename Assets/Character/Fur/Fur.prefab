@@ -363,10 +363,10 @@ MonoBehaviour:
   SloweddashSpeed: 500
   slowedmoveSpeed: 10
   moveSpeed: 0.1
+  initialSpeed: 0
   knowback: 1000
   maxHealth: 5
   enemyDamage: 3
-  scale: {x: 0.01, y: 0.01, z: 0.01}
   health: 3
   enemyLvl: 3
   giveXP: 5
@@ -381,6 +381,9 @@ MonoBehaviour:
   spawner: {fileID: 0}
   frozenEffect: {fileID: 0}
   damaged: {fileID: 9175618102947409392}
+  home: {x: 0, y: 0}
+  minScale: 1
+  maxScale: 2
   forceMagnitude: 50
 --- !u!1001 &3577187055651489630
 PrefabInstance:

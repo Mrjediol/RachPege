@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc3990ae6541e448ba6a8524d93029f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyDamageAttack: 3
+  enemyDamageAttack: 1
   attackCollider: {fileID: 7838397888365306922}
   knockBack: 1000
 --- !u!1 &1306823446721168568
@@ -351,7 +351,8 @@ MonoBehaviour:
   frozenEffect: {fileID: 0}
   damaged: {fileID: 7897990421460196787}
   home: {x: 0, y: 0}
-  minScale: 1
+  scoreValue: 2
+  minScale: 0.8
   maxScale: 1.5
   forceMagnitude: 50
 --- !u!50 &2866632734358892599

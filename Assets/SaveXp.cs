@@ -16,6 +16,7 @@ public class SaveXp : MonoBehaviour
     public int Blastlevel;
     public float Aniquilationcurrentxp;
     public int Aniquilationlevel;
+    public bool postGame;
 
     void Start()
     {

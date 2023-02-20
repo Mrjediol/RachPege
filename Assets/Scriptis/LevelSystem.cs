@@ -146,7 +146,7 @@ public class LevelSystem : MonoBehaviour
         xpText.text = Mathf.RoundToInt(currentXp) + "/" + Mathf.RoundToInt(requiredXp);
 
         if (xpMultiplier < 3f)
-        MultiplierText.text = "X " + xpMultiplier;
+            MultiplierText.text = "X " + xpMultiplier.ToString("F1");
         if (xpMultiplier >= 3f)
             MultiplierText.text = "X 3";
     }
@@ -159,8 +159,8 @@ public class LevelSystem : MonoBehaviour
     }
     public void GainExperience(float xpGained)
     {
-        
-       
+
+
 
         // Incrementar el multiplicador hasta un máximo de 3.
         if (xpMultiplier < 3f)

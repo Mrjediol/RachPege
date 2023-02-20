@@ -31,14 +31,15 @@ public class Enemy : MonoBehaviour
     public delegate void OnEnemyKilled();
     [SerializeField] private AudioSource damaged;
     public Vector2 home;
+    public int scoreValue = 1;
 
     // Variables públicas para configurar en el Inspector
     public float minScale = 0.5f;
     public float maxScale = 2.0f;
-
+    EndGame endGame;
     private void Start()
     {
-
+        endGame = FindObjectOfType<EndGame>();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         frozenEffect = GetComponent<FrozenEffect>();
@@ -186,6 +187,7 @@ public class Enemy : MonoBehaviour
     {
         LevelSystem XP = FindObjectOfType<LevelSystem>();
         XP.GainExperience(giveXP);
+        endGame.AddToScore(scoreValue);
         spawner.DecreaseActiveEnemies();
         // Instanciar el prefab de la estrella de mana
         GameObject manaStar = Instantiate(manaStarPrefab, transform.position, Quaternion.identity);

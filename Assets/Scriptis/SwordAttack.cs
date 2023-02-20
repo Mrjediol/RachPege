@@ -6,6 +6,7 @@ public class SwordAttack : MonoBehaviour
 {
     public Collider2D swordCollider;
     public float damage = 10;
+
     public float initialdamage = 10;
     Vector2 rightAttackOffset;
     public float knowback;
@@ -21,7 +22,8 @@ public class SwordAttack : MonoBehaviour
    public void DamageValue()
    {
         float level = levelSystem.level;
-        damage = 1f * ((level * level) + 1f * level) / 2;
+        damage = initialdamage;
+        damage += 1f * ((level * level) + 1f * level) / 2;
         PlayerPrefs.SetFloat("damage", damage);
         PlayerPrefs.Save();
     }

@@ -81,11 +81,19 @@ public class WeaponLevelRay : MonoBehaviour
             moveMouseDirectionRay.scale = new Vector3(0.5f, 0.5f, 0.5f);
             //instantiateOnClickVoid.fireDamage = 200f;
             //instantiateOnClickVoid.force = 5f;
-            moveMouseDirectionRay.cooldown =  0.5f;
-            moveMouseDirectionRay.manaCost = 50f;
             RayLevel.fontSize = 26f;
             RayLevel.text = "Max Lvl. " + level;
             RayLevelUp.text ="";
+            if(saveXp.postGame == true)
+            {
+                moveMouseDirectionRay.cooldown = 0.25f;
+                moveMouseDirectionRay.manaCost = 25f;
+            }
+            else
+            {
+            moveMouseDirectionRay.manaCost = 50f;
+            moveMouseDirectionRay.cooldown = 0.5f;
+            }
         }
     }
     public void GetXp(float xp)

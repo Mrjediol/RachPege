@@ -7,7 +7,7 @@ public class Spawner : MonoBehaviour
 {
     [Range(1, 20)]
     public int enemyCount;
-    [Range(1, 100)]
+    [Range(1, 600)]
     public float Cd;
     [Range(1, 100)]
     public int Minlvl = 1;

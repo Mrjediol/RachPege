@@ -61,7 +61,7 @@ public class MoveMouseDirectionFire : MonoBehaviour
                     Vector3 spawnPosition = player.position - (player.up * 0.0147f) + (direction / 10);
                     if (Physics2D.OverlapCircle(spawnPosition, 0.05f, terrainLayer) == null)
                     {
-                        Shoot.Play();
+                        FindObjectOfType<AudioManager>().Play("FireShoot");
 
                         GameObject instantiatedPrefab = Instantiate(prefab, spawnPosition, Quaternion.identity);
                         Rigidbody2D rb = instantiatedPrefab.GetComponent<Rigidbody2D>();

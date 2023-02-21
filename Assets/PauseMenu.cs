@@ -19,12 +19,14 @@ public class PauseMenu : MonoBehaviour
     LevelSystem levelSystem;
     FireWeaponChoice fireWeaponChoice;
     // Update is called once per frame
+    AudioManager audioManager;
     private void Start()
     {
         weaponsMenu = FindObjectOfType<WeaponsMenu>();
         death = FindObjectOfType<Death>();
         levelSystem = FindObjectOfType<LevelSystem>();
         fireWeaponChoice = FindObjectOfType<FireWeaponChoice>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
     void Update()
     {
@@ -54,7 +56,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUi.SetActive(false);
         Time.timeScale = 1f;
         GameIsPause = false;
-       
+        audioManager.Play("CloseMenu");
     }
 
     void Pause()
@@ -64,6 +66,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUi.SetActive(true);
         Time.timeScale = 0f;
         GameIsPause = true;
+        audioManager.Play("OpenMenu");
     }
 
     public void MuteMusicVolume()

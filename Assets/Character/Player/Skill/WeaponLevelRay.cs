@@ -115,6 +115,8 @@ public class WeaponLevelRay : MonoBehaviour
     void LevelUp()
     {
         level++;
+        
+
         StartCoroutine(WaitAndSaveLvl());
         if (level >= 5)
         {
@@ -123,6 +125,7 @@ public class WeaponLevelRay : MonoBehaviour
         }
         else
         {
+            FindObjectOfType<AudioManager>().Play("LvlUpWeapons");
             currentXp -= levelUpXp;
             RayXpBar.value = 0;
         }

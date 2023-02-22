@@ -61,6 +61,7 @@ public class PlayerController : MonoBehaviour
         else if (movementInput.y > 0)
         {
             animator.SetBool("movingUp", true);
+
             spriteRenderer.flipX = false;
             //Debug.Log("moviendome arriba");
         }
@@ -105,8 +106,9 @@ public class PlayerController : MonoBehaviour
 
             if (count == 0)
             {
-               
+
                 rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
+                //rb.AddForce(movementInput * moveSpeed * Time.fixedDeltaTime, ForceMode2D.Impulse);
                 return true;
             }
             else

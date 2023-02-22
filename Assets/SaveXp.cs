@@ -94,5 +94,14 @@ public class SaveXp : MonoBehaviour
         PlayerPrefs.SetFloat("Raycurrentxp", Raycurrentxp); // guardar la Experiencia actual
         PlayerPrefs.Save();
     }
-
+    public void SaveAllLevels()
+    {
+        PlayerPrefs.SetInt("Raylevel", Raylevel); // guardar el nivel actual
+        PlayerPrefs.SetInt("Voidlevel", Voidlevel); // guardar el nivel actual
+        PlayerPrefs.SetInt("Blastlevel", Blastlevel); // guardar el nivel actual
+        PlayerPrefs.SetInt("Firelevel", Firelevel); // guardar el nivel actual
+        PlayerPrefs.SetInt("Aniquilationlevel", Aniquilationlevel); // guardar el nivel actual
+        PlayerPrefs.SetInt("Icelevel", Icelevel); // guardar el nivel actual
+        PlayerPrefs.Save();
+    }
 }

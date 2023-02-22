@@ -26,6 +26,8 @@ public class PlayerHealth : MonoBehaviour
     public GameObject HealEffect;
     public Vector3 scale = new Vector3(0.2f, 0.2f, 0.2f);
     LevelSystem levelSystem;
+    Rigidbody2D rb;
+    public GameObject bloodEffect;
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -35,7 +37,7 @@ public class PlayerHealth : MonoBehaviour
         health = maxhealth;
         cooldownSlider.minValue = 0f;
         cooldownSlider.maxValue = cooldownTime;
-
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -105,7 +107,7 @@ public class PlayerHealth : MonoBehaviour
     //}
 
            
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, Vector2 knockBack)
     {
         if (damagable == true)
         {
@@ -114,6 +116,16 @@ public class PlayerHealth : MonoBehaviour
             RectTransform textTransform = Instantiate(damageText).GetComponent<RectTransform>();
             textTransform.GetComponent<TextMeshProUGUI>().text = "- " + damage.ToString();
             textTransform.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+            FindObjectOfType<AudioManager>().Play("PlayerDamaged");
+            rb.AddForce(knockBack, ForceMode2D.Impulse);
+
+            GameObject effect = Instantiate(bloodEffect, transform.position, Quaternion.identity);
+            effect.transform.localScale = scale;
+            effect.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+            ParticleSystem ps = effect.GetComponent<ParticleSystem>();
+            Renderer psRenderer = ps.GetComponent<Renderer>();
+            psRenderer.sortingOrder = 11;
+            psRenderer.sortingLayerName = "arboles";
 
             GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");
             textTransform.SetParent(canvas.transform);

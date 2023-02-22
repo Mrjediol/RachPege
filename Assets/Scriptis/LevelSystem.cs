@@ -37,15 +37,16 @@ public class LevelSystem : MonoBehaviour
     public GameObject dashUnlockedVideo;
     public float xpMultiplier = 1f;
     SwordAttack[] swordAttacks;
+    AudioManager audioManager;
     // Start is called before the first frame update
     void Start()
     {
-        level = PlayerPrefs.GetInt("CurrentLevel", 1);
+       
         currentXp = PlayerPrefs.GetFloat("CurrentXp", 1);
         requiredXp = PlayerPrefs.GetFloat("requiredXp", requiredXp);
         xpMultiplier = PlayerPrefs.GetFloat("xpMultiplier", xpMultiplier);
-        
-        
+        audioManager = FindObjectOfType<AudioManager>();
+
 
 
         frontXpBar.fillAmount = currentXp / requiredXp;
@@ -56,17 +57,18 @@ public class LevelSystem : MonoBehaviour
         dashAbility.GetComponent<DashAbility>();
         swordAttacks = GetComponentsInChildren<SwordAttack>();
        
+       
+    }
+    public void Awake()
+    {
+        level = PlayerPrefs.GetInt("CurrentLevel", 1);
         levelText.text = "Level " + level;
-        
+
         if (level >= dashAbility.levelRequirement)
         {
             dashUnlockedTextShowed = true;
         }
         Debug.Log("Current Level: " + level);
-    }
-    public void Awake()
-    {
-        
     }
     public void stopTimeOnLock()
     {
@@ -162,7 +164,7 @@ public class LevelSystem : MonoBehaviour
 
 
 
-        // Incrementar el multiplicador hasta un máximo de 3.
+        //Incrementar el multiplicador hasta un máximo de 3.
         if (xpMultiplier < 3f)
         {
             xpMultiplier += 0.1f;
@@ -180,6 +182,7 @@ public class LevelSystem : MonoBehaviour
     }
     public void LevelUp()
     {
+        audioManager.Play("LvlUp");
         level++;
         frontXpBar.fillAmount = 0f;
         backXpBar.fillAmount = 0f;
@@ -200,16 +203,20 @@ public class LevelSystem : MonoBehaviour
         //requiredXp = CalculateRequiredXp();
         levelText.text = "Level " + level;
 
+        SaveLevel();
+        //for (int i = 0; i < swordAttacks.Length; i++)
+        //{
+        //    swordAttacks[i].IncreaseDamage(level);
+        //}
+
+    }
+    public void SaveLevel() 
+    {
         PlayerPrefs.SetInt("CurrentLevel", level); // guardar el nivel actual
         PlayerPrefs.SetFloat("requiredXp", requiredXp); // guardar el nivel actual
         PlayerPrefs.Save();
         PlayerPrefs.SetFloat("CurrentXp", currentXp);
         PlayerPrefs.Save();
-
-        //for (int i = 0; i < swordAttacks.Length; i++)
-        //{
-        //    swordAttacks[i].IncreaseDamage(level);
-        //}
 
     }
     public void GainExperienceScalable(float xpGained, int passedLevel)

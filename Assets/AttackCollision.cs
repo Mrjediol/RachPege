@@ -6,7 +6,7 @@ public class AttackCollision : MonoBehaviour
 {
     public float enemyDamageAttack = 3;
     public Collider2D attackCollider;
-    public float knockBack = 1000f;
+    public float knockBackForce = 1000f;
 
     private void Start()
     {
@@ -22,8 +22,13 @@ public class AttackCollision : MonoBehaviour
             if (player != null)
             {
                 Vector2 direction = (rb.transform.position - transform.position).normalized;
-                rb.AddForce(knockBack * Time.fixedDeltaTime * direction);
-                player.TakeDamage(enemyDamageAttack);
+
+                Vector2 knockBack = direction * knockBackForce;
+
+                
+
+                //rb.AddForce(knockBack * Time.fixedDeltaTime * direction);
+                player.TakeDamage(enemyDamageAttack, knockBack);
                 Debug.Log("solo si golpeo player");
             }
         }

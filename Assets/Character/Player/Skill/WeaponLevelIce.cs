@@ -182,7 +182,7 @@ public class WeaponLevelIce : MonoBehaviour
         if (level >= 5 && currentChoise.currentmodeIceMedium == true)
         {
             moveMouseDirectionIce.scale = new Vector3(0.7f, 0.7f, 0.7f);
-            moveMouseDirectionIce.IceDamage = 100f;
+            moveMouseDirectionIce.IceDamage = 1000f;
             moveMouseDirectionIce.force = 5f;
             moveMouseDirectionIce.destroyDelay = 1.5f;
             moveMouseDirectionIce.cooldown = 0.25f;

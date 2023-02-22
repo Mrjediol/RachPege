@@ -10,7 +10,7 @@ public class EnemyAttack : MonoBehaviour
     Vector2 enemyAttackOffset;
     public Collider2D attackCollider;
     
-    public float knockBack = 1000f;
+    public float knockBackForce = 1000f;
     public GameObject playerObject;
 
     PlayerHealth playerHealth;
@@ -54,13 +54,15 @@ public class EnemyAttack : MonoBehaviour
 
                 Vector2 direction = (playerRigidbody.transform.position - transform.position).normalized;
 
-                playerRigidbody.AddForce(knockBack * Time.fixedDeltaTime * direction);
+                Vector2 knockBack = direction * knockBackForce;
+
+
 
                 
 
                
                 //player.health -= enemyDamageAttack;
-                    player.TakeDamage(enemyDamageAttack);
+                player.TakeDamage(enemyDamageAttack, knockBack);
 
                 }
             

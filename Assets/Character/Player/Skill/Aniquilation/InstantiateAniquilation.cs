@@ -29,10 +29,14 @@ public class InstantiateAniquilation : MonoBehaviour
     private Mouse mouse;
     GameObject instantiatedAdditionalPrefab;
     WeaponManager weaponManager;
+    AudioManager audioManager;
     Death death;
+    public float minTime = 1.5f;
+    public float firstClickTime = 0f;
     void Start()
     {
         AniquilationCd = GameObject.Find("aniquilationCd").GetComponent<Slider>();
+        audioManager = FindObjectOfType<AudioManager>();
         //AniquilationCdPre = GameObject.Find("aniquilationCdPre").GetComponent<Slider>();
         nextFireTime = 0f;
         currentCd = GetComponentInParent<CurrentCd>();
@@ -79,11 +83,13 @@ public class InstantiateAniquilation : MonoBehaviour
                         instantiatedAdditionalPrefab.transform.localScale = scale;
                         Destroy(instantiatedAdditionalPrefab, limit);
                         manaSystem.ReduceMana(manaCost);
+                        firstClickTime = Time.time;
 
                         firstClick = false;
+                        audioManager.Play("AniquilationStart");
                     }
                 }
-                else
+                else if(Time.time >= firstClickTime + minTime)
                 {
                     Explotion();
                 }
@@ -106,9 +112,9 @@ public class InstantiateAniquilation : MonoBehaviour
                 // Verifica la distancia entre las posiciones inicial y final
                 float distance = Vector3.Distance(initialPosition, finalPosition);
 
-                if (distance >= 0.25f) // Si la distancia es mayor o igual a 0.25, instanciar los prefabs
+                if (distance >= 0.25f && Time.time >= firstClickTime + minTime) // Si la distancia es mayor o igual a 0.25, instanciar los prefabs
                 {
-                    damage += Convert.ToInt32(distance * 5f);
+                    damage *= /*Convert.ToInt32*/(distance );
                     
                     Debug.Log("llego a 3");
                     
@@ -124,12 +130,14 @@ public class InstantiateAniquilation : MonoBehaviour
                         {
                             Vector3 position = initialPosition + direction * step * i;
                             GameObject instantiatedPrefab = Instantiate(prefab, position, Quaternion.identity);
+                            if(transform != null)
                             instantiatedPrefab.transform.parent = transform;
                             instantiatedPrefab.transform.localScale = scale;
                             Destroy(instantiatedPrefab, destroyDelay);
                         }
 
-                        
+                        audioManager.Play("AniquilationFinish");
+                        audioManager.Stop("AniquilationStart");
                         initialPosition = Vector3.zero; // Resetea la posición inicial para que se registre la siguiente vez que se pulse el botón del mouse
                         firstClick = true;
                         nextFireTime = Time.time + cooldown;

@@ -53,7 +53,7 @@ public class WeaponLevelAniquilation : MonoBehaviour
             //instantiateOnClickVoid.force = 2f;
             instantiateAniquilation.cooldown = 5f;
             instantiateAniquilation.manaCost = 15f;
-            instantiateAniquilation.damage = 70f;
+            instantiateAniquilation.initialDamage = 70f;
             levelUpXp = 300f;
 
         }
@@ -63,7 +63,7 @@ public class WeaponLevelAniquilation : MonoBehaviour
             //instantiateOnClickVoid.fireDamage = 50f;
             instantiateAniquilation.cooldown = 4f;
             instantiateAniquilation.manaCost = 25f;
-            instantiateAniquilation.damage = 90f;
+            instantiateAniquilation.initialDamage = 90f;
             levelUpXp = 600f;
         }
         if (level >= 4)
@@ -73,7 +73,7 @@ public class WeaponLevelAniquilation : MonoBehaviour
             //instantiateOnClickVoid.force = 4f;
             instantiateAniquilation.cooldown = 3f;
             instantiateAniquilation.manaCost = 35f;
-            instantiateAniquilation.damage = 110f;
+            instantiateAniquilation.initialDamage = 1100f;
             //instantiateOnClickVoid.piercing = true;
             levelUpXp = 1000f;
         }
@@ -82,9 +82,20 @@ public class WeaponLevelAniquilation : MonoBehaviour
             instantiateAniquilation.scale = new Vector3(0.5f, 0.5f, 0.5f);
             //instantiateOnClickVoid.fireDamage = 200f;
             //instantiateOnClickVoid.force = 5f;
-            instantiateAniquilation.cooldown = 2f;
-            instantiateAniquilation.manaCost = 40f;
-            instantiateAniquilation.damage = 150f;
+            if (saveXp.postGame == true)
+            {
+                instantiateAniquilation.cooldown = 0.5f;
+                instantiateAniquilation.manaCost = 100f;
+            }
+            else
+            {
+                instantiateAniquilation.cooldown = 0.5f;
+                instantiateAniquilation.manaCost = 200f;
+            }
+            
+            instantiateAniquilation.minTime = 0.5f;
+            
+            instantiateAniquilation.initialDamage = 1500f;
             AniquilationLevel.fontSize = 26f;
             AniquilationLevel.text = "Max Lvl. " + level;
             AniquilationLevelUp.text ="";

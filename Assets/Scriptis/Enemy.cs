@@ -32,13 +32,15 @@ public class Enemy : MonoBehaviour
     [SerializeField] private AudioSource damaged;
     public Vector2 home;
     public int scoreValue = 1;
-
+    public bool imtheBoss;
     // Variables públicas para configurar en el Inspector
     public float minScale = 0.5f;
     public float maxScale = 2.0f;
     EndGame endGame;
+    AudioManager audioManager;
     private void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         endGame = FindObjectOfType<EndGame>();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
@@ -127,6 +129,24 @@ public class Enemy : MonoBehaviour
         animator.SetTrigger("Damaged");
         damaged.Play();
     }
+    public void AttackSoundFur()
+    {
+        audioManager.Play("FurAttack");
+    }
+    public void DamagedFur()
+    {
+        audioManager.Play("FurDamaged");
+        audioManager.Stop("FurAttack");
+    }
+    public void AttackSoundSlime()
+    {
+        audioManager.Play("SlimeAttack");
+    }
+    public void DamagedSlime()
+    {
+        audioManager.Play("SlimeDamaged");
+        audioManager.Stop("SlimeAttack");
+    }
     public void Takehit(float damageRevice)
     {
         if (damagable == true)
@@ -135,7 +155,7 @@ public class Enemy : MonoBehaviour
             healthBar.SetHealth(health, maxHealth);
             healthText.text = Health + "/" + maxHealth;
             RectTransform textTransform = Instantiate(damageText).GetComponent<RectTransform>();
-            textTransform.GetComponent<TextMeshProUGUI>().text = damageRevice.ToString();
+            textTransform.GetComponent<TextMeshProUGUI>().text = damageRevice.ToString("F0");
             textTransform.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
             GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");
             textTransform.SetParent(canvas.transform);
@@ -181,11 +201,14 @@ public class Enemy : MonoBehaviour
     public void Defeated()
     {
         animator.SetTrigger("Defeated");
+        audioManager.Play("Death");
+
     }
 
     public void RemoveEnemy()
     {
         LevelSystem XP = FindObjectOfType<LevelSystem>();
+        
         XP.GainExperience(giveXP);
         endGame.AddToScore(scoreValue);
         spawner.DecreaseActiveEnemies();

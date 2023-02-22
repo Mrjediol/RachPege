@@ -182,11 +182,11 @@ public class WeaponLevelFire : MonoBehaviour
         if (level >= 5 && currentChoise.currentmodeMedium == true)
         {
             moveMouseDirectionFire.scale = new Vector3(0.7f, 0.7f, 0.7f);
-            moveMouseDirectionFire.fireDamage = 200f;
+            moveMouseDirectionFire.fireDamage = 1500f;
             moveMouseDirectionFire.force = 5f;
             moveMouseDirectionFire.destroyDelay = 1.5f;
             moveMouseDirectionFire.cooldown = 0.25f;
-            moveMouseDirectionFire.manaCost = 50f;
+            moveMouseDirectionFire.manaCost = 150f;
             moveMouseDirectionFire.piercing = true;
             saveState.burnprobability = 50;
             saveState.burnduration = 6f;
@@ -199,11 +199,11 @@ public class WeaponLevelFire : MonoBehaviour
         if (level >= 5 && currentChoise.currentmodeFast == true)
         {
             moveMouseDirectionFire.scale = new Vector3(0.35f, 0.35f, 0.35f);
-            moveMouseDirectionFire.fireDamage = 100f;
+            moveMouseDirectionFire.fireDamage = 750f;
             moveMouseDirectionFire.force = 6f;
             moveMouseDirectionFire.destroyDelay = 1.5f;
             moveMouseDirectionFire.cooldown = 0.25f;
-            moveMouseDirectionFire.manaCost = 25f;
+            moveMouseDirectionFire.manaCost = 125f;
             moveMouseDirectionFire.piercing = true;
             saveState.burnprobability = 25;
             saveState.burnduration = 6f;
@@ -216,11 +216,11 @@ public class WeaponLevelFire : MonoBehaviour
         if (level >= 5 && currentChoise.currentmodeSlow == true)
         {
             moveMouseDirectionFire.scale = new Vector3(1.4f, 1.4f, 1.4f);
-            moveMouseDirectionFire.fireDamage = 400f;
+            moveMouseDirectionFire.fireDamage = 3000f;
             moveMouseDirectionFire.force = 4f;
             moveMouseDirectionFire.destroyDelay = 1.5f;
             moveMouseDirectionFire.cooldown = 0.5f;
-            moveMouseDirectionFire.manaCost = 100f;
+            moveMouseDirectionFire.manaCost = 5000f;
             moveMouseDirectionFire.piercing = true;
             saveState.burnprobability = 100;
             saveState.burnduration = 6f;

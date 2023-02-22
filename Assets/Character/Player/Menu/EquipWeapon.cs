@@ -9,13 +9,13 @@ public class EquipWeapon : MonoBehaviour
     public GameObject weaponsMenu;
     //public GameObject WeaponIMG;
 
-    [SerializeField] private AudioSource ExitMenuWeaponsSound;
     public WeaponManager weaponManager;
+    AudioManager audioManager;
     public void Equip()
     {
         //WeaponIMG.SetActive(true);
         Debug.Log("equip se ejecuta");
-        ExitMenuWeaponsSound.Play();
+        FindObjectOfType<AudioManager>().Play("EquipWeapon");
         GameObject weapon = Instantiate(weaponPrefab, weaponHold.position, weaponHold.rotation);
 
         weaponManager.EquipWeapon(weapon);

@@ -27,10 +27,12 @@ public class WeaponsUnlock : MonoBehaviour
     public Image image;
     public GameObject canvasUnlocked;
     public TextMeshProUGUI unlockedText;
+    AudioManager audioManager;
     private void Start()
     {
         levelRequired = GetComponent<LevelRequired>();
         levelSystem = FindObjectOfType<LevelSystem>();
+        audioManager = FindObjectOfType<AudioManager>();
         if (levelSystem.level >= levelRequired.fireLevelRequired)
         {
             fireWeapon.SetActive(true);
@@ -105,6 +107,8 @@ public class WeaponsUnlock : MonoBehaviour
         unlockedText.text = "You Unlocked " + weapon + " Weapon";
         Sprite Sprite = Resources.Load<Sprite>(weapon);
         image.sprite = Sprite;
+        audioManager.Play("WeaponsUnlock");
+        audioManager.Stop("LvlUp");
     }
     public IEnumerator DeactivateCanvasAfterDelay(float delay)
     {
@@ -119,5 +123,7 @@ public class WeaponsUnlock : MonoBehaviour
         canvasUnlocked.SetActive(false);
         Time.timeScale = 1f;
         levelSystem.unlokingActive = false;
+        audioManager.Play("MenuDown");
+
     }
 }

@@ -43,6 +43,7 @@ public class AttackColliderRay : MonoBehaviour
                
 
                 enemyCount++;
+                FindObjectOfType<AudioManager>().Play("RayHit");
                 enemy.Takehit(fireDamage * enemyCount);
                 ManaSystem mana = FindObjectOfType<ManaSystem>();
                 if (mana.maxMana > mana.currentMana)

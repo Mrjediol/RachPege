@@ -15,7 +15,6 @@ public class EndGame : MonoBehaviour
     void Start()
     {
         player = FindObjectOfType<PlayerController>();
-        EndTheGame();
     }
 
     // Update is called once per frame
@@ -51,7 +50,16 @@ public class EndGame : MonoBehaviour
         int hours = (int)(timeElapsed / 3600);
         int minutes = (int)((timeElapsed % 3600) / 60);
         int seconds = (int)(timeElapsed % 60);
-
+        LevelSystem levelSystem = FindObjectOfType<LevelSystem>();
+        levelSystem.level = 50;
+        saveXp.Firelevel = 5;
+        saveXp.Icelevel = 5;
+        saveXp.Raylevel = 5;
+        saveXp.Voidlevel = 5;
+        saveXp.Aniquilationlevel = 5;
+        saveXp.Blastlevel = 5;
+        saveXp.SaveAllLevels();
+        levelSystem.LevelUp();
         // Crear una cadena de texto con el tiempo transcurrido
         string timeText = string.Format("Your Final Time is : {0:00}:{1:00}:{2:00}", hours, minutes, seconds);
 

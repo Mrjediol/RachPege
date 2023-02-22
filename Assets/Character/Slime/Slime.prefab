@@ -203,7 +203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyDamageAttack: 1
   attackCollider: {fileID: 7838397888365306922}
-  knockBack: 1000
+  knockBackForce: 2
 --- !u!1 &1306823446721168568
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,7 +332,7 @@ MonoBehaviour:
   SloweddashSpeed: 500
   slowedmoveSpeed: 10
   moveSpeed: 0.1
-  initialSpeed: 0
+  initialSpeed: 0.1
   knowback: 5000
   maxHealth: 10
   enemyDamage: 20
@@ -352,6 +352,7 @@ MonoBehaviour:
   damaged: {fileID: 7897990421460196787}
   home: {x: 0, y: 0}
   scoreValue: 2
+  imtheBoss: 0
   minScale: 0.8
   maxScale: 1.5
   forceMagnitude: 50
@@ -367,7 +368,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0

@@ -14,6 +14,7 @@ public class AudioManager : MonoBehaviour
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
             s.source.outputAudioMixerGroup = outputGroup;
+            s.source.loop = s.loop;
         }
     }
     public void Play(string name)
@@ -25,12 +26,20 @@ public class AudioManager : MonoBehaviour
             return;
         s.source.volume = s.volume;
         s.source.pitch = s.pitch;
-
+        
 
         s.source.Play();
         Debug.Log(s.source.name + "" + sounds);
     }
+    public void Stop(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
 
+        if (s == null)
+            return;
+
+        s.source.Stop();
+    }
     // Update is called once per frame
     void Update()
     {

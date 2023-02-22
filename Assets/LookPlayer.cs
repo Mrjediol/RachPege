@@ -18,7 +18,7 @@ public class LookPlayer : MonoBehaviour
     // Referencia al componente Animator del objeto enemigo
     private Animator animator;
     SpriteRenderer sprite;
-
+    SpriteRenderer spriteattack;
     // Función que se llama una vez al inicio del juego
     void Start()
     {
@@ -26,6 +26,7 @@ public class LookPlayer : MonoBehaviour
         animator = GetComponent<Animator>();
         player = FindObjectOfType<PlayerController>().transform;
         sprite = GetComponent<SpriteRenderer>();
+        spriteattack = GetComponentInChildren<SpriteRenderer>();
     }
 
     // Función que se llama una vez por cada frame
@@ -67,6 +68,7 @@ public class LookPlayer : MonoBehaviour
         if (MovingRight) 
         { 
             sprite.flipX = false;
+            spriteattack.flipX = false;
             return 0;
         }
         if (MovingUp)
@@ -75,6 +77,7 @@ public class LookPlayer : MonoBehaviour
             return 2;
         if (MovingLeft)
         {
+            spriteattack.flipX = true;
             sprite.flipX = true;
             return 3;
         }

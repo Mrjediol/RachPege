@@ -12,13 +12,14 @@ public class WeaponsMenu : MonoBehaviour
     FireWeaponChoice fireWeaponChoice;
     LevelSystem levelSystem;
     public bool isMenuActive = false;
-
+    AudioManager audioManager;
     private void Start()
     {
         pauseMenu = FindObjectOfType<PauseMenu>();
         death = FindObjectOfType<Death>();
         fireWeaponChoice = FindObjectOfType<FireWeaponChoice>();
         levelSystem = FindObjectOfType<LevelSystem>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
     void Update()
     {
@@ -28,7 +29,7 @@ public class WeaponsMenu : MonoBehaviour
                 return;
             if (isMenuActive == false)
             {
-                WeaponsMenuSound.Play();
+                audioManager.Play("WeaponsMenuOpen");
                 weaponsMenu.SetActive(true);
                 isMenuActive = true;
                 Time.timeScale = 0;
@@ -36,7 +37,7 @@ public class WeaponsMenu : MonoBehaviour
             else
             {
                 Time.timeScale = 1;
-                ExitMenuWeaponsSound.Play();
+                audioManager.Play("WeaponsMenuClose");
                 weaponsMenu.SetActive(false);
                 isMenuActive = false;
                 

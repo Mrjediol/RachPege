@@ -7,7 +7,7 @@ public class MoveMouseDirectionRay : MonoBehaviour
 {
     private float nextFireTime;
     private Transform player; //objeto al que se movera el prefab
-    public float force = 1f; // fuerza a la que se moverá el objeto
+    public float force = 1f; // fuerza a la que se moverï¿½ el objeto
 /*    public float destroyDelay = 0.2f;*/ //tiempo para destruir el objeto en segundos
     public float fireDamage = 5f;
     public float IceDamage = 5f;
@@ -21,6 +21,7 @@ public class MoveMouseDirectionRay : MonoBehaviour
     CurrentCd currentCd;
     public LayerMask terrainLayer;
     Death death;
+    AudioManager audioManager;
     void Start()
     {
         rayCd = GameObject.Find("rayCd").GetComponent<Slider>();
@@ -29,6 +30,7 @@ public class MoveMouseDirectionRay : MonoBehaviour
         currentCd = GetComponentInParent<CurrentCd>();
         nextFireTime = currentCd.rayCd;
         death = FindObjectOfType<Death>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     void Update()
@@ -59,7 +61,7 @@ public class MoveMouseDirectionRay : MonoBehaviour
             Vector3 spawnPosition = player.position - (player.up * 0.0147f) + (direction / 10);
                    if (Physics2D.OverlapCircle(spawnPosition,0.05f, terrainLayer) == null)
                     { 
-                            Shoot.Play();
+                            audioManager.Play("RayShoot");
                             GameObject instantiatedPrefab = Instantiate(prefab, spawnPosition, Quaternion.identity);
                             Rigidbody2D rb = instantiatedPrefab.GetComponent<Rigidbody2D>();
                             instantiatedPrefab.transform.parent = transform;

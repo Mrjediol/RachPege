@@ -9,7 +9,7 @@ public class SwordAttack : MonoBehaviour
 
     public float initialdamage = 10;
     Vector2 rightAttackOffset;
-    public float knowback;
+    public float knowbackForce = 1;
     LevelSystem levelSystem;
 
     private void Start() 
@@ -58,9 +58,13 @@ public class SwordAttack : MonoBehaviour
                     //enemy.Health -= damage;
                     enemy.Takehit(damage);
                 Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
-                Vector2 direction = (other.transform.position - transform.position).normalized;
+                Vector2 direction = (rb.transform.position - transform.position).normalized;
 
-                rb.AddForce(knowback * Time.fixedDeltaTime * direction);
+                Vector2 knockBack = direction * knowbackForce;
+
+                //rb.AddForce(knowback * Time.fixedDeltaTime * direction);
+
+                rb.AddForce(knockBack, ForceMode2D.Impulse);
 
             }
         }

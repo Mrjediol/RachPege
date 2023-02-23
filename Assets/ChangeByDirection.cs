@@ -25,19 +25,23 @@ public class ChangeByDirection : StateMachineBehaviour
     private LookPlayer lookPlayer;
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        
         lookPlayer = animator.GetComponent<LookPlayer>();
 
         // Create a new AnimatorOverrideController based on the current controller
-        overrideController = new AnimatorOverrideController(animator.runtimeAnimatorController);
 
-        // Assign the override controller to the Animator
-        animator.runtimeAnimatorController = overrideController;
 
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+
+        overrideController = new AnimatorOverrideController(animator.runtimeAnimatorController);
+
+        // Assign the override controller to the Animator
+        animator.runtimeAnimatorController = overrideController;
+
 
         var currentClip = animator.GetCurrentAnimatorClipInfo(layerIndex)[0].clip;
 

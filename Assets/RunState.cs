@@ -38,7 +38,7 @@ public class RunState : StateMachineBehaviour
         if (Vector2.Distance(player.position, rb.position) <= 2f && enemy.rangeEnemy)
         {
             rb.MovePosition(newPos);
-            Debug.Log("soy range voy a por ti");
+
         }
         else
         {
@@ -46,7 +46,7 @@ public class RunState : StateMachineBehaviour
             {
                 Vector2 newPos1 = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
                 rb.MovePosition(newPos1);
-                Debug.Log("no soy range voy a por ti");
+
             }
         }
         if (Vector2.Distance(player.position, rb.position) <= attackRange)
@@ -68,7 +68,6 @@ public class RunState : StateMachineBehaviour
 
         if (Vector2.Distance(player.position, rb.position) <= dashRange && enemy.rangeEnemy)
         {
-            Debug.Log("distancia menos a dashrange");
             if (Time.time > dashnextFireTime)
             {
                 Debug.Log("deberia dashear");

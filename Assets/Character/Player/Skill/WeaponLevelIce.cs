@@ -18,8 +18,10 @@ public class WeaponLevelIce : MonoBehaviour
     SaveXp saveXp;
     CurrentChoise currentChoise;
     SwordAttack swordAttack;
+    AudioManager audioManager;
     private void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         swordAttack = FindObjectOfType<SwordAttack>();
         saveState = FindObjectOfType<SaveState>();
         moveMouseDirectionIce = GetComponent<MoveMouseDirectionIce>();
@@ -266,6 +268,7 @@ public class WeaponLevelIce : MonoBehaviour
         }
         else
         {
+        audioManager.Play("IceLvlUp");
             currentXp -= levelUpXp;
             IceXpBar.value = 0;
         }

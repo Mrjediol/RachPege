@@ -16,8 +16,10 @@ public class WeaponLevelVoid : MonoBehaviour
     private TextMeshProUGUI VoidLevelUp;
     SaveXp saveXp;
     public float rotationSpeed = 50f;
+    AudioManager audioManager;
     private void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         instantiateOnClickVoid = GetComponent<InstantiateOnClickVoid>();
         VoidXpBar = GameObject.Find("VoidXpBar").GetComponent<Slider>();
         VoidLevel = GameObject.Find("VoidLevel").GetComponent<TextMeshProUGUI>();
@@ -130,6 +132,7 @@ public class WeaponLevelVoid : MonoBehaviour
         {
             currentXp -= levelUpXp;
             VoidXpBar.value = 0;
+            audioManager.Play("VoidLvlUp");
         }
 
     }

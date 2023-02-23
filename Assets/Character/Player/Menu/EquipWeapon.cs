@@ -15,7 +15,6 @@ public class EquipWeapon : MonoBehaviour
     {
         //WeaponIMG.SetActive(true);
         Debug.Log("equip se ejecuta");
-        FindObjectOfType<AudioManager>().Play("EquipWeapon");
         GameObject weapon = Instantiate(weaponPrefab, weaponHold.position, weaponHold.rotation);
 
         weaponManager.EquipWeapon(weapon);

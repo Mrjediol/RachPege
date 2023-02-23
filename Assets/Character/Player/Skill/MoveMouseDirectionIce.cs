@@ -21,6 +21,7 @@ public class MoveMouseDirectionIce : MonoBehaviour
     CurrentCd currentCd;
     public LayerMask terrainLayer;
     Death death;
+    AudioManager audioManager;
     void Start()
     {
         player = GameObject.Find("Player").transform; // busca el objeto player
@@ -29,6 +30,7 @@ public class MoveMouseDirectionIce : MonoBehaviour
         currentCd = GetComponentInParent<CurrentCd>();
         nextFireTime = currentCd.iceBallCd;
         death = FindObjectOfType<Death>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
     
     void Update()
@@ -61,7 +63,7 @@ public class MoveMouseDirectionIce : MonoBehaviour
                     float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
                     if (Physics2D.OverlapCircle(spawnPosition, 0.05f, terrainLayer) == null)
                     {
-                        Shoot.Play();
+                        audioManager.Play("IceShoot");
 
                         GameObject instantiatedPrefab = Instantiate(prefab, spawnPosition, Quaternion.Euler(0, 0, angle));
                         Rigidbody2D rb = instantiatedPrefab.GetComponent<Rigidbody2D>();
@@ -84,6 +86,10 @@ public class MoveMouseDirectionIce : MonoBehaviour
                         Destroy(instantiatedPrefab, destroyDelay);
                         nextFireTime = Time.time + cooldown;
                     }
+                }
+                else
+                {
+                    audioManager.Play("NoMana");
                 }
             }
         }

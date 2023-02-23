@@ -88,6 +88,10 @@ public class InstantiateAniquilation : MonoBehaviour
                         firstClick = false;
                         audioManager.Play("AniquilationStart");
                     }
+                    else
+                    {
+                        audioManager.Play("NoMana");
+                    }
                 }
                 else if(Time.time >= firstClickTime + minTime)
                 {

@@ -23,6 +23,7 @@ public class InstantiateOnClickFire : MonoBehaviour
     public float range = 0.5f;
     PlayerController player;
     Death death;
+    AudioManager audioManager;
     void Start()
     {
         blastCd = GameObject.Find("blastCd").GetComponent<Slider>();
@@ -35,6 +36,7 @@ public class InstantiateOnClickFire : MonoBehaviour
         nextFireTime = currentCd.fireBlastCd;
         player = FindObjectOfType<PlayerController>();
         death = FindObjectOfType<Death>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
     void Update()
     {
@@ -66,7 +68,7 @@ public class InstantiateOnClickFire : MonoBehaviour
                     {
                         if (Physics2D.OverlapCircle(worldPos, 0.3f, terrainLayer) == null)
                         {
-
+                            audioManager.Play("BlastShoot");
                             GameObject instantiatedPrefab = Instantiate(prefab, worldPos, Quaternion.identity);
                             manaSystem.ReduceMana(manaCost);
                             instantiatedPrefab.transform.parent = transform;
@@ -74,6 +76,10 @@ public class InstantiateOnClickFire : MonoBehaviour
                             nextFireTime = Time.time + cooldown;
                         }
                     }
+                }
+                else
+                {
+                audioManager.Play("NoMana");
                 }
             }
         }

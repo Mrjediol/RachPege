@@ -9,10 +9,11 @@ public class VoidAttack : MonoBehaviour
     Enemy enemy;
     public float rotationSpeed = 100f;
     WeaponLevelVoid weaponLevelVoid;
-
+    AudioManager audioManager;
     private void Start()
     {
         weaponLevelVoid = GetComponentInParent<WeaponLevelVoid>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
     private void Update()
     {
@@ -39,6 +40,8 @@ public class VoidAttack : MonoBehaviour
                     
                 }
                 Debug.Log("llego a 2");
+                audioManager.Play("VoidHit");
+
                 StartCoroutine(enemy.VoidAttack(damage));
                 
             }

@@ -17,8 +17,10 @@ public class WeaponLevelRay : MonoBehaviour
     SaveXp saveXp;
     public float rotationSpeed = 50f;
     SwordAttack swordAttack;
+    AudioManager audioManager;
     private void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         swordAttack = FindObjectOfType<SwordAttack>();
         moveMouseDirectionRay = GetComponent<MoveMouseDirectionRay>();
         RayXpBar = GameObject.Find("RayXpBar").GetComponent<Slider>();
@@ -131,7 +133,7 @@ public class WeaponLevelRay : MonoBehaviour
         }
         else
         {
-            FindObjectOfType<AudioManager>().Play("LvlUpWeapons");
+            audioManager.Play("RayLvlUp");
             currentXp -= levelUpXp;
             RayXpBar.value = 0;
         }

@@ -13,11 +13,13 @@ public class FireDamage : MonoBehaviour
     public GameObject Effect;
     InstantiateOnClickFire instantiateOnClickFire;
     public Vector3 scale = new Vector3(0.2f, 0.2f, 0.2f);
+    AudioManager audioManager;
     private void Start()
     {
         damageStartTime = Time.time + 6.45f;
         weaponLevelBlast = GetComponentInParent<WeaponLevelBlast>();
         instantiateOnClickFire = GetComponentInParent<InstantiateOnClickFire>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -59,6 +61,7 @@ public class FireDamage : MonoBehaviour
         }
         foreach (Enemy enemy in enemiesInside)
         {
+            audioManager.Play("BlastHit");
             enemy.Takehit(damage);
             if (weaponLevelBlast.level < 5f)
             {

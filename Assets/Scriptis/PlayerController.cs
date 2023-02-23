@@ -23,8 +23,10 @@ public class PlayerController : MonoBehaviour
     public GameObject Effect;
     public Vector3 scale = new Vector3(0.2f, 0.2f, 0.2f);
 
+    AudioManager audioManager;
     private void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -50,6 +52,10 @@ public class PlayerController : MonoBehaviour
                 }
             }
             
+        }
+        else
+        {
+            //audioManager.Stop("PlayerMove");
         }
 
         if (movementInput.y < 0)
@@ -125,6 +131,8 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputValue movementValue)
     {
         movementInput = movementValue.Get<Vector2>();
+        //audioManager.Stop("PlayerMove");
+        //audioManager.Play("PlayerMove");
     }
 
     private void OnFire()
@@ -158,7 +166,7 @@ public class PlayerController : MonoBehaviour
             mana.currentMana += amountToAdd;
             manaValue.CreateFloatingText();
             Destroy(other.gameObject);
-
+            audioManager.Play("ManaStart");
 
             GameObject effect = Instantiate(Effect, other.transform.position, Quaternion.identity);
             effect.transform.localScale = scale;
@@ -179,7 +187,7 @@ public class PlayerController : MonoBehaviour
             manaSystem.currentMana += amountToAdd;
             GameObject effect = Instantiate(Effect, transform.position, Quaternion.identity);
             effect.transform.localScale = scale;
-
+            audioManager.Play("ManaHit");
             ParticleSystem ps = effect.GetComponent<ParticleSystem>();
             Renderer psRenderer = ps.GetComponent<Renderer>();
             psRenderer.sortingOrder = 11;

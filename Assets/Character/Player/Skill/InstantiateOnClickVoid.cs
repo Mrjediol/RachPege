@@ -22,6 +22,7 @@ public class InstantiateOnClickVoid : MonoBehaviour
     public LayerMask terrainLayer;
     CurrentCd currentCd;
     Death death;
+    AudioManager audioManager;
     void Start()
     {
         nextFireTime = 0f;
@@ -34,6 +35,7 @@ public class InstantiateOnClickVoid : MonoBehaviour
         currentCd = GetComponentInParent<CurrentCd>();
         nextFireTime = currentCd.voidCd;
         death = FindObjectOfType<Death>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
     void Update()
     {
@@ -65,6 +67,7 @@ public class InstantiateOnClickVoid : MonoBehaviour
                     {
                         if (Physics2D.OverlapCircle(worldPos,0.3f, terrainLayer) == null)
                         {
+                            audioManager.Play("VoidShoot");
                             GameObject instantiatedPrefab = Instantiate(prefab, worldPos, Quaternion.identity);
                             instantiatedPrefab.transform.parent = transform;
                             instantiatedPrefab.transform.localScale = scale;
@@ -73,6 +76,10 @@ public class InstantiateOnClickVoid : MonoBehaviour
                             nextFireTime = Time.time + cooldown;
                         }
                     }
+                }
+                else
+                {
+                audioManager.Play("NoMana");
                 }
             }
         }

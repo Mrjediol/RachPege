@@ -28,8 +28,10 @@ public class PlayerHealth : MonoBehaviour
     LevelSystem levelSystem;
     Rigidbody2D rb;
     public GameObject bloodEffect;
+    AudioManager audioManager;
     private void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         animator = GetComponent<Animator>();
         levelSystem = GetComponent<LevelSystem>();
         int level = levelSystem.level;
@@ -61,10 +63,11 @@ public class PlayerHealth : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.H) && canHeal && health < maxhealth)
         {
             RestoreHealth(maxhealth * 0.6f);
+            audioManager.Play("PlayerHeal");
         }
         if (health <= 0)
         {
-
+            audioManager.Play("PlayerDeath");
             animator.SetTrigger("Defeated");
         }
 

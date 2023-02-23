@@ -16,8 +16,10 @@ public class WeaponLevelAniquilation : MonoBehaviour
     private TextMeshProUGUI AniquilationLevelUp;
     SaveXp saveXp;
     SwordAttack swordAttack;
+    AudioManager audioManager;
     private void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         swordAttack = FindObjectOfType<SwordAttack>();
         instantiateAniquilation = GetComponent<InstantiateAniquilation>();
         AniquilationXpBar = GameObject.Find("AniquilationXpBar").GetComponent<Slider>();
@@ -122,6 +124,7 @@ public class WeaponLevelAniquilation : MonoBehaviour
     }
     void LevelUp()
     {
+       
         level++;
         StartCoroutine(WaitAndSaveLvl());
         if (level >= 5)
@@ -131,6 +134,7 @@ public class WeaponLevelAniquilation : MonoBehaviour
         }
         else
         {
+            audioManager.Play("AniquilationLvlUp");
             currentXp -= levelUpXp;
             AniquilationXpBar.value = 0;
         }

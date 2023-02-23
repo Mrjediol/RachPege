@@ -18,6 +18,7 @@ public class WeaponLevelFire : MonoBehaviour
     SaveXp saveXp;
     CurrentChoise currentChoise;
     SwordAttack swordAttack;
+    AudioManager audioManager;
     private void Start()
     {
         swordAttack = FindObjectOfType<SwordAttack>();
@@ -28,6 +29,7 @@ public class WeaponLevelFire : MonoBehaviour
         FireLevelUp = GameObject.Find("FireLevelUp").GetComponent<TextMeshProUGUI>();
         saveXp = FindObjectOfType<SaveXp>();
         currentChoise = FindObjectOfType<CurrentChoise>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
     void Update()
     {
@@ -266,6 +268,7 @@ public class WeaponLevelFire : MonoBehaviour
         }
         else
         {
+        audioManager.Play("FireLvlUp");
             currentXp -= levelUpXp;
             FireXpBar.value = 0;
         }

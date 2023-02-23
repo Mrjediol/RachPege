@@ -14,6 +14,12 @@ public class AttackColliderFire : MonoBehaviour
     public bool piercing = false;
     public GameObject smokeEffect;
     public Transform smokePosition;
+    AudioManager audioManager;
+
+    private void Start()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         
@@ -37,7 +43,7 @@ public class AttackColliderFire : MonoBehaviour
                     weaponLevelFire.GetXp(fireDamage);
                     //Savexpfire()
                 }
-
+                audioManager.Play("IceHit");
                 enemy.Takehit(fireDamage);
                 if (piercing == false)
                 {

@@ -78,7 +78,7 @@ public class AttackColliderRay : MonoBehaviour
         Collider2D[] colliders = Physics2D.OverlapPointAll(finalPosition);
         foreach (Collider2D collider in colliders)
         {
-            if (collider.CompareTag("Water") || collider.CompareTag("Torch"))
+            if (collider.CompareTag("Water") || collider.CompareTag("Torch") || collider.CompareTag("Fence"))
             {
                 return; // Si la posición final está en el agua, no envíes el mensaje "Teleport"
             }

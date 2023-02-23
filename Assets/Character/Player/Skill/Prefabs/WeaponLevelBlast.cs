@@ -17,8 +17,10 @@ public class WeaponLevelBlast : MonoBehaviour
     SaveXp saveXp;
     public float rotationSpeed = 50f;
     SwordAttack swordAttack;
+    AudioManager audioManager;
     private void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         swordAttack = FindObjectOfType<SwordAttack>();
         InstantiateOnClickFire = GetComponent<InstantiateOnClickFire>();
         blastXpBar = GameObject.Find("BlastXpBar").GetComponent<Slider>();
@@ -126,6 +128,7 @@ public class WeaponLevelBlast : MonoBehaviour
         }
         else
         {
+        audioManager.Play("BlastLvlUp");
             currentXp -= levelUpXp;
             blastXpBar.value = 0;
         }

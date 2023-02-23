@@ -16,6 +16,12 @@ public class AttackColliderIce : MonoBehaviour
 
     public GameObject smokeEffect;
     public Transform smokePosition;
+    AudioManager audioManager;
+
+    private void Start()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Enemy")
@@ -36,6 +42,7 @@ public class AttackColliderIce : MonoBehaviour
                    
                 }
                 //Debug.Log("2");
+                audioManager.Play("IceHit");
                 enemy.Takehit(IceDamage);
                 if (piercing == false)
                 {

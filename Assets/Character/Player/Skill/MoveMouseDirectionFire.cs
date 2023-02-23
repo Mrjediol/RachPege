@@ -22,7 +22,7 @@ public class MoveMouseDirectionFire : MonoBehaviour
     CurrentCd currentCd;
     public LayerMask terrainLayer;
     Death death;
-       
+    AudioManager audioManager;
     void Start()
     {
         player = GameObject.Find("Player").transform; // busca el objeto player
@@ -31,6 +31,8 @@ public class MoveMouseDirectionFire : MonoBehaviour
         currentCd = GetComponentInParent<CurrentCd>();
         nextFireTime = currentCd.fireBallCd;
         death = FindObjectOfType<Death>();
+        audioManager = FindObjectOfType<AudioManager>();
+
     }
 
     void Update()
@@ -63,7 +65,7 @@ public class MoveMouseDirectionFire : MonoBehaviour
                     //angle -= 90;
                     if (Physics2D.OverlapCircle(spawnPosition, 0.05f, terrainLayer) == null)
                     {
-                        FindObjectOfType<AudioManager>().Play("FireShoot");
+                        audioManager.Play("FireShoot");
 
                         GameObject instantiatedPrefab = Instantiate(prefab, spawnPosition, Quaternion.Euler(0, 0, angle));
                         Rigidbody2D rb = instantiatedPrefab.GetComponent<Rigidbody2D>();
@@ -84,6 +86,10 @@ public class MoveMouseDirectionFire : MonoBehaviour
                         Destroy(instantiatedPrefab, destroyDelay);
                         nextFireTime = Time.time + cooldown;
                     }
+                }
+                else
+                {
+                    audioManager.Play("NoMana");
                 }
             }
         }

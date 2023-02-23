@@ -73,7 +73,12 @@ public class MoveMouseDirectionRay : MonoBehaviour
                             //Destroy(instantiatedPrefab, destroyDelay);
                             nextFireTime = Time.time + cooldown;
                     }
+            }
+                else
+                {
+                    audioManager.Play("NoMana");
                 }
+
             }
         }
         rayCd.value = nextFireTime > Time.time ? 1 - (nextFireTime - Time.time) / cooldown : 1;

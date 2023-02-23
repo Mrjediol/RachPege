@@ -37,9 +37,16 @@ public class Enemy : MonoBehaviour
     public float minScale = 0.5f;
     public float maxScale = 2.0f;
     EndGame endGame;
+    public bool rangeEnemy;
     AudioManager audioManager;
+    public bool whiledashin;
+    public GameObject effectonme;
+    public Vector3 scale = new(0.2f, 0.2f, 0.2f);
+    LevelSystem levelSystem;
+    public float manaValue = 0;
     private void Start()
     {
+        levelSystem = FindObjectOfType<LevelSystem>();
         audioManager = FindObjectOfType<AudioManager>();
         endGame = FindObjectOfType<EndGame>();
         animator = GetComponent<Animator>();
@@ -53,12 +60,25 @@ public class Enemy : MonoBehaviour
         levelText.text = "Lvl." + enemyLvl;
         xpText.text = giveXP + " Xp";
         healthBar.SetHealth(health,maxHealth);
+
         healthText.text = Health + "/" + maxHealth;
         moveSpeed += enemyLvl / 100f;
 
         SetEnemyScale(enemyLvl);
         home = transform.position;
 
+        if (enemyLvl == 1)
+        {
+            manaValue = 50;
+        }
+        else if (enemyLvl >= 100)
+        {
+            manaValue = 250;
+        }
+        else
+        {
+            manaValue = 50f + (enemyLvl - 1f) * 2f;
+        }
     }
     private void Awake()
     {
@@ -75,6 +95,32 @@ public class Enemy : MonoBehaviour
 
         // Establecer la escala del enemigo
         transform.localScale = scale * Vector3.one;
+    }
+    private void Update()
+    {
+        float levelDiference = enemyLvl - levelSystem.level;
+        if(levelDiference <= -1)
+        {
+            return;
+        }
+        else if (levelDiference <= 1)
+        {
+            healthText.color = Color.green; // verde
+            levelText.color = Color.green;
+            xpText.color = Color.green;
+        }
+        else if (levelDiference <= 2)
+        {
+            healthText.color = Color.yellow; // 
+            levelText.color = Color.yellow;
+            xpText.color = Color.yellow;
+        }
+        else if (levelDiference >= 3)
+        {
+            healthText.color = Color.red; // rojo
+            levelText.color = Color.red;
+            xpText.color = Color.red;
+        }
     }
     //void FixedUpdate()
     //{   
@@ -99,6 +145,27 @@ public class Enemy : MonoBehaviour
     //    }
 
     //}
+    public void DoEffectOnme()
+    {
+        GameObject effect = Instantiate(effectonme, transform.position, Quaternion.identity);
+        effect.transform.localScale = scale;
+        ParticleSystem ps = effect.GetComponent<ParticleSystem>();
+        Renderer psRenderer = ps.GetComponent<Renderer>();
+        psRenderer.sortingOrder = 11;
+        psRenderer.sortingLayerName = "arboles";
+        foreach (Transform child in ps.transform)
+        {
+            // Obtener el componente Renderer de cada hijo
+            Renderer childRenderer = child.GetComponent<Renderer>();
+
+            // Si el hijo tiene un componente Renderer, ajustar su sorting order
+            if (childRenderer != null)
+            {
+                childRenderer.sortingOrder = 11;
+                psRenderer.sortingLayerName = "arboles";
+            }
+        }
+    }
     public float Health 
 
     {
@@ -215,19 +282,7 @@ public class Enemy : MonoBehaviour
         // Instanciar el prefab de la estrella de mana
         GameObject manaStar = Instantiate(manaStarPrefab, transform.position, Quaternion.identity);
         // Establecer el valor de manaValue en función del nivel del enemigo
-        float manaValue = 0;
-        if (enemyLvl == 1)
-        {
-            manaValue = 50;
-        }
-        else if (enemyLvl >= 100)
-        {
-            manaValue = 250;
-        }
-        else
-        {
-            manaValue = 50f + (enemyLvl - 1f) * 2f;
-        }
+       
         manaStar.GetComponent<ManaValue>().manaValue = manaValue;
         Destroy(gameObject);
     }

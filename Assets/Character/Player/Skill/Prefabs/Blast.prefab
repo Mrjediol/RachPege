@@ -50,7 +50,8 @@ MonoBehaviour:
   destroyDelay: 10
   manaCost: 100
   cooldown: 10
-  scale: {x: 1, y: 1, z: 1}
+  damage: 0
+  scale: {x: 0.5, y: 0.5, z: 0.5}
   Shoot: {fileID: 0}
   blastCd: {fileID: 0}
   terrainLayer:
@@ -72,7 +73,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentXp: 0
   level: 1
-  levelUpXp: 10000
+  levelUpXp: 10000000
   rotationSpeed: 50
 --- !u!1 &6976716825753279762
 GameObject:

@@ -5,7 +5,7 @@ using UnityEngine;
 public class AttackColliderRay : MonoBehaviour
 {
     public Collider2D Collider;
-    public float fireDamage = 10;
+    public float rayDamage = 10;
     public Vector3 finalPosition;
     public float timeToLive = 2f;
     public float originalTimeToLive;
@@ -22,6 +22,7 @@ public class AttackColliderRay : MonoBehaviour
     }
     private void Update()
     {
+        rayDamage = moveMouseDirectionRay.damage;
         timeToLive -= Time.deltaTime;
         if (timeToLive <= 0f)
         {
@@ -44,7 +45,7 @@ public class AttackColliderRay : MonoBehaviour
 
                 enemyCount++;
                 FindObjectOfType<AudioManager>().Play("RayHit");
-                enemy.Takehit(fireDamage * enemyCount);
+                enemy.Takehit(rayDamage * enemyCount);
                 ManaSystem mana = FindObjectOfType<ManaSystem>();
                 if (mana.maxMana > mana.currentMana)
                 {
@@ -53,7 +54,7 @@ public class AttackColliderRay : MonoBehaviour
                 }
                 if (weaponLevelRay.level < 5f)
                 {
-                    weaponLevelRay.GetXp((fireDamage * enemyCount)/2f);
+                    weaponLevelRay.GetXp((rayDamage * enemyCount)/2f);
                     //Savexpfire()
                 }
             }
@@ -66,7 +67,7 @@ public class AttackColliderRay : MonoBehaviour
         DPS dps = other.GetComponent<DPS>();
         if (dps != null)
         {
-            dps.TakeDamage(fireDamage);
+            dps.TakeDamage(rayDamage);
             Destroy(gameObject);
         }
     }

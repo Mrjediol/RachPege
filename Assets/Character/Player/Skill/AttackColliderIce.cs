@@ -14,6 +14,8 @@ public class AttackColliderIce : MonoBehaviour
 
     public bool piercing = false;
 
+    public GameObject smokeEffect;
+    public Transform smokePosition;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Enemy")
@@ -26,6 +28,7 @@ public class AttackColliderIce : MonoBehaviour
             //Debug.Log("1");
             if (enemy != null)
             {
+                smokePosition = other.transform;
                 if (weaponlevelIce.level < 5f)
                 {
                     
@@ -67,6 +70,14 @@ public class AttackColliderIce : MonoBehaviour
         {
             dps.TakeDamage(IceDamage);
             Destroy(gameObject);
+        }
+    }
+    private void OnDestroy()
+    {
+        if (smokePosition != null)
+        {
+            GameObject effect = Instantiate(smokeEffect, smokePosition.position, Quaternion.identity);
+            Destroy(effect, 1f);
         }
     }
 }

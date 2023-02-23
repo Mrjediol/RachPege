@@ -388,6 +388,10 @@ MonoBehaviour:
   imtheBoss: 0
   minScale: 1
   maxScale: 2
+  rangeEnemy: 0
+  whiledashin: 0
+  effectonme: {fileID: 0}
+  scale: {x: 0.2, y: 0.2, z: 0.2}
   forceMagnitude: 50
 --- !u!61 &2172095214209615359
 BoxCollider2D:
@@ -447,7 +451,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2271072297551290251, guid: ebadae2e9f831e7428312dfdc4e367cc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -146.3
+      value: -119.1
       objectReference: {fileID: 0}
     - target: {fileID: 2668481534508178322, guid: ebadae2e9f831e7428312dfdc4e367cc, type: 3}
       propertyPath: m_Pivot.x
@@ -487,15 +491,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2668481534508178322, guid: ebadae2e9f831e7428312dfdc4e367cc, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.22839507
+      value: 0.4096168
       objectReference: {fileID: 0}
     - target: {fileID: 2668481534508178322, guid: ebadae2e9f831e7428312dfdc4e367cc, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.22839507
+      value: 0.4096168
       objectReference: {fileID: 0}
     - target: {fileID: 2668481534508178322, guid: ebadae2e9f831e7428312dfdc4e367cc, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.22839507
+      value: 0.4096168
       objectReference: {fileID: 0}
     - target: {fileID: 2668481534508178322, guid: ebadae2e9f831e7428312dfdc4e367cc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -531,7 +535,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2668481534508178322, guid: ebadae2e9f831e7428312dfdc4e367cc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -0.045
       objectReference: {fileID: 0}
     - target: {fileID: 2668481534508178322, guid: ebadae2e9f831e7428312dfdc4e367cc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -563,7 +567,7 @@ PrefabInstance:
       objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 4580687661630817457, guid: ebadae2e9f831e7428312dfdc4e367cc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -136
+      value: -108.8
       objectReference: {fileID: 0}
     - target: {fileID: 4580687662442088484, guid: ebadae2e9f831e7428312dfdc4e367cc, type: 3}
       propertyPath: m_fontAsset

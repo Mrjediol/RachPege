@@ -88,6 +88,8 @@ MonoBehaviour:
   runRange: 1
   speed: 0
   homeRange: 2
+  attackRange: 2
+  cooldown: 3
 --- !u!1107 &-7397968473983277848
 AnimatorStateMachine:
   serializedVersion: 6
@@ -223,8 +225,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f12a004f4348348bcdf8d2cb8a5422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.2
+  speed: 0.3
   attackRange: 0.2
+  cooldown: 3
+  dashRange: 0.5
+  dashcooldown: 10
 --- !u!1101 &-6312671263856805238
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -359,6 +364,8 @@ MonoBehaviour:
   runRange: 5
   speed: 0
   homeRange: 2
+  attackRange: 2
+  cooldown: 3
 --- !u!114 &-2757460500519315593
 MonoBehaviour:
   m_ObjectHideFlags: 1

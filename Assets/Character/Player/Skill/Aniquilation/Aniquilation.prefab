@@ -72,4 +72,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentXp: 1
   level: 1
-  levelUpXp: 10000
+  levelUpXp: 100000000

@@ -11,10 +11,11 @@ public class SwordAttack : MonoBehaviour
     Vector2 rightAttackOffset;
     public float knowbackForce = 1;
     LevelSystem levelSystem;
-
+    public float mana;
+    PlayerController playerController;
     private void Start() 
     {
-       
+        playerController = GetComponentInParent<PlayerController>();
         rightAttackOffset = transform.localPosition;
         levelSystem = GetComponentInParent<LevelSystem>();
         damage = PlayerPrefs.GetFloat("damage", damage);
@@ -32,7 +33,10 @@ public class SwordAttack : MonoBehaviour
        
         transform.localPosition = rightAttackOffset;
     }
+    public void GetMana()
+    {
 
+    }
     public void AttackLeft() {
       
         transform.localPosition = new Vector3(rightAttackOffset.x * -1, rightAttackOffset.y);
@@ -43,28 +47,29 @@ public class SwordAttack : MonoBehaviour
     }
 
 
-    Enemy enemy;
+
     private void OnTriggerEnter2D(Collider2D other) 
     {
         if(other.tag == "Enemy") {
             // Deal damage to the enemy
             //Debug.Log("llego a 1");
-             enemy = other.GetComponent<Enemy>();
+        Enemy enemy = other.GetComponent<Enemy>();
 
             if(enemy != null) {
                 //Debug.Log("Hago Daño");
                
                 
                     //enemy.Health -= damage;
-                    enemy.Takehit(damage);
-                Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
-                Vector2 direction = (rb.transform.position - transform.position).normalized;
+            enemy.Takehit(damage);
+            Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
+            Vector2 direction = (rb.transform.position - transform.position).normalized;
+            mana = enemy.manaValue;
+            playerController.GetManaFromHit(mana/2);
+            Vector2 knockBack = direction * knowbackForce;
 
-                Vector2 knockBack = direction * knowbackForce;
+            //rb.AddForce(knowback * Time.fixedDeltaTime * direction);
 
-                //rb.AddForce(knowback * Time.fixedDeltaTime * direction);
-
-                rb.AddForce(knockBack, ForceMode2D.Impulse);
+            rb.AddForce(knockBack, ForceMode2D.Impulse);
 
             }
         }

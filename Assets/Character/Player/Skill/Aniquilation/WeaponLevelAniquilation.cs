@@ -15,8 +15,10 @@ public class WeaponLevelAniquilation : MonoBehaviour
     private TextMeshProUGUI AniquilationLevel;
     private TextMeshProUGUI AniquilationLevelUp;
     SaveXp saveXp;
+    SwordAttack swordAttack;
     private void Start()
     {
+        swordAttack = FindObjectOfType<SwordAttack>();
         instantiateAniquilation = GetComponent<InstantiateAniquilation>();
         AniquilationXpBar = GameObject.Find("AniquilationXpBar").GetComponent<Slider>();
         AniquilationLevel = GameObject.Find("AniquilationLevel").GetComponent<TextMeshProUGUI>();
@@ -41,9 +43,10 @@ public class WeaponLevelAniquilation : MonoBehaviour
         saveXp.Aniquilationcurrentxp = currentXp;
         if (level >= 1)
         {
-            levelUpXp = 100;
+            levelUpXp = 50000f;
             instantiateAniquilation.scale = new Vector3(0.3f, 0.3f, 0.3f);
-
+            instantiateAniquilation.initialDamage = swordAttack.damage * 0.75f;
+            instantiateAniquilation.manaCost = 100f;
         }
         if (level >= 2)
         {
@@ -52,9 +55,9 @@ public class WeaponLevelAniquilation : MonoBehaviour
             //instantiateOnClickVoid.fireDamage = 25f;
             //instantiateOnClickVoid.force = 2f;
             instantiateAniquilation.cooldown = 5f;
-            instantiateAniquilation.manaCost = 15f;
-            instantiateAniquilation.initialDamage = 70f;
-            levelUpXp = 300f;
+            instantiateAniquilation.manaCost = 125;
+            instantiateAniquilation.initialDamage = swordAttack.damage;
+            levelUpXp = 200000;
 
         }
         if (level >= 3)
@@ -62,9 +65,9 @@ public class WeaponLevelAniquilation : MonoBehaviour
             instantiateAniquilation.scale = new Vector3(0.4f, 0.4f, 0.4f);
             //instantiateOnClickVoid.fireDamage = 50f;
             instantiateAniquilation.cooldown = 4f;
-            instantiateAniquilation.manaCost = 25f;
-            instantiateAniquilation.initialDamage = 90f;
-            levelUpXp = 600f;
+            instantiateAniquilation.manaCost = 150;
+            instantiateAniquilation.initialDamage = swordAttack.damage * 1.25f;
+            levelUpXp = 1000000f;
         }
         if (level >= 4)
         {
@@ -72,10 +75,10 @@ public class WeaponLevelAniquilation : MonoBehaviour
             //instantiateOnClickVoid.fireDamage = 100f;
             //instantiateOnClickVoid.force = 4f;
             instantiateAniquilation.cooldown = 3f;
-            instantiateAniquilation.manaCost = 35f;
-            instantiateAniquilation.initialDamage = 1100f;
+            instantiateAniquilation.manaCost = 175;
+            instantiateAniquilation.initialDamage = swordAttack.damage * 1.5f;
             //instantiateOnClickVoid.piercing = true;
-            levelUpXp = 1000f;
+            levelUpXp = 5000000;
         }
         if (level >= 5)
         {
@@ -95,7 +98,7 @@ public class WeaponLevelAniquilation : MonoBehaviour
             
             instantiateAniquilation.minTime = 0.5f;
             
-            instantiateAniquilation.initialDamage = 1500f;
+            instantiateAniquilation.initialDamage = swordAttack.damage * 2;
             AniquilationLevel.fontSize = 26f;
             AniquilationLevel.text = "Max Lvl. " + level;
             AniquilationLevelUp.text ="";

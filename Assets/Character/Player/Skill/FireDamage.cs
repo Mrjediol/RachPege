@@ -11,11 +11,13 @@ public class FireDamage : MonoBehaviour
     WeaponLevelBlast weaponLevelBlast;
     public GameObject EnemyEffect;
     public GameObject Effect;
+    InstantiateOnClickFire instantiateOnClickFire;
     public Vector3 scale = new Vector3(0.2f, 0.2f, 0.2f);
     private void Start()
     {
         damageStartTime = Time.time + 6.45f;
         weaponLevelBlast = GetComponentInParent<WeaponLevelBlast>();
+        instantiateOnClickFire = GetComponentInParent<InstantiateOnClickFire>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -50,6 +52,7 @@ public class FireDamage : MonoBehaviour
 
     private void Update()
     {
+        damage = instantiateOnClickFire.damage;
         if (Time.time < damageStartTime)
         {
             return;
@@ -61,22 +64,22 @@ public class FireDamage : MonoBehaviour
             {
                 weaponLevelBlast.GetXp(damage);
             }
-            GameObject Enemyeffect = Instantiate(EnemyEffect, enemy.transform.position, Quaternion.identity);
-            Enemyeffect.transform.localScale = scale;
-            ParticleSystem ps = Enemyeffect.GetComponent<ParticleSystem>();
-            Renderer psRenderer = ps.GetComponent<Renderer>();
-            psRenderer.sortingOrder = 11;
+            //GameObject Enemyeffect = Instantiate(EnemyEffect, enemy.transform.position, Quaternion.identity);
+            //Enemyeffect.transform.localScale = scale;
+            //ParticleSystem ps = Enemyeffect.GetComponent<ParticleSystem>();
+            //Renderer psRenderer = ps.GetComponent<Renderer>();
+            //psRenderer.sortingOrder = 11;
         }
         foreach (GameObject rock in rocksInside)
         {
             if (!rock)
                 return;
             Destroy(rock);
-            GameObject effect = Instantiate(Effect, rock.transform.position, Quaternion.identity);
-            effect.transform.localScale = scale;
-            ParticleSystem ps = effect.GetComponent<ParticleSystem>();
-            Renderer psRenderer = ps.GetComponent<Renderer>();
-            psRenderer.sortingOrder = 11;
+            //GameObject effect = Instantiate(Effect, rock.transform.position, Quaternion.identity);
+            //effect.transform.localScale = scale;
+            //ParticleSystem ps = effect.GetComponent<ParticleSystem>();
+            //Renderer psRenderer = ps.GetComponent<Renderer>();
+            //psRenderer.sortingOrder = 11;
         }
         this.GetComponent<Collider2D>().enabled = false;
     }

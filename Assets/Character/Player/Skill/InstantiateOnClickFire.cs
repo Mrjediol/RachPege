@@ -10,6 +10,7 @@ public class InstantiateOnClickFire : MonoBehaviour
     public float destroyDelay = 10f; //tiempo para destruir el objeto en segundos
     public float manaCost = 100f;
     public float cooldown = 20f;
+    public float damage = 50;
     public Vector3 scale = new Vector3(1, 1, 1);
     [SerializeField] private AudioSource Shoot;
     ////public GameObject prefab;

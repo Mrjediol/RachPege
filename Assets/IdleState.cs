@@ -9,7 +9,9 @@ public class IdleState : StateMachineBehaviour
     public float runRange = 5f;
     public float speed;
     public float homeRange = 0.6f;
-
+    public float attackRange = 2f;
+    public float cooldown = 3f;
+    private float nextFireTime;
     Transform player;
     Rigidbody2D rb;
     Enemy enemy;
@@ -36,10 +38,24 @@ public class IdleState : StateMachineBehaviour
         {
             float distance = Vector2.Distance(enemy.home, rb.position);
             Debug.Log(distance);
-            Vector2 newPos = Vector2.MoveTowards(rb.position, enemy.home, (speed/2) * Time.fixedDeltaTime);
+            Vector2 newPos = Vector2.MoveTowards(rb.position, enemy.home, (speed / 2) * Time.fixedDeltaTime);
             rb.MovePosition(newPos);
         }
+        if (Vector2.Distance(player.position, rb.position) <= attackRange)
+        {
+            if (Time.time > nextFireTime && enemy.rangeEnemy)
+            {
+                animator.SetTrigger("Attack");
+                nextFireTime = Time.time + cooldown;
+                return;
+            }
+            else
+            {
+                if(enemy.rangeEnemy)
+                animator.SetTrigger("Charge");
+            }
 
+        }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
@@ -47,7 +63,7 @@ public class IdleState : StateMachineBehaviour
     {
         {
             animator.ResetTrigger("Run");
-            
+            animator.ResetTrigger("Attack");
         }
     }
 

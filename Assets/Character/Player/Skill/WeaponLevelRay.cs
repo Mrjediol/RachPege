@@ -16,8 +16,10 @@ public class WeaponLevelRay : MonoBehaviour
     private TextMeshProUGUI RayLevelUp;
     SaveXp saveXp;
     public float rotationSpeed = 50f;
+    SwordAttack swordAttack;
     private void Start()
     {
+        swordAttack = FindObjectOfType<SwordAttack>();
         moveMouseDirectionRay = GetComponent<MoveMouseDirectionRay>();
         RayXpBar = GameObject.Find("RayXpBar").GetComponent<Slider>();
         RayLevel = GameObject.Find("RayLevel").GetComponent<TextMeshProUGUI>();
@@ -42,43 +44,47 @@ public class WeaponLevelRay : MonoBehaviour
         saveXp.Raycurrentxp = currentXp;
         if (level >= 1)
         {
-            levelUpXp = 100;
+            levelUpXp = 5000f;
+            moveMouseDirectionRay.damage = swordAttack.damage/2;
             moveMouseDirectionRay.scale = new Vector3(0.15f, 0.15f, 0.15f);
             moveMouseDirectionRay.cooldown = 3f;
-            moveMouseDirectionRay.manaCost = 15f;
+            moveMouseDirectionRay.manaCost = 50;
         }
         if (level >= 2)
         {
-            moveMouseDirectionRay.scale = new Vector3(0.2f, 0.2f, 0.2f); 
+            moveMouseDirectionRay.scale = new Vector3(0.2f, 0.2f, 0.2f);
+            moveMouseDirectionRay.damage = swordAttack.damage * 0.75f;
             //instantiateOnClickVoid.fireDamage = 25f;
             //instantiateOnClickVoid.force = 2f;
             moveMouseDirectionRay.cooldown = 2f;
-            moveMouseDirectionRay.manaCost = 20f;
-            levelUpXp = 300f;
+            moveMouseDirectionRay.manaCost = 100;
+            levelUpXp = 20000;
         }
         if (level >= 3)
         {
             moveMouseDirectionRay.scale = new Vector3(0.25f, 0.25f, 0.25f);
             //instantiateOnClickVoid.fireDamage = 50f;
-
+            moveMouseDirectionRay.damage = swordAttack.damage;
             moveMouseDirectionRay.cooldown = 1.5f;
-            moveMouseDirectionRay.manaCost = 25f;
-            levelUpXp = 600f;
+            moveMouseDirectionRay.manaCost = 150;
+            levelUpXp = 50000;
         }
         if (level >= 4)
         {
             moveMouseDirectionRay.scale = new Vector3(0.3f, 0.3f, 0.3f);
+            moveMouseDirectionRay.damage = swordAttack.damage * 1.5f;
             //instantiateOnClickVoid.fireDamage = 100f;
             //instantiateOnClickVoid.force = 4f;
             rotationSpeed = 80f;
             moveMouseDirectionRay.cooldown = 1f;
-            moveMouseDirectionRay.manaCost = 35f;
+            moveMouseDirectionRay.manaCost = 200f;
             //instantiateOnClickVoid.piercing = true;
-            levelUpXp = 1000f;
+            levelUpXp = 100000;
         }
         if (level >= 5)
         {
             moveMouseDirectionRay.scale = new Vector3(0.5f, 0.5f, 0.5f);
+            moveMouseDirectionRay.damage = swordAttack.damage * 2;
             //instantiateOnClickVoid.fireDamage = 200f;
             //instantiateOnClickVoid.force = 5f;
             RayLevel.fontSize = 26f;
@@ -91,7 +97,7 @@ public class WeaponLevelRay : MonoBehaviour
             }
             else
             {
-            moveMouseDirectionRay.manaCost = 50f;
+            moveMouseDirectionRay.manaCost = 250f;
             moveMouseDirectionRay.cooldown = 0.5f;
             }
         }

@@ -17,8 +17,10 @@ public class WeaponLevelFire : MonoBehaviour
     SaveState saveState;
     SaveXp saveXp;
     CurrentChoise currentChoise;
+    SwordAttack swordAttack;
     private void Start()
     {
+        swordAttack = FindObjectOfType<SwordAttack>();
         saveState = FindObjectOfType<SaveState>();
         moveMouseDirectionFire = GetComponent<MoveMouseDirectionFire>(); 
         FireXpBar = GameObject.Find("FireXpBar").GetComponent<Slider>();
@@ -44,26 +46,32 @@ public class WeaponLevelFire : MonoBehaviour
         saveXp.Firecurrentxp = currentXp;
         if (level >= 1)
         {
-            levelUpXp = 75;
+            moveMouseDirectionFire.scale = new Vector3(0.1f, 0.1f, 0.1f);
+            levelUpXp = 5000;
+            moveMouseDirectionFire.fireDamage = swordAttack.damage;
+            moveMouseDirectionFire.manaCost = 50f;
+            moveMouseDirectionFire.cooldown = 1.5f;
+            moveMouseDirectionFire.force = 1f;
+
         }
         if (level >= 2 && currentChoise.currentmodeMedium == true)
         {
-            moveMouseDirectionFire.scale = new Vector3(0.3f, 0.3f, 0.3f);
-            moveMouseDirectionFire.fireDamage = 25f;
-            moveMouseDirectionFire.force = 2f;
+            moveMouseDirectionFire.scale = new Vector3(0.15f, 0.152f, 0.15f);
+            moveMouseDirectionFire.fireDamage = swordAttack.damage * 1.25f;
+            moveMouseDirectionFire.force = 1.25f;
             moveMouseDirectionFire.destroyDelay = 1.5f;
-            moveMouseDirectionFire.cooldown = 1.5f;
-            moveMouseDirectionFire.manaCost = 15f;
+            moveMouseDirectionFire.cooldown = 1.25f;
+            moveMouseDirectionFire.manaCost = 75f;
             saveState.burnprobability = 10f;
             saveState.burnduration = 4f;
             saveState.burndamageOverTime = 5f;
             saveState.burntimeBetweenDamage = 2f;
-            levelUpXp = 500f;
+            levelUpXp = 10000f;
         }
         if (level >= 2 && currentChoise.currentmodeSlow == true)
         {
             moveMouseDirectionFire.scale = new Vector3(0.6f, 0.6f, 0.6f);
-            moveMouseDirectionFire.fireDamage = 50f;
+            moveMouseDirectionFire.fireDamage = swordAttack.damage * 2f;
             moveMouseDirectionFire.force = 1f;
             moveMouseDirectionFire.destroyDelay = 2f;
             moveMouseDirectionFire.cooldown = 3f;
@@ -77,7 +85,7 @@ public class WeaponLevelFire : MonoBehaviour
         if (level >= 2 && currentChoise.currentmodeFast == true)
         {
             moveMouseDirectionFire.scale = new Vector3(0.15f, 0.15f, 0.15f);
-            moveMouseDirectionFire.fireDamage = 12.5f;
+            moveMouseDirectionFire.fireDamage = swordAttack.damage * 1.5f;
             moveMouseDirectionFire.force = 3f;
             moveMouseDirectionFire.destroyDelay = 1.5f;
             moveMouseDirectionFire.cooldown = 0.75f;
@@ -91,18 +99,18 @@ public class WeaponLevelFire : MonoBehaviour
 
         if (level >= 3 && currentChoise.currentmodeMedium == true)
         {
-            moveMouseDirectionFire.scale = new Vector3(0.4f, 0.4f, 0.4f);
-            moveMouseDirectionFire.fireDamage = 50f;
-            moveMouseDirectionFire.force = 3f;
+            moveMouseDirectionFire.scale = new Vector3(0.2f, 0.2f, 0.2f);
+            moveMouseDirectionFire.fireDamage = swordAttack.damage * 1.5f;
+            moveMouseDirectionFire.force = 1.5f;
             moveMouseDirectionFire.destroyDelay = 1.5f;
             moveMouseDirectionFire.cooldown = 1f;
-            moveMouseDirectionFire.manaCost = 25f;
+            moveMouseDirectionFire.manaCost = 100f;
             moveMouseDirectionFire.piercing = true;
             saveState.burnprobability = 20;
             saveState.burnduration = 4f;
             saveState.burndamageOverTime = 10f;
             saveState.burntimeBetweenDamage = 2f;
-            levelUpXp = 1250f;
+            levelUpXp = 100000;
         }
         if (level >= 3 && currentChoise.currentmodeFast == true)
         {
@@ -136,18 +144,18 @@ public class WeaponLevelFire : MonoBehaviour
         }
         if (level >= 4 && currentChoise.currentmodeMedium == true)
         {
-            moveMouseDirectionFire.scale = new Vector3(0.5f, 0.5f, 0.5f);
-            moveMouseDirectionFire.fireDamage = 100f;
-            moveMouseDirectionFire.force = 4f;
+            moveMouseDirectionFire.scale = new Vector3(0.25f, 0.25f, 0.25f);
+            moveMouseDirectionFire.fireDamage = swordAttack.damage * 2f;
+            moveMouseDirectionFire.force = 1.75f;
             moveMouseDirectionFire.destroyDelay = 1.5f;
-            moveMouseDirectionFire.cooldown = 0.5f;
-            moveMouseDirectionFire.manaCost = 35f;
+            moveMouseDirectionFire.cooldown = 0.75f;
+            moveMouseDirectionFire.manaCost = 150f;
             moveMouseDirectionFire.piercing = true;
             saveState.burnprobability = 30;
             saveState.burnduration = 5f;
             saveState.burndamageOverTime = 10f;
             saveState.burntimeBetweenDamage = 1f;
-            levelUpXp = 2500f;
+            levelUpXp = 500000;
         }
         if (level >= 4 && currentChoise.currentmodeFast == true)
         {
@@ -171,7 +179,7 @@ public class WeaponLevelFire : MonoBehaviour
             moveMouseDirectionFire.force = 3f;
             moveMouseDirectionFire.destroyDelay = 1.5f;
             moveMouseDirectionFire.cooldown = 0.5f;
-            moveMouseDirectionFire.manaCost = 70f;
+            moveMouseDirectionFire.manaCost = 150f;
             moveMouseDirectionFire.piercing = true;
             saveState.burnprobability = 60;
             saveState.burnduration = 5f;
@@ -181,12 +189,12 @@ public class WeaponLevelFire : MonoBehaviour
         }
         if (level >= 5 && currentChoise.currentmodeMedium == true)
         {
-            moveMouseDirectionFire.scale = new Vector3(0.7f, 0.7f, 0.7f);
-            moveMouseDirectionFire.fireDamage = 1500f;
-            moveMouseDirectionFire.force = 5f;
+            moveMouseDirectionFire.scale = new Vector3(0.3f, 0.3f, 0.3f);
+            moveMouseDirectionFire.fireDamage = swordAttack.damage * 3f;
+            moveMouseDirectionFire.force = 2f;
             moveMouseDirectionFire.destroyDelay = 1.5f;
-            moveMouseDirectionFire.cooldown = 0.25f;
-            moveMouseDirectionFire.manaCost = 150f;
+            moveMouseDirectionFire.cooldown = 0.5f;
+            moveMouseDirectionFire.manaCost = 200f;
             moveMouseDirectionFire.piercing = true;
             saveState.burnprobability = 50;
             saveState.burnduration = 6f;

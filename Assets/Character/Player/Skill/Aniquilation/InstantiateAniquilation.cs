@@ -130,8 +130,10 @@ public class InstantiateAniquilation : MonoBehaviour
                         {
                             Vector3 position = initialPosition + direction * step * i;
                             GameObject instantiatedPrefab = Instantiate(prefab, position, Quaternion.identity);
-                            if(transform != null)
-                            instantiatedPrefab.transform.parent = transform;
+                            if(transform.parent != null) 
+                            {    
+                                instantiatedPrefab.transform.parent = transform;
+                            }
                             instantiatedPrefab.transform.localScale = scale;
                             Destroy(instantiatedPrefab, destroyDelay);
                         }

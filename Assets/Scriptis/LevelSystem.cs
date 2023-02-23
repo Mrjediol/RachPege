@@ -145,7 +145,7 @@ public class LevelSystem : MonoBehaviour
                 frontXpBar.fillAmount = Mathf.Lerp(FXP, backXpBar.fillAmount, percentComplete);
             }
         }
-        xpText.text = Mathf.RoundToInt(currentXp) + "/" + Mathf.RoundToInt(requiredXp);
+        xpText.text = Mathf.RoundToInt(currentXp) + "/" + Mathf.RoundToInt(requiredXp) + " XP";
 
         if (xpMultiplier < 3f)
             MultiplierText.text = "X " + xpMultiplier.ToString("F1");

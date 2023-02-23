@@ -14,6 +14,7 @@ public class MoveMouseDirectionRay : MonoBehaviour
     public float manaCost = 50f;
     public float cooldown = 0.5f;
     public bool piercing = false;
+    public float damage;
     public Vector3 scale = new Vector3(1, 1, 1);
     [SerializeField] private AudioSource Shoot;
     public GameObject prefab;

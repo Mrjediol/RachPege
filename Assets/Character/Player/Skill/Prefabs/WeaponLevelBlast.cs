@@ -16,8 +16,10 @@ public class WeaponLevelBlast : MonoBehaviour
     private TextMeshProUGUI BlastLevelUp;
     SaveXp saveXp;
     public float rotationSpeed = 50f;
+    SwordAttack swordAttack;
     private void Start()
     {
+        swordAttack = FindObjectOfType<SwordAttack>();
         InstantiateOnClickFire = GetComponent<InstantiateOnClickFire>();
         blastXpBar = GameObject.Find("BlastXpBar").GetComponent<Slider>();
         BlastLevel = GameObject.Find("BlastLevel").GetComponent<TextMeshProUGUI>();
@@ -44,38 +46,41 @@ public class WeaponLevelBlast : MonoBehaviour
         {
             levelUpXp = 100;
             InstantiateOnClickFire.scale = new Vector3(0.15f, 0.15f, 0.15f);
-            InstantiateOnClickFire.cooldown = 3f;
-            InstantiateOnClickFire.manaCost = 15f;
+            InstantiateOnClickFire.cooldown = 15f;
+            InstantiateOnClickFire.manaCost = 200;
             InstantiateOnClickFire.range = 0.7f;
+            InstantiateOnClickFire.damage = swordAttack.damage * 5;
         }
         if (level >= 2)
         {
             InstantiateOnClickFire.scale = new Vector3(0.2f, 0.2f, 0.2f); 
             //instantiateOnClickVoid.fireDamage = 25f;
             //instantiateOnClickVoid.force = 2f;
-            InstantiateOnClickFire.cooldown = 2f;
-            InstantiateOnClickFire.manaCost = 20f;
+            InstantiateOnClickFire.cooldown = 14f;
+            InstantiateOnClickFire.manaCost = 225;
             levelUpXp = 300f;
             InstantiateOnClickFire.range = 0.9f;
+            InstantiateOnClickFire.damage = swordAttack.damage * 6;
         }
         if (level >= 3)
         {
             InstantiateOnClickFire.scale = new Vector3(0.25f, 0.25f, 0.25f);
             //instantiateOnClickVoid.fireDamage = 50f;
-
-            InstantiateOnClickFire.cooldown = 1.5f;
-            InstantiateOnClickFire.manaCost = 25f;
+            InstantiateOnClickFire.damage = swordAttack.damage * 7;
+            InstantiateOnClickFire.cooldown = 13f;
+            InstantiateOnClickFire.manaCost = 250;
             levelUpXp = 600f;
             InstantiateOnClickFire.range = 1.1f;
         }
         if (level >= 4)
         {
             InstantiateOnClickFire.scale = new Vector3(0.3f, 0.3f, 0.3f);
+            InstantiateOnClickFire.damage = swordAttack.damage * 8;
             //instantiateOnClickVoid.fireDamage = 100f;
             //instantiateOnClickVoid.force = 4f;
             rotationSpeed = 80f;
-            InstantiateOnClickFire.cooldown = 1f;
-            InstantiateOnClickFire.manaCost = 35f;
+            InstantiateOnClickFire.cooldown = 12;
+            InstantiateOnClickFire.manaCost = 275;
             InstantiateOnClickFire.range = 1.4f;
             //instantiateOnClickVoid.piercing = true;
             levelUpXp = 1000f;
@@ -85,9 +90,10 @@ public class WeaponLevelBlast : MonoBehaviour
             InstantiateOnClickFire.scale = new Vector3(0.5f, 0.5f, 0.5f);
             //instantiateOnClickVoid.fireDamage = 200f;
             //instantiateOnClickVoid.force = 5f;
-            InstantiateOnClickFire.cooldown =  0.5f;
+            InstantiateOnClickFire.damage = swordAttack.damage * 10;
+            InstantiateOnClickFire.cooldown =  10f;
             InstantiateOnClickFire.range = 1.8f;
-            InstantiateOnClickFire.manaCost = 50f;
+            InstantiateOnClickFire.manaCost = 300f;
             BlastLevel.fontSize = 26f;
             BlastLevel.text = "Max Lvl. " + level;
             BlastLevelUp.text ="";

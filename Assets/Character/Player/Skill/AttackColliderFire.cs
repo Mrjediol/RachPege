@@ -12,7 +12,8 @@ public class AttackColliderFire : MonoBehaviour
     public Vector3 scale = new Vector3(0.2f, 0.2f, 0.2f);
     //MoveMouseDirection moveMouseDirection;
     public bool piercing = false;
-
+    public GameObject smokeEffect;
+    public Transform smokePosition;
     private void OnTriggerEnter2D(Collider2D other)
     {
         
@@ -28,6 +29,7 @@ public class AttackColliderFire : MonoBehaviour
             WeaponLevelFire weaponLevelFire = GetComponentInParent<WeaponLevelFire>();
             if (enemy != null)
             {
+                smokePosition = other.transform;
                 Debug.Log("2");
                 if (weaponLevelFire.level < 5f)
                 {
@@ -89,6 +91,14 @@ public class AttackColliderFire : MonoBehaviour
         {
             dps.TakeDamage(fireDamage);
             Destroy(gameObject);
+        }
+    }
+    private void OnDestroy()
+    {
+        if (smokePosition != null)
+        {
+            GameObject effect = Instantiate(smokeEffect, smokePosition.position, Quaternion.identity);
+            Destroy(effect, 1f);
         }
     }
 }

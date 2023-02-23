@@ -145,25 +145,46 @@ public class PlayerController : MonoBehaviour
     {
         if (other.tag == "ManaStart" )
         {
-            ManaSystem mana = GetComponent<ManaSystem>();
-            ManaValue manaValue = other.GetComponent<ManaValue>();
-            if(mana.maxMana > mana.currentMana)
-            {
-                float amountToAdd = Mathf.Min(manaValue.manaValue, mana.maxMana - mana.currentMana);
-                mana.currentMana +=amountToAdd;
-                manaValue.CreateFloatingText();
-                Destroy(other.gameObject);
-
-
-                GameObject effect = Instantiate(Effect, other.transform.position, Quaternion.identity);
-                effect.transform.localScale = scale;
-
-                ParticleSystem ps = effect.GetComponent<ParticleSystem>();
-                Renderer psRenderer = ps.GetComponent<Renderer>();
-                psRenderer.sortingOrder = 11;
-
-            } 
+            GetMana(other);
         }
+    }
+    public void GetMana(Collider2D other)
+    {
+        ManaSystem mana = GetComponent<ManaSystem>();
+        ManaValue manaValue = other.GetComponent<ManaValue>();
+        if (mana.maxMana > mana.currentMana)
+        {
+            float amountToAdd = Mathf.Min(manaValue.manaValue, mana.maxMana - mana.currentMana);
+            mana.currentMana += amountToAdd;
+            manaValue.CreateFloatingText();
+            Destroy(other.gameObject);
+
+
+            GameObject effect = Instantiate(Effect, other.transform.position, Quaternion.identity);
+            effect.transform.localScale = scale;
+
+            ParticleSystem ps = effect.GetComponent<ParticleSystem>();
+            Renderer psRenderer = ps.GetComponent<Renderer>();
+            psRenderer.sortingOrder = 11;
+
+        }
+    }
+    public void GetManaFromHit(float mana)
+    {
+        ManaSystem manaSystem = GetComponent<ManaSystem>();
+        if (manaSystem.maxMana > manaSystem.currentMana)
+        {
+            
+            float amountToAdd = Mathf.Min(mana, manaSystem.maxMana - manaSystem.currentMana);
+            manaSystem.currentMana += amountToAdd;
+            GameObject effect = Instantiate(Effect, transform.position, Quaternion.identity);
+            effect.transform.localScale = scale;
+
+            ParticleSystem ps = effect.GetComponent<ParticleSystem>();
+            Renderer psRenderer = ps.GetComponent<Renderer>();
+            psRenderer.sortingOrder = 11;
+        }
+
     }
     public void PlayAnimation(string animation)
     {

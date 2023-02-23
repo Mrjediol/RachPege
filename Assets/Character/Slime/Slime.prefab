@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 5289155179253821886}
   m_Layer: 0
   m_Name: Attack
-  m_TagString: Untagged
+  m_TagString: Ignore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -355,6 +355,10 @@ MonoBehaviour:
   imtheBoss: 0
   minScale: 0.8
   maxScale: 1.5
+  rangeEnemy: 0
+  whiledashin: 0
+  effectonme: {fileID: 0}
+  scale: {x: 0.2, y: 0.2, z: 0.2}
   forceMagnitude: 50
 --- !u!50 &2866632734358892599
 Rigidbody2D:

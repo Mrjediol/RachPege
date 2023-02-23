@@ -53,9 +53,10 @@ MonoBehaviour:
   manaCost: 10
   cooldown: 2
   piercing: 0
+  levelRequirement: 0
   scale: {x: 0.2, y: 0.2, z: 0.2}
   Shoot: {fileID: -8128554791669776794}
-  prefab: {fileID: 1128841151947891081, guid: c74fe051e69abc94282c916bd3ec18af, type: 3}
+  prefab: {fileID: 1128841151947891081, guid: 5d5dbcb517318314ab70a1897f0c29da, type: 3}
   fireCd: {fileID: 0}
   terrainLayer:
     serializedVersion: 2
@@ -170,4 +171,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentXp: 0
   level: 1
-  levelUpXp: 10000
+  levelUpXp: 10000000

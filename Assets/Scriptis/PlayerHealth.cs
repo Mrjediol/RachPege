@@ -96,7 +96,7 @@ public class PlayerHealth : MonoBehaviour
            
 
         }
-        healthText.text = Mathf.Round(health) + "/" + Mathf.Round(maxhealth);
+        healthText.text = Mathf.Round(health) + "/" + Mathf.Round(maxhealth) + " HP";
     }
 
  

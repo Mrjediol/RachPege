@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Collider: {fileID: 0}
-  fireDamage: 10
+  rayDamage: 10
   finalPosition: {x: 0, y: 0, z: 0}
   timeToLive: 0.2
   originalTimeToLive: 0

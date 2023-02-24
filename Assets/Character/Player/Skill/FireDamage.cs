@@ -78,6 +78,7 @@ public class FireDamage : MonoBehaviour
             if (!rock)
                 return;
             Destroy(rock);
+            audioManager.Play("BlastLimit");
             //GameObject effect = Instantiate(Effect, rock.transform.position, Quaternion.identity);
             //effect.transform.localScale = scale;
             //ParticleSystem ps = effect.GetComponent<ParticleSystem>();

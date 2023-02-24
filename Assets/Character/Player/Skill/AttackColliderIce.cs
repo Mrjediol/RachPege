@@ -43,6 +43,8 @@ public class AttackColliderIce : MonoBehaviour
                 }
                 //Debug.Log("2");
                 audioManager.Play("IceHit");
+                GameObject effect = Instantiate(smokeEffect, smokePosition.position, Quaternion.identity);
+                Destroy(effect, 1f);
                 enemy.Takehit(IceDamage);
                 if (piercing == false)
                 {
@@ -63,6 +65,7 @@ public class AttackColliderIce : MonoBehaviour
         }
         if (other.CompareTag("FireFence"))
         {
+            audioManager.Play("IceLimit");
             Destroy(other.gameObject, 0.8f);
             Transform fireFence = other.GetComponent<Transform>();
 
@@ -79,14 +82,7 @@ public class AttackColliderIce : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void OnDestroy()
-    {
-        if (smokePosition != null)
-        {
-            GameObject effect = Instantiate(smokeEffect, smokePosition.position, Quaternion.identity);
-            Destroy(effect, 1f);
-        }
-    }
+    
 }
 //    IEnumerator ApplyDamageOverTime(Enemy enemy)
 //    {

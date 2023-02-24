@@ -44,8 +44,11 @@ public class Enemy : MonoBehaviour
     public Vector3 scale = new(0.2f, 0.2f, 0.2f);
     LevelSystem levelSystem;
     public float manaValue = 0;
+    public bool boostSpeed;
+    PlayerController playerController;
     private void Start()
     {
+        playerController = FindObjectOfType<PlayerController>();
         levelSystem = FindObjectOfType<LevelSystem>();
         audioManager = FindObjectOfType<AudioManager>();
         endGame = FindObjectOfType<EndGame>();
@@ -194,7 +197,7 @@ public class Enemy : MonoBehaviour
     {
         //Debug.Log ("te imaginas que funciona");
         animator.SetTrigger("Damaged");
-        damaged.Play();
+        //damaged.Play();
     }
     public void AttackSoundFur()
     {
@@ -268,7 +271,6 @@ public class Enemy : MonoBehaviour
     public void Defeated()
     {
         animator.SetTrigger("Defeated");
-        audioManager.Play("Death");
 
     }
 
@@ -285,6 +287,21 @@ public class Enemy : MonoBehaviour
        
         manaStar.GetComponent<ManaValue>().manaValue = manaValue;
         Destroy(gameObject);
+    }
+
+    public void FurDeath()
+    {
+        audioManager.Play("FurDeath");
+    }
+    public void SlimeDeath()
+    {
+        audioManager.Play("SlimeDeath");
+    }
+    public void AddForce()
+    {
+
+        Vector2 direction = (playerController.transform.position - transform.position).normalized; // Calcula la dirección hacia el jugador
+        rb.AddForce(direction * 10f, ForceMode2D.Impulse); // Aplica un impulso de fuerza en la dirección calculada
     }
 
 

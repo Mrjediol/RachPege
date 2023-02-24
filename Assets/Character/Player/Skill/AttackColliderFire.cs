@@ -15,6 +15,7 @@ public class AttackColliderFire : MonoBehaviour
     public GameObject smokeEffect;
     public Transform smokePosition;
     AudioManager audioManager;
+ 
 
     private void Start()
     {
@@ -44,6 +45,8 @@ public class AttackColliderFire : MonoBehaviour
                     //Savexpfire()
                 }
                 audioManager.Play("IceHit");
+                GameObject effect = Instantiate(smokeEffect, smokePosition.position, Quaternion.identity);
+                Destroy(effect, 1f);
                 enemy.Takehit(fireDamage);
                 if (piercing == false)
                 {
@@ -64,9 +67,10 @@ public class AttackColliderFire : MonoBehaviour
             Debug.Log(other.tag);
             Destroy(gameObject);
         }
-        if (other.CompareTag("Fence"))
+        if (other.CompareTag("FireFence"))
         {
             Destroy(other.gameObject ,1f);
+            audioManager.Play("FireLimit");
             Transform Fence = other.GetComponent<Transform>();
             Vector3 fencePos = Fence.transform.position;
             fencePos.y -= 0.05f;
@@ -103,8 +107,6 @@ public class AttackColliderFire : MonoBehaviour
     {
         if (smokePosition != null)
         {
-            GameObject effect = Instantiate(smokeEffect, smokePosition.position, Quaternion.identity);
-            Destroy(effect, 1f);
         }
     }
 }

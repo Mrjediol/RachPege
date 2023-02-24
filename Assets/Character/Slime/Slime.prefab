@@ -221,6 +221,7 @@ GameObject:
   - component: {fileID: 7897990421460196787}
   - component: {fileID: 7897990421460196784}
   - component: {fileID: 3806095689927777020}
+  - component: {fileID: 4063616630665005066}
   m_Layer: 6
   m_Name: Slime
   m_TagString: Enemy
@@ -331,11 +332,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SloweddashSpeed: 500
   slowedmoveSpeed: 10
-  moveSpeed: 0.4
+  moveSpeed: 0.1
   initialSpeed: 0.2
   knowback: 5000
   maxHealth: 10
-  enemyDamage: 20
+  enemyDamage: 0
   health: 3
   enemyLvl: 3
   giveXP: 10
@@ -360,6 +361,7 @@ MonoBehaviour:
   effectonme: {fileID: 0}
   scale: {x: 0.2, y: 0.2, z: 0.2}
   manaValue: 0
+  imSlime: 0
   forceMagnitude: 50
 --- !u!50 &2866632734358892599
 Rigidbody2D:
@@ -535,6 +537,18 @@ MonoBehaviour:
   MovingLeft: 0
   MovingRight: 0
   desiredDirection: 0
+--- !u!114 &4063616630665005066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306823446721168568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eac2baa604915f458a76edd1dd7e39d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2610557783955629869
 GameObject:
   m_ObjectHideFlags: 0

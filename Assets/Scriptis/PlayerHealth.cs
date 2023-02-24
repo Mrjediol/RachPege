@@ -67,13 +67,16 @@ public class PlayerHealth : MonoBehaviour
         }
         if (health <= 0)
         {
-            audioManager.Play("PlayerDeath");
+           
             animator.SetTrigger("Defeated");
         }
 
     }
    
-
+    public void PlayerDeath()
+    {
+        audioManager.Play("PlayerDeath");
+    }
     void UpdateHealthUI()
     {
         float fillF = frontHealthBar.fillAmount;

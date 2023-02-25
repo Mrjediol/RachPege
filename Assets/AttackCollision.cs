@@ -9,6 +9,7 @@ public class AttackCollision : MonoBehaviour
     public float knockBackForce = 1000f;
     public bool imBullet;
     public GameObject effectBullet;
+    public Transform father;
     private void Start()
     {
         Enemy enemy = GetComponentInParent<Enemy>();
@@ -22,8 +23,15 @@ public class AttackCollision : MonoBehaviour
             Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
             if (player != null)
             {
-                Vector2 direction = (rb.transform.position - transform.position).normalized;
-
+                Vector2 direction;
+                if (father != null)
+                {
+                     direction = (rb.transform.position - father.position).normalized;
+                }
+                else 
+                {
+                     direction = (rb.transform.position - transform.position).normalized;
+                }
                 Vector2 knockBack = direction * knockBackForce;
 
                 if (imBullet)

@@ -6,20 +6,20 @@ public class Slime : MonoBehaviour
 {
     public Transform player;
     public float attackDistance = 0.5f;
+    public float minDistance = 0.2f;
     public float runDistance = 1f;
     public float speed = 0.3f;
     public float initialSpeed;
-    public float bulletSpeed = 3f;
     private Animator animator;
-    SpriteRenderer spriteRenderer;
     Rigidbody2D rb;
     public bool isHit;
-// Start is called before the first frame update
-void Start()
+    public bool imNinja;
+    public Transform attack;
+    // Start is called before the first frame update
+    void Start()
     {
         player = FindObjectOfType<PlayerController>().transform;
         animator = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
         initialSpeed = speed;
         rb = GetComponent<Rigidbody2D>();
     }
@@ -28,7 +28,14 @@ void Start()
     private void Update()
     {
         float distance = Vector3.Distance(transform.position, player.position);
-         if (distance < attackDistance)
+
+         if (distance < minDistance && imNinja)
+            {
+            animator.SetBool("Attack", true);
+            animator.SetBool("Run", false);
+            }
+
+         else if (distance < attackDistance)
         {
             animator.SetBool("Attack", true);
             animator.SetBool("Run", false);
@@ -46,6 +53,17 @@ void Start()
             animator.SetBool("Run", false);
             animator.SetBool("Attack", false);
         }
+        if (!imNinja)
+            return;
+        if (player.transform.position.x > transform.position.x)
+        {
+
+            attack.position = transform.position + new Vector3(+0.10f, 0.063f, 0f);
+        }
+        else
+        {
+            attack.position = transform.position + new Vector3(-0.10f, 0.063f, 0f);
+        }
     }
 
 
@@ -59,10 +77,7 @@ void Start()
         }
 
     }
-    public void ResetIsHit()
-    {
-       
-    }
+
     public void SpeedReset()
     {
         speed = initialSpeed;

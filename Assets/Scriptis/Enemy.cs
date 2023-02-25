@@ -47,6 +47,7 @@ public class Enemy : MonoBehaviour
     public bool imTrunk;
     public bool imSlime;
     public bool imFur;
+    public bool imNinja;
     PlayerController playerController;
     private void Start()
     {
@@ -205,7 +206,9 @@ public class Enemy : MonoBehaviour
             DamagedSlime();
         if (imTrunk)
             DamagedTrunk();
-            
+        if (imNinja)
+            DamagedNinja();
+
 
         //damaged.Play();
     }
@@ -226,6 +229,15 @@ public class Enemy : MonoBehaviour
     public void AttackSoundTrunk()
     {
         audioManager.Play("TrunkAttack");
+    }
+    public void DamagedNinja()
+    {
+        audioManager.Play("NinjaDamaged");
+        audioManager.Stop("NinjaAttack");
+    }
+    public void AttackSoundNinja()
+    {
+        audioManager.Play("NinjaAttack");
     }
     public void AttackSoundSlime()
     {
@@ -319,6 +331,10 @@ public class Enemy : MonoBehaviour
     public void TrunkDeath()
     {
         audioManager.Play("TrunkDeath");
+    }
+    public void NinjaDeath()
+    {
+        audioManager.Play("NinjaDeath");
     }
     public void AddForce()
     {

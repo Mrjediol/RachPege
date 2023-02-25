@@ -86,6 +86,8 @@ MonoBehaviour:
   enemyDamageAttack: 3
   attackCollider: {fileID: 754002636509950853}
   knockBackForce: 1
+  imBullet: 0
+  effectBullet: {fileID: 0}
 --- !u!1 &3577187055544746675
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,7 +395,9 @@ MonoBehaviour:
   effectonme: {fileID: 0}
   scale: {x: 0.2, y: 0.2, z: 0.2}
   manaValue: 0
-  boostSpeed: 0
+  imTrunk: 0
+  imSlime: 0
+  imFur: 1
   forceMagnitude: 50
 --- !u!61 &2172095214209615359
 BoxCollider2D:
@@ -436,6 +440,8 @@ MonoBehaviour:
   enemyDamageAttack: 3
   attackCollider: {fileID: 2172095214209615359}
   knockBackForce: 1
+  imBullet: 0
+  effectBullet: {fileID: 0}
 --- !u!1001 &3577187055651489630
 PrefabInstance:
   m_ObjectHideFlags: 0

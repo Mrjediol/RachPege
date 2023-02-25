@@ -44,7 +44,9 @@ public class Enemy : MonoBehaviour
     public Vector3 scale = new(0.2f, 0.2f, 0.2f);
     LevelSystem levelSystem;
     public float manaValue = 0;
-    public bool boostSpeed;
+    public bool imTrunk;
+    public bool imSlime;
+    public bool imFur;
     PlayerController playerController;
     private void Start()
     {
@@ -57,7 +59,7 @@ public class Enemy : MonoBehaviour
         frozenEffect = GetComponent<FrozenEffect>();
         spawner.onEnemyKilled += RemoveEnemy;
         giveXP = 5 * (enemyLvl * enemyLvl) + 5 * enemyLvl;
-        maxHealth += 3 * (enemyLvl * enemyLvl) + 3 * enemyLvl;
+        maxHealth += 3 * (enemyLvl * enemyLvl) + 4 * enemyLvl;
         enemyDamage += 4 * (enemyLvl * enemyLvl) + 4 * enemyLvl;
         health = maxHealth;
         levelText.text = "Lvl." + enemyLvl;
@@ -197,6 +199,14 @@ public class Enemy : MonoBehaviour
     {
         //Debug.Log ("te imaginas que funciona");
         animator.SetTrigger("Damaged");
+        if (imFur)
+            DamagedFur();
+        if (imSlime)
+            DamagedSlime();
+        if (imTrunk)
+            DamagedTrunk();
+            
+
         //damaged.Play();
     }
     public void AttackSoundFur()
@@ -207,6 +217,15 @@ public class Enemy : MonoBehaviour
     {
         audioManager.Play("FurDamaged");
         audioManager.Stop("FurAttack");
+    }
+    public void DamagedTrunk()
+    {
+        audioManager.Play("TrunkDamaged");
+        audioManager.Stop("TrunkAttack");
+    }
+    public void AttackSoundTrunk()
+    {
+        audioManager.Play("TrunkAttack");
     }
     public void AttackSoundSlime()
     {
@@ -296,6 +315,10 @@ public class Enemy : MonoBehaviour
     public void SlimeDeath()
     {
         audioManager.Play("SlimeDeath");
+    }
+    public void TrunkDeath()
+    {
+        audioManager.Play("TrunkDeath");
     }
     public void AddForce()
     {

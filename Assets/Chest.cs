@@ -58,6 +58,7 @@ public class Chest : MonoBehaviour
 
     public void RemoveAndGiveXp()
     {
+        FindObjectOfType<AudioManager>().Play("OpenChest");
         LevelSystem XP = FindObjectOfType<LevelSystem>();
         XP.GainExperience(giveXP);
         Destroy(gameObject);

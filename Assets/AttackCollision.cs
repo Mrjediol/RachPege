@@ -7,7 +7,8 @@ public class AttackCollision : MonoBehaviour
     public float enemyDamageAttack = 3;
     public Collider2D attackCollider;
     public float knockBackForce = 1000f;
-
+    public bool imBullet;
+    public GameObject effectBullet;
     private void Start()
     {
         Enemy enemy = GetComponentInParent<Enemy>();
@@ -25,8 +26,16 @@ public class AttackCollision : MonoBehaviour
 
                 Vector2 knockBack = direction * knockBackForce;
 
-                
-
+                if (imBullet)
+                {
+                    Destroy(this.gameObject);
+                    GameObject effect = Instantiate(effectBullet, collision.transform.position, Quaternion.identity);
+                    ParticleSystem ps = effect.GetComponent<ParticleSystem>();
+                    Renderer psRenderer = ps.GetComponent<Renderer>();
+                    psRenderer.sortingOrder = 11;
+                    psRenderer.sortingLayerName = "arboles";
+                    enemyDamageAttack *=  0.75f;
+                }
                 //rb.AddForce(knockBack * Time.fixedDeltaTime * direction);
                 player.TakeDamage(enemyDamageAttack, knockBack);
                 Debug.Log("solo si golpeo player");

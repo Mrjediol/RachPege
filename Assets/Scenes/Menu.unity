@@ -1050,6 +1050,7 @@ GameObject:
   - component: {fileID: 330544863}
   - component: {fileID: 330544862}
   - component: {fileID: 330544867}
+  - component: {fileID: 330544868}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1137,7 +1138,7 @@ RectTransform:
   - {fileID: 1760742333}
   - {fileID: 1877151140}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1161,8 +1162,22 @@ MonoBehaviour:
   resolutionDropdown: {fileID: 1125242211}
   gameToggle: {fileID: 455454866}
   musicToggle: {fileID: 814181698}
+  gameVolumeSlider: {fileID: 1872010764}
+  musicVolumeSlider: {fileID: 1413707256}
   musicVolume: 0
   pauseMenu: {fileID: 0}
+--- !u!114 &330544868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330544861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62a1ded713c044542b52e8fcd8ad000f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &356826584
 GameObject:
   m_ObjectHideFlags: 0
@@ -1310,7 +1325,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &368790565
 GameObject:
@@ -2054,7 +2069,31 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 486218847}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: MenuDown
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1872010764}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 330544867}
         m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
         m_MethodName: MuteGameVolume
         m_Mode: 6
@@ -2064,7 +2103,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
   m_IsOn: 1
 --- !u!1 &483719783
@@ -2202,6 +2241,479 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 483719783}
   m_CullTransparentMesh: 1
+--- !u!1 &486218846
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 486218848}
+  - component: {fileID: 486218847}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &486218847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 486218846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26cb116aca2ced54c8f20dbc9b1c614e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: WeaponsMenuOpen
+    clip: {fileID: 8300000, guid: 201bb7247978a98458d44c792a96c697, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: WeaponsMenuClose
+    clip: {fileID: 8300000, guid: 8256384be808a5349bb46e4035244bf5, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: OpenMenu
+    clip: {fileID: 8300000, guid: cbb51ed9222928143a2f7002787348b6, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: CloseMenu
+    clip: {fileID: 8300000, guid: 47e0428ccf9f0864db1c82f44ad239ac, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: MenuUp
+    clip: {fileID: 8300000, guid: f0ea5b6596dabfc4bb3e923f6e6c13e1, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: MenuDown
+    clip: {fileID: 8300000, guid: 4ef946acc0d4d2b488002869e98dc8ab, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: LvlUpWeapons
+    clip: {fileID: 8300000, guid: 080a8c1d646b386429afba13113f421e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: LvlUp
+    clip: {fileID: 8300000, guid: 19f16b84934e35a4dba5a41d2910edc3, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: WeaponsUnlock
+    clip: {fileID: 8300000, guid: c365620b5c82c6b46bb4206f69d35bdd, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: NoMana
+    clip: {fileID: 8300000, guid: 19f5454b06af4344da8f4797245078b3, type: 3}
+    volume: 0.623
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: FireShoot
+    clip: {fileID: 8300000, guid: 805ee42d351f1ca42aa13bb2f0fb12ed, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: FireHit
+    clip: {fileID: 8300000, guid: e11a5a019377fbd4c81caa0adcb4c236, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: FireLvlUp
+    clip: {fileID: 8300000, guid: 6cdb048e99b6aac4e8fae67c04910da4, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: EquipFire
+    clip: {fileID: 8300000, guid: 9791461b01b60474aa59d60105e16d85, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: IceShoot
+    clip: {fileID: 8300000, guid: 71ad9558ec9822a4080ca5f5e85eaae8, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: IceHit
+    clip: {fileID: 8300000, guid: 75adfe9a619833445a701305b983e548, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 0}
+  - name: IceLvlUp
+    clip: {fileID: 8300000, guid: 6cdb048e99b6aac4e8fae67c04910da4, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 0}
+  - name: EquipIce
+    clip: {fileID: 8300000, guid: 9791461b01b60474aa59d60105e16d85, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: RayShoot
+    clip: {fileID: 8300000, guid: 838ba3f78189e8946adf7f8bd296b55f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: RayHit
+    clip: {fileID: 8300000, guid: 17ecfbed21b447c4da234fdc2d110d73, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: RayLvlUp
+    clip: {fileID: 8300000, guid: 6cdb048e99b6aac4e8fae67c04910da4, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: EquipRay
+    clip: {fileID: 8300000, guid: 9791461b01b60474aa59d60105e16d85, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: AniquilationStart
+    clip: {fileID: 8300000, guid: 103854182fde6e44c8eb75239e342460, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: AniquilationFinish
+    clip: {fileID: 8300000, guid: af46d9be36f07cc419b44b815b8d3003, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: AniquilationLvlUp
+    clip: {fileID: 8300000, guid: 6cdb048e99b6aac4e8fae67c04910da4, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: EquipAniquilation
+    clip: {fileID: 8300000, guid: 9791461b01b60474aa59d60105e16d85, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: VoidShoot
+    clip: {fileID: 8300000, guid: 03ef44ecda776704ea4ab14e15d41c03, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: VoidHit
+    clip: {fileID: 8300000, guid: 6d79f8e1aa02dee4ebf308bdad64cf4b, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: VoidLvlUp
+    clip: {fileID: 8300000, guid: 6cdb048e99b6aac4e8fae67c04910da4, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: EquipVoid
+    clip: {fileID: 8300000, guid: 9791461b01b60474aa59d60105e16d85, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: BlastShoot
+    clip: {fileID: 8300000, guid: 9791461b01b60474aa59d60105e16d85, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: BlastHit
+    clip: {fileID: 8300000, guid: 9791461b01b60474aa59d60105e16d85, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: BlastLvlUp
+    clip: {fileID: 8300000, guid: 6cdb048e99b6aac4e8fae67c04910da4, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: EquipBlast
+    clip: {fileID: 8300000, guid: 9791461b01b60474aa59d60105e16d85, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: PlayerMove
+    clip: {fileID: 8300000, guid: 29458dfae6b6e5e45bd1697bacbcd69a, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: PlayerDamaged
+    clip: {fileID: 8300000, guid: d64496cf413435b458add47ffdb464dc, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: PlayerHeal
+    clip: {fileID: 8300000, guid: 88b2b1d008c091643b783463afd3600d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: PlayerDeath
+    clip: {fileID: 8300000, guid: af6b7ddef6c157746a9dd64bce621348, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: ManaStart
+    clip: {fileID: 8300000, guid: de21eb3ae679d504d9a7af034e834d74, type: 3}
+    volume: 0.377
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: ManaHit
+    clip: {fileID: 8300000, guid: 9791461b01b60474aa59d60105e16d85, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: FurAttack
+    clip: {fileID: 8300000, guid: 5563476b0c261fb488e71558d34f1385, type: 3}
+    volume: 0.656
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: FurDamaged
+    clip: {fileID: 8300000, guid: 9d81b315601719848b8d38152b34c5cd, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: FurDeath
+    clip: {fileID: 8300000, guid: acd063a0ef53afb49b50b2e3da640c1f, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: SlimeAttack
+    clip: {fileID: 8300000, guid: 2a60eb5c876f6984fbc106cc28863236, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: SlimeDamaged
+    clip: {fileID: 8300000, guid: 46cbb216bc76ba04ca862d0a13e7eec1, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: SlimeDeath
+    clip: {fileID: 8300000, guid: fa5354197d9bc614e907070c4283a3c3, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: FisrtZoneBG
+    clip: {fileID: 8300000, guid: bb2c895d1a96f044ab7bc8445d29cafe, type: 3}
+    volume: 0.15
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 5699f92a4b8b06642832e75c9daa900e, type: 2}
+  - name: TrunkAttack
+    clip: {fileID: 8300000, guid: 46cbb216bc76ba04ca862d0a13e7eec1, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: TrunkDamaged
+    clip: {fileID: 8300000, guid: 46cbb216bc76ba04ca862d0a13e7eec1, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: TrunkDeath
+    clip: {fileID: 8300000, guid: 46cbb216bc76ba04ca862d0a13e7eec1, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: SecondZoneBG
+    clip: {fileID: 8300000, guid: 59a3dd5a93e4c874c9666a6912f1eaec, type: 3}
+    volume: 0.15
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 5699f92a4b8b06642832e75c9daa900e, type: 2}
+  - name: ThirdZoneBG
+    clip: {fileID: 8300000, guid: 00a6439cf51d5b34f8550e7f444e66d1, type: 3}
+    volume: 0.15
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 5699f92a4b8b06642832e75c9daa900e, type: 2}
+  - name: BossBattleBG
+    clip: {fileID: 8300000, guid: b5f00a6de4c6c48489bf01c1c429bfa6, type: 3}
+    volume: 0.15
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 5699f92a4b8b06642832e75c9daa900e, type: 2}
+  - name: FireLimit
+    clip: {fileID: 8300000, guid: 5a596dde8315ae8488922dd11d679e1a, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: IceLimit
+    clip: {fileID: 8300000, guid: 9791461b01b60474aa59d60105e16d85, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: BlastLimit
+    clip: {fileID: 8300000, guid: 7cbe028e7e9b5c843b0d50b5251bc5be, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: OpenChest
+    clip: {fileID: 8300000, guid: 7cbe028e7e9b5c843b0d50b5251bc5be, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: MMPlay
+    clip: {fileID: 8300000, guid: f0ea5b6596dabfc4bb3e923f6e6c13e1, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: MMOption
+    clip: {fileID: 8300000, guid: f0ea5b6596dabfc4bb3e923f6e6c13e1, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: MMQuit
+    clip: {fileID: 8300000, guid: f0ea5b6596dabfc4bb3e923f6e6c13e1, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+  - name: MMBGMusic
+    clip: {fileID: 8300000, guid: 90eae78e8ce85a849b5b0ca11b2de641, type: 3}
+    volume: 0.115
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 5699f92a4b8b06642832e75c9daa900e, type: 2}
+  outputGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
+--- !u!4 &486218848
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 486218846}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &520815427
 GameObject:
   m_ObjectHideFlags: 0
@@ -2268,7 +2780,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &527583990
 GameObject:
@@ -2499,6 +3011,30 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Game
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 486218847}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: MMPlay
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 486218847}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: Stop
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: MMBGMusic
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &527856376
@@ -3063,6 +3599,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 486218847}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: MMOption
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &756203999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3425,7 +3973,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 330544867}
         m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
         m_MethodName: SetFullscreen
         m_Mode: 0
@@ -3435,6 +3983,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 486218847}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: MenuUp
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 1
@@ -3729,7 +4289,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 330544867}
         m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
         m_MethodName: MuteMusicVolume
         m_Mode: 6
@@ -3751,6 +4311,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 486218847}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: MenuDown
           m_BoolArgument: 1
         m_CallState: 2
   m_IsOn: 1
@@ -4618,6 +5190,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 486218847}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: MenuDown
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1084265598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5006,7 +5590,19 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 486218847}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: MenuDown
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 330544867}
         m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
         m_MethodName: SetResolution
         m_Mode: 0
@@ -5105,7 +5701,19 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 486218847}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: MenuUp
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 1
 --- !u!1 &1148438377
 GameObject:
@@ -6605,7 +7213,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 330544867}
         m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
         m_MethodName: SetVolumeMusic
         m_Mode: 0
@@ -8050,6 +8658,18 @@ MonoBehaviour:
           m_StringArgument: Game
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 486218847}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: MMQuit
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1721921270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9156,7 +9776,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 330544867}
         m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
         m_MethodName: SetVolume
         m_Mode: 0

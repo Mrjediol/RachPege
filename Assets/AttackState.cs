@@ -31,7 +31,6 @@ public class AttackState : StateMachineBehaviour
         Vector2 target = new Vector2(player.position.x, player.position.y);
         Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
         rb.MovePosition(newPos);
-        Debug.Log(enemy.moveSpeed);
     }
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

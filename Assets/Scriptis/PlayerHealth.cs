@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Globalization;
 using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
@@ -21,6 +22,7 @@ public class PlayerHealth : MonoBehaviour
     Animator animator;
     public int Scene;
     public GameObject damageText;
+    public GameObject healText;
     private float cooldownTimer = 0f;
     public Slider cooldownSlider;
     public GameObject HealEffect;
@@ -31,11 +33,12 @@ public class PlayerHealth : MonoBehaviour
     AudioManager audioManager;
     private void Start()
     {
+        maxhealth = PlayerPrefs.GetFloat("MaxHealth", maxhealth);
         audioManager = FindObjectOfType<AudioManager>();
         animator = GetComponent<Animator>();
         levelSystem = GetComponent<LevelSystem>();
         int level = levelSystem.level;
-        maxhealth += 5f * (level * level) + 5 * level;
+
         health = maxhealth;
         cooldownSlider.minValue = 0f;
         cooldownSlider.maxValue = cooldownTime;
@@ -102,17 +105,18 @@ public class PlayerHealth : MonoBehaviour
            
 
         }
-        healthText.text = Mathf.Round(health) + "/" + Mathf.Round(maxhealth) + " HP";
+        healthText.text = Mathf.Round(health).ToString("N0", new CultureInfo("es-ES")) + "/" + Mathf.Round(maxhealth).ToString("N0", new CultureInfo("es-ES")) + " HP";
+
     }
 
- 
-    
+
+
     //  public void Damagable()
     //{
     //    damagable = false;
     //}
 
-           
+
     public void TakeDamage(float damage, Vector2 knockBack)
     {
         if (damagable == true)
@@ -120,8 +124,13 @@ public class PlayerHealth : MonoBehaviour
             health -= damage;
             animator.SetTrigger("Damaged");
             RectTransform textTransform = Instantiate(damageText).GetComponent<RectTransform>();
-            textTransform.GetComponent<TextMeshProUGUI>().text = "- " + damage.ToString();
+            textTransform.GetComponent<TextMeshProUGUI>().text = "- " + string.Format(CultureInfo.GetCultureInfo("es-ES"), "{0:N0}", damage);
+
+            //textTransform.GetComponent<TextMeshProUGUI>().text = "- " + damage.ToString("F0", new CultureInfo("es-ES"));
             textTransform.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+            GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");
+            textTransform.SetParent(canvas.transform);
+
             FindObjectOfType<AudioManager>().Play("PlayerDamaged");
             rb.AddForce(knockBack, ForceMode2D.Impulse);
 
@@ -132,9 +141,6 @@ public class PlayerHealth : MonoBehaviour
             Renderer psRenderer = ps.GetComponent<Renderer>();
             psRenderer.sortingOrder = 11;
             psRenderer.sortingLayerName = "arboles";
-
-            GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");
-            textTransform.SetParent(canvas.transform);
             levelSystem.WasHit();
             lerpTimer = 0f;
         }
@@ -145,8 +151,8 @@ public class PlayerHealth : MonoBehaviour
     {
         health += healAmout;
         health = Mathf.Min(health, maxhealth);
-        RectTransform textTransform = Instantiate(damageText).GetComponent<RectTransform>();
-        textTransform.GetComponent<TextMeshProUGUI>().text = "+ " + healAmout.ToString();
+        RectTransform textTransform = Instantiate(healText).GetComponent<RectTransform>();
+        textTransform.GetComponent<TextMeshProUGUI>().text = "+ " + string.Format(CultureInfo.GetCultureInfo("es-ES"), "{0:N0}", healAmout);
         textTransform.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
 
         GameObject effect = Instantiate(HealEffect, transform.position, Quaternion.identity);
@@ -169,6 +175,8 @@ public class PlayerHealth : MonoBehaviour
         maxhealth = Mathf.Round(maxhealth);
         health += 5f * (level * level) + 5 * level;
         health = Mathf.Round(health);
+        PlayerPrefs.SetFloat("MaxHealth", maxhealth);
+        PlayerPrefs.Save();
     }
 
 }

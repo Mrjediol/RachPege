@@ -1,5 +1,85 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &230478650
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 230478651}
+  - component: {fileID: 230478652}
+  - component: {fileID: 230478653}
+  m_Layer: 8
+  m_Name: collider
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &230478651
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230478650}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 876481307865465272}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &230478652
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230478650}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0041606426, y: 0.04477416}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.25}
+    oldSize: {x: 0.48, y: 0.48}
+    newSize: {x: 0.48, y: 0.48}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.12767422, y: 0.18945506}
+  m_EdgeRadius: 0
+--- !u!50 &230478653
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230478650}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &446252510
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,6 +235,8 @@ MonoBehaviour:
   swordCollider: {fileID: 446252513}
   damage: 10
   initialdamage: 10
+  knowbackForce: 1
+  mana: 0
 --- !u!1 &1723586465
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,6 +392,8 @@ MonoBehaviour:
   swordCollider: {fileID: 1723586468}
   damage: 10
   initialdamage: 10
+  knowbackForce: 1
+  mana: 0
 --- !u!1 &1901122245
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,6 +549,8 @@ MonoBehaviour:
   swordCollider: {fileID: 1901122248}
   damage: 10
   initialdamage: 10
+  knowbackForce: 1
+  mana: 0
 --- !u!1 &1913082359
 GameObject:
   m_ObjectHideFlags: 0
@@ -620,6 +706,8 @@ MonoBehaviour:
   swordCollider: {fileID: 5538181838146593363}
   damage: 10
   initialdamage: 10
+  knowbackForce: 1
+  mana: 0
 --- !u!1 &876481307865465269
 GameObject:
   m_ObjectHideFlags: 0
@@ -661,6 +749,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 230478651}
   - {fileID: 4166376170155883828}
   - {fileID: 4240941109077132633}
   - {fileID: 3902344121388573378}
@@ -734,7 +823,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 5
+  m_LinearDrag: 25
   m_AngularDrag: 5
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -755,8 +844,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathScreen: {fileID: 0}
-  currentSpawnPoint: {x: 0, y: 0, z: 0}
+  currentSpawnPoint: {x: 0, y: -10, z: 0}
   isDead: 0
+  respawnEffect: {fileID: 100000, guid: ada5d62ffe762ce4fbccc70dcdbc9022, type: 3}
+  scale: {x: 0.2, y: 0.2, z: 0.2}
 --- !u!114 &876481307865465279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -790,6 +881,8 @@ MonoBehaviour:
   direction: {x: 0, y: 0}
   swordAttackSound: {fileID: 287564120}
   hasPlayedSound: 0
+  Effect: {fileID: 472857267389600449, guid: e1c993cfe56c6c24385c59796629631c, type: 3}
+  scale: {x: 0.2, y: 0.2, z: 0.2}
 --- !u!61 &876481307865465273
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -797,7 +890,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 876481307865465269}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -880,7 +973,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   lerpTimer: 0
-  maxhealth: 20
+  maxhealth: 100
+  cooldownTime: 15
   chipSpeed: 2
   frontHealthBar: {fileID: 0}
   backHealthBar: {fileID: 0}
@@ -888,6 +982,10 @@ MonoBehaviour:
   damagable: 1
   Scene: 0
   damageText: {fileID: 517097095551127783, guid: d051389f48474a64daf5d4e124f162a6, type: 3}
+  cooldownSlider: {fileID: 0}
+  HealEffect: {fileID: 6914783571354851816, guid: f77b15e472de4e543b167adc3ede39ef, type: 3}
+  scale: {x: 0.2, y: 0.2, z: 0.2}
+  bloodEffect: {fileID: 100000, guid: bc98890f6028f444eaa7789bde5e2eeb, type: 3}
 --- !u!114 &3890700909860083455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -900,20 +998,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45a94e3df05cfc946a3aa8c371750e37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
+  Effect: {fileID: 7122976919775067476, guid: 4117ecf719aeb0c4cb1018a0f183390c, type: 3}
+  scale: {x: 0.2, y: 0.2, z: 0.2}
+  level: 0
   currentXp: 0
-  requiredXp: 50
+  requiredXp: 100
   unlokingActive: 0
   frontXpBar: {fileID: 0}
   backXpBar: {fileID: 0}
   levelText: {fileID: 0}
   xpText: {fileID: 0}
+  MultiplierText: {fileID: 0}
   dashAbility: {fileID: 408944122}
-  addtionMultiplies: 300
-  powerMultiplier: 2
+  addtionMultiplies: 100
+  powerMultiplier: 4
   divisionMultiplier: 7
   dashUnlockedTextPrefab: {fileID: 3056267693360742555, guid: 40c606d6029f341489eb0fb767f1cf1e, type: 3}
   dashUnlockedVideo: {fileID: 0}
+  xpMultiplier: 1
 --- !u!114 &408944122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1141,7 +1243,7 @@ MonoBehaviour:
   manaBar: {fileID: 0}
   manaText: {fileID: 0}
   maxMana: 100
-  currentMana: 0
+  currentMana: 60
   manaregen: 1
 --- !u!1 &3578799851994865869
 GameObject:
@@ -1156,9 +1258,10 @@ GameObject:
   - component: {fileID: 7090719765015073558}
   - component: {fileID: 615486571}
   - component: {fileID: 1841223657}
+  - component: {fileID: 149862573}
   m_Layer: 10
   m_Name: SwordHitboxUp
-  m_TagString: Untagged
+  m_TagString: Ignore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1176,7 +1279,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 876481307865465272}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9056892093164311980
 MonoBehaviour:
@@ -1191,8 +1294,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swordCollider: {fileID: 7090719765015073558}
-  damage: 10
-  initialdamage: 10
+  damage: 5
+  initialdamage: 5
+  knowbackForce: 2.5
+  mana: 0
 --- !u!61 &7090719765015073558
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1336,6 +1441,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &149862573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3578799851994865869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae4a8d21fc17f6745af912c9fa8e11a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitEffect: {fileID: 1884404527141982020, guid: c4f8f5938dc6a0a43a31f54987630c07, type: 3}
+  scale: {x: 0.2, y: 0.2, z: 0.2}
 --- !u!1 &4214544626528342798
 GameObject:
   m_ObjectHideFlags: 0
@@ -1349,9 +1468,10 @@ GameObject:
   - component: {fileID: 5596928073629615656}
   - component: {fileID: 34006423}
   - component: {fileID: 1288105714}
+  - component: {fileID: 1333808368}
   m_Layer: 10
   m_Name: SwordHitboxDown
-  m_TagString: Untagged
+  m_TagString: Ignore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1369,7 +1489,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 876481307865465272}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6380717301436034088
 MonoBehaviour:
@@ -1384,8 +1504,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swordCollider: {fileID: 5596928073629615656}
-  damage: 10
-  initialdamage: 10
+  damage: 5
+  initialdamage: 5
+  knowbackForce: 2.5
+  mana: 0
 --- !u!61 &5596928073629615656
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1529,6 +1651,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1333808368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4214544626528342798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae4a8d21fc17f6745af912c9fa8e11a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitEffect: {fileID: 1884404527141982020, guid: c4f8f5938dc6a0a43a31f54987630c07, type: 3}
+  scale: {x: 0.2, y: 0.2, z: 0.2}
 --- !u!1 &6107201951040526297
 GameObject:
   m_ObjectHideFlags: 0
@@ -1561,7 +1697,7 @@ Transform:
   m_Children:
   - {fileID: 4577578779003623722}
   m_Father: {fileID: 876481307865465272}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2025080153337656046
 MonoBehaviour:
@@ -1734,7 +1870,7 @@ Transform:
   - {fileID: 446252511}
   - {fileID: 1901122246}
   m_Father: {fileID: 876481307865465272}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8523266800655996423
 GameObject:
@@ -1748,9 +1884,10 @@ GameObject:
   - component: {fileID: 1186962291778600267}
   - component: {fileID: 8036306687199356094}
   - component: {fileID: 5706709144670735825}
+  - component: {fileID: 31749962}
   m_Layer: 10
   m_Name: SwordHitbox
-  m_TagString: Ataque
+  m_TagString: Ignore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1768,7 +1905,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 876481307865465272}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1186962291778600267
 MonoBehaviour:
@@ -1783,8 +1920,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swordCollider: {fileID: 8036306687199356094}
-  damage: 10
-  initialdamage: 10
+  damage: 5
+  initialdamage: 5
+  knowbackForce: 2.5
+  mana: 0
 --- !u!61 &8036306687199356094
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1832,3 +1971,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &31749962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8523266800655996423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae4a8d21fc17f6745af912c9fa8e11a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitEffect: {fileID: 1884404527141982020, guid: c4f8f5938dc6a0a43a31f54987630c07, type: 3}
+  scale: {x: 0.2, y: 0.2, z: 0.2}

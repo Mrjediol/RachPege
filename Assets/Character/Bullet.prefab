@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3565320628440701919}
   - component: {fileID: 3165381696963522090}
   - component: {fileID: 2479917702147644906}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bullet
   m_TagString: Ignore
   m_Icon: {fileID: 0}
@@ -141,3 +141,4 @@ MonoBehaviour:
   knockBackForce: 1
   imBullet: 1
   effectBullet: {fileID: 5907786795204757408, guid: 07b4a858ae713374d90857643d99ee25, type: 3}
+  father: {fileID: 0}

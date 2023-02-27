@@ -132,6 +132,7 @@ MonoBehaviour:
   maxScale: 1.5
   minTimeToLive: 5
   maxTimeToLive: 15
+  manaText: {fileID: 517097095551127783, guid: 46b25ce11279c2248b950046623f09a0, type: 3}
 --- !u!1001 &3685616271664505051
 PrefabInstance:
   m_ObjectHideFlags: 0

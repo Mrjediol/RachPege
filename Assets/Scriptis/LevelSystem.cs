@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Globalization;
 using UnityEngine.InputSystem;
 
 public class LevelSystem : MonoBehaviour
@@ -145,8 +146,7 @@ public class LevelSystem : MonoBehaviour
                 frontXpBar.fillAmount = Mathf.Lerp(FXP, backXpBar.fillAmount, percentComplete);
             }
         }
-        xpText.text = Mathf.RoundToInt(currentXp) + "/" + Mathf.RoundToInt(requiredXp) + " XP";
-
+        xpText.text = Mathf.RoundToInt(currentXp).ToString("N0", new CultureInfo("es-ES")) + "/" + Mathf.RoundToInt(requiredXp).ToString("N0", new CultureInfo("es-ES")) + " XP";
         if (xpMultiplier < 3f)
             MultiplierText.text = "X " + xpMultiplier.ToString("F1");
         if (xpMultiplier >= 3f)

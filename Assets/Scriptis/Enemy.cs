@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Globalization;
 using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
@@ -64,10 +65,9 @@ public class Enemy : MonoBehaviour
         enemyDamage += 4 * (enemyLvl * enemyLvl) + 4 * enemyLvl;
         health = maxHealth;
         levelText.text = "Lvl." + enemyLvl;
-        xpText.text = giveXP + " Xp";
+        xpText.text = giveXP.ToString("N0", new CultureInfo("es-ES")) + " Xp";
         healthBar.SetHealth(health,maxHealth);
-
-        healthText.text = Health + "/" + maxHealth;
+        healthText.text = Health.ToString("N0", new CultureInfo("es-ES")) + "/" + maxHealth.ToString("N0", new CultureInfo("es-ES"));
         moveSpeed += enemyLvl / 100f;
 
         SetEnemyScale(enemyLvl);
@@ -254,9 +254,9 @@ public class Enemy : MonoBehaviour
         {
             Health -= damageRevice;
             healthBar.SetHealth(health, maxHealth);
-            healthText.text = Health + "/" + maxHealth;
+            healthText.text = Health.ToString("N0", new CultureInfo("es-ES")) + "/" + maxHealth.ToString("N0", new CultureInfo("es-ES"));
             RectTransform textTransform = Instantiate(damageText).GetComponent<RectTransform>();
-            textTransform.GetComponent<TextMeshProUGUI>().text = damageRevice.ToString("F0");
+            textTransform.GetComponent<TextMeshProUGUI>().text = "+ " + string.Format(CultureInfo.GetCultureInfo("es-ES"), "{0:N0}", damageRevice);
             textTransform.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
             GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");
             textTransform.SetParent(canvas.transform);
@@ -277,11 +277,12 @@ public class Enemy : MonoBehaviour
         Debug.Log("llego al void");
         Health -= damageRevice;
         healthBar.SetHealth(health, maxHealth);
-        healthText.text = Health + "/" + maxHealth;
+        healthText.text = Health.ToString("N0", new CultureInfo("es-ES")) + "/" + maxHealth.ToString("N0", new CultureInfo("es-ES"));
+
         damageRevice = damageRevice * 2f;
         VoidAttack voidAttack = FindObjectOfType<VoidAttack>();
         RectTransform textTransform = Instantiate(damageText).GetComponent<RectTransform>();
-        textTransform.GetComponent<TextMeshProUGUI>().text = damageRevice.ToString();
+        textTransform.GetComponent<TextMeshProUGUI>().text = "+ " + string.Format(CultureInfo.GetCultureInfo("es-ES"), "{0:N0}", damageRevice);
         textTransform.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
 
         GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");

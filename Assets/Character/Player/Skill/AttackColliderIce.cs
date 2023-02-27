@@ -63,7 +63,7 @@ public class AttackColliderIce : MonoBehaviour
             Debug.Log(other.name);
             Destroy(gameObject);
         }
-        if (other.CompareTag("FireFence"))
+        if (other.CompareTag("IceFence"))
         {
             audioManager.Play("IceLimit");
             Destroy(other.gameObject, 0.8f);

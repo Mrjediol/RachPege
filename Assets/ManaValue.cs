@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System.Globalization;
 
 public class ManaValue : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class ManaValue : MonoBehaviour
     public float maxScale = 1.2f;
     public float minTimeToLive = 5f;
     public float maxTimeToLive = 15f;
+    public GameObject manaText;
     //public GameObject manaStarTextPrefab;
     private void Start()
     {
@@ -39,24 +41,29 @@ public class ManaValue : MonoBehaviour
     private float speed = 1000f;
     public void CreateFloatingText()
     {
-        GameObject canvasGO = new GameObject("FloatingTextCanvas");
-        canvasGO.transform.position = transform.position + new Vector3(0, 0.2f, 0); ;
-        canvasGO.transform.rotation = transform.rotation;
-        canvasGO.AddComponent<Canvas>();
-        canvasGO.AddComponent<CanvasScaler>();
-        canvasGO.AddComponent<GraphicRaycaster>();
+        //GameObject canvasGO = new GameObject("FloatingTextCanvas");
+        //canvasGO.transform.position = transform.position + new Vector3(0, 0.2f, 0); ;
+        //canvasGO.transform.rotation = transform.rotation;
+        //canvasGO.AddComponent<Canvas>();
+        //canvasGO.AddComponent<CanvasScaler>();
+        //canvasGO.AddComponent<GraphicRaycaster>();
 
-        /*TextMeshProUGUI */
-        floatingText = new GameObject("floatingText").AddComponent<TextMeshProUGUI>();
-        floatingText.text = "+ " + manaValue;
-        floatingText.transform.SetParent(canvasGO.transform);
-        floatingText.rectTransform.localPosition = Vector3.zero;
-        floatingText.rectTransform.sizeDelta = new Vector2(2.5f, 1f);
-        floatingText.rectTransform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-        floatingText.alignment = TextAlignmentOptions.Center;
-        floatingText.fontSize = 1;
+        ///*TextMeshProUGUI */
+        //floatingText = new GameObject("floatingText").AddComponent<TextMeshProUGUI>();
+        //floatingText.text = "+ " + manaValue;
+        //floatingText.transform.SetParent(canvasGO.transform);
+        //floatingText.rectTransform.localPosition = Vector3.zero;
+        //floatingText.rectTransform.sizeDelta = new Vector2(2.5f, 1f);
+        //floatingText.rectTransform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        //floatingText.alignment = TextAlignmentOptions.Center;
+        //floatingText.fontSize = 1;
 
-        Destroy(canvasGO, 1f);
+        //Destroy(canvasGO, 1f);
+        RectTransform textTransform = Instantiate(manaText).GetComponent<RectTransform>();
+        textTransform.GetComponent<TextMeshProUGUI>().text = "+" + manaValue.ToString("F0", new CultureInfo("es-ES"));
+        textTransform.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+        GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");
+        textTransform.SetParent(canvas.transform);
     }
     private void Update()
     {

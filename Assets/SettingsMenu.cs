@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+
 //using UnityEngine.SceneManagement;
 using TMPro;
 
@@ -32,7 +33,7 @@ public class SettingsMenu : MonoBehaviour
         gameAudioMixer.SetFloat("volume", savedGameVolume);
         gamevolume = savedGameVolume;
         gameVolumeSlider.value = savedGameVolume;
-        LoadGameMutedState();
+        //LoadGameMutedState();
 
         float savedMusicVolume = PlayerPrefs.GetFloat("musicVolume", 1f);
 

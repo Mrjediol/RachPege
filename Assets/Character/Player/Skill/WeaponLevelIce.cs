@@ -55,6 +55,12 @@ public class WeaponLevelIce : MonoBehaviour
             levelUpXp = 1500;
             moveMouseDirectionIce.scale = new Vector3(0.1f, 0.1f, 0.1f);
             moveMouseDirectionIce.force = 1f;
+            saveState.iceDamage = swordAttack.damage  /2f;
+            saveState.fronzedprobability = 20f;
+            saveState.frozenduration = 4f;
+            saveState.frozendamageOverTime = 5f;
+            saveState.frozentimeBetweenDamage = 2f;
+            levelUpXp = 5000;
 
         }
         if (level >= 2 && currentChoise.currentmodeIceMedium == true)
@@ -65,7 +71,8 @@ public class WeaponLevelIce : MonoBehaviour
             moveMouseDirectionIce.destroyDelay = 1.5f;
             moveMouseDirectionIce.cooldown = 1.25f;
             moveMouseDirectionIce.manaCost = 35f;
-            saveState.fronzedprobability = 10f;
+            saveState.iceDamage = swordAttack.damage * 0.75f;
+            saveState.fronzedprobability = 40f;
             saveState.frozenduration = 4f;
             saveState.frozendamageOverTime = 5f;
             saveState.frozentimeBetweenDamage = 2f;
@@ -108,7 +115,8 @@ public class WeaponLevelIce : MonoBehaviour
             moveMouseDirectionIce.cooldown = 1f;
             moveMouseDirectionIce.manaCost = 50f;
             moveMouseDirectionIce.piercing = true;
-            saveState.fronzedprobability = 25f;
+            saveState.iceDamage = swordAttack.damage;
+            saveState.fronzedprobability = 60f;
             saveState.frozenduration = 6f;
             saveState.frozendamageOverTime = 5f;
             saveState.frozentimeBetweenDamage = 2f;
@@ -153,7 +161,8 @@ public class WeaponLevelIce : MonoBehaviour
             moveMouseDirectionIce.cooldown = 0.75f;
             moveMouseDirectionIce.manaCost = 75f;
             moveMouseDirectionIce.piercing = true;
-            saveState.fronzedprobability = 50f;
+            saveState.iceDamage = swordAttack.damage * 1.25f;
+            saveState.fronzedprobability = 80f;
             saveState.frozenduration = 8f;
             saveState.frozendamageOverTime = 10f;
             saveState.frozentimeBetweenDamage = 2f;
@@ -198,7 +207,8 @@ public class WeaponLevelIce : MonoBehaviour
             moveMouseDirectionIce.cooldown = 0.5f;
             moveMouseDirectionIce.manaCost = 100f;
             moveMouseDirectionIce.piercing = true;
-            saveState.fronzedprobability = 75f;
+            saveState.iceDamage = swordAttack.damage * 1.5f;
+            saveState.fronzedprobability = 100f;
             saveState.frozenduration = 10f;
             saveState.frozendamageOverTime = 5f;
             saveState.frozentimeBetweenDamage = 2f;

@@ -19,6 +19,8 @@ public class SettingsMenu : MonoBehaviour
     public Slider gameVolumeSlider;
     public Slider musicVolumeSlider;
 
+    
+
     private float gamevolume;
     public float musicVolume;
     public PauseMenu pauseMenu;
@@ -33,7 +35,7 @@ public class SettingsMenu : MonoBehaviour
         gameAudioMixer.SetFloat("volume", savedGameVolume);
         gamevolume = savedGameVolume;
         gameVolumeSlider.value = savedGameVolume;
-        //LoadGameMutedState();
+        LoadGameMutedState();
 
         float savedMusicVolume = PlayerPrefs.GetFloat("musicVolume", 1f);
 
@@ -45,7 +47,7 @@ public class SettingsMenu : MonoBehaviour
 
         //gameAudioMixer.GetFloat("volume", out gamevolume);
         //musicAudioMixer.GetFloat("musicVolume", out musicVolume);
-        musicVolume = 0;
+        //musicVolume = 0;
         gameToggle.onValueChanged.AddListener(MuteGameVolume);
         musicToggle.onValueChanged.AddListener(MuteMusicVolume);
 
@@ -72,8 +74,8 @@ public class SettingsMenu : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
-        gameToggle.isOn = (gamevolume != -80f);
-        musicToggle.isOn = (musicVolume != -80f);
+        //gameToggle.isOn = (gamevolume != -80f);
+        //musicToggle.isOn = (musicVolume != -80f);
     }
    
     public void SetVolumeMusic(float volume)
@@ -85,24 +87,7 @@ public class SettingsMenu : MonoBehaviour
 
     }
 
-    public void MuteMusicVolume(bool isMuted)
-    {
-        
-        if (!isMuted)
-        {
-            musicAudioMixer.SetFloat("musicVolume", -80f);
-            if(pauseMenu)
-            pauseMenu.imMuted = false;
-        }
-        else
-        {
-            musicAudioMixer.SetFloat("musicVolume", musicVolume);
-            if (pauseMenu)
-                pauseMenu.imMuted = true;
-        }
-        PlayerPrefs.SetInt("musicMuted", isMuted ? 1 : 0);
-        PlayerPrefs.Save();
-    }
+   
     private void LoadMusicMutedState()
     {
         int isMuted = PlayerPrefs.GetInt("musicMuted", 0);
@@ -116,7 +101,7 @@ public class SettingsMenu : MonoBehaviour
         int gisMuted = PlayerPrefs.GetInt("gameMuted", 0);
         bool gameIsMuted = (gisMuted == 1);
 
-        musicToggle.isOn = gameIsMuted;
+        gameToggle.isOn = gameIsMuted;
         MuteGameVolume(gameIsMuted);
     }
     public void SetVolume(float volume)
@@ -141,9 +126,27 @@ public class SettingsMenu : MonoBehaviour
         }
         PlayerPrefs.SetInt("gameMuted", isMuted ? 1 : 0);
         PlayerPrefs.Save();
-        }
+    }
+    public void MuteMusicVolume(bool isMuted)
+    {
 
-    
+        if (!isMuted)
+        {
+            musicAudioMixer.SetFloat("musicVolume", -80f);
+            if (pauseMenu)
+                pauseMenu.imMuted = false;
+        }
+        else
+        {
+            musicAudioMixer.SetFloat("musicVolume", musicVolume);
+            if (pauseMenu)
+                pauseMenu.imMuted = true;
+        }
+        PlayerPrefs.SetInt("musicMuted", isMuted ? 1 : 0);
+        PlayerPrefs.Save();
+    }
+
+
     public void SetFullscreen (bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;

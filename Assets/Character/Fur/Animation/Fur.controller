@@ -225,7 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f12a004f4348348bcdf8d2cb8a5422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.3
+  speed: 0.4
   attackRange: 0.2
   cooldown: 3
   dashRange: 0.5

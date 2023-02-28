@@ -15,6 +15,7 @@ public class Slime : MonoBehaviour
     public bool isHit;
     public bool imNinja;
     public Transform attack;
+    public bool frozen;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +29,6 @@ public class Slime : MonoBehaviour
     private void Update()
     {
         float distance = Vector3.Distance(transform.position, player.position);
-
          if (distance < minDistance && imNinja)
             {
             animator.SetBool("Attack", true);
@@ -80,6 +80,7 @@ public class Slime : MonoBehaviour
 
     public void SpeedReset()
     {
+
         speed = initialSpeed;
         isHit = false;
     }

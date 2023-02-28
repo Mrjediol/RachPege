@@ -54,6 +54,11 @@ public class WeaponLevelFire : MonoBehaviour
             moveMouseDirectionFire.manaCost = 50f;
             moveMouseDirectionFire.cooldown = 1.5f;
             moveMouseDirectionFire.force = 1f;
+            saveState.fireDamage = swordAttack.damage;
+            saveState.burnprobability = 10f;
+            saveState.burnduration = 4f;
+            saveState.burndamageOverTime = swordAttack.damage / 4f;
+            saveState.burntimeBetweenDamage = 1f;
 
         }
         if (level >= 2 && currentChoise.currentmodeMedium == true)
@@ -64,10 +69,11 @@ public class WeaponLevelFire : MonoBehaviour
             moveMouseDirectionFire.destroyDelay = 1.5f;
             moveMouseDirectionFire.cooldown = 1.25f;
             moveMouseDirectionFire.manaCost = 75f;
-            saveState.burnprobability = 10f;
-            saveState.burnduration = 4f;
-            saveState.burndamageOverTime = 5f;
-            saveState.burntimeBetweenDamage = 2f;
+            saveState.fireDamage = swordAttack.damage * 1.25f;
+            saveState.burnprobability = 20f;
+            saveState.burnduration = 6f;
+            saveState.burndamageOverTime = swordAttack.damage / 4f; 
+            saveState.burntimeBetweenDamage = 1f;
             levelUpXp = 10000f;
         }
         if (level >= 2 && currentChoise.currentmodeSlow == true)
@@ -108,10 +114,11 @@ public class WeaponLevelFire : MonoBehaviour
             moveMouseDirectionFire.cooldown = 1f;
             moveMouseDirectionFire.manaCost = 100f;
             moveMouseDirectionFire.piercing = true;
-            saveState.burnprobability = 20;
-            saveState.burnduration = 4f;
-            saveState.burndamageOverTime = 10f;
-            saveState.burntimeBetweenDamage = 2f;
+            saveState.fireDamage = swordAttack.damage * 1.5f;
+            saveState.burnprobability = 30;
+            saveState.burnduration = 6f;
+            saveState.burndamageOverTime = swordAttack.damage / 2f;
+            saveState.burntimeBetweenDamage = 1f;
             levelUpXp = 100000;
         }
         if (level >= 3 && currentChoise.currentmodeFast == true)
@@ -153,9 +160,10 @@ public class WeaponLevelFire : MonoBehaviour
             moveMouseDirectionFire.cooldown = 0.75f;
             moveMouseDirectionFire.manaCost = 150f;
             moveMouseDirectionFire.piercing = true;
-            saveState.burnprobability = 30;
-            saveState.burnduration = 5f;
-            saveState.burndamageOverTime = 10f;
+            saveState.fireDamage = swordAttack.damage * 2f;
+            saveState.burnprobability = 40;
+            saveState.burnduration = 8f;
+            saveState.burndamageOverTime = swordAttack.damage / 2f;
             saveState.burntimeBetweenDamage = 1f;
             levelUpXp = 500000;
         }
@@ -198,9 +206,10 @@ public class WeaponLevelFire : MonoBehaviour
             moveMouseDirectionFire.cooldown = 0.5f;
             moveMouseDirectionFire.manaCost = 200f;
             moveMouseDirectionFire.piercing = true;
+            saveState.fireDamage = swordAttack.damage * 3f;
             saveState.burnprobability = 50;
-            saveState.burnduration = 6f;
-            saveState.burndamageOverTime = 20f;
+            saveState.burnduration = 10f;
+            saveState.burndamageOverTime = swordAttack.damage;
             saveState.burntimeBetweenDamage = 1f;
             FireLevel.fontSize = 26f;
             FireLevel.text = "Max Lvl. " + level;

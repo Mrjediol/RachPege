@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using TMPro;
+using System.Globalization;
 public class PlayerController : MonoBehaviour
 {
 
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioSource swordAttackSound;
     public bool hasPlayedSound = false;
 
+    public GameObject manaText;
     public GameObject Effect;
     public Vector3 scale = new Vector3(0.2f, 0.2f, 0.2f);
 
@@ -177,7 +179,7 @@ public class PlayerController : MonoBehaviour
 
         }
     }
-    public void GetManaFromHit(float mana)
+    public void GetManaFromHit(float mana, Collider2D other)
     {
         ManaSystem manaSystem = GetComponent<ManaSystem>();
         if (manaSystem.maxMana > manaSystem.currentMana)
@@ -185,6 +187,11 @@ public class PlayerController : MonoBehaviour
             
             float amountToAdd = Mathf.Min(mana, manaSystem.maxMana - manaSystem.currentMana);
             manaSystem.currentMana += amountToAdd;
+            RectTransform textTransform = Instantiate(manaText).GetComponent<RectTransform>();
+            textTransform.GetComponent<TextMeshProUGUI>().text = "+" + mana.ToString("F0", new CultureInfo("es-ES"));
+            textTransform.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+            GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");
+            textTransform.SetParent(canvas.transform);
             GameObject effect = Instantiate(Effect, transform.position, Quaternion.identity);
             effect.transform.localScale = scale;
             audioManager.Play("ManaHit");

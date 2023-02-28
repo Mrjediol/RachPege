@@ -39,6 +39,7 @@ public class LevelSystem : MonoBehaviour
     public float xpMultiplier = 1f;
     SwordAttack[] swordAttacks;
     AudioManager audioManager;
+    public GameObject recieveXPText;
     // Start is called before the first frame update
     void Start()
     {
@@ -174,6 +175,11 @@ public class LevelSystem : MonoBehaviour
         float xpToGain = xpGained * xpMultiplier;
         currentXp += xpToGain;
         lerpTimer = 0f;
+        RectTransform textTransform = Instantiate(recieveXPText).GetComponent<RectTransform>();
+        textTransform.GetComponent<TextMeshProUGUI>().text = "+ " + xpToGain.ToString("F0", new CultureInfo("es-ES")) + " XP";
+        textTransform.transform.position = Camera.main.WorldToScreenPoint(transform.position + new Vector3(0f, 0.1f, 0f));
+        GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");
+        textTransform.SetParent(canvas.transform);
         PlayerPrefs.SetFloat("xpMultiplier", xpMultiplier);
         PlayerPrefs.Save();
         // Guardar el nivel actual en PlayerPrefs.

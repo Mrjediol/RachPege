@@ -25,7 +25,6 @@ public class RunState : StateMachineBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = animator.GetComponent<Rigidbody2D>();
         enemy = animator.GetComponent<Enemy>();
-        speed = enemy.moveSpeed;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

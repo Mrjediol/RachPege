@@ -11,14 +11,23 @@ public class BurnEffect : MonoBehaviour
     public float probability = 50f;
     //public Image burnImage;
     public GameObject burnImage;
-
+    public float damage;
     WeaponManager weaponManager;
     SaveState saveState;
+    FrozenEffect frozenEffect;
+    MoveMouseDirectionFire moveMouseDirectionFire;
+    public GameObject smokeEffect;
+    public Vector3 scale = new(0.15f, 0.15f, 0.15f);
+    Enemy enemy;
+
     private void Start()
     {
-
+        frozenEffect = GetComponent<FrozenEffect>();
+        moveMouseDirectionFire = FindObjectOfType<MoveMouseDirectionFire>();
         weaponManager = FindObjectOfType<WeaponManager>();
         saveState = FindObjectOfType<SaveState>();
+        enemy = GetComponent<Enemy>();
+        
     }
     private void Update()
     {
@@ -31,7 +40,7 @@ public class BurnEffect : MonoBehaviour
                 damageOverTime = saveState.burndamageOverTime;
                 duration = saveState.burnduration;
                 timeBetweenDamage = saveState.burntimeBetweenDamage;
-   
+                damage = saveState.fireDamage;
             }
         }
 
@@ -41,13 +50,30 @@ public class BurnEffect : MonoBehaviour
     {
         if (other.tag == "Fireball")
         {
+
+
             if (Random.Range(0f, 100f) <= probability)
             {
+                if (frozenEffect.FrozenImage.activeInHierarchy)
+                {
+                    IceAndFireExplosion();
+                    return;
+                }
                 StartCoroutine(ApplyBurnDamage());
             }
         }
     }
+    public void IceAndFireExplosion()
+    {
+        enemy.Takehit(damage * 2);
+        GameObject effect = Instantiate(smokeEffect, transform.position, Quaternion.identity);
+        effect.transform.localScale = scale;
 
+        ParticleSystem ps = effect.GetComponent<ParticleSystem>();
+        Renderer psRenderer = ps.GetComponent<Renderer>();
+        psRenderer.sortingOrder = 11;
+        psRenderer.sortingLayerName = "arboles";
+    }
     public IEnumerator ApplyBurnDamage()
     {
         //Image burnImage = GetComponentInChildren<Image>();
@@ -55,7 +81,7 @@ public class BurnEffect : MonoBehaviour
         float timeElapsed = 0f;
         while (timeElapsed < duration)
         {
-            Enemy enemy = GetComponent<Enemy>();
+            
             if (enemy != null)
             {
                 ApplyDamage(enemy, damageOverTime);
@@ -73,6 +99,8 @@ public class BurnEffect : MonoBehaviour
 
     public void ApplyDamage(Enemy enemy, float damage)
     {
+        Debug.Log("5");
+
         enemy.Takehit(damage);
     }
 }

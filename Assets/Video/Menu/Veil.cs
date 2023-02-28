@@ -86,7 +86,7 @@ public class Veil : MonoBehaviour
         {
 
 
-            Debug.Log(op.progress);
+
             yield return 0;
         }
             op.allowSceneActivation = true;

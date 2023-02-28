@@ -50,6 +50,7 @@ public class Enemy : MonoBehaviour
     public bool imFur;
     public bool imNinja;
     PlayerController playerController;
+
     private void Start()
     {
         playerController = FindObjectOfType<PlayerController>();
@@ -68,8 +69,9 @@ public class Enemy : MonoBehaviour
         xpText.text = giveXP.ToString("N0", new CultureInfo("es-ES")) + " Xp";
         healthBar.SetHealth(health,maxHealth);
         healthText.text = Health.ToString("N0", new CultureInfo("es-ES")) + "/" + maxHealth.ToString("N0", new CultureInfo("es-ES"));
-        moveSpeed += enemyLvl / 100f;
-
+        moveSpeed += enemyLvl / 200f;
+        initialSpeed = moveSpeed;
+        slowedmoveSpeed = moveSpeed / 4;
         SetEnemyScale(enemyLvl);
         home = transform.position;
 
@@ -88,7 +90,7 @@ public class Enemy : MonoBehaviour
     }
     private void Awake()
     {
-        initialSpeed = moveSpeed;
+        
     }
     public void SetSpeed() 
     {
@@ -256,11 +258,11 @@ public class Enemy : MonoBehaviour
             healthBar.SetHealth(health, maxHealth);
             healthText.text = Health.ToString("N0", new CultureInfo("es-ES")) + "/" + maxHealth.ToString("N0", new CultureInfo("es-ES"));
             RectTransform textTransform = Instantiate(damageText).GetComponent<RectTransform>();
-            textTransform.GetComponent<TextMeshProUGUI>().text = "+ " + string.Format(CultureInfo.GetCultureInfo("es-ES"), "{0:N0}", damageRevice);
+            textTransform.GetComponent<TextMeshProUGUI>().text = string.Format(CultureInfo.GetCultureInfo("es-ES"), "{0:N0}", damageRevice);
             textTransform.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
             GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");
             textTransform.SetParent(canvas.transform);
-            Debug.Log(gameObject.name);
+
             // Check if the list is not empty before trying to access an element
             //SwordAttack swordAttack = FindObjectOfType<SwordAttack>();
 
@@ -311,6 +313,7 @@ public class Enemy : MonoBehaviour
         LevelSystem XP = FindObjectOfType<LevelSystem>();
         
         XP.GainExperience(giveXP);
+       
         endGame.AddToScore(scoreValue);
         spawner.DecreaseActiveEnemies();
         // Instanciar el prefab de la estrella de mana

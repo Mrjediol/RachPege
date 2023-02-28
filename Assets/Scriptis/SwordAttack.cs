@@ -55,7 +55,7 @@ public class SwordAttack : MonoBehaviour
             //Debug.Log("llego a 1");
         Enemy enemy = other.GetComponent<Enemy>();
 
-            if(enemy != null) {
+            if (enemy != null) {
                 //Debug.Log("Hago Daño");
                
                 
@@ -64,7 +64,7 @@ public class SwordAttack : MonoBehaviour
             Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
             Vector2 direction = (rb.transform.position - transform.position).normalized;
             mana = enemy.manaValue;
-            playerController.GetManaFromHit(mana/2);
+            playerController.GetManaFromHit(mana/2, other);
             Vector2 knockBack = direction * knowbackForce;
 
             //rb.AddForce(knowback * Time.fixedDeltaTime * direction);

@@ -9,11 +9,13 @@ public class SaveState : MonoBehaviour
     public float frozentimeBetweenDamage = 1f;
     public float frozenduration = 5f;
     public float frozenFreezeduration = 2f;
+    public float iceDamage;
 
     public float burnprobability;
     public float burndamageOverTime = 1f;
     public float burntimeBetweenDamage = 1f;
     public float burnduration = 5f;
+    public float fireDamage;
     // Start is called before the first frame update
     void Start()
     {

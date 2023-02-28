@@ -32,12 +32,11 @@ public class AttackColliderFire : MonoBehaviour
             Enemy enemy = other.GetComponent<Enemy>();
             
             //BurnEffect burnEffect = other.GetComponent<BurnEffect>();
-            Debug.Log("1");
             WeaponLevelFire weaponLevelFire = GetComponentInParent<WeaponLevelFire>();
             if (enemy != null)
             {
                 smokePosition = other.transform;
-                Debug.Log("2");
+
                 if (weaponLevelFire.level < 5f)
                 {
 
@@ -50,12 +49,11 @@ public class AttackColliderFire : MonoBehaviour
                 enemy.Takehit(fireDamage);
                 if (piercing == false)
                 {
-                    Debug.Log("3");
                     Destroy(gameObject);
                 }
             }
 
-            
+
             //if (burnEffect != null)
             //{
             //    Debug.Log("4");

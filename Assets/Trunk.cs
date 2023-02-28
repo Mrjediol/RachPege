@@ -15,11 +15,16 @@ public class Trunk : MonoBehaviour
     private Animator animator;
     SpriteRenderer spriteRenderer;
     public bool isHit;
+    public float initialSpeed;
+    public float slowedSpeed;
+    public float currentSpeed;
     private void Awake()
     {
         playerTransform = FindObjectOfType<PlayerController>().transform;
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        initialSpeed = speed;
+        slowedSpeed = speed / 4;
     }
 
     private void Update()
@@ -141,7 +146,15 @@ public class Trunk : MonoBehaviour
             GetComponent<Rigidbody2D>().velocity = movement * speed;
     }
 
-
+    public void Speed0()
+    {
+        currentSpeed = speed;
+        speed = 0;
+    }
+    public void InitialSpeed()
+    {
+        speed = currentSpeed;
+    }
     public void ResetIsHit()
     {
         isHit = false;

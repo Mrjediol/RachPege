@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 698932695356357637}
   m_Layer: 0
   m_Name: IceBall
-  m_TagString: Ignore
+  m_TagString: Iceball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

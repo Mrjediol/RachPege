@@ -36,7 +36,7 @@ public class WeaponLevelFire : MonoBehaviour
         if (level < 5f)
         {
             FireLevel.text = "Lvl. " + level;
-            FireLevelUp.text = currentXp + "/" + levelUpXp;
+            FireLevelUp.text = currentXp.ToString("F0") + "/" + levelUpXp;
         }
 
         if (currentXp >= levelUpXp)

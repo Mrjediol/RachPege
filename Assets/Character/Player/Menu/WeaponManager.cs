@@ -65,7 +65,6 @@ public class WeaponManager : MonoBehaviour
         {
             if (currentWeapon.name != weapon.name)
             {
-                Debug.Log("no se repiten asique te la añado");
                 Destroy(previousWeapon);
                 previousWeapon = currentWeapon;
                 currentWeapon = weapon;
@@ -98,7 +97,6 @@ public class WeaponManager : MonoBehaviour
             
             else
             {
-                Debug.Log("no equipes dos veces la misma anda");
                 Destroy(currentWeapon);
                 currentWeapon = weapon;
                 if (currentWeapon.name != "Aniquilation(Clone)")
@@ -185,7 +183,6 @@ public class WeaponManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("solo deberia pasar si no tengo arma en currentweapon");
             
             currentWeapon = weapon;
         }

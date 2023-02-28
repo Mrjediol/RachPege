@@ -49,6 +49,7 @@ public class Enemy : MonoBehaviour
     public bool imSlime;
     public bool imFur;
     public bool imNinja;
+    public bool imInvencible;
     PlayerController playerController;
 
     private void Start()
@@ -254,6 +255,8 @@ public class Enemy : MonoBehaviour
     {
         if (damagable == true)
         {
+            if (imInvencible)
+                return;
             Health -= damageRevice;
             healthBar.SetHealth(health, maxHealth);
             healthText.text = Health.ToString("N0", new CultureInfo("es-ES")) + "/" + maxHealth.ToString("N0", new CultureInfo("es-ES"));

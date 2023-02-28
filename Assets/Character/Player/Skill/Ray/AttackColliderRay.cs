@@ -59,7 +59,7 @@ public class AttackColliderRay : MonoBehaviour
                 }
             }
         }
-        if (!other.CompareTag("Enemy") && !other.CompareTag("Ignore") && !other.CompareTag("CheckPoint") && !other.CompareTag("Player") && !other.CompareTag("DetectionZone") && !other.CompareTag("ManaStart") && !other.CompareTag("VoidAttack") && !other.CompareTag("Water") && !other.CompareTag("Torch"))
+        if (other.CompareTag("Fence") || other.CompareTag("Terrain") || other.CompareTag("FireFence") || other.CompareTag("IceFence") || other.CompareTag("Rock"))
         {
             Debug.Log(other.name);
             Destroy(gameObject);
@@ -76,9 +76,9 @@ public class AttackColliderRay : MonoBehaviour
     {
         finalPosition = transform.position;
         Collider2D[] colliders = Physics2D.OverlapPointAll(finalPosition);
-        foreach (Collider2D collider in colliders)
+        foreach (Collider2D other in colliders)
         {
-            if (collider.CompareTag("Water") || collider.CompareTag("Torch") || collider.CompareTag("Fence"))
+            if (other.CompareTag("Fence") || other.CompareTag("Water") || other.CompareTag("Terrain") || other.CompareTag("FireFence") || other.CompareTag("IceFence") || other.CompareTag("Rock") || other.CompareTag("Torch"))
             {
                 return; // Si la posición final está en el agua, no envíes el mensaje "Teleport"
             }

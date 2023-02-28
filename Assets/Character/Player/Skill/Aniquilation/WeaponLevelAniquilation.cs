@@ -33,7 +33,7 @@ public class WeaponLevelAniquilation : MonoBehaviour
         if (level < 5f)
         {
             AniquilationLevel.text = "Lvl. " + level;
-            AniquilationLevelUp.text = currentXp + "/" + levelUpXp;
+            AniquilationLevelUp.text = currentXp.ToString("F0") + "/" + levelUpXp;
         }
 
         if (currentXp >= levelUpXp)

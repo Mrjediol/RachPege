@@ -429,6 +429,7 @@ MonoBehaviour:
   imSlime: 0
   imFur: 1
   imNinja: 0
+  imInvencible: 0
   forceMagnitude: 50
 --- !u!114 &-99262564217883613
 MonoBehaviour:
@@ -783,11 +784,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2595735718661042139, guid: d449251acb6338a4292d3abf70c10658, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.006
       objectReference: {fileID: 0}
     - target: {fileID: 2595735718661042139, guid: d449251acb6338a4292d3abf70c10658, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 2595735718661042139, guid: d449251acb6338a4292d3abf70c10658, type: 3}
       propertyPath: m_LocalPosition.z

@@ -36,9 +36,9 @@ public class WeaponLevelIce : MonoBehaviour
         if(level < 5f)
         {
             IceLevel.text = "Lvl. " + level;
-            IceLevelUp.text = currentXp + "/" + levelUpXp;
+            IceLevelUp.text = currentXp.ToString("F0") + "/" + levelUpXp;
         }
-        
+
         if (currentXp >= levelUpXp)
         {
             LevelUp();
@@ -57,10 +57,9 @@ public class WeaponLevelIce : MonoBehaviour
             moveMouseDirectionIce.force = 1f;
             saveState.iceDamage = swordAttack.damage  /2f;
             saveState.fronzedprobability = 20f;
-            saveState.frozenduration = 4f;
-            saveState.frozendamageOverTime = 5f;
+            saveState.frozenduration = 6f;
+            saveState.frozendamageOverTime = swordAttack.damage / 6f;
             saveState.frozentimeBetweenDamage = 2f;
-            levelUpXp = 5000;
 
         }
         if (level >= 2 && currentChoise.currentmodeIceMedium == true)
@@ -73,8 +72,8 @@ public class WeaponLevelIce : MonoBehaviour
             moveMouseDirectionIce.manaCost = 35f;
             saveState.iceDamage = swordAttack.damage * 0.75f;
             saveState.fronzedprobability = 40f;
-            saveState.frozenduration = 4f;
-            saveState.frozendamageOverTime = 5f;
+            saveState.frozenduration = 7f;
+            saveState.frozendamageOverTime = swordAttack.damage / 6f;
             saveState.frozentimeBetweenDamage = 2f;
             levelUpXp = 5000;
         }
@@ -117,8 +116,8 @@ public class WeaponLevelIce : MonoBehaviour
             moveMouseDirectionIce.piercing = true;
             saveState.iceDamage = swordAttack.damage;
             saveState.fronzedprobability = 60f;
-            saveState.frozenduration = 6f;
-            saveState.frozendamageOverTime = 5f;
+            saveState.frozenduration = 8f;
+            saveState.frozendamageOverTime = swordAttack.damage / 5f;
             saveState.frozentimeBetweenDamage = 2f;
             levelUpXp = 20000;
         }
@@ -163,8 +162,8 @@ public class WeaponLevelIce : MonoBehaviour
             moveMouseDirectionIce.piercing = true;
             saveState.iceDamage = swordAttack.damage * 1.25f;
             saveState.fronzedprobability = 80f;
-            saveState.frozenduration = 8f;
-            saveState.frozendamageOverTime = 10f;
+            saveState.frozenduration = 9f;
+            saveState.frozendamageOverTime = swordAttack.damage / 4f;
             saveState.frozentimeBetweenDamage = 2f;
             levelUpXp = 250000;
         }
@@ -210,7 +209,7 @@ public class WeaponLevelIce : MonoBehaviour
             saveState.iceDamage = swordAttack.damage * 1.5f;
             saveState.fronzedprobability = 100f;
             saveState.frozenduration = 10f;
-            saveState.frozendamageOverTime = 5f;
+            saveState.frozendamageOverTime = swordAttack.damage /3f;
             saveState.frozentimeBetweenDamage = 2f;
             IceLevel.fontSize = 26f;
             IceLevel.text = "Max Lvl. " + level;

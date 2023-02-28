@@ -14,11 +14,13 @@ public class DashAbility : MonoBehaviour
     public bool isUnlocked = false;
     public int levelRequirement = 5;
     Rigidbody2D rb;
-    [SerializeField] private AudioSource dashSoundEffect;
+    AudioManager audioManager;
     public bool hasPlayedSound;
+    public TrailRenderer trailRenderer;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     void Update()
@@ -29,6 +31,7 @@ public class DashAbility : MonoBehaviour
         if (isUnlocked && Input.GetKeyDown(KeyCode.Space) && cooldownTimer <= 0)
         {
             isDashing = true;
+            trailRenderer.emitting = true;
             dashTimer = dashTime;
             cooldownTimer = cooldown;
             hasPlayedSound = false;
@@ -40,7 +43,7 @@ public class DashAbility : MonoBehaviour
             {
                 if (!hasPlayedSound) 
                 {
-                    dashSoundEffect.Play();
+                    audioManager.Play("Dash");
                     hasPlayedSound = true;
 
                 }
@@ -51,6 +54,9 @@ public class DashAbility : MonoBehaviour
             else
             {
                 isDashing = false;
+                Invoke("StopEmitting", 0.1f);
+
+               
             }
         }
 
@@ -59,6 +65,11 @@ public class DashAbility : MonoBehaviour
             cooldownTimer -= Time.deltaTime;
         }
     }
+    void StopEmitting()
+    {
+        trailRenderer.emitting = false;
+    }
+
     public void Unlock()
     {
         isUnlocked = true;

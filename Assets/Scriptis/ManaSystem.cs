@@ -31,7 +31,7 @@ public class ManaSystem : MonoBehaviour
         {
             currentMana = 0;
         }
-        manaText.text = "" + Mathf.FloorToInt(currentMana);
+        manaText.text = "" + Mathf.FloorToInt(currentMana) + "/" + Mathf.FloorToInt(maxMana);
         maxMana = 100 + (levelsystem.level * 10f);
         manaregen = 1 + (levelsystem.level / 5);
     }
@@ -45,22 +45,6 @@ public class ManaSystem : MonoBehaviour
             manaBar.fillAmount -= mana / maxMana;
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

@@ -222,7 +222,6 @@ GameObject:
   - component: {fileID: 2866632734358892599}
   - component: {fileID: 6404075330241940590}
   - component: {fileID: 7897990421460196787}
-  - component: {fileID: 7897990421460196784}
   - component: {fileID: 3806095689927777020}
   - component: {fileID: 4063616630665005066}
   - component: {fileID: 5824792329681973756}
@@ -373,6 +372,7 @@ MonoBehaviour:
   imSlime: 1
   imFur: 0
   imNinja: 0
+  imInvencible: 0
   forceMagnitude: 50
 --- !u!50 &2866632734358892599
 Rigidbody2D:
@@ -517,20 +517,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &7897990421460196784
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1306823446721168568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03e690dd5c160a440b176dbede67ae1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundEffect: {fileID: 7897990421460196787}
-  anim: {fileID: 8971693231332910880}
 --- !u!114 &3806095689927777020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -578,7 +564,6 @@ MonoBehaviour:
   runDistance: 1
   speed: 0.3
   initialSpeed: 0.3
-  slowedSpeed: 0.1
   isHit: 0
   imNinja: 0
   attack: {fileID: 2281252000640622299}

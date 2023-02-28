@@ -34,7 +34,7 @@ public class WeaponLevelRay : MonoBehaviour
         if (level < 5f)
         {
             RayLevel.text = "Lvl. " + level;
-            RayLevelUp.text = currentXp + "/" + levelUpXp;
+            RayLevelUp.text = currentXp.ToString("F0") + "/" + levelUpXp;
         }
 
         if (currentXp >= levelUpXp)

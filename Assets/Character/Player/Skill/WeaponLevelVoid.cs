@@ -32,7 +32,7 @@ public class WeaponLevelVoid : MonoBehaviour
         if (level < 5f)
         {
             VoidLevel.text = "Lvl. " + level;
-            VoidLevelUp.text = currentXp + "/" + levelUpXp;
+            VoidLevelUp.text = currentXp.ToString("F0") + "/" + levelUpXp;
         }
 
         if (currentXp >= levelUpXp)

@@ -18,7 +18,6 @@ public class AniquilationAttack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.name);
         if (other.CompareTag("Torch"))
         {
             GameObject effect = Instantiate(Effect, other.transform.position, Quaternion.identity);
@@ -32,12 +31,10 @@ public class AniquilationAttack : MonoBehaviour
         }
         if (!other.CompareTag("Enemy"))
             return;
-        Debug.Log("tag enemigo pasado");
         Enemy enemy = other.GetComponent<Enemy>();
         WeaponLevelAniquilation weaponLevelAniquilation = GetComponentInParent<WeaponLevelAniquilation>();
         if (enemy == null)
             return;
-        Debug.Log("no es nulo");
         enemy.Takehit(instantiateAniquilation.damage);
         if (weaponLevelAniquilation.level < 5f)
         {
@@ -46,9 +43,8 @@ public class AniquilationAttack : MonoBehaviour
 
         }
         DPS dps = other.GetComponent<DPS>();
-        if (!other.CompareTag("Enemy") && !other.CompareTag("Ignore") && !other.CompareTag("CheckPoint") && !other.CompareTag("Player") && !other.CompareTag("DetectionZone") && !other.CompareTag("ManaStart") && !other.CompareTag("VoidAttack") && !other.CompareTag("Water") && !other.CompareTag("Torch"))
+        if (other.CompareTag("Fence") || other.CompareTag("Terrain") || other.CompareTag("FireFence") || other.CompareTag("IceFence") || other.CompareTag("Rock") || other.CompareTag("Torch"))
         {
-            Debug.Log(other.name);
             Destroy(gameObject);
         }
         if (dps != null)

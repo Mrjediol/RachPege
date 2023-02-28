@@ -116,6 +116,7 @@ public class PlayerController : MonoBehaviour
             {
 
                 rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
+                rb.velocity = direction * moveSpeed;
                 //rb.AddForce(movementInput * moveSpeed * Time.fixedDeltaTime, ForceMode2D.Impulse);
                 return true;
             }

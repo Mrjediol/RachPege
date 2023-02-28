@@ -14,7 +14,6 @@ public class EquipWeapon : MonoBehaviour
     public void Equip()
     {
         //WeaponIMG.SetActive(true);
-        Debug.Log("equip se ejecuta");
         GameObject weapon = Instantiate(weaponPrefab, weaponHold.position, weaponHold.rotation);
 
         weaponManager.EquipWeapon(weapon);

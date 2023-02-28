@@ -34,7 +34,7 @@ public class WeaponLevelBlast : MonoBehaviour
         if (level < 5f)
         {
             BlastLevel.text = "Lvl. " + level;
-            BlastLevelUp.text = currentXp + "/" + levelUpXp;
+            BlastLevelUp.text = currentXp.ToString("F0") + "/" + levelUpXp;
         }
 
         if (currentXp >= levelUpXp)

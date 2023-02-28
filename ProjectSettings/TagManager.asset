@@ -24,6 +24,7 @@ TagManager:
   - Rock
   - Ignore
   - IceFence
+  - Terrain
   layers:
   - Default
   - TransparentFX

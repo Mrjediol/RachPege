@@ -70,7 +70,6 @@ public class LevelSystem : MonoBehaviour
         {
             dashUnlockedTextShowed = true;
         }
-        Debug.Log("Current Level: " + level);
     }
     public void stopTimeOnLock()
     {

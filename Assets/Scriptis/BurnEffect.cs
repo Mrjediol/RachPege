@@ -62,6 +62,7 @@ public class BurnEffect : MonoBehaviour
                 StartCoroutine(ApplyBurnDamage());
             }
         }
+       
     }
     public void IceAndFireExplosion()
     {

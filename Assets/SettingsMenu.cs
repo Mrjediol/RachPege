@@ -90,17 +90,17 @@ public class SettingsMenu : MonoBehaviour
    
     private void LoadMusicMutedState()
     {
-        int isMuted = PlayerPrefs.GetInt("musicMuted", 0);
+        int isMuted = PlayerPrefs.GetInt("musicMuted", 1);
         bool musicIsMuted = (isMuted == 1);
 
         musicToggle.isOn = musicIsMuted;
         MuteMusicVolume(musicIsMuted);
+
     }
     private void LoadGameMutedState()
     {
-        int gisMuted = PlayerPrefs.GetInt("gameMuted", 0);
+        int gisMuted = PlayerPrefs.GetInt("gameMuted", 1);
         bool gameIsMuted = (gisMuted == 1);
-
         gameToggle.isOn = gameIsMuted;
         MuteGameVolume(gameIsMuted);
     }

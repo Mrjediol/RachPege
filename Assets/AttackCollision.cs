@@ -17,15 +17,18 @@ public class AttackCollision : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("detecta collision");
+        if (imBullet && collision.tag == "Fence" || imBullet &&  collision.tag == "Terrain")
+        {
+            Destroy(gameObject);
+        }
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("detecta player tag");
+
             PlayerHealth player = collision.gameObject.GetComponentInParent<PlayerHealth>();
             Rigidbody2D rb = collision.gameObject.GetComponentInParent<Rigidbody2D>();
             if (player != null)
             {
-                Debug.Log("detecta componentes");
+
                 Vector2 direction;
                 if (father != null)
                 {

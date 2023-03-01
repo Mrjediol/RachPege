@@ -50,7 +50,7 @@ public class FireWeaponChoice : MonoBehaviour
         
         if (Keyboard.current.mKey.wasPressedThisFrame)
         {
-            if (Time.timeScale == 0)
+            if (Time.timeScale == 0 || weaponManager.currentWeapon == null)
                 return;
             if (weaponManager.currentWeapon.name == "IceBall(Clone)")
                 ChoiceIce();

@@ -60,7 +60,6 @@ public class Enemy : MonoBehaviour
         endGame = FindObjectOfType<EndGame>();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        frozenEffect = GetComponent<FrozenEffect>();
         spawner.onEnemyKilled += RemoveEnemy;
         giveXP = 5 * (enemyLvl * enemyLvl) + 5 * enemyLvl;
         maxHealth += 3 * (enemyLvl * enemyLvl) + 4 * enemyLvl;

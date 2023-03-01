@@ -67,7 +67,7 @@ public class InstantiateAniquilation : MonoBehaviour
         {
             if (Time.timeScale == 0 || death.isDead == true)
                 return;
-            if (mouse.rightButton.wasPressedThisFrame && Time.time >= nextFireTime)
+            if (Keyboard.current.tKey.wasPressedThisFrame && Time.time >= nextFireTime)
             {
 
                 if (firstClick)

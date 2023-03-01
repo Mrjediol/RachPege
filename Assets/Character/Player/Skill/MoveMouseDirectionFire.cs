@@ -67,9 +67,16 @@ public class MoveMouseDirectionFire : MonoBehaviour
                     {
                         audioManager.Play("FireShoot");
 
-                        GameObject instantiatedPrefab = Instantiate(prefab, spawnPosition, Quaternion.Euler(0, 0, angle));
+                        //GameObject instantiatedPrefab = Instantiate(prefab, spawnPosition, Quaternion.Euler(0, 0, angle));
+                        GameObject instantiatedPrefab = ObjectPoolFire.instance.GetPooledObject();
+                        if(instantiatedPrefab == null)
+                        {
+                            return;
+                        }
+                        instantiatedPrefab.transform.position = spawnPosition;
+                        instantiatedPrefab.transform.rotation = Quaternion.Euler(0, 0, angle);
+                        instantiatedPrefab.SetActive(true);
                         Rigidbody2D rb = instantiatedPrefab.GetComponent<Rigidbody2D>();
-                        instantiatedPrefab.transform.parent = transform;
                         instantiatedPrefab.transform.localScale = scale;
                         if (instantiatedPrefab.name == "FireBall(Clone)")
                         {
@@ -83,7 +90,7 @@ public class MoveMouseDirectionFire : MonoBehaviour
                         }
                         manaSystem.ReduceMana(manaCost);
                         rb.AddForce(direction * force, ForceMode2D.Impulse);
-                        Destroy(instantiatedPrefab, destroyDelay);
+                        StartCoroutine(DeactivateAfterDelay(instantiatedPrefab, destroyDelay));
                         nextFireTime = Time.time + cooldown;
                     }
                 }
@@ -94,5 +101,20 @@ public class MoveMouseDirectionFire : MonoBehaviour
             }
         }
         fireCd.value = nextFireTime > Time.time ? 1 - (nextFireTime - Time.time) / cooldown : 1;
+    }
+
+    IEnumerator DeactivateAfterDelay(GameObject obj, float delay)
+    {
+        if (obj.activeInHierarchy == false)
+        {
+            yield break;
+        }
+        yield return new WaitForSeconds(delay);
+        
+        if (obj.activeSelf)
+        {
+            Debug.Log("YAAAAA");
+            obj.SetActive(false);
+        }
     }
 }

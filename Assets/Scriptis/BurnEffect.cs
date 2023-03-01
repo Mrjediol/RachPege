@@ -15,7 +15,6 @@ public class BurnEffect : MonoBehaviour
     WeaponManager weaponManager;
     SaveState saveState;
     FrozenEffect frozenEffect;
-    MoveMouseDirectionFire moveMouseDirectionFire;
     public GameObject smokeEffect;
     public Vector3 scale = new(0.15f, 0.15f, 0.15f);
     Enemy enemy;
@@ -23,7 +22,7 @@ public class BurnEffect : MonoBehaviour
     private void Start()
     {
         frozenEffect = GetComponent<FrozenEffect>();
-        moveMouseDirectionFire = FindObjectOfType<MoveMouseDirectionFire>();
+
         weaponManager = FindObjectOfType<WeaponManager>();
         saveState = FindObjectOfType<SaveState>();
         enemy = GetComponent<Enemy>();
@@ -100,7 +99,7 @@ public class BurnEffect : MonoBehaviour
 
     public void ApplyDamage(Enemy enemy, float damage)
     {
-        Debug.Log("5");
+
 
         enemy.Takehit(damage);
     }

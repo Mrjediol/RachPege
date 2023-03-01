@@ -17,25 +17,30 @@ public class AttackColliderIce : MonoBehaviour
     public GameObject smokeEffect;
     public Transform smokePosition;
     AudioManager audioManager;
-
+    MoveMouseDirectionIce mouseDirectionIce;
+    WeaponLevelIce weaponlevelIce;
     private void Start()
     {
         audioManager = FindObjectOfType<AudioManager>();
+       
+       
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
+        mouseDirectionIce = FindObjectOfType<MoveMouseDirectionIce>();
         if (other.tag == "Enemy")
         {
             // Deal damage to the enemy
             //Debug.Log("llego a 1");
             Enemy enemy = other.GetComponent<Enemy>();
-            WeaponLevelIce weaponlevelIce = GetComponentInParent<WeaponLevelIce>();
+
             //frozeneffect frozeneffect = other.getcomponent<frozeneffect>();
             //Debug.Log("1");
+            weaponlevelIce = FindObjectOfType<WeaponLevelIce>();
             if (enemy != null)
             {
                 smokePosition = other.transform;
-                if (weaponlevelIce.level < 5f)
+                if (weaponlevelIce.level < 5f && weaponlevelIce != null)
                 {
                     
                     weaponlevelIce.GetXp(IceDamage);
@@ -49,7 +54,7 @@ public class AttackColliderIce : MonoBehaviour
                 if (piercing == false)
                 {
                     //Debug.Log("3");
-                    Destroy(gameObject);
+                    gameObject.SetActive(false);
                 }
             }
             //if (burnEffect != null)
@@ -62,7 +67,7 @@ public class AttackColliderIce : MonoBehaviour
        if(other.CompareTag("Fence") || other.CompareTag("Terrain") || other.CompareTag("FireFence") || other.CompareTag("IceFence") || other.CompareTag("Rock") || other.CompareTag("Torch"))
         {
             Debug.Log(other.name);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
         if (other.CompareTag("IceFence"))
         {
@@ -80,10 +85,15 @@ public class AttackColliderIce : MonoBehaviour
         if (dps != null)
         {
             dps.TakeDamage(IceDamage);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
-    
+    private void OnDisable()
+    {
+        if (mouseDirectionIce)
+            mouseDirectionIce.StopAllCoroutines();
+    }
+
 }
 //    IEnumerator ApplyDamageOverTime(Enemy enemy)
 //    {

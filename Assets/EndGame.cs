@@ -72,7 +72,7 @@ public class EndGame : MonoBehaviour
 
     public void GoToArena()
     {
-        player.transform.position = new Vector3(58.448f, -11.918f, 0);
+        player.transform.position = new Vector3(58.448f, 11.918f, 0);
         Time.timeScale = 1f;
         endGameScreem.SetActive(false);
     }

@@ -10,10 +10,12 @@ public class VoidAttack : MonoBehaviour
     public float rotationSpeed = 100f;
     WeaponLevelVoid weaponLevelVoid;
     AudioManager audioManager;
+    InstantiateOnClickVoid instantiateOnClickVoid;
     private void Start()
     {
-        weaponLevelVoid = GetComponentInParent<WeaponLevelVoid>();
+        weaponLevelVoid = FindObjectOfType<WeaponLevelVoid>();
         audioManager = FindObjectOfType<AudioManager>();
+        instantiateOnClickVoid = FindObjectOfType<InstantiateOnClickVoid>();
     }
     private void Update()
     {
@@ -29,19 +31,25 @@ public class VoidAttack : MonoBehaviour
             // Deal damage to the enemy
             Debug.Log("llego a 1");
             enemy = other.GetComponent<Enemy>();
-            WeaponLevelVoid weaponLevelVoid = GetComponentInParent<WeaponLevelVoid>();
+            WeaponLevelVoid weaponLevelVoid = FindObjectOfType<WeaponLevelVoid>();
             if (enemy != null)
             {
-                
-                if (weaponLevelVoid.level < 5f)
+                if(weaponLevelVoid != null) 
                 {
+                    if (weaponLevelVoid.level < 5f)
+                    {
 
-                    weaponLevelVoid.GetXp(damage);
+                     weaponLevelVoid.GetXp(damage);
                     
+                    }
+                }
+                else
+                {
+                    gameObject.SetActive(false);
                 }
                 Debug.Log("llego a 2");
                 audioManager.Play("VoidHit");
-
+                if(gameObject.activeInHierarchy)
                 StartCoroutine(enemy.VoidAttack(damage));
                 
             }
@@ -57,8 +65,12 @@ public class VoidAttack : MonoBehaviour
         if (dps != null)
         {
             dps.TakeDamage(damage);
-            Destroy(gameObject);
         }
+    }
+    private void OnDisable()
+    {
+        if (instantiateOnClickVoid)
+            instantiateOnClickVoid.StopAllCoroutines();
     }
     //private void OnDestroy()
     //{

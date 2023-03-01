@@ -23,14 +23,12 @@ public class FrozenEffect : MonoBehaviour
     Enemy enemy;
     Animator animator;
     RunState run;
-    MoveMouseDirectionIce moveMouseDirectionIce;
     public GameObject smokeEffect;
     public Vector3 scale = new(0.2f, 0.2f, 0.2f);
     Trunk trunk;
     private void Start()
     {
-        moveMouseDirectionIce = FindObjectOfType<MoveMouseDirectionIce>();
-       animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         burnEffect = GetComponent<BurnEffect>();
         weaponManager = FindObjectOfType<WeaponManager>();
         saveState = FindObjectOfType<SaveState>();

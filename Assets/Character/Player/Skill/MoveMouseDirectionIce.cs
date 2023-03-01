@@ -65,9 +65,15 @@ public class MoveMouseDirectionIce : MonoBehaviour
                     {
                         audioManager.Play("IceShoot");
 
-                        GameObject instantiatedPrefab = Instantiate(prefab, spawnPosition, Quaternion.Euler(0, 0, angle));
+                        GameObject instantiatedPrefab = ObjectPoolIce.instance.GetPooledObject();
+                        if (instantiatedPrefab == null)
+                        {
+                            return;
+                        }
+                        instantiatedPrefab.transform.position = spawnPosition;
+                        instantiatedPrefab.transform.rotation = Quaternion.Euler(0, 0, angle);
+                        instantiatedPrefab.SetActive(true);
                         Rigidbody2D rb = instantiatedPrefab.GetComponent<Rigidbody2D>();
-                        instantiatedPrefab.transform.parent = transform;
                         instantiatedPrefab.transform.localScale = scale;
                         if (instantiatedPrefab.name == "FireBall(Clone)")
                         {
@@ -83,7 +89,7 @@ public class MoveMouseDirectionIce : MonoBehaviour
                         //manaSystem.currentMana -= manaCost;
                         rb.AddForce(direction * force, ForceMode2D.Impulse);
 
-                        Destroy(instantiatedPrefab, destroyDelay);
+                        StartCoroutine(DeactivateAfterDelay(instantiatedPrefab, destroyDelay));
                         nextFireTime = Time.time + cooldown;
                     }
                 }
@@ -96,5 +102,19 @@ public class MoveMouseDirectionIce : MonoBehaviour
         iceCd.value = nextFireTime > Time.time ? 1 - (nextFireTime - Time.time) / cooldown : 1;
 
 
+    }
+    IEnumerator DeactivateAfterDelay(GameObject obj, float delay)
+    {
+        if (obj.activeInHierarchy == false)
+        {
+            yield break;
+        }
+        yield return new WaitForSeconds(delay);
+
+        if (obj.activeSelf)
+        {
+            Debug.Log("YAAAAA");
+            obj.SetActive(false);
+        }
     }
 }

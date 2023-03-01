@@ -68,11 +68,17 @@ public class InstantiateOnClickVoid : MonoBehaviour
                         if (Physics2D.OverlapCircle(worldPos,0.3f, terrainLayer) == null)
                         {
                             audioManager.Play("VoidShoot");
-                            GameObject instantiatedPrefab = Instantiate(prefab, worldPos, Quaternion.identity);
-                            instantiatedPrefab.transform.parent = transform;
+                            GameObject instantiatedPrefab = ObjectPoolVoid.instance.GetPooledObject();
+                            if (instantiatedPrefab == null)
+                            {
+                                return;
+                            }
+                            instantiatedPrefab.transform.position = worldPos;
+                            instantiatedPrefab.SetActive(true);
+
                             instantiatedPrefab.transform.localScale = scale;
                             manaSystem.ReduceMana(manaCost);
-                            Destroy(instantiatedPrefab, destroyDelay);
+                            StartCoroutine(DeactivateAfterDelay(instantiatedPrefab, destroyDelay));
                             nextFireTime = Time.time + cooldown;
                         }
                     }
@@ -88,6 +94,18 @@ public class InstantiateOnClickVoid : MonoBehaviour
         // Actualiza la posición de la línea
 
     }
+    IEnumerator DeactivateAfterDelay(GameObject obj, float delay)
+    {
+
+        yield return new WaitForSeconds(delay);
+
+        if (obj.activeSelf)
+        {
+            Debug.Log("YAAAAA");
+            obj.SetActive(false);
+        }
+    }
+
     //private void OnDrawGizmos()
     //{
     //    Gizmos.color = Color.yellow;

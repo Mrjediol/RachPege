@@ -15,41 +15,47 @@ public class AttackColliderFire : MonoBehaviour
     public GameObject smokeEffect;
     public Transform smokePosition;
     AudioManager audioManager;
- 
+    WeaponLevelFire weaponLevelFire;
+    MoveMouseDirectionFire moveMouseDirectionFire;
 
     private void Start()
     {
         audioManager = FindObjectOfType<AudioManager>();
+     
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        
+        moveMouseDirectionFire = FindObjectOfType<MoveMouseDirectionFire>();
         if (other.tag == "Enemy")
         {
             
             // Deal damage to the enemy
-            //Debug.Log("llego a 1");
+            Debug.Log("llego a 1");
             Enemy enemy = other.GetComponent<Enemy>();
-            
+
             //BurnEffect burnEffect = other.GetComponent<BurnEffect>();
-            WeaponLevelFire weaponLevelFire = GetComponentInParent<WeaponLevelFire>();
+            weaponLevelFire = FindObjectOfType<WeaponLevelFire>();
+
             if (enemy != null)
             {
                 smokePosition = other.transform;
 
-                if (weaponLevelFire.level < 5f)
-                {
+                 if (weaponLevelFire.level < 5f)
+                  {
 
                     weaponLevelFire.GetXp(fireDamage);
                     //Savexpfire()
-                }
+                    }
+                
                 audioManager.Play("FireHit");
+                Debug.Log("llego a 2");
                 GameObject effect = Instantiate(smokeEffect, smokePosition.position, Quaternion.identity);
                 Destroy(effect, 1f);
                 enemy.Takehit(fireDamage);
                 if (piercing == false)
                 {
-                    Destroy(gameObject);
+                    Debug.Log("llego a 3");
+                    gameObject.SetActive(false);
                 }
             }
 
@@ -63,7 +69,8 @@ public class AttackColliderFire : MonoBehaviour
         if (other.CompareTag("Fence") || other.CompareTag("Terrain") || other.CompareTag("FireFence") || other.CompareTag("IceFence") || other.CompareTag("Rock") || other.CompareTag("Torch"))
         {
             Debug.Log(other.tag);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
+
         }
         if (other.CompareTag("FireFence"))
         {
@@ -98,15 +105,16 @@ public class AttackColliderFire : MonoBehaviour
         if (dps != null)
         {
             dps.TakeDamage(fireDamage);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
+            
         }
     }
-    private void OnDestroy()
+    private void OnDisable()
     {
-        if (smokePosition != null)
-        {
-        }
+        if(moveMouseDirectionFire)
+        moveMouseDirectionFire.StopAllCoroutines();
     }
+
 }
 //    IEnumerator ApplyDamageOverTime(Enemy enemy)
 //    {

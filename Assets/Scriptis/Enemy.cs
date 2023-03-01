@@ -89,10 +89,7 @@ public class Enemy : MonoBehaviour
             manaValue = 50f + (enemyLvl - 1f) * 2f;
         }
     }
-    private void Awake()
-    {
-        
-    }
+
     public void SetSpeed() 
     {
         moveSpeed = initialSpeed;

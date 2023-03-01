@@ -21,8 +21,10 @@ public class BurnEffect : MonoBehaviour
 
     private void Start()
     {
+        burnImage = transform.Find("BurningImage").gameObject;
         frozenEffect = GetComponent<FrozenEffect>();
-
+        smokeEffect = Resources.Load<GameObject>("SmokeVariant");
+        
         weaponManager = FindObjectOfType<WeaponManager>();
         saveState = FindObjectOfType<SaveState>();
         enemy = GetComponent<Enemy>();
@@ -53,10 +55,14 @@ public class BurnEffect : MonoBehaviour
 
             if (Random.Range(0f, 100f) <= probability)
             {
+                if(frozenEffect != null)
+                {
                 if (frozenEffect.FrozenImage.activeInHierarchy)
                 {
                     IceAndFireExplosion();
                     return;
+                }
+
                 }
                 StartCoroutine(ApplyBurnDamage());
             }

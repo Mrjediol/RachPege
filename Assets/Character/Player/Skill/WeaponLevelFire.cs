@@ -55,7 +55,7 @@ public class WeaponLevelFire : MonoBehaviour
             moveMouseDirectionFire.cooldown = 1.5f;
             moveMouseDirectionFire.force = 1f;
             saveState.fireDamage = swordAttack.damage;
-            saveState.burnprobability = 100f;
+            saveState.burnprobability = 50f;
             saveState.burnduration = 4f;
             saveState.burndamageOverTime = swordAttack.damage / 4f;
             saveState.burntimeBetweenDamage = 1f;

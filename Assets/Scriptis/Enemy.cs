@@ -261,7 +261,7 @@ public class Enemy : MonoBehaviour
             textTransform.GetComponent<TextMeshProUGUI>().text = string.Format(CultureInfo.GetCultureInfo("es-ES"), "{0:N0}", damageRevice);
             textTransform.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
             GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");
-            textTransform.SetParent(canvas.transform);
+            textTransform.transform.SetParent(canvas.transform);
 
             // Check if the list is not empty before trying to access an element
             //SwordAttack swordAttack = FindObjectOfType<SwordAttack>();

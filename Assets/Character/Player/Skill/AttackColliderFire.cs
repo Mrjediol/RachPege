@@ -38,7 +38,13 @@ public class AttackColliderFire : MonoBehaviour
 
             if (enemy != null)
             {
-                smokePosition = other.transform;
+                BurnEffect burnEffect = other.gameObject.GetComponent<BurnEffect>();
+                if(burnEffect == null)
+                {
+                    burnEffect = other.gameObject.AddComponent<BurnEffect>();
+                }
+                
+                    smokePosition = other.transform;
 
                  if (weaponLevelFire.level < 5f)
                   {

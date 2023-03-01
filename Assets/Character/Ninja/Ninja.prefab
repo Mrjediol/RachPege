@@ -185,8 +185,6 @@ GameObject:
   - component: {fileID: 6150619972652721772}
   - component: {fileID: 5786430997389196571}
   - component: {fileID: 2072307860918011393}
-  - component: {fileID: 933462697341647106}
-  - component: {fileID: 8258797546724922638}
   - component: {fileID: 1541190006470252150}
   m_Layer: 0
   m_Name: Ninja
@@ -421,48 +419,6 @@ MonoBehaviour:
   imNinja: 1
   attack: {fileID: 5084609127499337528}
   frozen: 0
---- !u!114 &933462697341647106
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1716159608496374676}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db0ca9a3cdb61c4488ed9dad4bf6c30e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageOverTime: 1
-  timeBetweenDamage: 1
-  duration: 5
-  probability: 50
-  burnImage: {fileID: 3208115065662344252}
-  damage: 0
-  smokeEffect: {fileID: 2004261648526209850, guid: cd51ed94718c5864e9f6516557ed99d9, type: 3}
-  scale: {x: 0.15, y: 0.15, z: 0.15}
---- !u!114 &8258797546724922638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1716159608496374676}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ca4a86cd88e6824081d8f98a4ad240a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageOverTime: 1
-  timeBetweenDamage: 2
-  duration: 6
-  probability: 50
-  FrozenImage: {fileID: 219844493719863645}
-  freezeDuration: 6
-  isFrozen: 0
-  damage: 0
-  smokeEffect: {fileID: 2004261648526209850, guid: cd51ed94718c5864e9f6516557ed99d9, type: 3}
-  scale: {x: 0.2, y: 0.2, z: 0.2}
 --- !u!114 &1541190006470252150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1209,7 +1165,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 672550963456169408, guid: d449251acb6338a4292d3abf70c10658, type: 3}
       propertyPath: m_Name
-      value: Burning
+      value: BurningImage
       objectReference: {fileID: 0}
     - target: {fileID: 672550963456169408, guid: d449251acb6338a4292d3abf70c10658, type: 3}
       propertyPath: m_IsActive
@@ -1266,11 +1222,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2595735718661042139, guid: d449251acb6338a4292d3abf70c10658, type: 3}
   m_PrefabInstance: {fileID: 2724926462045247996}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &3208115065662344252 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 672550963456169408, guid: d449251acb6338a4292d3abf70c10658, type: 3}
-  m_PrefabInstance: {fileID: 2724926462045247996}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3057337029672079786
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1280,7 +1231,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2981625612625449207, guid: eb3f93da41f07704ba4703b6fde1ab4c, type: 3}
       propertyPath: m_Name
-      value: Frozen
+      value: FrozenImage
       objectReference: {fileID: 0}
     - target: {fileID: 2981625612625449207, guid: eb3f93da41f07704ba4703b6fde1ab4c, type: 3}
       propertyPath: m_IsActive
@@ -1332,11 +1283,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb3f93da41f07704ba4703b6fde1ab4c, type: 3}
---- !u!1 &219844493719863645 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2981625612625449207, guid: eb3f93da41f07704ba4703b6fde1ab4c, type: 3}
-  m_PrefabInstance: {fileID: 3057337029672079786}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7067119220061588965 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5223793662300511311, guid: eb3f93da41f07704ba4703b6fde1ab4c, type: 3}

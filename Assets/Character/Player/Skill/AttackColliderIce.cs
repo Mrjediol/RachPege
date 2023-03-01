@@ -39,6 +39,11 @@ public class AttackColliderIce : MonoBehaviour
             weaponlevelIce = FindObjectOfType<WeaponLevelIce>();
             if (enemy != null)
             {
+                FrozenEffect frozenEffect = other.gameObject.GetComponent<FrozenEffect>();
+                if (frozenEffect == null) 
+                { 
+                frozenEffect = other.gameObject.AddComponent<FrozenEffect>();
+                }
                 smokePosition = other.transform;
                 if (weaponlevelIce.level < 5f && weaponlevelIce != null)
                 {

@@ -847,7 +847,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2981625612625449207, guid: eb3f93da41f07704ba4703b6fde1ab4c, type: 3}
       propertyPath: m_Name
-      value: Frozen
+      value: FrozenImage
       objectReference: {fileID: 0}
     - target: {fileID: 2981625612625449207, guid: eb3f93da41f07704ba4703b6fde1ab4c, type: 3}
       propertyPath: m_IsActive

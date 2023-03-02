@@ -63,7 +63,7 @@ public class PlayerHealth : MonoBehaviour
                 cooldownTimer = 0f;
             }
         }
-        if (Input.GetKeyDown(KeyCode.H) && canHeal && health < maxhealth)
+        if (Input.GetKeyDown(KeyCode.R) && canHeal && health < maxhealth)
         {
             RestoreHealth(maxhealth * 0.6f);
             audioManager.Play("PlayerHeal");

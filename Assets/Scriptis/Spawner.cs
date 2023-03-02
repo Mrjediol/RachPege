@@ -18,13 +18,12 @@ public class Spawner : MonoBehaviour
     private float heat;
     private int activeEnemies = 0;
     public GameObject prefabToSpawn;
-
     public Action onEnemyKilled;
     public float activeRange = 2f;
     Vector2[,] spawnPositions;
     int spawnCounter = 0;
     int maxSpawns = 0;
-
+    
     private void Start()
     {
         spawnPositions = new Vector2[3, 3];

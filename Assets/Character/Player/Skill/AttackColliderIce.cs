@@ -23,7 +23,6 @@ public class AttackColliderIce : MonoBehaviour
     {
         audioManager = FindObjectOfType<AudioManager>();
        
-       
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -68,6 +67,8 @@ public class AttackColliderIce : MonoBehaviour
             //    StartCoroutine(burnEffect.ApplyBurnDamage());
             //}
         }
+        
+        
         //if (!other.CompareTag("Enemy") && !other.CompareTag("Ignore") && !other.CompareTag("CheckPoint") && !other.CompareTag("Player") && !other.CompareTag("DetectionZone") && !other.CompareTag("ManaStart") && !other.CompareTag("VoidAttack") && !other.CompareTag("Water") && !other.CompareTag("Torch"))
        if(other.CompareTag("Fence") || other.CompareTag("Terrain") || other.CompareTag("FireFence") || other.CompareTag("IceFence") || other.CompareTag("Rock") || other.CompareTag("Torch"))
         {
@@ -93,9 +94,12 @@ public class AttackColliderIce : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
+
+    
     private void OnDisable()
     {
-        if (mouseDirectionIce)
+
+            if (mouseDirectionIce)
             mouseDirectionIce.StopAllCoroutines();
     }
 

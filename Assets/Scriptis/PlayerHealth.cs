@@ -31,6 +31,7 @@ public class PlayerHealth : MonoBehaviour
     Rigidbody2D rb;
     public GameObject bloodEffect;
     AudioManager audioManager;
+    private bool healReady;
     private void Start()
     {
         maxhealth = PlayerPrefs.GetFloat("MaxHealth", maxhealth);
@@ -52,6 +53,11 @@ public class PlayerHealth : MonoBehaviour
         if (canHeal)
         {
             cooldownSlider.value = 0f;
+            if (healReady)
+            {
+            audioManager.Play("HealReady");
+                healReady = false;
+            }
         }
         else
         {
@@ -60,6 +66,7 @@ public class PlayerHealth : MonoBehaviour
             if (cooldownTimer >= cooldownTime)
             {
                 canHeal = true;
+                healReady = true;
                 cooldownTimer = 0f;
             }
         }

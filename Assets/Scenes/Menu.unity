@@ -2692,8 +2692,8 @@ MonoBehaviour:
     source: {fileID: 0}
     mixerGroup: {fileID: 24300002, guid: 36e9125d97f79e34eb6e5b456f03e3a6, type: 2}
   - name: MMBGMusic
-    clip: {fileID: 8300000, guid: 90eae78e8ce85a849b5b0ca11b2de641, type: 3}
-    volume: 0.115
+    clip: {fileID: 8300000, guid: 32c0512d3d923fb4c9f01157e0c17e9f, type: 3}
+    volume: 0.181
     pitch: 1
     loop: 1
     source: {fileID: 0}

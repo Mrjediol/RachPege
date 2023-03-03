@@ -16,6 +16,10 @@ public class Slime : MonoBehaviour
     public bool imNinja;
     public Transform attack;
     public bool frozen;
+    Enemy enemy;
+    AudioManager audioManager;
+    private bool hasPlayedBossRageSound;
+    SpriteRenderer spriteRenderer;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,11 +27,35 @@ public class Slime : MonoBehaviour
         animator = GetComponent<Animator>();
         initialSpeed = speed;
         rb = GetComponent<Rigidbody2D>();
+        enemy = GetComponent<Enemy>();
+        
+        if (imNinja)
+        {
+            audioManager = FindObjectOfType<AudioManager>();
+            audioManager.Play("BossSpawn");
+            audioManager.Play("BossZone");
+            spriteRenderer = GetComponent<SpriteRenderer>();
+        }
     }
 
     // Update is called once per frame
     private void Update()
     {
+        if(imNinja && enemy.health < (enemy.maxHealth/2f))
+        {
+            speed = 1f;
+            animator.speed = 1.4f;
+            if (!hasPlayedBossRageSound)
+            {
+                spriteRenderer.color = Color.red;
+                audioManager.Play("BossRage");
+                
+                hasPlayedBossRageSound = true;
+                audioManager.Stop("BossZone");
+                audioManager.Play("SecondPhase");
+            }
+
+        }    
         float distance = Vector3.Distance(transform.position, player.position);
          if (distance < minDistance && imNinja)
             {

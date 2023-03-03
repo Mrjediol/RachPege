@@ -32,6 +32,11 @@ public class AttackColliderFire : MonoBehaviour
             // Deal damage to the enemy
             Debug.Log("llego a 1");
             Enemy enemy = other.GetComponent<Enemy>();
+            if (enemy.imtheBoss == true)
+            {
+                gameObject.SetActive(false);
+                return;
+            }
 
             //BurnEffect burnEffect = other.GetComponent<BurnEffect>();
             weaponLevelFire = FindObjectOfType<WeaponLevelFire>();
@@ -57,7 +62,15 @@ public class AttackColliderFire : MonoBehaviour
                 Debug.Log("llego a 2");
                 GameObject effect = Instantiate(smokeEffect, smokePosition.position, Quaternion.identity);
                 Destroy(effect, 1f);
+                if(enemy.imTrunk)
+                {
+                    enemy.Takehit(fireDamage * 1.2f);
+                }
+                else
+                {
                 enemy.Takehit(fireDamage);
+
+                }
                 if (piercing == false)
                 {
                     Debug.Log("llego a 3");

@@ -11,10 +11,12 @@ public class EndGame : MonoBehaviour
     public TextMeshProUGUI CurrentTimeText;
     public int Score;
     PlayerController player;
+    AudioManager audioManager;
     // Start is called before the first frame update
     void Start()
     {
         player = FindObjectOfType<PlayerController>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -50,6 +52,8 @@ public class EndGame : MonoBehaviour
         int hours = (int)(timeElapsed / 3600);
         int minutes = (int)((timeElapsed % 3600) / 60);
         int seconds = (int)(timeElapsed % 60);
+        audioManager.Stop("SecondPhase");
+        audioManager.Play("FinalBossWin");
         LevelSystem levelSystem = FindObjectOfType<LevelSystem>();
         levelSystem.level = 50;
         saveXp.Firelevel = 5;

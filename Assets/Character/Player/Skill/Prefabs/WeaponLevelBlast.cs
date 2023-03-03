@@ -46,7 +46,7 @@ public class WeaponLevelBlast : MonoBehaviour
         saveXp.Blastcurrentxp = currentXp;
         if (level >= 1)
         {
-            levelUpXp = 100;
+            levelUpXp = 10000;
             InstantiateOnClickFire.scale = new Vector3(0.15f, 0.15f, 0.15f);
             InstantiateOnClickFire.cooldown = 15f;
             InstantiateOnClickFire.manaCost = 200;
@@ -60,7 +60,7 @@ public class WeaponLevelBlast : MonoBehaviour
             //instantiateOnClickVoid.force = 2f;
             InstantiateOnClickFire.cooldown = 14f;
             InstantiateOnClickFire.manaCost = 225;
-            levelUpXp = 300f;
+            levelUpXp = 30000f;
             InstantiateOnClickFire.range = 0.9f;
             InstantiateOnClickFire.damage = swordAttack.damage * 6;
         }
@@ -71,7 +71,7 @@ public class WeaponLevelBlast : MonoBehaviour
             InstantiateOnClickFire.damage = swordAttack.damage * 7;
             InstantiateOnClickFire.cooldown = 13f;
             InstantiateOnClickFire.manaCost = 250;
-            levelUpXp = 600f;
+            levelUpXp = 60000f;
             InstantiateOnClickFire.range = 1.1f;
         }
         if (level >= 4)
@@ -85,7 +85,7 @@ public class WeaponLevelBlast : MonoBehaviour
             InstantiateOnClickFire.manaCost = 275;
             InstantiateOnClickFire.range = 1.4f;
             //instantiateOnClickVoid.piercing = true;
-            levelUpXp = 1000f;
+            levelUpXp = 100000f;
         }
         if (level >= 5)
         {

@@ -428,6 +428,7 @@ MonoBehaviour:
   imFur: 1
   imNinja: 0
   imInvencible: 0
+  desactivateDistance: 1
   forceMagnitude: 50
 --- !u!1001 &3577187055651489630
 PrefabInstance:

@@ -51,7 +51,7 @@ public class Enemy : MonoBehaviour
     public bool imNinja;
     public bool imInvencible;
     PlayerController playerController;
-
+    public float desactivateDistance = 4f;
     private void Start()
     {
         playerController = FindObjectOfType<PlayerController>();
@@ -103,6 +103,7 @@ public class Enemy : MonoBehaviour
     }
     private void Update()
     {
+       
         float levelDiference = enemyLvl - levelSystem.level;
         if(levelDiference <= -1)
         {
@@ -126,6 +127,7 @@ public class Enemy : MonoBehaviour
             levelText.color = Color.red;
             xpText.color = Color.red;
         }
+        
     }
     //void FixedUpdate()
     //{   

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Chest : MonoBehaviour
 {
     public float activationDistance = 0.5f;
-    public KeyCode activationKey = KeyCode.T;
+    private KeyCode activationKey = KeyCode.F;
     public GameObject chest;
     public int giveXP = 1000;
     private bool canOpen = false;

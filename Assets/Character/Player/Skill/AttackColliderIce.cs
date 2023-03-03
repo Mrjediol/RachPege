@@ -32,11 +32,16 @@ public class AttackColliderIce : MonoBehaviour
             // Deal damage to the enemy
             //Debug.Log("llego a 1");
             Enemy enemy = other.GetComponent<Enemy>();
+            if (enemy.imtheBoss == true)
+            {
+                gameObject.SetActive(false);
+                return;
+            }
 
             //frozeneffect frozeneffect = other.getcomponent<frozeneffect>();
             //Debug.Log("1");
             weaponlevelIce = FindObjectOfType<WeaponLevelIce>();
-            if (enemy != null)
+            if (enemy != null )
             {
                 FrozenEffect frozenEffect = other.gameObject.GetComponent<FrozenEffect>();
                 if (frozenEffect == null) 

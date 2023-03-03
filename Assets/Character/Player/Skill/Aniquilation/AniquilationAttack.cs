@@ -33,7 +33,7 @@ public class AniquilationAttack : MonoBehaviour
             return;
         Enemy enemy = other.GetComponent<Enemy>();
         WeaponLevelAniquilation weaponLevelAniquilation = GetComponentInParent<WeaponLevelAniquilation>();
-        if (enemy == null)
+        if (enemy == null && enemy.imtheBoss == true)
             return;
         enemy.Takehit(instantiateAniquilation.damage);
         if (weaponLevelAniquilation.level < 5f)

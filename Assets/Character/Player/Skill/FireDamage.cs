@@ -27,7 +27,7 @@ public class FireDamage : MonoBehaviour
         if (other.tag == "Enemy")
         {
             Enemy enemy = other.GetComponent<Enemy>();
-            if (enemy != null)
+            if (enemy != null && enemy.imtheBoss == false)
             {
                 enemiesInside.Add(enemy);
             }
@@ -62,6 +62,7 @@ public class FireDamage : MonoBehaviour
         foreach (Enemy enemy in enemiesInside)
         {
             audioManager.Play("BlastHit");
+            
             enemy.Takehit(damage);
             if (weaponLevelBlast.level < 5f)
             {

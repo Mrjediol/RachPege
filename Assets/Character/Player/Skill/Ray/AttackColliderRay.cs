@@ -35,8 +35,13 @@ public class AttackColliderRay : MonoBehaviour
         if (other.tag == "Enemy")
         {
             timeToLive = originalTimeToLive;
-            Enemy enemy = other.GetComponent<Enemy>(); 
-            Debug.Log("1");
+            Enemy enemy = other.GetComponent<Enemy>();
+            if (enemy.imtheBoss == true)
+            {
+                gameObject.SetActive(false);
+                return;
+            }
+
             WeaponLevelRay weaponLevelRay = GetComponentInParent<WeaponLevelRay>();
             if (enemy != null)
             {

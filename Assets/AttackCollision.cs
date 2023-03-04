@@ -17,10 +17,7 @@ public class AttackCollision : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (imBullet && collision.tag == "Fence" || imBullet &&  collision.tag == "Terrain")
-        {
-            Destroy(gameObject);
-        }
+        
         if (collision.gameObject.CompareTag("Player"))
         {
 
@@ -52,8 +49,13 @@ public class AttackCollision : MonoBehaviour
                 }
                 //rb.AddForce(knockBack * Time.fixedDeltaTime * direction);
                 player.TakeDamage(enemyDamageAttack, knockBack);
-                Debug.Log("solo si golpeo player");
             }
+        }
+        if (collision.gameObject.CompareTag("Fence") || collision.CompareTag("Terrain") || collision.CompareTag("FireFence") || collision.CompareTag("IceFence") || collision.CompareTag("Rock") || collision.CompareTag("Torch"))
+        {
+
+            Destroy(gameObject);
+
         }
     }
 

@@ -52,6 +52,7 @@ public class Enemy : MonoBehaviour
     public bool imInvencible;
     PlayerController playerController;
     public float desactivateDistance = 4f;
+
     private void Start()
     {
         playerController = FindObjectOfType<PlayerController>();
@@ -88,7 +89,7 @@ public class Enemy : MonoBehaviour
             manaValue = 50f + (enemyLvl - 1f) * 2f;
         }
     }
-
+  
     public void SetSpeed() 
     {
         moveSpeed = initialSpeed;

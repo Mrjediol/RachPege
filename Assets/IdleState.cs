@@ -37,7 +37,7 @@ public class IdleState : StateMachineBehaviour
         if (Vector2.Distance(enemy.home, rb.position) >= homeRange)
         {
             float distance = Vector2.Distance(enemy.home, rb.position);
-            Debug.Log(distance);
+
             Vector2 newPos = Vector2.MoveTowards(rb.position, enemy.home, (speed / 2) * Time.fixedDeltaTime);
             rb.MovePosition(newPos);
         }

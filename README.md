@@ -202,7 +202,7 @@ Arma a distancia que dispara un proyectil de hielo que puede congelar a los enem
 
 | In Menu | In Game |
 | :---: | :---: |
-| ![Imagen 1](./png/icemenu.png) | ![Imagen 2](./png/IceinGame.png) |
+| ![Imagen 1](./png/IceMenu.png) | ![Imagen 2](./png/IceInGame.png) |
 
 ---
 

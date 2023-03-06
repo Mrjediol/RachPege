@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
     [SerializeField] private AudioSource swordAttackSound;
     public bool hasPlayedSound = false;
-
+    public Texture2D newCursor;
     public GameObject manaText;
     public GameObject Effect;
     public Vector3 scale = new Vector3(0.2f, 0.2f, 0.2f);
@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
     AudioManager audioManager;
     private void Start()
     {
+            Cursor.SetCursor(newCursor, new Vector2(32, 32), CursorMode.ForceSoftware);
+        
         audioManager = FindObjectOfType<AudioManager>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();

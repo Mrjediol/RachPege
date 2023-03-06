@@ -14,4 +14,8 @@ public class ChangeCursor : MonoBehaviour
     {
         Cursor.SetCursor(defaultCursor, new Vector2(32, 32), CursorMode.ForceSoftware);
     }
+    private void OnDestroy()
+    {
+        Cursor.SetCursor(defaultCursor, new Vector2(32, 32), CursorMode.ForceSoftware);
+    }
 }

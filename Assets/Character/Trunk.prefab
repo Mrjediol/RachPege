@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5873288568427349998}
   - component: {fileID: 9059884646277355271}
   - component: {fileID: 5005888006442739687}
+  - component: {fileID: -8740335145846408801}
   m_Layer: 6
   m_Name: Trunk
   m_TagString: Enemy
@@ -208,6 +209,7 @@ MonoBehaviour:
   imFur: 0
   imNinja: 0
   imInvencible: 0
+  desactivateDistance: 4
   forceMagnitude: 50
 --- !u!114 &5005888006442739687
 MonoBehaviour:
@@ -232,6 +234,20 @@ MonoBehaviour:
   initialSpeed: 0
   slowedSpeed: 0
   currentSpeed: 0
+--- !u!114 &-8740335145846408801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1462664165295704625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8150df0ec36f6304d8c7ba8b7e40a841, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultCursor: {fileID: 2800000, guid: 4b5b7c93e43ce294194da5e690d5c32f, type: 3}
+  newCursor: {fileID: 2800000, guid: d1a60999e3a28a343a3fd6c4140738f2, type: 3}
 --- !u!1 &5193385873839662138
 GameObject:
   m_ObjectHideFlags: 0

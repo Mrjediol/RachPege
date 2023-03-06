@@ -187,6 +187,7 @@ GameObject:
   - component: {fileID: 2072307860918011393}
   - component: {fileID: 1541190006470252150}
   - component: {fileID: 4234508497968135163}
+  - component: {fileID: 868504928948635892}
   m_Layer: 0
   m_Name: Ninja
   m_TagString: Enemy
@@ -445,6 +446,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7552bb3b3c2f0be48aa71c8e510dc15b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &868504928948635892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716159608496374676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8150df0ec36f6304d8c7ba8b7e40a841, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultCursor: {fileID: 2800000, guid: 4b5b7c93e43ce294194da5e690d5c32f, type: 3}
+  newCursor: {fileID: 2800000, guid: d1a60999e3a28a343a3fd6c4140738f2, type: 3}
 --- !u!1 &1893212333171761076
 GameObject:
   m_ObjectHideFlags: 0

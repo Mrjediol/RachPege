@@ -1,8 +1,5 @@
-<center>
 
-
-# **RatchPege**
- <h1 align="center">RatchPege</h1>
+<h1 align="center">RatchPege</h1>
  
 ### **TopDown Rpg**
 
@@ -16,7 +13,7 @@
 ---
 
 </p>
-</center>
+
 
 - [Introducción](#introducción)
 

@@ -1,34 +1,49 @@
-# RatchPege
+<center>
 
-## TopDown Rpg
+# **RatchPege**
 
-<!-- ![logo](./src/assets/Gilwing1.png) -->
+### **TopDown Rpg**
+
+ 
+![logo](./png/RachtPegeLogo.png) 
 
 ---
 
-### Índice
+## **Índice**
+
+---
+
+</center>
 
 - [Introducción](#introducción)
 
   - [Datos del proyecto](#datos)
   - [Descripción del proyecto](#descripción-del-proyecto)
-  - [Objetivos personales](#Objetivos-personales)
   - [Tecnologías](#tecnologías)
   
-- [Armas](#Armas)
+- [ScreenShots](#screenshots)
+
+- [Armas](#armas)
 
 - [Resultados y conclusiones](#resultados-y-conclusiones)
 
 - [Bibliografía](#bibliografía)
 
+<center>
 
-## Introducción
+---
+
+## **Introducción**
+
+</center>
 
 ---
 
-### Datos
+## Datos
 
----
+
+
+
 > Título: RatchPege
 
 > Alumno: Jeremy Díaz Olivares
@@ -37,7 +52,12 @@
 
 > Fecha de entrega: 07/03/2023
 
-> [RatchPege](https://gilwing.ddns.net)
+> Web: [RatchPege.com](https://mrjediol.netlify.app/)
+
+> Itch.io: [RatchPege.io](https://mrjediol16.itch.io/rachpege?secret=HYsQAgDSmXK0KOOoa30pDmBjRM)
+
+> Trailer: [RatchPege](https://mrjediol.netlify.app/)
+
 
 Este proyecto se trata de mi proyecto final del curso de creación videojuegos con Unity3D, es un juego Rpg, con vista TopDown, en el que matas enemigos con un amplio catálogo de armas que también pueden de nivel.
 
@@ -45,23 +65,33 @@ Este proyecto surge por unir varios conceptos que me gustan mucho, como lo son l
 
 Es mi primer juego, y ha sido realizado en un plazo de unos 2 meses, asi que todo esto es una exploración de conceptos y ejercicios para aprender.
 
-
-### Descripción del proyecto
+<center>
 
 ---
 
-El objetivo de RatchPege es subir de nivel tanto el personaje como las armas, para ser lo suficientemente fuerte para matar al boss de cada zona y pasar a la siguiente, hasta que llegas al Boss final y al matarlo te has pasado el juego!, dando la posibilidad de que cada persona tenga sus propias estrategias de grindeo/farmeo, usando las combinaciones de armas que mas le gusten.
+## **Descripción del proyecto**
+
+</center>
+
+---
+
+El objetivo de RatchPege es subir de nivel tanto el personaje como las armas, al desbloquear cada arma puedes destruir la barrera de cada zona y pasar a la siguiente, hasta que llegas al Boss final y al matarlo te has pasado el juego!, dando la posibilidad de que cada persona tenga sus propias estrategias de grindeo/farmeo, usando las combinaciones de armas que mas le gusten.
 
 La idea del sistema de grindeo/farmeo, es la siguiente. Zonas amplias con muchos grupos de enemigos separados entre sí, grupos de enemigos, que al matar al último de cada grupo, se iniciará un contador de reaparición para ese grupo de enemigos. Cada zona tendrá diferentes disposiciones, tipos y cantidades de enemigos. 
 
 Está pensado para que el jugador se haga su propia ruta de farmeo, dependiendo de lo rápido que mate a los grupos de enemigo de cada zona con su estrategia, de modo que su ruta termine donde empezó, y que al llegar al inicio, el primer grupo de enemigos ya haya reaparecido y pueda realizar esa ruta en Loop como método de farmeo.
 
 
-#### Objetivos personales
+### Objetivos personales
 
 Con este proyecto pretendo aprender y desarrollar mis habilidades para la creación de videojuegos en Unity, y aprender programación en C#.
+<center>
 
-## Tecnologías
+---
+
+## **Tecnologías**
+
+</center>
 
 ---
 
@@ -90,43 +120,172 @@ Con este proyecto pretendo aprender y desarrollar mis habilidades para la creaci
 - Para la gestión del tiempo.
 
 
-## Armas
+<center>
+
+---
+
+## **ScreenShots**
+
+</center>
+
+---
+
+
+<center>
+
+
+![Imagen 4](./png/StartScreem.png)
+
+![Imagen 1](./png/FightingSword.png)
+
+![Imagen 5](./png/UnlockFire.png)
+
+![Imagen 2](./png/firelimit.png)
+
+![Imagen 3](./png/icelimit.png)
+
+![Imagen 6](./png/pauseMenu.png)
+
+
+
+
+
+
+
+---
+
+
+
+</center>
+
+
+
+<center>
+
+## **Armas**
+
+</center>
 
 ---
 
 - **Sword**: Ataque Melee que viene por defecto desbloqueado. Su daño escala con el nivel del personaje.
 
-![Landing_pro](./png/void.png)
+---
 
-- **FireGun**: Arma a distancia que dispara un proyectil de fuego que puede quemar a los enemigos con cierta probabilidad, el daño, tamaño, velocidad de proyectil, cooldown. etc escalan con el nivel del arma. 
+<center>
 
-![Landing_pro](./png/void.png)
+**FireGun** 
 
-- **IceGun**: Arma a distancia que dispara un proyectil de hielo que puede congelar a los enemigos con cierta probabilidad, el daño, tamaño, velocidad de proyectil, cooldown. etc escalan con el nivel del arma. 
+</center>
 
-![Landing_pro](./png/void.png)
+Arma a distancia que dispara un proyectil de fuego que puede quemar a los enemigos con cierta probabilidad, el daño, tamaño, velocidad de proyectil, cooldown. etc escalan con el nivel del arma. 
 
-- **RayGun**: Arma a distancia que dispara un proyectil que teletransporta al player a la ubicaciones en la que se destruye, por cada enemigo que atraviese reinicia su duración y hace que llegue mas lejos, haciendo mas daño a cada enemigo y ganando mas experiencia por cada enemigo golpeado.
+<center>
 
-![Landing_pro](./png/void.png)
+| In Menu | In Game |
+| :---: | :---: |
+| ![Imagen 1](./png/fireMenu.png) | ![Imagen 2](./png/fireingame.png) |
 
-- **BlastGun**: Arma que crea una explosion en la posición del raton.
+---
+
+</center>
+
+<center>
+
+**IceGun** 
+
+</center>
+
+Arma a distancia que dispara un proyectil de hielo que puede congelar a los enemigos con cierta probabilidad, el daño, tamaño, velocidad de proyectil, cooldown. etc escalan con el nivel del arma.
+
+<center>
+
+| In Menu | In Game |
+| :---: | :---: |
+| ![Imagen 1](./png/icemenu.png) | ![Imagen 2](./png/IceinGame.png) |
+
+---
 
 
-![Landing_pro](./png/void.png)
 
-- **VoidGun**: Arma a distancia que instancia un proyectil en la posicion del mouse, el daño, tamaño, cooldown. etc escalan con el nivel del arma. 
+**RayGun** 
 
-![Landing_pro](./png/void.png)
+</center>
 
-- **AniquilitationGun**: Página inicial donde podremos encontrar las campañas y tendremos acceso a un buscador directo de las mismas.
+Arma a distancia que dispara un proyectil que teletransporta al player a la ubicaciones en la que se destruye, por cada enemigo que atraviese reinicia su duración y hace que llegue mas lejos, haciendo mas daño a cada enemigo y ganando mas experiencia por cada enemigo golpeado.
 
-![Landing_pro](./png/void.png)
+<center>
+
+| In Menu | In Game |
+| :---: | :---: |
+| ![Imagen 1](./png/RayGunMenu.png) | ![Imagen 2](./png/RayGunInGame.png) |
+
+---
+
+</center>
 
 
+<center>
+
+**Blast** 
+
+</center>
+
+Arma que crea una explosion en la posición del raton despues de 6.5 segundos, esta pensada para usarse junto a Vortex.
+
+<center>
+
+| In Menu | In Game |
+| :---: | :---: |
+| ![Imagen 1](./png/BlastMenu.png) | ![Imagen 2](./png/blastingame.png) |
+
+---
+
+</center>
+
+<center>
+
+**Vortex** 
+
+</center>
+
+Arma a distancia que instancia un proyectil en la posicion del mouse, el daño, tamaño, cooldown. etc escalan con el nivel del arma. 
+
+<center>
+
+| In Menu | In Game |
+| :---: | :---: |
+| ![Imagen 1](./png/VortexMenu.png) | ![Imagen 2](./png/voidingame.png) |
+
+---
+
+</center>
 
 
-## Resultados y conclusiones
+<center>
+
+**Quilava** 
+
+</center>
+
+Arma que con 2 instancias, en la primera se decide la posición inicial del proyectil, y en la empieza una cadena de explosiones que van desde la posición de la primera instancia hasta la posición de la segunda. 
+
+<center>
+
+| In Menu | In Game |
+| :---: | :---: |
+| ![Imagen 1](./png/QuilavaMenu.png) | ![Imagen 2](./png/quilavaingame.png) |
+
+---
+
+</center>
+
+
+<center>
+
+## **Resultados y conclusiones**
+
+</center>
 
 ---
 
@@ -138,7 +297,15 @@ Otro sistema que no plantee en un principio fue el de almacenamiento de Mis camp
 
 En un futuro, como he mencionado antes se podrían añadir las funcionalidades de recompensas, votaciones y de devolución de ether. También una posible mejora a la personalización de las campañas, permitiendote modificar el título y descripción. Se podría añadir incluso una forma de subir imágenes a la campaña con el uso de urls, ya que en la blockchain no es recomendable el almacenamiento de imágenes.
 
-## Bibliografía
+<center>
+
+---
+
+## **Bibliografía**
+
+---
+
+</center>
 
 - [ChatGpt](https://chat.openai.com/chat)
 

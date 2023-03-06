@@ -1,4 +1,5 @@
 <center>
+<p align="center">
 
 # **RatchPege**
 
@@ -13,6 +14,7 @@
 
 ---
 
+</p>
 </center>
 
 - [Introducción](#introducción)

@@ -1,6 +1,8 @@
 
 <h1 align="center">RatchPege</h1>
+
 <div align="center">
+ 
 ### **TopDown Rpg**
 
  
@@ -9,7 +11,9 @@
 ---
 
 ## **Índice**
+ 
 </div>
+
 ---
 
 </p>

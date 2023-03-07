@@ -5,8 +5,9 @@
  
 ### **TopDown Rpg**
 
- 
-![logo](./png/RachtPegeLogo.png) 
+ <img height="300px" src="./png/Logo.png">
+
+<!-- ![logo](./png/Logo.png)  -->
 
 ---
 
@@ -174,11 +175,25 @@ Con este proyecto pretendo aprender y desarrollar mis habilidades para la creaci
 
 ---
 
-- **Sword**: Ataque Melee que viene por defecto desbloqueado. Su daño escala con el nivel del personaje.
+<div align="center">
+
+
+
+**Sword** 
+
+</div>
+
+Ataque Melee que viene por defecto desbloqueado. Su daño escala con el nivel del personaje.
+
+<div align="center">
+
+<img align="center" src="./png/SwordAttack.png">
+
+
 
 ---
 
-<div align="center">
+
 
 **FireGun** 
 

@@ -52,7 +52,7 @@ public class Enemy : MonoBehaviour
     public bool imInvencible;
     PlayerController playerController;
     public float desactivateDistance = 4f;
-
+    public GameObject WinEffect;
     private void Start()
     {
         playerController = FindObjectOfType<PlayerController>();
@@ -341,6 +341,11 @@ public class Enemy : MonoBehaviour
     public void NinjaDeath()
     {
         audioManager.Play("NinjaDeath");
+        GameObject effect = Instantiate(WinEffect, transform.position, Quaternion.identity);
+        ParticleSystem ps = effect.GetComponent<ParticleSystem>();
+        Renderer psRenderer = ps.GetComponent<Renderer>();
+        psRenderer.sortingOrder = 11;
+        psRenderer.sortingLayerName = "arboles";
     }
     public void AddForce()
     {

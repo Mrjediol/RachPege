@@ -53,7 +53,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6218047407397478669, guid: eb10f889e2db9844e81f0e2afc07b27e, type: 3}
       propertyPath: m_Name
-      value: ManaStart
+      value: ManaStart Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb10f889e2db9844e81f0e2afc07b27e, type: 3}
+--- !u!1 &472857267389600449 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6218047407397478669, guid: eb10f889e2db9844e81f0e2afc07b27e, type: 3}
+  m_PrefabInstance: {fileID: 5820088887528076236}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7068138751052279474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472857267389600449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b51a0ca39ab75ad4a8dea06138e8499a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

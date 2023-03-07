@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     AudioManager audioManager;
     private void Start()
     {
-            Cursor.SetCursor(newCursor, new Vector2(32, 32), CursorMode.ForceSoftware);
+        Cursor.SetCursor(newCursor, new Vector2(32, 32), CursorMode.ForceSoftware);
         
         audioManager = FindObjectOfType<AudioManager>();
         rb = GetComponent<Rigidbody2D>();

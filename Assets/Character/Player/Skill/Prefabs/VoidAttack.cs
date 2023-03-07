@@ -39,7 +39,7 @@ public class VoidAttack : MonoBehaviour
                     if (weaponLevelVoid.level < 5f)
                     {
 
-                     weaponLevelVoid.GetXp(damage);
+                     weaponLevelVoid.GetXp(damage*5);
                     
                     }
                 }

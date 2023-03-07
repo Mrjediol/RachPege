@@ -49,7 +49,7 @@ public class Slime : MonoBehaviour
             {
                 spriteRenderer.color = Color.red;
                 audioManager.Play("BossRage");
-                
+                transform.localScale = new Vector3(1.65f, 1.65f, 1.65f);
                 hasPlayedBossRageSound = true;
                 audioManager.Stop("BossZone");
                 audioManager.Play("SecondPhase");

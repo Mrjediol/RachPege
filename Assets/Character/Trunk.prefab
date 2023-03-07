@@ -227,7 +227,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 5930950185439371998, guid: 2c9f42c442d01854db7da7a9d4991809, type: 3}
   attackDistance: 1
   runDistance: 0.5
-  speed: 0.8
+  speed: 0.7
   bulletSpeed: 2
   nuzle: {fileID: 8543757161193461760}
   isHit: 0
@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultCursor: {fileID: 2800000, guid: 4b5b7c93e43ce294194da5e690d5c32f, type: 3}
-  newCursor: {fileID: 2800000, guid: d1a60999e3a28a343a3fd6c4140738f2, type: 3}
+  newCursor: {fileID: 2800000, guid: f22a0f89607a5704d8c0bb73873a6eac, type: 3}
 --- !u!1 &5193385873839662138
 GameObject:
   m_ObjectHideFlags: 0

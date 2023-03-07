@@ -57,8 +57,7 @@ public class Chest : MonoBehaviour
            
         }
     }
-
-    public void RemoveAndGiveXp()
+    public void EffectOpenChest()
     {
         GameObject effect = Instantiate(OpenEffect, transform.position, Quaternion.identity);
         effect.transform.localScale = scale;
@@ -67,6 +66,10 @@ public class Chest : MonoBehaviour
         Renderer psRenderer = ps.GetComponent<Renderer>();
         psRenderer.sortingOrder = 11;
         psRenderer.sortingLayerName = "arboles";
+    }
+    public void RemoveAndGiveXp()
+    {
+       
         FindObjectOfType<AudioManager>().Play("OpenChest");
         LevelSystem XP = FindObjectOfType<LevelSystem>();
         XP.GainExperience(giveXP);

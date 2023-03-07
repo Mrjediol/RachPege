@@ -10,9 +10,10 @@ public class AttackCollision : MonoBehaviour
     public bool imBullet;
     public GameObject effectBullet;
     public Transform father;
+    Enemy enemy;
     private void Start()
     {
-        Enemy enemy = GetComponentInParent<Enemy>();
+         enemy = GetComponentInParent<Enemy>();
         enemyDamageAttack = enemy.enemyDamage;
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -51,6 +52,8 @@ public class AttackCollision : MonoBehaviour
                 player.TakeDamage(enemyDamageAttack, knockBack);
             }
         }
+        if (enemy.imNinja)
+            return;
         if (collision.gameObject.CompareTag("Fence") || collision.CompareTag("Terrain") || collision.CompareTag("FireFence") || collision.CompareTag("IceFence") || collision.CompareTag("Rock") || collision.CompareTag("Torch"))
         {
 

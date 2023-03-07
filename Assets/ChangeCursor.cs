@@ -6,11 +6,12 @@ public class ChangeCursor : MonoBehaviour
 {
     public Texture2D defaultCursor;
     public Texture2D newCursor;
-    private void OnMouseEnter()
+
+    public void OnMouseEnter()
     {
         Cursor.SetCursor(newCursor, new Vector2(32, 32), CursorMode.ForceSoftware);
     }
-    private void OnMouseExit()
+    public void OnMouseExit()
     {
         Cursor.SetCursor(defaultCursor, new Vector2(32, 32), CursorMode.ForceSoftware);
     }

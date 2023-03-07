@@ -15,9 +15,21 @@ PrefabInstance:
       propertyPath: looping
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4615013125177343283, guid: d404152fb3143364d8fd3cb36f5e80f1, type: 3}
+      propertyPath: simulationSpeed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7545595291854856272, guid: d404152fb3143364d8fd3cb36f5e80f1, type: 3}
       propertyPath: looping
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545595291854856272, guid: d404152fb3143364d8fd3cb36f5e80f1, type: 3}
+      propertyPath: simulationSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8831495976684841288, guid: d404152fb3143364d8fd3cb36f5e80f1, type: 3}
+      propertyPath: cameraShake.duration
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8831495976684841291, guid: d404152fb3143364d8fd3cb36f5e80f1, type: 3}
       propertyPath: m_RootOrder
@@ -65,11 +77,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8831495976684841332, guid: d404152fb3143364d8fd3cb36f5e80f1, type: 3}
       propertyPath: m_Name
-      value: Chest (1)
+      value: Chest
       objectReference: {fileID: 0}
     - target: {fileID: 8831495976684841333, guid: d404152fb3143364d8fd3cb36f5e80f1, type: 3}
       propertyPath: looping
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8831495976684841333, guid: d404152fb3143364d8fd3cb36f5e80f1, type: 3}
+      propertyPath: simulationSpeed
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d404152fb3143364d8fd3cb36f5e80f1, type: 3}

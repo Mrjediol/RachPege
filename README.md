@@ -295,13 +295,21 @@ Arma que con 2 instancias, en la primera se decide la posición inicial del proy
 
 ---
 
-Como dije al princpio
+Como ya he dicho al ser mi primer proyecto programando y mi primer juego, no tenía claro hasta dónde iba a poder llegar, el scope y la idea del juego han ido variando conforme he avanzado con el proyecto.
 
-Las únicas cosas que variaron de la visión inicial fue, por ejemplo, el sistema de perfiles de donaciones, el cual inicialmente ni se planteó, pero a medida que se diseñaba el smart contract vi que facilitaría mucho el sistema de donar varias veces con una misma cuenta.
+Al principio simplemente quería un juego donde matar enemigos y subir de nivel, y con ello desbloquear armas/habilidades.
 
-Otro sistema que no plantee en un principio fue el de almacenamiento de Mis campañas y Mis donaciones ya que no se me ocurría una buena forma de hacerlo, pero durante el desarrollo me di cuenta de que podía utilizar la propia factory para almacenar las campañas que se requería, ya que actuaba como punto común entre todas las campañas.
+Decidí reducir el grindeo, acortar el juego y que fuera más lineal, con un camino claro por el que ir hasta el voz final y acabar el juego, para que se pudiera completar en una sesion de media hora de juego.
 
-En un futuro, como he mencionado antes se podrían añadir las funcionalidades de recompensas, votaciones y de devolución de ether. También una posible mejora a la personalización de las campañas, permitiendote modificar el título y descripción. Se podría añadir incluso una forma de subir imágenes a la campaña con el uso de urls, ya que en la blockchain no es recomendable el almacenamiento de imágenes.
+Con el combate a muele estoy contento a medias, el "Easy to learn, hard to master" no lo cumple de la manera que me gustaría, yo que le llevo muchas horas al juego haciendo pruebas, me siento cómodo en el combate con como esta montado el sistema de cancelar animaciones, pero he recibido feedback negativo en este aspecto de que al principio se puede hacer raro cancelar la animación de los ataques.
+
+Con el combate a distancia, estoy contento con la lógica, pero no con el gamefeel y el juiciness, creo que mejoraría mucho las sensaciones al jugar, si tuviera animación al disparar, con un pequeño tiempo de casteo, pero con la vista TopDown, es complicado encontrar sprites que miren en las 4 direcciones, y que encajen y no encontré nada, y  decidí dejarlo sin animaciones y por lo tanto sin tiempo de casteo y screenshake al disparar.
+
+Los enemigos son simples, pero cumplen su función, hice más de 10 pero en el juego final solo uso 4 que son los que me gustaron como quedaron, 3 como enemigos durante todo el juego y 1 como boss final.
+
+En general estoy contento con el resultado, aunque el juego no se sienta como me gustaría, sobretodo porque he aprendido muchísimo con este proyecto, tanto de Unity, como de programación(C#), también haciendo la página web del juego, la página de itch.yo, el tráiler y este Readme para Github,he conocido muchas herramientas útiles y aprendido a usarlas en el proceso, lo cual me ayudara mucho en futuros proyectos.
+
+Por último agradecer a Luis Antón Canalis y Aitor Lozano Bordón por ser magníficos profesores enseñarme Unity, C# y resolver dudas que he tenido en el proyecto.
 
 <div align="center">
 

@@ -66,7 +66,7 @@
 
 [Descargar archivo ZIP](https://github.com/Mrjediol/RachPege/blob/main/png/RachtPege.zip)
 
-<a href="./png/RachtPege.zip" download="./png/RachtPege.zip">Download Now!</a>
+<a href="./png/RachtPege.zip" download="https://github.com/Mrjediol/RachPege/blob/main/png/RachtPege.zip">Download Now!</a>
 
 Este proyecto se trata de mi proyecto final del curso de creación videojuegos con Unity3D, es un juego Rpg, con vista TopDown, en el que matas enemigos con un amplio catálogo de armas que también pueden subir de nivel.
 

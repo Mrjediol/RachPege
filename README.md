@@ -14,9 +14,9 @@
  
 </div>
 
----
 
-</p>
+
+
 
 
 - [Introducción](#introducción)
@@ -54,15 +54,15 @@
 
 > Curso: Creacion Videojuegos con Unity3D
 
-> Fecha de entrega: 07/03/2023
+> Fecha de entrega: 08/03/2023
 
 > Web: [RatchPege.com](https://mrjediol.netlify.app/)
 
 > Itch.io: [RatchPege.io](https://mrjediol16.itch.io/rachpege?secret=HYsQAgDSmXK0KOOoa30pDmBjRM)
 
-> Trailer: [RatchPege]([https://mrjediol.netlify.app/](https://www.youtube.com/watch?v=t3OReZLabys&ab_channel=MrJediol))
+> Trailer: [RatchPege](https://www.youtube.com/watch?v=t3OReZLabys&ab_channel=MrJediol)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/t3OReZLabys" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 
 
 Este proyecto se trata de mi proyecto final del curso de creación videojuegos con Unity3D, es un juego Rpg, con vista TopDown, en el que matas enemigos con un amplio catálogo de armas que también pueden de nivel.
@@ -77,7 +77,7 @@ Es mi primer juego, y ha sido realizado en un plazo de unos 2 meses, asi que tod
 
 ## **Descripción del proyecto**
 
-</center>
+</div>
 
 ---
 
@@ -91,13 +91,13 @@ Está pensado para que el jugador se haga su propia ruta de farmeo, dependiendo 
 ### Objetivos personales
 
 Con este proyecto pretendo aprender y desarrollar mis habilidades para la creación de videojuegos en Unity, y aprender programación en C#.
-<center>
+<div align="center">
 
 ---
 
 ## **Tecnologías**
 
-</center>
+</div>
 
 ---
 
@@ -126,18 +126,18 @@ Con este proyecto pretendo aprender y desarrollar mis habilidades para la creaci
 - Para la gestión del tiempo.
 
 
-<center>
+<div align="center">
 
 ---
 
 ## **ScreenShots**
 
-</center>
+</div>
 
 ---
 
 
-<center>
+<div align="center">
 
 
 ![Imagen 4](./png/StartScreem.png)
@@ -162,15 +162,15 @@ Con este proyecto pretendo aprender y desarrollar mis habilidades para la creaci
 
 
 
-</center>
+</div>
 
 
 
-<center>
+<div align="center">
 
 ## **Armas**
 
-</center>
+</div>
 
 ---
 
@@ -178,33 +178,33 @@ Con este proyecto pretendo aprender y desarrollar mis habilidades para la creaci
 
 ---
 
-<center>
+<div align="center">
 
 **FireGun** 
 
-</center>
+</div>
 
 Arma a distancia que dispara un proyectil de fuego que puede quemar a los enemigos con cierta probabilidad, el daño, tamaño, velocidad de proyectil, cooldown. etc escalan con el nivel del arma. 
 
-<center>
+<div align="center">
 
 | In Menu | In Game |
 | :---: | :---: |
-| ![Imagen 1](./png/fireMenu.png) | ![Imagen 2](./png/fireingame.png) |
+| ![Imagen 1](./png/FireMenu.png) | ![Imagen 2](./png/FireInGame.png) |
 
 ---
 
-</center>
+</div>
 
-<center>
+<div align="center">
 
 **IceGun** 
 
-</center>
+</div>
 
 Arma a distancia que dispara un proyectil de hielo que puede congelar a los enemigos con cierta probabilidad, el daño, tamaño, velocidad de proyectil, cooldown. etc escalan con el nivel del arma.
 
-<center>
+<div align="center">
 
 | In Menu | In Game |
 | :---: | :---: |
@@ -216,11 +216,11 @@ Arma a distancia que dispara un proyectil de hielo que puede congelar a los enem
 
 **RayGun** 
 
-</center>
+</div>
 
 Arma a distancia que dispara un proyectil que teletransporta al player a la ubicaciones en la que se destruye, por cada enemigo que atraviese reinicia su duración y hace que llegue mas lejos, haciendo mas daño a cada enemigo y ganando mas experiencia por cada enemigo golpeado.
 
-<center>
+<div align="center">
 
 | In Menu | In Game |
 | :---: | :---: |
@@ -228,18 +228,18 @@ Arma a distancia que dispara un proyectil que teletransporta al player a la ubic
 
 ---
 
-</center>
+</div>
 
 
-<center>
+<div align="center">
 
 **Blast** 
 
-</center>
+</div>
 
 Arma que crea una explosion en la posición del raton despues de 6.5 segundos, esta pensada para usarse junto a Vortex.
 
-<center>
+<div align="center">
 
 | In Menu | In Game |
 | :---: | :---: |
@@ -247,55 +247,55 @@ Arma que crea una explosion en la posición del raton despues de 6.5 segundos, e
 
 ---
 
-</center>
+</div>
 
-<center>
+<div align="center">
 
 **Vortex** 
 
-</center>
+</div>
 
 Arma a distancia que instancia un proyectil en la posicion del mouse, el daño, tamaño, cooldown. etc escalan con el nivel del arma. 
 
-<center>
+<div align="center">
 
 | In Menu | In Game |
 | :---: | :---: |
-| ![Imagen 1](./png/VortexMenu.png) | ![Imagen 2](./png/voidingame.png) |
+| ![Imagen 1](./png/VortexMenu.png) | ![Imagen 2](./png/VoidIngame.png) |
 
 ---
 
-</center>
+</div>
 
 
-<center>
+<div align="center">
 
 **Quilava** 
 
-</center>
+</div>
 
 Arma que con 2 instancias, en la primera se decide la posición inicial del proyectil, y en la empieza una cadena de explosiones que van desde la posición de la primera instancia hasta la posición de la segunda. 
 
-<center>
+<div align="center">
 
 | In Menu | In Game |
 | :---: | :---: |
-| ![Imagen 1](./png/QuilavaMenu.png) | ![Imagen 2](./png/quilavaingame.png) |
+| ![Imagen 1](./png/QuilavaMenu.png) | ![Imagen 2](./png/QuilavaInGame.png) |
 
 ---
 
-</center>
+</div>
 
 
-<center>
+<div align="center">
 
 ## **Resultados y conclusiones**
 
-</center>
+</div>
 
 ---
 
-Por lo general puedo decir que el proyecto ha resultado ser aproximadamente lo que esperaba. En general la cantidad de funcionalidades estimadas para el proyecto fueron las que al final se realizaron, habiendo algunas que se plantearon como posibles en el caso de que el tiempo fuera más que suficiente, las cuales finalmente se han descartado, como por ejemplo un sistema de votaciones para aceptar o denegar las transacciones, un sistema de devolución del dinero, y también algun sistema de recompensas automatizado.
+Como dije al princpio
 
 Las únicas cosas que variaron de la visión inicial fue, por ejemplo, el sistema de perfiles de donaciones, el cual inicialmente ni se planteó, pero a medida que se diseñaba el smart contract vi que facilitaría mucho el sistema de donar varias veces con una misma cuenta.
 
@@ -303,7 +303,7 @@ Otro sistema que no plantee en un principio fue el de almacenamiento de Mis camp
 
 En un futuro, como he mencionado antes se podrían añadir las funcionalidades de recompensas, votaciones y de devolución de ether. También una posible mejora a la personalización de las campañas, permitiendote modificar el título y descripción. Se podría añadir incluso una forma de subir imágenes a la campaña con el uso de urls, ya que en la blockchain no es recomendable el almacenamiento de imágenes.
 
-<center>
+<div align="center">
 
 ---
 
@@ -311,7 +311,7 @@ En un futuro, como he mencionado antes se podrían añadir las funcionalidades d
 
 ---
 
-</center>
+</div>
 
 - [ChatGpt](https://chat.openai.com/chat)
 

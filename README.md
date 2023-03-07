@@ -33,13 +33,13 @@
 
 - [Bibliografía](#bibliografía)
 
-<center>
+<div align="center">
 
 ---
 
 ## **Introducción**
 
-</center>
+</div>
 
 ---
 
@@ -60,7 +60,9 @@
 
 > Itch.io: [RatchPege.io](https://mrjediol16.itch.io/rachpege?secret=HYsQAgDSmXK0KOOoa30pDmBjRM)
 
-> Trailer: [RatchPege](https://mrjediol.netlify.app/)
+> Trailer: [RatchPege]([https://mrjediol.netlify.app/](https://www.youtube.com/watch?v=t3OReZLabys&ab_channel=MrJediol))
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/t3OReZLabys" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 
 Este proyecto se trata de mi proyecto final del curso de creación videojuegos con Unity3D, es un juego Rpg, con vista TopDown, en el que matas enemigos con un amplio catálogo de armas que también pueden de nivel.
@@ -69,7 +71,7 @@ Este proyecto surge por unir varios conceptos que me gustan mucho, como lo son l
 
 Es mi primer juego, y ha sido realizado en un plazo de unos 2 meses, asi que todo esto es una exploración de conceptos y ejercicios para aprender.
 
-<center>
+<div align="center">
 
 ---
 

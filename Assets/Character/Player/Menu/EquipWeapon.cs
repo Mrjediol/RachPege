@@ -23,7 +23,7 @@ public class EquipWeapon : MonoBehaviour
         WeaponsMenu wm = FindObjectOfType<WeaponsMenu>();
         wm.isMenuActive = false;
 
-        
+
     }
 
     //if (currentWPIMG.activeInHierarchy)
